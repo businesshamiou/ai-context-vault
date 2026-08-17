@@ -77,7 +77,7 @@ Cette architecture évite la confusion entre connaissance et arbitrage, entre é
 ## Human gate
 
 - Validation : accordée
-- Référence d'arbitrage : [décision de production V1](../../workshop-production/decisions/DECISION-2026-08-17-110200-vault-v1-stabilization.md)
+- Référence d'arbitrage : validation explicitement fournie avant l'enregistrement de cette décision canonique.
 
 ## Artefacts liés
 

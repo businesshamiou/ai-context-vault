@@ -48,6 +48,7 @@ Graphify peut aider un agent à retrouver et relier ce qui a été écrit. Il ne
 - [Architecture du Vault](./decisions/DECISION-2026-08-17-003000-vault-central-architecture.md)
 - [Architecture d'information V1](./decisions/DECISION-2026-08-17-111018-vault-v1-information-architecture.md)
 - [Modèle opératoire du Vault](./knowledge/BRIEF-2026-08-17-003000-vault-concept-operating-model.md)
+- [Modèle opératoire des projets](./knowledge/BRIEF-2026-08-17-140100-project-operating-model.md)
 - [Vérification et preuves](./knowledge/verification-and-evidence.md)
 - [Règles de conduite](./rules/RULES-2026-08-17-005717-vault-operating-rules.md)
 - [Cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
