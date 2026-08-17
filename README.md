@@ -27,6 +27,14 @@ Le Vault fournit la méthode et les mécanismes transversaux. Le projet possède
 
 Le Vault ne remplace jamais le contexte local d’un projet et n’importe jamais automatiquement sa connaissance métier.
 
+## Cycle minimal de contexte
+
+`work → capture/decision → current state → handoff si nécessaire → reprise`
+
+Une capture conserve une information durable utile ; une décision structurante reste proposée jusqu’à son arbitrage. Le fichier `current-state.md` fournit une photographie courte et actualisée. Un handoff n’est créé que lorsqu’une autre session ou un autre agent doit reprendre le travail de façon fiable.
+
+Le cycle est sélectif : chaque session ne produit pas automatiquement tous les artefacts. Voir la [règle du cycle de contexte](./rules/RULES-2026-08-17-013937-context-lifecycle.md) et les [modèles réutilisables](./templates/).
+
 ## Graphify
 
 Graphify peut aider un agent à retrouver et relier ce qui a été écrit. Il ne remplace ni les fichiers, ni les décisions explicites, ni la discipline documentaire. Les sorties dans `graphify-out/` sont générées et ne doivent jamais être éditées manuellement.
@@ -36,3 +44,4 @@ Graphify peut aider un agent à retrouver et relier ce qui a été écrit. Il ne
 - [Architecture du Vault](./decisions/DECISION-2026-08-17-003000-vault-central-architecture.md)
 - [Modèle opératoire du Vault](./knowledge/BRIEF-2026-08-17-003000-vault-concept-operating-model.md)
 - [Règles de conduite](./rules/RULES-2026-08-17-005717-vault-operating-rules.md)
+- [Cycle de contexte](./rules/RULES-2026-08-17-013937-context-lifecycle.md)

@@ -1,0 +1,44 @@
+---
+type: handoff
+title: "<objet de la passation>"
+created_at: "YYYY-MM-DDTHH:MM:SS±HH:MM"
+timezone: America/Montreal
+status: active
+---
+
+# HANDOFF — <objet>
+
+Ce handoff permet une reprise fiable après une interruption ou un transfert. Il résume le nécessaire et pointe vers les sources sans recopier tout le projet.
+
+## Objectif
+
+<Résultat actuellement poursuivi.>
+
+## État actuel
+
+<Photographie courte de la situation au moment de la passation.>
+
+## Terminé
+
+- <Élément terminé et vérifié.>
+
+## Décisions actives
+
+- Décision : `<chemin relatif>` — <effet sur la reprise>
+
+## Points ouverts
+
+- <Question, risque ou hypothèse encore ouverte.>
+
+## Prochaine action recommandée
+
+<Une action précise et immédiatement exécutable.>
+
+## Contraintes et interdictions
+
+- <Contrainte à respecter pendant la reprise.>
+
+## Artefacts à lire en priorité
+
+1. Source principale : `<chemin relatif>`
+2. État courant : `<chemin relatif vers current-state.md>`

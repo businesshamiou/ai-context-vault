@@ -3,6 +3,10 @@
 - Les fichiers du Vault sont la source de vérité. Lire les sources liées avant toute modification.
 - Rédiger la prose en français. Utiliser un anglais idiomatique pour les identifiants machine, slugs, clés et noms de dossiers.
 - Enregistrer explicitement toute décision structurante. Ne jamais transformer silencieusement une proposition en décision.
+- Appliquer le [cycle de contexte](./rules/RULES-2026-08-17-013937-context-lifecycle.md) de façon sélective : capturer seulement ce qui sera durablement utile.
+- Maintenir le fichier `current-state.md` lorsqu’un projet l’utilise ; le mettre à jour au lieu d’empiler des états successifs.
+- Produire un handoff seulement lorsqu’une reprise fiable est réellement nécessaire.
+- Conserver toute décision structurante au statut `PROPOSED` jusqu’à son arbitrage par human gate.
 - Ne jamais écrire de secret, clé, token, mot de passe ou credential dans le Vault ou dans Git.
 - Inspecter chaque fichier avant staging, stage fichier par fichier, puis inspecter le diff staged.
 - Ne jamais push automatiquement. Exiger un human gate pour tout push, suppression importante, renommage structurant, partage sensible ou autre action sensible.
