@@ -1,0 +1,29 @@
+# Generated Graphify output
+graphify-out/
+
+# Version-control internals
+.git/
+
+# Secrets and local configuration
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.*
+secrets/
+
+# Dependencies, caches and temporary files
+node_modules/
+.venv/
+venv/
+.cache/
+__pycache__/
+.pytest_cache/
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+~$*
