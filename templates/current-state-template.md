@@ -8,7 +8,7 @@ status: active
 
 # ÉTAT COURANT — <nom du projet>
 
-Ce fichier est la photographie opérationnelle courte utilisée pour reprendre le travail. Le conserver sous le nom `current-state.md` et le mettre à jour en place plutôt que d’empiler des copies historiques.
+Ce fichier est l'état vivant et court utilisé pour reprendre un projet. Le conserver dans le projet concerné sous le nom `current-state.md` et le mettre à jour en place plutôt que d’empiler des copies historiques.
 
 ## Objectif actuel
 
@@ -17,6 +17,8 @@ Ce fichier est la photographie opérationnelle courte utilisée pour reprendre l
 ## État
 
 <Situation actuelle en quelques lignes.>
+
+Remesurer les hashes, compteurs et états techniques lorsqu'ils sont nécessaires au lieu de les recopier comme vérité durable.
 
 ## Dernière avancée validée
 

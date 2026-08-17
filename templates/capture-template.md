@@ -4,13 +4,13 @@ title: "<titre concis>"
 created_at: "YYYY-MM-DDTHH:MM:SS±HH:MM"
 timezone: America/Montreal
 status: draft
-knowledge_kind: "<fact | proposal | open-question>"
+knowledge_kind: "<fact | observation | learning | open-question>"
 certainty: "<confirmed | observed | inferred | uncertain>"
 ---
 
 # CAPTURE — <titre>
 
-Cette capture conserve une information durable utile. Elle documente un constat ou une proposition, mais ne constitue pas une décision.
+Cette capture conserve une connaissance durable utile. Elle documente un fait, une observation, un apprentissage ou une question ouverte, mais ne constitue ni une proposal ni une décision.
 
 ## Contexte
 
@@ -18,7 +18,7 @@ Cette capture conserve une information durable utile. Elle documente un constat 
 
 ## Information capturée
 
-<Fait, observation, apprentissage, proposition ou question ouverte.>
+<Fait, observation, apprentissage ou question ouverte.>
 
 ## Niveau de certitude
 
@@ -34,4 +34,4 @@ Cette capture conserve une information durable utile. Elle documente un constat 
 
 ## Limite
 
-Cette capture ne devient une décision que par la création ou la mise à jour explicite d’un artefact `DECISION`, avec le statut et le human gate appropriés.
+Cette capture ne doit pas être requalifiée silencieusement. Si une option doit attendre un arbitrage, créer une `PROPOSAL`; si un choix est arbitré, créer un artefact `DECISION` distinct avec le statut et le human gate appropriés.

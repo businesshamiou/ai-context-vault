@@ -8,7 +8,7 @@ status: active
 
 # HANDOFF — <objet>
 
-Ce handoff permet une reprise fiable après une interruption ou un transfert. Il résume le nécessaire et pointe vers les sources sans recopier tout le projet.
+Ce handoff est une passation historique datée créée pour permettre une reprise fiable après une interruption ou un transfert. Il résume le nécessaire et pointe vers les sources sans recopier tout le projet. Ne pas le maintenir comme un second current state.
 
 ## Objectif
 

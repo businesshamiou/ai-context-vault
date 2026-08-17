@@ -23,6 +23,8 @@ Ne remplacer ce statut par `ARBITRATED` qu’après un human gate explicite.
 
 <Décrire précisément le choix proposé ou arbitré.>
 
+Si ce choix provient d'une proposal, conserver celle-ci et la référencer ci-dessous au lieu de la renommer ou de la transformer.
+
 ## Raison
 
 <Expliquer pourquoi ce choix est nécessaire.>
@@ -42,4 +44,5 @@ Ne remplacer ce statut par `ARBITRATED` qu’après un human gate explicite.
 
 ## Artefacts liés
 
+- Proposal source, si applicable : `<chemin relatif>`
 - Source ou artefact : `<chemin relatif>`

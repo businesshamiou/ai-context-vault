@@ -27,13 +27,17 @@ Le Vault fournit la méthode et les mécanismes transversaux. Le projet possède
 
 Le Vault ne remplace jamais le contexte local d’un projet et n’importe jamais automatiquement sa connaissance métier.
 
-## Cycle minimal de contexte
+## Cycle de contexte
 
-`work → capture/decision → current state → handoff si nécessaire → reprise`
+`work → capture/proposal/decision selon le besoin → current state → handoff si nécessaire → reprise`
 
-Une capture conserve une information durable utile ; une décision structurante reste proposée jusqu’à son arbitrage. Le fichier `current-state.md` fournit une photographie courte et actualisée. Un handoff n’est créé que lorsqu’une autre session ou un autre agent doit reprendre le travail de façon fiable.
+Une capture conserve une connaissance durable. Une proposal garde une option importante jusqu'à son arbitrage sans se présenter comme une décision. Une décision enregistre un choix explicitement validé. Le fichier `current-state.md`, maintenu dans le projet concerné, fournit une photographie courte et actualisée. Un handoff daté n’est créé que lorsqu’une autre session ou un autre agent doit reprendre le travail de façon fiable.
 
-Le cycle est sélectif : chaque session ne produit pas automatiquement tous les artefacts. Voir la [règle du cycle de contexte](./rules/RULES-2026-08-17-013937-context-lifecycle.md) et les [modèles réutilisables](./templates/).
+Le cycle est sélectif : chaque session ne produit pas automatiquement tous les artefacts. Voir la [règle du cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md) et les [modèles réutilisables](./templates/).
+
+## Vérification et preuves
+
+Le Vault distingue l'état réel, le changement, la validation, le snapshot local et la frontière externe. Les mesures techniques sont recalculées au moment utile ; leur simple présence dans un document ne prouve pas qu'un contrôle fonctionne. Voir [Vérification et preuves](./knowledge/verification-and-evidence.md).
 
 ## Graphify
 
@@ -42,6 +46,8 @@ Graphify peut aider un agent à retrouver et relier ce qui a été écrit. Il ne
 ## Points d’entrée
 
 - [Architecture du Vault](./decisions/DECISION-2026-08-17-003000-vault-central-architecture.md)
+- [Architecture d'information V1](./decisions/DECISION-2026-08-17-111018-vault-v1-information-architecture.md)
 - [Modèle opératoire du Vault](./knowledge/BRIEF-2026-08-17-003000-vault-concept-operating-model.md)
+- [Vérification et preuves](./knowledge/verification-and-evidence.md)
 - [Règles de conduite](./rules/RULES-2026-08-17-005717-vault-operating-rules.md)
-- [Cycle de contexte](./rules/RULES-2026-08-17-013937-context-lifecycle.md)
+- [Cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
