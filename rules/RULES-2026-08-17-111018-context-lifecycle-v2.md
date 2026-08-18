@@ -1,13 +1,13 @@
 ---
 type: rules
-title: "Cycle de contexte V2 — conservation, arbitrage et reprise"
+title: "Cycle de contexte V2 — capture → proposal → decision → current state → handoff"
 created_at: 2026-08-17T11:10:18-04:00
 timezone: America/Montreal
 status: active
 supersedes: "./RULES-2026-08-17-013937-context-lifecycle.md"
 ---
 
-# CYCLE DE CONTEXTE V2
+# CYCLE DE CONTEXTE V2 — CAPTURE → PROPOSAL → DECISION → CURRENT STATE → HANDOFF
 
 Cette règle applique la [décision d'architecture d'information V1](../decisions/DECISION-2026-08-17-111018-vault-v1-information-architecture.md). Elle **supplante** le [cycle minimal de contexte précédent](./RULES-2026-08-17-013937-context-lifecycle.md), qui reste conservé comme historique et ne doit plus être utilisé comme règle courante.
 

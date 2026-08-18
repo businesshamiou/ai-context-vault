@@ -1,12 +1,12 @@
 ---
 type: knowledge
-title: "Vérification et preuves — mesurer l'état réel"
+title: "Vérification et preuves — STATE → CHANGE → VALIDATION → SNAPSHOT → EXTERNAL BOUNDARY"
 created_at: 2026-08-17T11:10:18-04:00
 timezone: America/Montreal
 status: active
 ---
 
-# VÉRIFICATION ET PREUVES
+# VÉRIFICATION ET PREUVES — STATE → CHANGE → VALIDATION → SNAPSHOT → EXTERNAL BOUNDARY
 
 La vérification transforme une affirmation sur le travail en observation reproductible. Elle suit la [décision d'architecture d'information V1](../decisions/DECISION-2026-08-17-111018-vault-v1-information-architecture.md) et complète les [règles de conduite](../rules/RULES-2026-08-17-005717-vault-operating-rules.md).
 

@@ -19,6 +19,7 @@ venv/
 __pycache__/
 .pytest_cache/
 *.py[cod]
+graphify-out/
 
 # Temporary files and logs
 *.tmp

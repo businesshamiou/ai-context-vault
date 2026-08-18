@@ -1,6 +1,6 @@
 ---
 type: brief
-title: "Modèle opératoire des projets V2"
+title: "Modèle opératoire des projets V2 — frontière Vault/projet et hiérarchie Vault rules → Project rules → Mission/task instructions"
 created_at: 2026-08-17T21:15:22-04:00
 timezone: America/Montreal
 status: active
@@ -8,13 +8,13 @@ scope: transverse-project-guidance
 supersedes: "BRIEF-2026-08-17-140100-project-operating-model.md"
 ---
 
-# MODÈLE OPÉRATOIRE DES PROJETS V2
+# MODÈLE OPÉRATOIRE DES PROJETS V2 — FRONTIÈRE VAULT/PROJET ET HIÉRARCHIE DES INSTRUCTIONS
 
 ## But
 
 Expliquer comment un projet collabore avec le Vault, versionne ses Missions et reçoit des outputs générés sans copier toute l’architecture du Vault.
 
-Ce modèle applique l’architecture Vault/projets, le [cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md) et la [règle de versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md).
+Ce modèle applique l’[architecture Vault/projets](../decisions/DECISION-2026-08-17-003000-vault-central-architecture.md), le [cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md) et la [règle de versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md).
 
 ## 1. Vault vs projet
 
