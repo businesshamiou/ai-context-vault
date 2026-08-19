@@ -31,3 +31,12 @@ __pycache__/
 *.bak
 *.swp
 ~$*
+
+# Index de dossier : redondants avec le graphe lui-même.
+# Ils servent la lecture directe en fallback, pas la navigation semantique.
+index.md
+**/index.md
+
+# Renforcement de la couverture des motifs sensibles.
+*.crt
+*.dump
