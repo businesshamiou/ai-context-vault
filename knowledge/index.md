@@ -16,4 +16,5 @@ Explications durables du modèle et de ses mécanismes.
 - `BRIEF-2026-08-17-003000-vault-concept-operating-model.md` — Vault — concept pédagogique et modèle opératoire
 - `BRIEF-2026-08-17-140100-project-operating-model.md` — Modèle opératoire des projets
 - `BRIEF-2026-08-17-211522-project-operating-model-v2.md` — Modèle opératoire des projets V2 — frontière Vault/projet et hiérarchie Vault rules → Project rules → Mission/task instructions
+- `corpus-layering.md` — Stratification du corpus : où vit un artefact, et s'il entre dans un graphe
 - `verification-and-evidence.md` — Vérification et preuves — STATE → CHANGE → VALIDATION → SNAPSHOT → EXTERNAL BOUNDARY

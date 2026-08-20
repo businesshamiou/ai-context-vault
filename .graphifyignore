@@ -40,3 +40,16 @@ index.md
 # Renforcement de la couverture des motifs sensibles.
 *.crt
 *.dump
+
+# Configuration d assistants et d outils : ce n est ni une regle,
+# ni une decision, ni une connaissance. Aucun signal pour le graphe.
+.claude/
+.codex/
+.cursor/
+.agents/
+CLAUDE.md
+.gitattributes
+
+# Garde-fous et outillage : mecanismes, pas connaissance.
+.githooks/
+tools/
