@@ -9,6 +9,7 @@
 - Produire un handoff seulement lorsqu’une reprise fiable est réellement nécessaire.
 - Conserver toute décision structurante au statut `PROPOSED` jusqu’à son arbitrage par human gate.
 - Ne jamais écrire de secret, clé, token, mot de passe ou credential dans le Vault ou dans Git.
+- Des hooks Git contrôlent les secrets et les motifs de contournement ; ils s’activent par `core.hooksPath` pointant sur `.githooks/`. Cette configuration est locale et non versionnée : la refaire après tout clone.
 - Inspecter chaque fichier avant staging, stage fichier par fichier, puis inspecter le diff staged.
 - Remesurer l'état technique et les preuves au moment utile au lieu de recopier des valeurs périssables.
 - Ne jamais push automatiquement. Exiger un human gate pour tout push, suppression importante, renommage structurant, partage sensible ou autre action sensible.
