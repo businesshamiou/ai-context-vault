@@ -14,6 +14,7 @@
 - Remesurer l'état technique et les preuves au moment utile au lieu de recopier des valeurs périssables.
 - Ne jamais push automatiquement. Exiger un human gate pour tout push, suppression importante, renommage structurant, partage sensible ou autre action sensible.
 - Ne jamais éditer manuellement `graphify-out/`.
+- Les intégrations Graphify natives sont actives ; la section `## graphify` en fin de fichier et les fichiers écrits par l’outil sont maintenus par lui et ne se réécrivent jamais à la main.
 - Maintenir la frontière entre le Vault et les projets externes : le Vault contient le transversal ; chaque projet conserve son contexte local.
 - Ne jamais importer automatiquement dans le Vault le contexte métier, les décisions ou les artefacts propres à un projet.
 - Toute amélioration transversale issue d’un projet doit être validée avant son intégration au Vault.
