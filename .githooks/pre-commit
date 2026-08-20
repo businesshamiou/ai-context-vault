@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Refuse un commit contenant un secret.
+# Actif pour tout client Git : agent, humain, script.
+
+set -u
+
+VAULT_ROOT="$(git rev-parse --show-toplevel)"
+CHECK="$VAULT_ROOT/tools/check-secrets.sh"
+
+if [ ! -x "$CHECK" ]; then
+  if [ -f "$CHECK" ]; then
+    bash "$CHECK" || exit 1
+    exit 0
+  fi
+  echo "REFUS : controle de secrets introuvable : $CHECK" >&2
+  echo "Le controle ne peut pas verifier, il refuse." >&2
+  exit 1
+fi
+
+"$CHECK" || exit 1
+exit 0

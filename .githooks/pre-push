@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Refuse un push qui reecrirait l historique distant.
+
+set -u
+
+REMOTE_REF_PREFIX="refs/heads/"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -z "${local_ref:-}" ] && continue
+
+  # Suppression de branche distante : refusee.
+  if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+    echo "REFUS : suppression de branche distante." >&2
+    echo "Cette action requiert un gate humain explicite." >&2
+    exit 1
+  fi
+
+  # Nouvelle branche distante : autorisee.
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+
+  # Le distant doit etre un ancetre du local : sinon, reecriture.
+  if ! git merge-base --is-ancestor "$remote_sha" "$local_sha"; then
+    echo "REFUS : ce push n est pas en avance rapide." >&2
+    echo "  ref : ${remote_ref#$REMOTE_REF_PREFIX}" >&2
+    echo "Il reecrirait l historique distant." >&2
+    echo "Recupere le distant et rejoue ton travail par-dessus." >&2
+    exit 1
+  fi
+done
+
+exit 0
