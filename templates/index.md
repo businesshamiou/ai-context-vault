@@ -17,4 +17,5 @@ Modèles matérialisant les conventions documentaires.
 - `current-state-template.md` — État courant — <nom du projet>
 - `decision-template.md` — <titre de la décision>
 - `handoff-template.md` — <objet de la passation>
+- `mission-template.md` — Mission <NNN> — <titre de la Mission>
 - `proposal-template.md` — <titre de la proposition>
