@@ -21,6 +21,12 @@
 - Ne pas introduire dans le Vault les prompts, présentations, storyboards, supports ou outils dont le seul rôle est de fabriquer le workshop.
 - Tout rapport d'exécution de l'Executor est un fichier dans `../workshop-build/workshop-production/reports/` (Decision du 2026-08-21) ; en chat, deux lignes : chemin du rapport et ligne « gates ».
 - L'installation du Vault est décrite dans [le runbook](./knowledge/runbook-vault-setup.md) ; toute Mission qui installe, configure, met à jour ou retire un composant le met à jour dans le même commit.
+- Tout document porte une section `## Liens` conforme au [standard de liens](./rules/RULES-2026-08-21-115658-document-linking-standard.md) ; le contrôle `tools/check-links.sh` tourne au pre-commit.
+
+## Liens
+
+- `applique` — [Cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
+- `applique` — [Standard de liens entre documents](./rules/RULES-2026-08-21-115658-document-linking-standard.md)
 
 ## graphify
 

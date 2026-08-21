@@ -42,3 +42,8 @@ Ce handoff est une passation historique datée créée pour permettre une repris
 
 1. Source principale : `<chemin relatif>`
 2. État courant : `<chemin relatif vers current-state.md>`
+
+## Liens
+
+- `prescrit par` — [Cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
+- `<type>` — [<titre>](<chemin relatif>)

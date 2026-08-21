@@ -39,3 +39,8 @@ Remesurer les hashes, compteurs et états techniques lorsqu'ils sont nécessaire
 ## Artefacts de référence
 
 - Source canonique : `<chemin relatif>`
+
+## Liens
+
+- `prescrit par` — [Cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
+- `<type>` — [<titre>](<chemin relatif>)

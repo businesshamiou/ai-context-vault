@@ -55,3 +55,8 @@ Hors périmètre : <ce qui est explicitement exclu.>
 ## Contrat de sortie
 
 <Forme du rapport de clôture attendu : distinction VERIFIED/ANOMALY, preuves, SHA des commits, remesure finale, arrêt explicite.>
+
+## Liens
+
+- `prescrit par` — [Versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md)
+- `<type>` — [<titre>](<chemin relatif>)

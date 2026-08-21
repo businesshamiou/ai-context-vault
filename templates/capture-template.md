@@ -35,3 +35,8 @@ Cette capture conserve une connaissance durable utile. Elle documente un fait, u
 ## Limite
 
 Cette capture ne doit pas être requalifiée silencieusement. Si une option doit attendre un arbitrage, créer une `PROPOSAL`; si un choix est arbitré, créer un artefact `DECISION` distinct avec le statut et le human gate appropriés.
+
+## Liens
+
+- `prescrit par` — [Cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
+- `<type>` — [<titre>](<chemin relatif>)

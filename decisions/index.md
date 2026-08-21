@@ -22,3 +22,8 @@ Choix arbitrés sur le fonctionnement transverse du système.
 - `DECISION-2026-08-20-015748-mission-status-field-semantics.md` — Sémantique du champ status — front-matter Mission et registre
 - `DECISION-2026-08-21-000236-execution-report-channel.md` — Canal de rapport d'exécution — type report, dossier reports/
 - `DECISION-2026-08-21-105117-vault-installation-runbook.md` — Runbook d'installation du Vault — registre vivant, obligation de mise à jour par les Missions
+- `DECISION-2026-08-21-115658-document-linking-standard.md` — Adoption du standard de liens entre documents
+
+## Liens
+
+- `voir aussi` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)

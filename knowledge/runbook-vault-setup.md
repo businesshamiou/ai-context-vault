@@ -33,7 +33,7 @@ Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage. Co
 
 - [VERIFIED] `git config core.hooksPath` → `.githooks`. Cette configuration est **locale, non versionnée** : à refaire après tout clone (`git config core.hooksPath .githooks`) — [DECLARED — `AGENTS.md:12`].
 - [VERIFIED] Contenu de `.githooks/` : `commit-msg`, `post-checkout`, `post-commit`, `pre-commit`, `pre-push` (tous exécutables).
-  - `pre-commit`, `pre-push`, `commit-msg` : garde-fous (contrôle de secrets — voir `tools/check-secrets.sh`, qui refuse par défaut si `rules/patterns/secret-patterns.txt` est introuvable).
+  - `pre-commit`, `pre-push`, `commit-msg` : garde-fous (contrôle de secrets — voir `tools/check-secrets.sh`, qui refuse par défaut si `rules/patterns/secret-patterns.txt` est introuvable ; contrôle de liens — voir `tools/check-links.sh`, appelé juste après dans `pre-commit`, qui bloque tout `.md` stagé sans section `## Liens` ou avec un lien relatif cassé, et avertit sans bloquer en l'absence de lien interne — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)).
   - `post-commit`, `post-checkout` : écrits par Graphify, déclenchent une reconstruction **syntaxique** du graphe après un commit ou un changement de branche — analyse locale, sans appel à un modèle, sans transmission de contenu [DECLARED — `DECISION-2026-08-19-233650-graphify-integrations-amendment.md`, D1].
   - Ne jamais modifier un hook écrit par l'outil [DECLARED — `AGENTS.md:17`] ; un rôle ne modifie pas son propre garde-fou.
 - [VERIFIED] `.gitattributes` → `graphify-out/graph.json merge=graphify` (merge driver dédié pour éviter les conflits sur le graphe généré).
@@ -90,6 +90,7 @@ Une commande et son résultat attendu, par composant :
 | Clé Gemini | `set -a; source .env; set +a && [ -n "$GEMINI_API_KEY" ] && echo oui` | `oui`, sans jamais afficher la valeur |
 | MCP « workshops » | lecture d'un fichier connu du Vault depuis le Pilot | contenu retourné sans erreur |
 | Graphe | `graphify query "<question>"` sur `graphify-out/graph.json` | sous-graphe pertinent renvoyé, pas d'erreur de fichier manquant |
+| Contrôle de liens | `bash tools/check-links.sh` sur un `.md` stagé sans section `## Liens` | `exit 1`, message `LIENS: section manquante: <fichier>` |
 
 ## 8. Historique
 
@@ -99,4 +100,11 @@ Une commande et son résultat attendu, par composant :
 - **2026-08-19** — Accès MCP « workshops » ouvert pour le Pilot (serveur `mcp-server-filesystem`) [DECLARED — `HANDOFF-2026-08-20-231741...`].
 - **2026-08-20, Mission 020/020-C01** — Restauration du graphe sémantique ; blocage constaté : clé Gemini absente de la session (`GEMINI_API_KEY or GOOGLE_API_KEY` requis), reprise par rechargement depuis `.env` ; canal de rapport d'exécution institué (`reports/`) [DECLARED — `REPORT-2026-08-20-235859-020…`, `REPORT-2026-08-21-002914-020-C01…`, `DECISION-2026-08-21-000236-execution-report-channel.md`]. Le mode de chargement de la clé utilisé avant cette régression (Mission 018) n'a pas été retrouvé dans les sources lues — écart documenté, non comblé par cette Mission.
 - **2026-08-21, Mission 021** — Mesure : les liens Markdown littéraux ne produisent pas systématiquement d'arête `references` dans l'installation 0.9.26 (avertissement « 32 issues, Edge … missing required field 'source_file' ») [DECLARED — `REPORT-2026-08-21-010520-021…`].
-- **2026-08-21, Mission 022 (présente Mission)** — Runbook V1 créé ; sa maintenance décidée. Environnement Python isolé (`venv` sous `%TEMP%`) créé et **détruit en fin de Mission** pour mesurer la version courante de Graphify à côté de la 0.9.26 du système, sans aucune modification du système. Voir le [tableau du volet B](../../workshop-build/workshop-production/reports/REPORT-2026-08-21-110049-022-executor-link-mechanism-and-runbook.md) pour le résultat. Contrôle `graphify --version` = 0.9.26 ajouté à la section Vérification (§7).
+- **2026-08-21, Mission 022** — Runbook V1 créé ; sa maintenance décidée. Environnement Python isolé (`venv` sous `%TEMP%`) créé et **détruit en fin de Mission** pour mesurer la version courante de Graphify à côté de la 0.9.26 du système, sans aucune modification du système. Voir le [tableau du volet B](../../workshop-build/workshop-production/reports/REPORT-2026-08-21-110049-022-executor-link-mechanism-and-runbook.md) pour le résultat. Contrôle `graphify --version` = 0.9.26 ajouté à la section Vérification (§7).
+- **2026-08-21, Mission 023, volet A (présente Mission)** — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md) gravé (règle, Decision, section `## Liens` sur les six gabarits et un gabarit de rapport créé). Contrôle `tools/check-links.sh` ajouté au `pre-commit`, éprouvé par un essai qui échoue (fichier fautif) avant mise en service.
+- **2026-08-21, Mission 023, volet B** — Hypothèse de 022 (cache responsable des arêtes `references` manquantes) testée : `graphify-out/cache/` vidé puis `graphify update .` (sans modèle) et `graphify cluster-only`. **Verdict négatif** : les six gabarits restent isolés (degré 0) après le rebâti, malgré leur nouvelle section `## Liens` sur disque au moment du rebâti. Aucune procédure gravée ici — voir le [tableau du volet B](../../workshop-build/workshop-production/reports/REPORT-2026-08-21-120543-023-executor-linking-standard-and-ast-rebuild.md) pour la mesure complète et l'hypothèse retenue (syntaxe de repère `<chevrons>` dans la seconde ligne des gabarits).
+
+## Liens
+
+- `prescrit par` — [Runbook d'installation du Vault — registre vivant](../decisions/DECISION-2026-08-21-105117-vault-installation-runbook.md)
+- `voir aussi` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)

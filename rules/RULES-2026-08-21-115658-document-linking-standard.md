@@ -1,0 +1,90 @@
+---
+type: rules
+title: "Standard de liens entre documents"
+description: "Forme, emplacement, vocabulaire des types et vérification des liens entre documents du Vault et de workshop-build."
+created_at: 2026-08-21T11:56:58-04:00
+timezone: America/Montreal
+status: active
+scope: document-linking-standard
+---
+
+# STANDARD DE LIENS ENTRE DOCUMENTS
+
+## 1. Portée
+
+Tout document du Vault et de `workshop-build` (règle, decision, capture, proposal, current state, handoff, brief, mission, prompt, rapport, fiche projet) porte au moins un lien vers un autre document. [source : Zettelkasten] [mesure : Mission 021]
+
+## 2. Double emplacement
+
+Le lien apparaît en contexte, dans la phrase qui énonce la relation, **et** dans une section finale `## Liens` qui récapitule avec le type. [source : adr-tools écrit le lien sous le Statut et la relation typée ; MADR « More Information »] [choix : nom « Liens »]
+
+## 3. Forme
+
+Un lien s'écrit `[titre lisible](chemin relatif)` ; le chemin est relatif à l'emplacement du fichier ; jamais de chemin absolu, jamais un nom nu, jamais un identifiant en backticks seul. Une mention par nom sans lien ne compte pas. [mesure : Missions 021-022, c'est ce que l'outil lit]
+
+## 4. Vocabulaire fermé des types
+
+Chaque entrée de la section `## Liens` porte un type parmi les six ci-dessous. Aucun autre type sans amendement de cette règle. [source : adr-tools « Supersedes / Amends »] [choix : la liste retenue]
+
+## 5. Lien inverse
+
+`remplace` et `amende` imposent la ligne inverse dans la cible (`remplacé par`, `amendé par`) dans le même commit. [source : adr-tools écrit toujours le lien retour]
+
+## 6. Hors corpus
+
+Un lien vers l'autre dépôt s'écrit quand même, suffixé `(hors Vault)` ou `(hors workshop-build)` ; il documente la relation sans produire d'arête dans le graphe. [choix]
+
+## 7. Front-matter
+
+Les champs `supersedes`, `amends`, `sources`, `related_mission` restent et doivent être cohérents avec la section `## Liens` ; ils complètent, ne remplacent pas. [source : OKF `sources`] [mesure : Mission 021, front-matter PARTIEL]
+
+## 8. Gabarits
+
+Chaque gabarit porte la section `## Liens` pré-remplie avec au moins la ligne `prescrit par` vers la règle qui le prescrit. [mesure : Mission 021, aucun gabarit relié]
+
+## 9. Vérification machine
+
+Le contrôle pre-commit `tools/check-links.sh` s'applique à tout `.md` nouveau ou modifié hors `graphify-out/` : absence de section `## Liens` → bloquant ; lien relatif cassé → bloquant ; aucun lien relatif interne → avertissement, non bloquant. [choix : le partage blocage/avertissement]
+
+## 10. Vérification humaine
+
+La revue Pilot porte sur le bon type de lien et sur la présence du lien en contexte, au-delà de ce que `check-links.sh` peut mesurer. [choix]
+
+## 11. Rétroactivité
+
+Les documents existants sans lien ne sont pas retouchés à la volée ; ils sont corrigés par une Mission dédiée, à partir de la carte des liens manquants de la Mission 021. [choix]
+
+## 12. Ancrage
+
+Une ligne dans `AGENTS.md` renvoie à cette règle. [pratique établie : rapport d'exécution, runbook]
+
+## Vocabulaire des types
+
+| Type | Définition | Inverse |
+|---|---|---|
+| `applique` | le document met en œuvre une règle ou une decision citée | — |
+| `remplace` | le document rend obsolète la cible, qui cesse d'être une source de vérité | `remplacé par` (obligatoire dans la cible) |
+| `amende` | le document modifie partiellement la cible, qui reste en vigueur pour le reste | `amendé par` (obligatoire dans la cible) |
+| `source` | le document s'appuie sur la cible comme fondement ou preuve | — |
+| `prescrit par` | le document est un gabarit ou un artefact régi par la règle citée | — |
+| `voir aussi` | relation informative sans dépendance normative | — |
+
+## Exemple
+
+Document fictif de cinq lignes, lien en contexte puis section `## Liens` :
+
+```markdown
+# NOTE — Exemple
+
+Cette note applique le [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md) à un cas fictif.
+
+## Liens
+
+- `applique` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
+```
+
+## Liens
+
+- `applique` — [Règles de conduite du Vault, §8](./RULES-2026-08-17-005717-vault-operating-rules.md)
+- `source` — [Proposal : standard de liens](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-21-113916-document-linking-standard.md) (hors Vault)
+- `voir aussi` — [Runbook d'installation du Vault](../knowledge/runbook-vault-setup.md)

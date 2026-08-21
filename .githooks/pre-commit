@@ -18,4 +18,18 @@ if [ ! -x "$CHECK" ]; then
 fi
 
 "$CHECK" || exit 1
+
+LINKS_CHECK="$VAULT_ROOT/tools/check-links.sh"
+
+if [ ! -x "$LINKS_CHECK" ]; then
+  if [ -f "$LINKS_CHECK" ]; then
+    bash "$LINKS_CHECK" || exit 1
+    exit 0
+  fi
+  echo "REFUS : controle de liens introuvable : $LINKS_CHECK" >&2
+  echo "Le controle ne peut pas verifier, il refuse." >&2
+  exit 1
+fi
+
+"$LINKS_CHECK" || exit 1
 exit 0
