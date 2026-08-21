@@ -20,3 +20,4 @@ Choix arbitrés sur le fonctionnement transverse du système.
 - `DECISION-2026-08-19-115306-project-registry-v1.md` — Project Registry V1 — architecture et contrat d'écriture
 - `DECISION-2026-08-19-233650-graphify-integrations-amendment.md` — Amendement Graphify V1 — activation des intégrations natives
 - `DECISION-2026-08-20-015748-mission-status-field-semantics.md` — Sémantique du champ status — front-matter Mission et registre
+- `DECISION-2026-08-21-000236-execution-report-channel.md` — Canal de rapport d'exécution — type report, dossier reports/
