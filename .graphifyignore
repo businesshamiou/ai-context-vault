@@ -53,3 +53,6 @@ CLAUDE.md
 # Garde-fous et outillage : mecanismes, pas connaissance.
 .githooks/
 tools/
+
+# Motifs de detection : donnees des garde-fous, pas connaissance.
+rules/patterns/
