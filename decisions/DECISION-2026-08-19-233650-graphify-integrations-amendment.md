@@ -42,7 +42,7 @@ Cette exception à la règle de langue est délibérée et bornée : elle ne vau
 
 Le mode strict, qui bloque la première lecture brute de fichier tant qu'aucune interrogation du graphe n'a eu lieu, est exclu.
 
-Il supprime le fallback vers les fichiers, que la Decision V1 pose comme obligatoire et que cet amendement confirme. Il rendrait par ailleurs inaccessible la lecture directe du registre des projets, dont les mesures ont établi qu'il n'est pas restitué par l'interrogation du graphe.
+Il supprime le fallback vers les fichiers, que la Decision V1 pose comme obligatoire et que cet amendement confirme. Il rendrait par ailleurs inaccessible la lecture directe du [registre des projets](../projects/PROJECT-REGISTRY.md), dont les mesures ont établi qu'il n'est pas restitué par l'interrogation du graphe.
 
 ### D4 — Ce qui reste inchangé
 
@@ -65,3 +65,8 @@ Les fichiers écrits par l'outil dans le dépôt sont versionnés tels quels. Le
 ## Human gate
 
 Arbitrage Owner rendu en session de pilotage, après lecture du rapport de reconnaissance des intégrations.
+
+## Liens
+
+- `amende` — [Architecture Graphify V1](./DECISION-2026-08-18-004740-graphify-v1-architecture.md)
+- `voir aussi` — [Project Registry](../projects/PROJECT-REGISTRY.md)

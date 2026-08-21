@@ -84,3 +84,8 @@ Un agent qui ne connaît que le Vault peut répondre : quels projets actifs exis
 ## Human gate
 
 Arbitrage Owner rendu en session de pilotage.
+
+## Liens
+
+- `source` — [Project Registry](../projects/PROJECT-REGISTRY.md)
+- `source` — [Proposal source](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-18-225900-vault-project-registry.md) (hors Vault)

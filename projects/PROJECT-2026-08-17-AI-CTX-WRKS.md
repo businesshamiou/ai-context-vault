@@ -29,9 +29,14 @@ stale_after: 90d
 
 Chemins relatifs à la racine du projet.
 
-- Contexte canonique : `workshop-production/captures/CAPTURE-2026-08-19-013315-workshop-master-context-consolidated.md`
-- État courant : `workshop-production/missions/MISSION-INDEX.md`
+- Contexte canonique : [`workshop-production/captures/CAPTURE-2026-08-19-013315-workshop-master-context-consolidated.md`](../../workshop-build/workshop-production/captures/CAPTURE-2026-08-19-013315-workshop-master-context-consolidated.md) (hors Vault)
+- État courant : [`workshop-production/missions/MISSION-INDEX.md`](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)
 
 ## Notes
 
 Premier projet inscrit au Registry. Ce projet fabrique le workshop qui enseigne la méthode ; il est simultanément produit pédagogique, premier test réel du système et case study principal.
+
+## Liens
+
+- `source` — [workshop-production/captures/CAPTURE-2026-08-19-013315-workshop-master-context-consolidated.md](../../workshop-build/workshop-production/captures/CAPTURE-2026-08-19-013315-workshop-master-context-consolidated.md) (hors Vault)
+- `source` — [workshop-production/missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)

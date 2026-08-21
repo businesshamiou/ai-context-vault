@@ -46,4 +46,4 @@ Ce handoff est une passation historique datée créée pour permettre une repris
 ## Liens
 
 - `prescrit par` — [Cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
-- `<type>` — [<titre>](<chemin relatif>)
+- (à compléter : type — titre — chemin relatif, voir le standard de liens)

@@ -35,7 +35,7 @@ Cette décision reprend, sans ajout de fond, les points de la [proposal](../../w
 
 **D7 — Périmètre du graphe.** `reports/` appartient à la couche History / Evidence : exclu du graphe de `workshop-build` si un tel graphe voit le jour.
 
-**D8 — Registre.** `MISSION-INDEX.md` gagne une colonne « Rapport actif » lors de sa prochaine retouche. Pas de reprise rétroactive des lignées existantes.
+**D8 — Registre.** [`MISSION-INDEX.md`](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault) gagne une colonne « Rapport actif » lors de sa prochaine retouche. Pas de reprise rétroactive des lignées existantes.
 
 ## Raison
 
@@ -55,9 +55,15 @@ Un fichier court par Mission, coût négligeable. Premiers Prompts concernés : 
 ## Human gate
 
 - Validation : accordée
-- Référence : arbitrage Owner/Pilot en session du 2026-08-20, gravé par la Mission 020 (`../../workshop-build/workshop-production/missions/MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md`).
+- Référence : arbitrage Owner/Pilot en session du 2026-08-20, gravé par la Mission 020 ([MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md](../../workshop-build/workshop-production/missions/MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md) (hors Vault)).
 
 ## Artefacts liés
 
-- Proposal source : `../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-20-234824-execution-report-channel.md`
-- Mission qui grave cette Decision : `../../workshop-build/workshop-production/missions/MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md`
+- Proposal source : [PROPOSAL-2026-08-20-234824-execution-report-channel.md](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-20-234824-execution-report-channel.md) (hors Vault)
+- Mission qui grave cette Decision : [MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md](../../workshop-build/workshop-production/missions/MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md) (hors Vault)
+
+## Liens
+
+- `source` — [PROPOSAL-2026-08-20-234824-execution-report-channel.md](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-20-234824-execution-report-channel.md) (hors Vault)
+- `source` — [MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md](../../workshop-build/workshop-production/missions/MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md) (hors Vault)
+- `applique` — [missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)

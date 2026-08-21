@@ -91,3 +91,7 @@ Les limites acceptées en V1 sont la granularité principalement documentaire, l
 - Modèle projet actif : [Modèle opératoire des projets V2](../knowledge/BRIEF-2026-08-17-211522-project-operating-model-v2.md)
 - Cycle actif : [Cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
 - Preuves : [Vérification et preuves](../knowledge/verification-and-evidence.md)
+
+## Liens
+
+- `amendé par` — [Amendement Graphify V1](./DECISION-2026-08-19-233650-graphify-integrations-amendment.md)

@@ -30,6 +30,8 @@ status: FINAL
 - Vault : `<SHA>` — "<message>"
 - workshop-build : `<SHA>` — "<message>"
 
+Le SHA du commit Vault et les `git status -sb` finaux sont mesurés **avant** le staging de ce rapport. Le SHA du commit `workshop-build` qui contient ce rapport ne peut pas être connu avant ce commit (le rapport s'auto-référencerait) ; il est donné en chat, jamais laissé en emplacement vide ici.
+
 ## 4. Impact sur l'installation
 
 <Changement système, environnement, runbook, ou « Aucun changement ».>
@@ -48,9 +50,11 @@ status: FINAL
 <commande de remesure et résultat>
 ```
 
+Cette remesure est faite **avant** le staging de ce rapport, jamais laissée en emplacement du type « rempli après commit ». Aucun emplacement `<…>` ne doit subsister dans un rapport final.
+
 Arrêt de la Mission ici.
 
 ## Liens
 
 - `prescrit par` — [Canal de rapport d'exécution](../decisions/DECISION-2026-08-21-000236-execution-report-channel.md)
-- `source` — [<Mission>](<chemin relatif>), [<Prompt>](<chemin relatif>)
+- (à compléter : type — titre — chemin relatif, voir le standard de liens)

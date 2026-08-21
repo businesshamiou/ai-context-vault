@@ -30,7 +30,7 @@ L'adoption est progressive et sans rupture.
 ### Adopté immédiatement
 
 - `index.md` par dossier de premier niveau du Vault, pour la progressive disclosure : un agent lit l'index avant de décider quels fichiers ouvrir. Ceci rend également visibles dans Git les dossiers qui seraient autrement vides.
-- `stale_after` sur les artefacts sujets à péremption, à commencer par les fiches du Project Registry.
+- `stale_after` sur les artefacts sujets à péremption, à commencer par les fiches du [Project Registry](../projects/PROJECT-REGISTRY.md).
 - Champ `description` dans le front-matter des artefacts nouvellement créés.
 
 ### Conservé en l'état, et documenté comme écart assumé
@@ -53,3 +53,7 @@ Un futur alignement des points reportés fera l'objet d'une Decision cumulative 
 ## Human gate
 
 Arbitrage Owner rendu en session de pilotage.
+
+## Liens
+
+- `voir aussi` — [Project Registry](../projects/PROJECT-REGISTRY.md)

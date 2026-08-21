@@ -24,7 +24,7 @@ Les traiter comme une seule question conduit à des règles bancales : soit on r
 > Ce qui vaut pour n'importe quel projet vit dans le Vault.
 > Ce qui n'a de sens que dans un projet vit dans ce projet.
 
-Le Vault porte le **comment universel** : processus, garde-fous, doctrine de preuve, conventions, cycle documentaire, comportements d'agent, registre des projets.
+Le Vault porte le **comment universel** : processus, garde-fous, doctrine de preuve, conventions, cycle documentaire, comportements d'agent, [registre des projets](../projects/PROJECT-REGISTRY.md).
 
 Chaque projet porte son **comment métier** : ses règles propres, ses contraintes, son glossaire, ses décisions de fabrication, son contexte. Ces règles ne remontent jamais dans le Vault — un projet client, un produit, une mission de conseil ont chacun un domaine qui n'a rien à faire dans une couche transverse.
 
@@ -124,3 +124,7 @@ Les deux entrent dans le graphe. Mais le courant, par nature, est remplacé plut
 ## Ce que ce document ne tranche pas
 
 L'application de ces principes à des cas précis — quels dossiers exactement, par quel mécanisme distinguer un handoff courant d'un handoff ancien, quand créer le graphe d'un projet — relève d'arbitrages distincts, à mener projet par projet.
+
+## Liens
+
+- `voir aussi` — [Project Registry](../projects/PROJECT-REGISTRY.md)
