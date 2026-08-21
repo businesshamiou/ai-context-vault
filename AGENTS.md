@@ -19,6 +19,8 @@
 - Ne jamais importer automatiquement dans le Vault le contexte métier, les décisions ou les artefacts propres à un projet.
 - Toute amélioration transversale issue d’un projet doit être validée avant son intégration au Vault.
 - Ne pas introduire dans le Vault les prompts, présentations, storyboards, supports ou outils dont le seul rôle est de fabriquer le workshop.
+- Tout rapport d'exécution de l'Executor est un fichier dans `../workshop-build/workshop-production/reports/` (Decision du 2026-08-21) ; en chat, deux lignes : chemin du rapport et ligne « gates ».
+- L'installation du Vault est décrite dans [le runbook](./knowledge/runbook-vault-setup.md) ; toute Mission qui installe, configure, met à jour ou retire un composant le met à jour dans le même commit.
 
 ## graphify
 
