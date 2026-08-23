@@ -30,8 +30,15 @@ scope: role-relay, mission-workflow
 > Verdict   : <FAIT | PARTIEL | BLOQUÉ> + une ligne
 > Critères  : <n>/<total> PASS
 > Commits   : <dépôt> <hash> · <dépôt> <hash>
+> Résumé    : <trois à cinq lignes>
 > À trancher: <une ligne, ou « rien »>
 > ```
+>
+> La rubrique **Résumé** tient en trois à cinq lignes, plafond strict — au-delà, elle redevient un second rapport et le coût qu'elle économise est repayé. Trois contraintes :
+>
+> 1. Des faits, pas des appréciations : un chiffre, une comparaison, un écart nommé. « Q5 en hausse » ne vaut rien ; « Q5 : 12 décisions trouvées contre 7 » vaut la rubrique entière.
+> 2. Les chiffres qui changent une conclusion, et ce qui a surpris l'Executor.
+> 3. Tout écart au protocole ou à la Mission y figure, même mineur, même sans conséquence apparente — c'est le seul endroit où le Pilot peut le voir sans ouvrir le rapport.
 >
 > **Pont.** L'Owner est le seul canal entre les deux fenêtres : il colle le mini-prompt à l'aller, il recolle le bloc `RELAY` au retour. Le Pilot reprend sur la foi du bloc, et ne relit le rapport entier que si le verdict ou la rubrique « À trancher » l'exige.
 >
@@ -41,3 +48,4 @@ scope: role-relay, mission-workflow
 
 - `source` — [Proposal — Relais entre rôles par mini-prompts à rubriques fixes](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-123648-role-relay-mini-prompts.md) (hors Vault)
 - `voir aussi` — [Décision — Adoption de la règle du relais entre rôles](../decisions/DECISION-2026-08-23-124937-role-relay-mini-prompts.md)
+- `amendé par` — [Décision — Rubrique « Résumé » dans le bloc RELAY du sens retour](../decisions/DECISION-2026-08-23-180500-relay-summary-rubric.md)
