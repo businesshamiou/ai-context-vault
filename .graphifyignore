@@ -55,3 +55,9 @@ tools/
 
 # Motifs de detection : donnees des garde-fous, pas connaissance.
 rules/patterns/
+
+# Liste plate des documents remplaces (Mission 029, build-indexes.sh) :
+# fichier machine sans prose, aucun signal pour un graphe semantique. Reste
+# suivi par Git (necessaire a tools/find-in-vault.sh) : exclu du graphe
+# seulement, pas du depot. Mission 030.
+superseded-files.txt

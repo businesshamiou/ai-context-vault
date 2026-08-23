@@ -12,7 +12,15 @@ scope: role-relay, mission-workflow
 
 > ### Règle — relais entre rôles par mini-prompts
 >
-> **Aller.** Toute Mission part avec un mini-prompt de consommation, donné inline dans le chat par le Pilot, en trois rubriques : où la session s'ouvre (toujours le Vault), quel fichier prompt appliquer (chemin complet), quels interdits absolus s'appliquent. Le mini-prompt ne duplique pas le contenu de la Mission.
+> **Aller.** Toute Mission part avec un mini-prompt de consommation, livré par le Pilot **en snippet copiable d'un seul geste** (bloc de code dans le chat), jamais en fichier à ouvrir ni en prose à recomposer. Cinq rubriques fixes, dans cet ordre :
+>
+> 1. Ligne de titre : `Session Executor — Mission <NNN> (<description courte>)` — elle nomme la session.
+> 2. Racine d'ouverture : le Vault, chemin absolu, avec l'instruction d'y travailler.
+> 3. Source à appliquer : le chemin du fichier Mission, relatif au Vault, à lire et appliquer intégralement.
+> 4. Interdits absolus : toujours « aucun git push, aucun appel modèle, aucune suppression », plus les interdits propres à la Mission.
+> 5. Sortie attendue : terminer la fenêtre par le bloc RELAY défini dans la Mission, rempli.
+>
+> Le mini-prompt ne duplique pas le contenu de la Mission.
 >
 > **Retour.** Tout rapport d'exécution se termine par un bloc `RELAY` affiché en fin de fenêtre Executor, aux rubriques fixes suivantes, dans cet ordre :
 >

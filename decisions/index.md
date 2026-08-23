@@ -26,6 +26,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `DECISION-2026-08-23-124917-scope-obsidian-and-content-search.md` — Décisions de périmètre — Obsidian hors du premier workshop, recherche par contenu construite en propre · decision
 - `DECISION-2026-08-23-124937-role-relay-mini-prompts.md` — Adoption de la règle du relais entre rôles par mini-prompts · decision
 - `DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md` — Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal · decision
+- `DECISION-2026-08-23-155831-relay-forward-snippet-and-superseded-list-graph-exclusion.md` — Sens aller du relais en snippet, et liste des remplacés hors graphe mais versionnée · decision
 
 ## Liens
 
