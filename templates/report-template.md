@@ -54,7 +54,21 @@ Cette remesure est faite **avant** le staging de ce rapport, jamais laissée en 
 
 Arrêt de la Mission ici.
 
+## Bloc RELAY
+
+Ce bloc est rempli **en dernier** et affiché **tel quel** en fin de fenêtre Executor, conformément à la [règle du relais entre rôles](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md) :
+
+```text
+RELAY <NNN>
+Rapport   : <chemin du fichier REPORT déposé>
+Verdict   : <FAIT | PARTIEL | BLOQUÉ> + une ligne
+Critères  : <n>/<total> PASS
+Commits   : <dépôt> <hash> · <dépôt> <hash>
+À trancher: <une ligne, ou « rien »>
+```
+
 ## Liens
 
 - `prescrit par` — [Canal de rapport d'exécution](../decisions/DECISION-2026-08-21-000236-execution-report-channel.md)
+- `prescrit par` — [Relais entre rôles par mini-prompts à rubriques fixes](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
 - (à compléter : type — titre — chemin relatif, voir le standard de liens)

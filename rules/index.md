@@ -19,6 +19,7 @@ Prescriptions applicables à tout travail dans le Vault.
 - `RULES-2026-08-17-211522-mission-versioning-and-generated-output.md` — Versionnement des Missions et outputs générés
 - `RULES-2026-08-19-210803-guardrails-and-evidence-levels.md` — Garde-fous et niveaux de preuve
 - `RULES-2026-08-21-115658-document-linking-standard.md` — Standard de liens entre documents
+- `RULES-2026-08-23-124937-role-relay-mini-prompts.md` — Relais entre rôles par mini-prompts à rubriques fixes
 
 ## Liens
 
