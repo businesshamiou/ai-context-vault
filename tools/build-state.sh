@@ -25,6 +25,31 @@ PROJECT_ROOT="$(cd "$PROJECT" && pwd)"
 STATE_DIR="$PROJECT_ROOT/state"
 JOURNAL="$STATE_DIR/journal.md"
 STATE_FILE="$STATE_DIR/STATE.md"
+CONTRACT_TEMPLATE="$VAULT_ROOT/templates/pilot-contract-template.md"
+
+# --- 0. Contrat du Pilot, recopie depuis le gabarit, jamais redige ici ---
+# Plafond arbitre : exactement sept lignes (Mission 029). Echec explicite,
+# fiche non ecrite, si le gabarit s'ecarte de ce plafond.
+CONTRACT_LINES="$(awk '
+  /<!-- CONTRACT:BEGIN -->/ { f=1; next }
+  /<!-- CONTRACT:END -->/   { f=0 }
+  f && NF { print }
+' "$CONTRACT_TEMPLATE" 2>/dev/null)"
+
+CONTRACT_COUNT=0
+if [ -n "$CONTRACT_LINES" ]; then
+  CONTRACT_COUNT="$(printf '%s\n' "$CONTRACT_LINES" | wc -l)"
+fi
+
+if [ ! -f "$CONTRACT_TEMPLATE" ]; then
+  echo "ERREUR build-state.sh : gabarit de contrat introuvable ($CONTRACT_TEMPLATE). Fiche d'état non générée." >&2
+  exit 1
+fi
+
+if [ "$CONTRACT_COUNT" -ne 7 ]; then
+  echo "ERREUR build-state.sh : le gabarit de contrat ($CONTRACT_TEMPLATE) porte $CONTRACT_COUNT ligne(s) entre CONTRACT:BEGIN et CONTRACT:END, le plafond arbitré est de sept lignes exactement. Fiche d'état non générée." >&2
+  exit 1
+fi
 
 mkdir -p "$STATE_DIR"
 
@@ -114,6 +139,10 @@ fi
   echo ""
   echo "> Générée automatiquement par \`build-state.sh\`. Ne pas éditer à la main."
   echo "> Source : \`state/journal.md\` (dernière entrée : ${LAST_TS:-aucune})."
+  echo ""
+  echo "## Contrat du Pilot"
+  echo ""
+  printf '%s\n' "$CONTRACT_LINES"
   echo ""
   echo "## État courant"
   echo ""

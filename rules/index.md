@@ -13,7 +13,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 ## Contenu
 
 - `RULES-2026-08-17-005717-vault-operating-rules.md` — Règles de conduite du Vault central · rules
-- `RULES-2026-08-17-013937-context-lifecycle.md` — Cycle minimal de conservation et de reprise du contexte · rules
+- `RULES-2026-08-17-013937-context-lifecycle.md` — Cycle minimal de conservation et de reprise du contexte · rules — REMPLACÉ par RULES-2026-08-17-111018-context-lifecycle-v2.md
 - `RULES-2026-08-17-111018-context-lifecycle-v2.md` — Cycle de contexte V2 — capture → proposal → decision → current state → handoff · rules
 - `RULES-2026-08-17-211522-mission-versioning-and-generated-output.md` — Versionnement des Missions et outputs générés · rules
 - `RULES-2026-08-19-210803-guardrails-and-evidence-levels.md` — Garde-fous et niveaux de preuve · rules

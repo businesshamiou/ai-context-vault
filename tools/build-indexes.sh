@@ -35,6 +35,34 @@ list_fields() {
   ' "$@" 2>/dev/null
 }
 
+# Extrait, a partir d'une liste de fichiers deja etablie (une seule ligne de
+# commande find pour toute la racine, cout de fork domine sous Git
+# Bash/Windows), les paires "chemin<TAB>valeur-brute" du champ front-matter
+# supersedes (valeur scalaire ou items de liste YAML indentee).
+extract_supersedes_raw() {
+  tr '\n' '\0' | xargs -0 awk '
+    FNR==1 { infm=0; insup=0 }
+    FNR==1 && $0=="---" { infm=1; next }
+    infm && $0=="---" { infm=0; insup=0; next }
+    infm && /^supersedes:/ {
+      insup=1
+      line=$0
+      sub(/^supersedes:[[:space:]]*/,"",line)
+      if (line != "") print FILENAME "\t" line
+      next
+    }
+    infm && insup {
+      if ($0 ~ /^[[:space:]]+-/) {
+        line=$0
+        sub(/^[[:space:]]+-[[:space:]]*/,"",line)
+        print FILENAME "\t" line
+      } else {
+        insup=0
+      }
+    }
+  ' 2>/dev/null
+}
+
 COUNT=0
 
 for ROOT in "$@"; do
@@ -45,6 +73,41 @@ for ROOT in "$@"; do
   for N in $PRUNE_NAMES; do
     PRUNE_EXPR="$PRUNE_EXPR -o -name $N"
   done
+
+  # --- Marquage des documents remplaces (objectif B, Mission 029) ---
+  # Une seule liste de fichiers .md pour toute la racine, reutilisee pour la
+  # carte des remplacements et pour la liste plate (evite un second find sur
+  # l'arbre complet : le fork de processus est le cout dominant ici aussi).
+  ALL_MD_FILES="$(find "$ROOT_ABS" \( -false $PRUNE_EXPR \) -prune -o -type f -name '*.md' ! -name 'index.md' -print)"
+
+  # Carte basename-remplace -> basename-remplacant, portee a cette racine.
+  declare -A SUPERSEDED_BY=()
+  if [ -n "$ALL_MD_FILES" ]; then
+    while IFS="$(printf '\t')" read -r SUP_FPATH SUP_RAWVAL; do
+      [ -z "$SUP_FPATH" ] && continue
+      if [[ "$SUP_RAWVAL" =~ ([A-Za-z0-9._-]+\.md) ]]; then
+        SUPERSEDED_BY["${BASH_REMATCH[1]}"]="${SUP_FPATH##*/}"
+      fi
+    done < <(printf '%s\n' "$ALL_MD_FILES" | extract_supersedes_raw)
+  fi
+
+  # Liste plate, lisible par machine, des fichiers remplaces sous cette
+  # racine : chemin relatif a la racine, un par ligne. Emplacement choisi :
+  # <racine>/superseded-files.txt (voir rapport Mission 029). Lu par
+  # tools/find-in-vault.sh pour suffixer les lignes de resultat ; absence
+  # tolerée, sans erreur.
+  SUPERSEDED_LIST_FILE="$ROOT_ABS/superseded-files.txt"
+  : > "$SUPERSEDED_LIST_FILE"
+  if [ "${#SUPERSEDED_BY[@]}" -gt 0 ] && [ -n "$ALL_MD_FILES" ]; then
+    while IFS= read -r F; do
+      FN="${F##*/}"
+      if [ -n "${SUPERSEDED_BY[$FN]+x}" ]; then
+        realpath --relative-to="$ROOT_ABS" "$F"
+      fi
+    done <<EOF_ALLMD
+$ALL_MD_FILES
+EOF_ALLMD
+  fi | sort > "$SUPERSEDED_LIST_FILE"
 
   find "$ROOT_ABS" \( -false $PRUNE_EXPR \) -prune -o -type d -print | while IFS= read -r DIR; do
     MD_FILES="$(find "$DIR" -maxdepth 1 -type f -name '*.md' ! -name 'index.md' | sort)"
@@ -82,7 +145,11 @@ for ROOT in "$@"; do
       list_fields $MD_FILES | sort | while IFS="$(printf '\t')" read -r F T TY; do
         [ -z "$F" ] && continue
         FN="${F##*/}"
-        echo "- \`$FN\` — $T · $TY"
+        MARK=""
+        if [ -n "${SUPERSEDED_BY[$FN]+x}" ]; then
+          MARK=" — REMPLACÉ par ${SUPERSEDED_BY[$FN]}"
+        fi
+        echo "- \`$FN\` — $T · $TY$MARK"
       done
       echo ""
       echo "## Liens"

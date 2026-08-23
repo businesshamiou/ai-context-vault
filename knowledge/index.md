@@ -13,7 +13,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 ## Contenu
 
 - `BRIEF-2026-08-17-003000-vault-concept-operating-model.md` — Vault — concept pédagogique et modèle opératoire · brief
-- `BRIEF-2026-08-17-140100-project-operating-model.md` — Modèle opératoire des projets · brief
+- `BRIEF-2026-08-17-140100-project-operating-model.md` — Modèle opératoire des projets · brief — REMPLACÉ par BRIEF-2026-08-17-211522-project-operating-model-v2.md
 - `BRIEF-2026-08-17-211522-project-operating-model-v2.md` — Modèle opératoire des projets V2 — frontière Vault/projet et hiérarchie Vault rules → Project rules → Mission/task instructions · brief
 - `corpus-layering.md` — Stratification du corpus : où vit un artefact, et s'il entre dans un graphe · knowledge
 - `runbook-vault-setup.md` — Runbook d'installation du Vault — V1 · knowledge
