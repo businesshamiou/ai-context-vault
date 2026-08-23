@@ -32,10 +32,9 @@ __pycache__/
 *.swp
 ~$*
 
-# Index de dossier : redondants avec le graphe lui-même.
-# Ils servent la lecture directe en fallback, pas la navigation semantique.
-index.md
-**/index.md
+# Exclusion levee (Mission 027, objectif C) : les index.md sont desormais
+# generes par tools/build-indexes.sh et entrent au corpus du graphe, comme
+# tout autre document lie.
 
 # Renforcement de la couverture des motifs sensibles.
 *.crt
