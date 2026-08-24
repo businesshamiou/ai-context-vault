@@ -29,6 +29,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `DECISION-2026-08-23-155831-relay-forward-snippet-and-superseded-list-graph-exclusion.md` — Sens aller du relais en snippet, et liste des remplacés hors graphe mais versionnée · decision
 - `DECISION-2026-08-23-180500-relay-summary-rubric.md` — Rubrique « Résumé » dans le bloc RELAY du sens retour · decision
 - `DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md` — Retrait de Graphify du rôle « graphe du Vault » · decision
+- `DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md` — Taxonomie PIV, langue système anglaise, charte des rôles, fin des fichiers PROMPT · decision
 
 ## Liens
 

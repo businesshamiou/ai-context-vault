@@ -77,3 +77,7 @@ Un human gate est requis avant :
 ## 10. Gel du stock
 
 Une nouvelle règle de nommage ne déclenche aucun renommage massif rétroactif. Toute migration doit constituer un chantier explicite, inventorié et vérifié.
+
+## Liens
+
+- `amendé par` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §3 langue](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)

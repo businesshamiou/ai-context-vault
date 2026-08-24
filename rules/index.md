@@ -19,6 +19,8 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `RULES-2026-08-19-210803-guardrails-and-evidence-levels.md` — Garde-fous et niveaux de preuve · rules
 - `RULES-2026-08-21-115658-document-linking-standard.md` — Standard de liens entre documents · rules
 - `RULES-2026-08-23-124937-role-relay-mini-prompts.md` — Relais entre rôles par mini-prompts à rubriques fixes · rules
+- `RULES-2026-08-23-220049-activity-classification-and-system-keywords.md` — Classification d'activité PIV et mots-clés système · rules
+- `RULES-2026-08-23-224706-role-charter-and-session-determination.md` — Charte des rôles et détermination de session · rules
 
 ## Liens
 

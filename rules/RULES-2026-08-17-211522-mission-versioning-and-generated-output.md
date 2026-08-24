@@ -102,3 +102,7 @@ Pour exécuter une Mission :
 4. lire le Prompt aligné;
 5. remesurer l’état technique utile;
 6. respecter les gates et frontières du projet.
+
+## Liens
+
+- `amendé par` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §4 prompts alignés](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)

@@ -7,6 +7,7 @@
 #   PROCHAIN:<texte> -> prochaine action (derniere occurrence retenue)
 #   OUVERT:<texte>   -> porte ouverte (toutes les occurrences listees)
 #   REPRISE:<texte>  -> note de reprise ; doit etre la derniere ligne du journal
+# Depuis Mission 038, double reconnaissance : STATE:/NEXT:/OPEN:/RESUME: (anglais) en plus des tags francais ci-dessus.
 # Une ligne sans tag reconnu n'alimente aucune rubrique ci-dessus.
 #
 # usage: build-state.sh <chemin-projet>
@@ -80,19 +81,19 @@ if [ -f "$JOURNAL" ]; then
     LAST_LINE="$(printf '%s\n' "$DATED" | tail -n 1)"
     LAST_TS="$(printf '%s' "$LAST_LINE" | awk '{print $1}')"
 
-    E="$(printf '%s\n' "$DATED" | grep -F 'ETAT:' | tail -n 1 | sed -E 's/^.*ETAT:[[:space:]]*//')"
+    E="$(printf '%s\n' "$DATED" | grep -E 'ETAT:|STATE:' | tail -n 1 | sed -E 's/^.*(ETAT|STATE):[[:space:]]*//')"
     [ -n "$E" ] && ETAT="$E"
 
-    P="$(printf '%s\n' "$DATED" | grep -F 'PROCHAIN:' | tail -n 1 | sed -E 's/^.*PROCHAIN:[[:space:]]*//')"
+    P="$(printf '%s\n' "$DATED" | grep -E 'PROCHAIN:|NEXT:' | tail -n 1 | sed -E 's/^.*(PROCHAIN|NEXT):[[:space:]]*//')"
     [ -n "$P" ] && PROCHAIN="$P"
 
-    O="$(printf '%s\n' "$DATED" | grep -F 'OUVERT:' | sed -E 's/^.*OUVERT:[[:space:]]*//')"
+    O="$(printf '%s\n' "$DATED" | grep -E 'OUVERT:|OPEN:' | sed -E 's/^.*(OUVERT|OPEN):[[:space:]]*//')"
     if [ -n "$O" ]; then
       OUVERTES="$(printf '%s\n' "$O" | sed 's/^/- /')"
     fi
 
     case "$LAST_LINE" in
-      *'REPRISE:'*) REPRISE_STATUS="Note de reprise en fin de journal : $(printf '%s' "$LAST_LINE" | sed -E 's/^.*REPRISE:[[:space:]]*//')" ;;
+      *'REPRISE:'*|*'RESUME:'*) REPRISE_STATUS="Note de reprise en fin de journal : $(printf '%s' "$LAST_LINE" | sed -E 's/^.*(REPRISE|RESUME):[[:space:]]*//')" ;;
     esac
   fi
 fi

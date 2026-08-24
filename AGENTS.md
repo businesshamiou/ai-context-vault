@@ -1,5 +1,7 @@
 # Instructions pour les agents
 
+Before any action: determine your role. Read [the role charter](./rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md).
+
 - Les fichiers du Vault sont la source de vérité. Lire les sources liées avant toute modification.
 - Rédiger la prose en français. Utiliser un anglais idiomatique pour les identifiants machine, slugs, clés et noms de dossiers.
 - Enregistrer explicitement toute décision structurante. Ne jamais transformer silencieusement une proposition en décision.
