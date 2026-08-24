@@ -20,6 +20,7 @@ __pycache__/
 .pytest_cache/
 *.py[cod]
 graphify-out/
+.claude/.preflight_stamp.json
 
 # Temporary files and logs
 *.tmp

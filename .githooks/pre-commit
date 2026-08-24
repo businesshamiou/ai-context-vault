@@ -5,6 +5,24 @@
 set -u
 
 VAULT_ROOT="$(git rev-parse --show-toplevel)"
+
+# --- Muraille preflight (Mission 039) : remede unique, pas de contournement ---
+STAMP="$VAULT_ROOT/.claude/.preflight_stamp.json"
+PREFLIGHT_REFUS="REFUS : preflight absent, illisible ou perime. Remede : bash tools/session-preflight.sh"
+
+if [ ! -f "$STAMP" ]; then
+  echo "$PREFLIGHT_REFUS" >&2
+  exit 1
+fi
+if ! grep -qE '"ready"[[:space:]]*:[[:space:]]*true' "$STAMP" 2>/dev/null; then
+  echo "$PREFLIGHT_REFUS" >&2
+  exit 1
+fi
+if [ -n "$(find "$STAMP" -mmin +1440 2>/dev/null)" ]; then
+  echo "$PREFLIGHT_REFUS" >&2
+  exit 1
+fi
+
 CHECK="$VAULT_ROOT/tools/check-secrets.sh"
 
 if [ ! -x "$CHECK" ]; then
