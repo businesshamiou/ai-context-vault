@@ -15,6 +15,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `AGENTS.md` — (sans titre) · inconnu
 - `CLAUDE.md` — (sans titre) · inconnu
 - `README.md` — (sans titre) · inconnu
+- `USER.md` — Fiche utilisateur — Owner du Vault · user
 
 ## Liens
 
