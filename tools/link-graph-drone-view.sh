@@ -12,6 +12,22 @@
 # (adoption du standard de liens). Dates absentes ou illisibles comptees a
 # part, jamais devinees ni substituees par la date du nom de fichier.
 #
+# Correction (Mission 043, 2026-08-24) : le pipeline d'extraction FM/SUP/LINK
+# (section 2 ci-dessous) utilisait une tabulation comme separateur de champ,
+# lue par `read` avec IFS reduit a cette meme tabulation. Or IFS compose
+# uniquement d'espace/tabulation/saut de ligne est traite par bash comme de
+# l'« IFS whitespace » : les tabulations consecutives sont fusionnees en un
+# seul separateur, quel que soit le contenu d'IFS. Un champ vide (`status:`
+# present sans valeur, ou `type:` absent/vide) produit deux tabulations
+# consecutives dans la ligne imprimee par awk, qui se fusionnent a la lecture
+# et decalent tous les champs suivants d'une position. Corrige en remplacant
+# le separateur interne par l'octet de controle \001 (jamais IFS whitespace,
+# jamais collabore) — uniquement dans ce pipeline interne EXTRACT/read ;
+# aucune sortie imprimee par le script n'utilise ce separateur, le format de
+# sortie est inchange. Le contournement de la mesure 4 (read_created_at, plus
+# bas) reste tel quel : il ne dependait pas de ce pipeline et n'a pas besoin
+# d'etre retire pour rester correct.
+#
 # usage: link-graph-drone-view.sh
 
 set -u
@@ -39,10 +55,12 @@ ALL_FILES="$(printf '%s\n%s\n' "$VAULT_FILES" "$WORKSHOP_FILES")"
 TOTAL_DOCS="$(printf '%s\n' "$ALL_FILES" | grep -c .)"
 
 # --- 2. Extraction en un seul passage awk : front-matter + section Liens ---
-# Sortie taggee, une ligne par enregistrement :
-#   FM<TAB>path<TAB>type<TAB>status<TAB>title
-#   SUP<TAB>path<TAB>raw-basename-cible
-#   LINK<TAB>path<TAB>linktype<TAB>target-raw
+# Sortie taggee, une ligne par enregistrement, separateur \001 (voir note de
+# correction Mission 043 ci-dessus — jamais une tabulation, qui se fusionne a
+# la lecture bash des qu'un champ est vide) :
+#   FM<SOH>path<SOH>type<SOH>status<SOH>title
+#   SUP<SOH>path<SOH>raw-basename-cible
+#   LINK<SOH>path<SOH>linktype<SOH>target-raw
 EXTRACT="$(printf '%s\n' "$ALL_FILES" | grep . | xargs -d '\n' awk '
   FNR == 1 {
     infm = 0; insup = 0; inliens = 0
@@ -51,7 +69,7 @@ EXTRACT="$(printf '%s\n' "$ALL_FILES" | grep . | xargs -d '\n' awk '
   FNR == 1 && $0 == "---" { infm = 1; next }
   infm && $0 == "---" {
     infm = 0
-    print "FM\t" FILENAME "\t" ftype "\t" fstatus "\t" ftitle
+    print "FM\001" FILENAME "\001" ftype "\001" fstatus "\001" ftitle
     next
   }
   infm && /^type:/ {
@@ -69,7 +87,7 @@ EXTRACT="$(printf '%s\n' "$ALL_FILES" | grep . | xargs -d '\n' awk '
     sub(/^supersedes:[[:space:]]*/, "", line)
     if (line != "") {
       if (match(line, /[A-Za-z0-9._-]+\.md/)) {
-        print "SUP\t" FILENAME "\t" substr(line, RSTART, RLENGTH)
+        print "SUP\001" FILENAME "\001" substr(line, RSTART, RLENGTH)
       }
     }
     next
@@ -79,7 +97,7 @@ EXTRACT="$(printf '%s\n' "$ALL_FILES" | grep . | xargs -d '\n' awk '
       line = $0
       sub(/^[[:space:]]+-[[:space:]]*/, "", line)
       if (match(line, /[A-Za-z0-9._-]+\.md/)) {
-        print "SUP\t" FILENAME "\t" substr(line, RSTART, RLENGTH)
+        print "SUP\001" FILENAME "\001" substr(line, RSTART, RLENGTH)
       }
     } else {
       insup = 0
@@ -113,7 +131,7 @@ EXTRACT="$(printf '%s\n' "$ALL_FILES" | grep . | xargs -d '\n' awk '
       target = substr(line, RSTART + 2, RLENGTH - 3)
     }
     if (target != "" && linktype != "") {
-      print "LINK\t" FILENAME "\t" linktype "\t" target "\t" typeform
+      print "LINK\001" FILENAME "\001" linktype "\001" target "\001" typeform
     }
   }
 ' 2>&1)"
@@ -128,7 +146,7 @@ TOTAL_LINKS=0
 FORM_BACKTICK=0
 FORM_COLON=0
 
-while IFS=$'\t' read -r tag a b c d e; do
+while IFS=$'\001' read -r tag a b c d e; do
   case "$tag" in
     FM)
       DOC_TYPE["$a"]="$b"
