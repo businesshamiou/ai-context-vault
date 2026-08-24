@@ -6,6 +6,12 @@
 # deux vues Mermaid. Ecrit uniquement sur la sortie standard : aucun fichier
 # de sortie persistant (Mission 042, contrainte).
 #
+# Complement (Session Executor, 2026-08-24) : la mesure 4 ajoute une
+# ventilation des couples de remplacement selon la date de creation
+# (created_at, front-matter) du document remplacant, frontiere 2026-08-21
+# (adoption du standard de liens). Dates absentes ou illisibles comptees a
+# part, jamais devinees ni substituees par la date du nom de fichier.
+#
 # usage: link-graph-drone-view.sh
 
 set -u
@@ -293,6 +299,41 @@ declare -A SEEN_PAIR
 INCOMPLETE=0
 CHECKED=0
 
+# Ventilation par date de creation du remplacant (complement Session Executor,
+# 2026-08-24) : le 2026-08-21 est la date d'adoption du standard de liens
+# (RULES-2026-08-21-115658). Un remplacant cree ce jour-la ou apres est
+# repute connaitre le standard ; avant, c'est du stock anterieur. Seule la
+# date `created_at` du front-matter est lue ; aucune date n'est devinee et le
+# nom de fichier n'est jamais substitue a une date absente ou illisible.
+# Lecture directe et independante du fichier (pas de passage par le pipeline
+# EXTRACT/read a tabulations partage plus haut) : ce pipeline colle les
+# tabulations consecutives d'un champ vide (`status:` absent), ce qui decale
+# les colonnes suivantes — constat fait en cours d'ecriture de ce complement,
+# non corrige dans le pipeline existant (hors perimetre), contourne ici pour
+# que cette mesure seule reste fiable.
+DATE_BOUNDARY="2026-08-21"
+DATE_BEFORE=0
+DATE_ONAFTER=0
+DATE_ONAFTER_OK=0
+DATE_UNKNOWN=0
+DATE_UNKNOWN_LIST=""
+
+read_created_at() {
+  # $1 = chemin absolu d'un document .md ; imprime la valeur brute de
+  # created_at lue dans son en-tete, ou rien si absente/illisible.
+  awk '
+    NR == 1 && $0 == "---" { infm = 1; next }
+    infm && $0 == "---" { exit }
+    infm && /^created_at:/ {
+      v = $0
+      sub(/^created_at:[[:space:]]*/, "", v)
+      gsub(/^"|"$/, "", v)
+      print v
+      exit
+    }
+  ' "$1" 2>/dev/null
+}
+
 check_pair() {
   # $1 = source (remplacant), $2 = cible (remplace)
   local src="$1" tgt="$2" key
@@ -316,6 +357,22 @@ check_pair() {
   st_lc="$(printf '%s' "$st" | tr '[:upper:]' '[:lower:]')"
   if [ "$st_lc" = "active" ]; then
     echo "ANOMALY : cible de remplacement $tgt porte status: $st (actif) alors qu'elle est remplacee par $src"
+  fi
+
+  local craw
+  craw="$(read_created_at "$src")"
+  local cdate=""
+  if [[ "$craw" =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2}) ]]; then
+    cdate="${BASH_REMATCH[1]}"
+  fi
+  if [ -z "$cdate" ]; then
+    DATE_UNKNOWN=$((DATE_UNKNOWN + 1))
+    DATE_UNKNOWN_LIST="$DATE_UNKNOWN_LIST$src\t${craw:-(absente)}\n"
+  elif [[ "$cdate" < "$DATE_BOUNDARY" ]]; then
+    DATE_BEFORE=$((DATE_BEFORE + 1))
+  else
+    DATE_ONAFTER=$((DATE_ONAFTER + 1))
+    [ "$found" -eq 1 ] && DATE_ONAFTER_OK=$((DATE_ONAFTER_OK + 1))
   fi
 }
 
@@ -348,6 +405,16 @@ done
 
 echo "couples de remplacement verifies : $CHECKED"
 echo "couples incomplets (lien inverse manquant) : $INCOMPLETE"
+echo ""
+echo "--- ventilation par date de creation du remplacant (frontiere $DATE_BOUNDARY, adoption du standard de liens) ---"
+echo "couples dont le remplacant est cree avant le $DATE_BOUNDARY : $DATE_BEFORE"
+echo "couples dont le remplacant est cree le $DATE_BOUNDARY ou apres : $DATE_ONAFTER"
+echo "  dont conformes (lien retour \`remplacé par\` present dans la cible) : $DATE_ONAFTER_OK"
+echo "couples dont la date de creation du remplacant est absente ou illisible (non devinee, nom de fichier non substitue) : $DATE_UNKNOWN"
+if [ "$DATE_UNKNOWN" -gt 0 ]; then
+  echo "--- couples a date de creation illisible ou absente (remplacant -> valeur brute created_at lue) ---"
+  printf '%b' "$DATE_UNKNOWN_LIST" | grep .
+fi
 echo ""
 
 # --- 4. Graphe Mermaid ---
