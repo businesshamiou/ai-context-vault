@@ -1,0 +1,398 @@
+#!/usr/bin/env bash
+# Vue drone des liens ecrits (Mission 042) : mesure deterministe, zero appel
+# modele, zero reseau. Lit les deux corpus (vault entier, workshop-build/
+# workshop-production), parcourt la section "## Liens" de chaque fichier .md
+# suivi par Git, construit le graphe oriente et rend quatre mesures plus
+# deux vues Mermaid. Ecrit uniquement sur la sortie standard : aucun fichier
+# de sortie persistant (Mission 042, contrainte).
+#
+# usage: link-graph-drone-view.sh
+
+set -u
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+VAULT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+WORKSHOP_BUILD_ROOT="$(cd "$VAULT_ROOT/../workshop-build" && pwd)"
+WORKSHOP_ROOT="$WORKSHOP_BUILD_ROOT/workshop-production"
+STATE_FILE="$WORKSHOP_ROOT/state/STATE.md"
+
+resolve_path() {
+  # $1 = chemin, potentiellement relatif et contenant . ou ..
+  if command -v realpath >/dev/null 2>&1; then
+    realpath -m "$1" 2>/dev/null
+  else
+    D="$(cd "$(dirname "$1")" 2>/dev/null && pwd)"
+    [ -n "$D" ] && printf '%s/%s\n' "$D" "$(basename "$1")"
+  fi
+}
+
+# --- 1. Inventaire : union des deux corpus, fichiers .md suivis par Git ---
+VAULT_FILES="$(cd "$VAULT_ROOT" && git ls-files '*.md' | while IFS= read -r f; do printf '%s/%s\n' "$VAULT_ROOT" "$f"; done)"
+WORKSHOP_FILES="$(cd "$WORKSHOP_BUILD_ROOT" && git ls-files -- 'workshop-production/*.md' | while IFS= read -r f; do printf '%s/%s\n' "$WORKSHOP_BUILD_ROOT" "$f"; done)"
+ALL_FILES="$(printf '%s\n%s\n' "$VAULT_FILES" "$WORKSHOP_FILES")"
+TOTAL_DOCS="$(printf '%s\n' "$ALL_FILES" | grep -c .)"
+
+# --- 2. Extraction en un seul passage awk : front-matter + section Liens ---
+# Sortie taggee, une ligne par enregistrement :
+#   FM<TAB>path<TAB>type<TAB>status<TAB>title
+#   SUP<TAB>path<TAB>raw-basename-cible
+#   LINK<TAB>path<TAB>linktype<TAB>target-raw
+EXTRACT="$(printf '%s\n' "$ALL_FILES" | grep . | xargs -d '\n' awk '
+  FNR == 1 {
+    infm = 0; insup = 0; inliens = 0
+    ftype = ""; fstatus = ""; ftitle = ""
+  }
+  FNR == 1 && $0 == "---" { infm = 1; next }
+  infm && $0 == "---" {
+    infm = 0
+    print "FM\t" FILENAME "\t" ftype "\t" fstatus "\t" ftitle
+    next
+  }
+  infm && /^type:/ {
+    v = $0; sub(/^type:[[:space:]]*/, "", v); gsub(/^"|"$/, "", v); ftype = v
+  }
+  infm && /^status:/ {
+    v = $0; sub(/^status:[[:space:]]*/, "", v); gsub(/^"|"$/, "", v); fstatus = v
+  }
+  infm && /^title:/ {
+    v = $0; sub(/^title:[[:space:]]*/, "", v); gsub(/^"|"$/, "", v); ftitle = v
+  }
+  infm && /^supersedes:/ {
+    insup = 1
+    line = $0
+    sub(/^supersedes:[[:space:]]*/, "", line)
+    if (line != "") {
+      if (match(line, /[A-Za-z0-9._-]+\.md/)) {
+        print "SUP\t" FILENAME "\t" substr(line, RSTART, RLENGTH)
+      }
+    }
+    next
+  }
+  infm && insup {
+    if ($0 ~ /^[[:space:]]+-/) {
+      line = $0
+      sub(/^[[:space:]]+-[[:space:]]*/, "", line)
+      if (match(line, /[A-Za-z0-9._-]+\.md/)) {
+        print "SUP\t" FILENAME "\t" substr(line, RSTART, RLENGTH)
+      }
+    } else {
+      insup = 0
+    }
+  }
+  !infm && /^## Liens[[:space:]]*$/ { inliens = 1; next }
+  !infm && inliens && /^## / { inliens = 0 }
+  # Deux graphies coexistent dans le corpus (constat, non corrige par ce
+  # script) : la forme actuelle du standard "- `type` -- [texte](cible)"
+  # et une forme anterieure "- type : [texte](cible)" sans guillemets ni
+  # tiret cadratin, utilisee par des documents ecrits avant adoption du
+  # standard (RULES-2026-08-21-115658). Les deux sont extraites comme
+  # declaration de lien ; la forme employee est reportee separement.
+  !infm && inliens && /^-[[:space:]]*/ && /\]\(/ {
+    line = $0
+    linktype = ""
+    typeform = ""
+    if (match(line, /`[^`]+`/)) {
+      linktype = substr(line, RSTART + 1, RLENGTH - 2)
+      typeform = "backtick"
+    } else if (match(line, /^-[[:space:]]*[^:\[]+:[[:space:]]*\[/)) {
+      t = substr(line, RSTART, RLENGTH)
+      sub(/^-[[:space:]]*/, "", t)
+      sub(/:[[:space:]]*\[$/, "", t)
+      gsub(/[[:space:]]+$/, "", t)
+      linktype = t
+      typeform = "colon"
+    }
+    target = ""
+    if (match(line, /\]\([^)]+\)/)) {
+      target = substr(line, RSTART + 2, RLENGTH - 3)
+    }
+    if (target != "" && linktype != "") {
+      print "LINK\t" FILENAME "\t" linktype "\t" target "\t" typeform
+    }
+  }
+' 2>&1)"
+
+# --- 3. Chargement en memoire bash ---
+declare -A DOC_TYPE DOC_STATUS DOC_TITLE
+declare -A INDEGREE
+declare -a EDGE_SRC EDGE_TYPE EDGE_TGT EDGE_RAW
+declare -a SUP_SRC SUP_TGT_BASENAME
+UNRESOLVED=0
+TOTAL_LINKS=0
+FORM_BACKTICK=0
+FORM_COLON=0
+
+while IFS=$'\t' read -r tag a b c d e; do
+  case "$tag" in
+    FM)
+      DOC_TYPE["$a"]="$b"
+      DOC_STATUS["$a"]="$c"
+      DOC_TITLE["$a"]="$d"
+      ;;
+    SUP)
+      SUP_SRC+=("$a")
+      SUP_TGT_BASENAME+=("$b")
+      ;;
+    LINK)
+      linktype="$b"
+      raw="$c"
+      typeform="$d"
+      case "$raw" in
+        *.md) : ;;
+        *) continue ;;
+      esac
+      if [ "$typeform" = "colon" ]; then
+        FORM_COLON=$((FORM_COLON + 1))
+      else
+        FORM_BACKTICK=$((FORM_BACKTICK + 1))
+      fi
+      dir="$(dirname "$a")"
+      resolved="$(resolve_path "$dir/$raw")"
+      TOTAL_LINKS=$((TOTAL_LINKS + 1))
+      if [ -z "$resolved" ] || [ ! -f "$resolved" ]; then
+        UNRESOLVED=$((UNRESOLVED + 1))
+        EDGE_SRC+=("$a"); EDGE_TYPE+=("$linktype"); EDGE_TGT+=(""); EDGE_RAW+=("$raw")
+      else
+        EDGE_SRC+=("$a"); EDGE_TYPE+=("$linktype"); EDGE_TGT+=("$resolved"); EDGE_RAW+=("$raw")
+        INDEGREE["$resolved"]=$(( ${INDEGREE["$resolved"]:-0} + 1 ))
+      fi
+      ;;
+  esac
+done <<EXTRACT_EOF
+$EXTRACT
+EXTRACT_EOF
+
+# Taux de liens non resolus : condition d'arret Mission 042.
+if [ "$TOTAL_LINKS" -gt 0 ]; then
+  UNRESOLVED_PCT=$(( UNRESOLVED * 1000 / TOTAL_LINKS ))
+else
+  UNRESOLVED_PCT=0
+fi
+
+echo "=== CONTROLE PREALABLE ==="
+echo "documents totaux (union des deux corpus) : $TOTAL_DOCS"
+echo "liens declares dans une section ## Liens : $TOTAL_LINKS"
+echo "  dont forme actuelle du standard (\`type\` -- [texte](cible)) : $FORM_BACKTICK"
+echo "  dont forme anterieure (type : [texte](cible), sans guillemets)  : $FORM_COLON"
+echo "liens non resolus (cible introuvable)    : $UNRESOLVED"
+printf 'taux de liens non resolus                : %d.%01d%%\n' $((UNRESOLVED_PCT / 10)) $((UNRESOLVED_PCT % 10))
+if [ "$UNRESOLVED_PCT" -gt 100 ]; then
+  echo "ARRET : plus d'un lien sur dix est non resolu (condition d'arret Mission 042). Aucune mesure rendue." >&2
+  exit 1
+fi
+if [ "$UNRESOLVED" -gt 0 ]; then
+  echo "--- liens non resolus (source -> cible brute) ---"
+  for i in "${!EDGE_SRC[@]}"; do
+    [ -z "${EDGE_TGT[$i]}" ] || continue
+    printf '%s\t%s\n' "${EDGE_SRC[$i]}" "${EDGE_RAW[$i]}"
+  done
+fi
+echo ""
+
+# --- Mesure 1 : noyau, top 15 par liens entrants ---
+echo "=== MESURE 1 — NOYAU (top 15 par liens entrants) ==="
+printf '%s\n' "${!INDEGREE[@]}" | while IFS= read -r p; do
+  [ -z "$p" ] && continue
+  printf '%d\t%s\t%s\n' "${INDEGREE[$p]}" "$p" "${DOC_TYPE[$p]:-(inconnu)}"
+done | sort -t$'\t' -k1,1nr | head -15 | nl -ba -w2 -s'. '
+echo ""
+
+# --- Mesure 2 : orphelins (aucun lien entrant) ---
+echo "=== MESURE 2 — ORPHELINS ==="
+ORPHAN_TOTAL=0
+ORPHAN_ACTIVE=0
+ORPHAN_ACTIVE_LIST=""
+ORPHAN_OTHER_LIST=""
+while IFS= read -r p; do
+  [ -z "$p" ] && continue
+  if [ -z "${INDEGREE[$p]:-}" ]; then
+    ORPHAN_TOTAL=$((ORPHAN_TOTAL + 1))
+    st="${DOC_STATUS[$p]:-}"
+    st_lc="$(printf '%s' "$st" | tr '[:upper:]' '[:lower:]')"
+    if [ "$st_lc" = "active" ]; then
+      ORPHAN_ACTIVE=$((ORPHAN_ACTIVE + 1))
+      ORPHAN_ACTIVE_LIST="$ORPHAN_ACTIVE_LIST$p\t$st\n"
+    else
+      ORPHAN_OTHER_LIST="$ORPHAN_OTHER_LIST$p\t$st\n"
+    fi
+  fi
+done <<DOCS_EOF
+$ALL_FILES
+DOCS_EOF
+echo "orphelins totaux : $ORPHAN_TOTAL"
+echo "orphelins actifs (status: active, casse indifferente) : $ORPHAN_ACTIVE"
+echo "--- orphelins actifs ---"
+printf '%b' "$ORPHAN_ACTIVE_LIST" | grep . | sort
+echo "--- orphelins non actifs (autre statut ou aucun) ---"
+printf '%b' "$ORPHAN_OTHER_LIST" | grep . | sort
+echo ""
+
+# --- Mesure 3 : portee, BFS oriente depuis STATE.md ---
+echo "=== MESURE 3 — PORTEE depuis $STATE_FILE ==="
+declare -A DIST
+if [ -f "$STATE_FILE" ]; then
+  DIST["$STATE_FILE"]=0
+  FRONTIER="$STATE_FILE"
+  D=0
+  while [ -n "$FRONTIER" ]; do
+    D=$((D + 1))
+    NEXT=""
+    while IFS= read -r node; do
+      [ -z "$node" ] && continue
+      for i in "${!EDGE_SRC[@]}"; do
+        if [ "${EDGE_SRC[$i]}" = "$node" ] && [ -n "${EDGE_TGT[$i]}" ]; then
+          tgt="${EDGE_TGT[$i]}"
+          if [ -z "${DIST[$tgt]+x}" ]; then
+            DIST["$tgt"]=$D
+            NEXT="$NEXT$tgt"$'\n'
+          fi
+        fi
+      done
+    done <<FRONTIER_EOF
+$FRONTIER
+FRONTIER_EOF
+    FRONTIER="$(printf '%s' "$NEXT" | sort -u | grep .)"
+  done
+else
+  echo "ANOMALY : fiche d'etat introuvable a $STATE_FILE" >&2
+fi
+
+for k in 1 2 3; do
+  cnt=0
+  for p in "${!DIST[@]}"; do
+    [ "${DIST[$p]}" = "$k" ] && cnt=$((cnt + 1))
+  done
+  echo "documents a $k saut(s) : $cnt"
+done
+
+echo "--- documents hors de portee (aucune distance depuis la fiche d'etat) ---"
+UNREACHABLE_TOTAL=0
+UNREACHABLE_ACTIVE=0
+while IFS= read -r p; do
+  [ -z "$p" ] && continue
+  if [ -z "${DIST[$p]+x}" ]; then
+    UNREACHABLE_TOTAL=$((UNREACHABLE_TOTAL + 1))
+    st="${DOC_STATUS[$p]:-}"
+    st_lc="$(printf '%s' "$st" | tr '[:upper:]' '[:lower:]')"
+    mark=""
+    if [ "$st_lc" = "active" ]; then
+      UNREACHABLE_ACTIVE=$((UNREACHABLE_ACTIVE + 1))
+      mark=" [ACTIF]"
+    fi
+    printf '%s\t%s%s\n' "$p" "$st" "$mark"
+  fi
+done <<DOCS_EOF2
+$ALL_FILES
+DOCS_EOF2
+echo "total hors de portee : $UNREACHABLE_TOTAL (dont actifs : $UNREACHABLE_ACTIVE)"
+echo ""
+
+# --- Mesure 4 : reciprocite des relations de remplacement ---
+echo "=== MESURE 4 — RECIPROCITE DES REMPLACEMENTS ==="
+declare -A SEEN_PAIR
+INCOMPLETE=0
+CHECKED=0
+
+check_pair() {
+  # $1 = source (remplacant), $2 = cible (remplace)
+  local src="$1" tgt="$2" key
+  key="$src|$tgt"
+  [ -n "${SEEN_PAIR[$key]:-}" ] && return
+  SEEN_PAIR["$key"]=1
+  CHECKED=$((CHECKED + 1))
+  local found=0
+  for i in "${!EDGE_SRC[@]}"; do
+    if [ "${EDGE_SRC[$i]}" = "$tgt" ] && [ "${EDGE_TGT[$i]}" = "$src" ] && [ "${EDGE_TYPE[$i]}" = "remplacé par" ]; then
+      found=1
+      break
+    fi
+  done
+  if [ "$found" -eq 0 ]; then
+    INCOMPLETE=$((INCOMPLETE + 1))
+    echo "INCOMPLET : $src (remplace) -> $tgt (remplace) : ligne \`remplacé par\` manquante dans $tgt"
+  fi
+  local st="${DOC_STATUS[$tgt]:-}"
+  local st_lc
+  st_lc="$(printf '%s' "$st" | tr '[:upper:]' '[:lower:]')"
+  if [ "$st_lc" = "active" ]; then
+    echo "ANOMALY : cible de remplacement $tgt porte status: $st (actif) alors qu'elle est remplacee par $src"
+  fi
+}
+
+# (a) via front-matter supersedes : basename -> chercher le chemin absolu dans le corpus
+declare -A BASENAME_TO_PATH
+while IFS= read -r p; do
+  [ -z "$p" ] && continue
+  BASENAME_TO_PATH["$(basename "$p")"]="$p"
+done <<DOCS_EOF3
+$ALL_FILES
+DOCS_EOF3
+
+for i in "${!SUP_SRC[@]}"; do
+  src="${SUP_SRC[$i]}"
+  tgt_bn="${SUP_TGT_BASENAME[$i]}"
+  tgt="${BASENAME_TO_PATH[$tgt_bn]:-}"
+  if [ -z "$tgt" ]; then
+    echo "ANOMALY : supersedes de $src pointe vers $tgt_bn, introuvable dans le corpus"
+    continue
+  fi
+  check_pair "$src" "$tgt"
+done
+
+# (b) via section Liens, type "remplace"
+for i in "${!EDGE_SRC[@]}"; do
+  if [ "${EDGE_TYPE[$i]}" = "remplace" ] && [ -n "${EDGE_TGT[$i]}" ]; then
+    check_pair "${EDGE_SRC[$i]}" "${EDGE_TGT[$i]}"
+  fi
+done
+
+echo "couples de remplacement verifies : $CHECKED"
+echo "couples incomplets (lien inverse manquant) : $INCOMPLETE"
+echo ""
+
+# --- 4. Graphe Mermaid ---
+node_id() {
+  printf '%s' "$1" | sed -E 's#.*/([^/]+)\.md$#\1#; s/[^A-Za-z0-9_]/_/g'
+}
+node_label() {
+  # Pas de troncature par octets : les titres contiennent des caracteres
+  # multi-octets (fleches, guillemets typographiques) et `cut -c`/`awk
+  # substr` coupent ici par octet malgre la locale C.UTF-8, produisant du
+  # mojibake. On garde le titre entier plutot que de risquer une coupure
+  # invalide.
+  local t="${DOC_TITLE[$1]:-}"
+  [ -z "$t" ] && t="$(basename "$1" .md)"
+  printf '%s' "$t" | sed 's/"/\x27/g'
+}
+
+echo "=== VUE MERMAID — COMPLETE ==="
+echo '```mermaid'
+echo "flowchart LR"
+for i in "${!EDGE_SRC[@]}"; do
+  [ -z "${EDGE_TGT[$i]}" ] && continue
+  s="$(node_id "${EDGE_SRC[$i]}")"
+  t="$(node_id "${EDGE_TGT[$i]}")"
+  printf '  %s["%s"] -->|%s| %s["%s"]\n' "$s" "$(node_label "${EDGE_SRC[$i]}")" "${EDGE_TYPE[$i]}" "$t" "$(node_label "${EDGE_TGT[$i]}")"
+done | sort -u
+echo '```'
+echo ""
+
+echo "=== VUE MERMAID — DOCUMENTS ACTIFS + PREMIER CERCLE ==="
+declare -A ACTIVE_TOUCH
+for p in "${!DOC_STATUS[@]}"; do
+  st_lc="$(printf '%s' "${DOC_STATUS[$p]}" | tr '[:upper:]' '[:lower:]')"
+  [ "$st_lc" = "active" ] && ACTIVE_TOUCH["$p"]=1
+done
+echo '```mermaid'
+echo "flowchart LR"
+for i in "${!EDGE_SRC[@]}"; do
+  [ -z "${EDGE_TGT[$i]}" ] && continue
+  s="${EDGE_SRC[$i]}"
+  t="${EDGE_TGT[$i]}"
+  if [ -n "${ACTIVE_TOUCH[$s]:-}" ] || [ -n "${ACTIVE_TOUCH[$t]:-}" ]; then
+    sid="$(node_id "$s")"
+    tid="$(node_id "$t")"
+    printf '  %s["%s"] -->|%s| %s["%s"]\n' "$sid" "$(node_label "$s")" "${EDGE_TYPE[$i]}" "$tid" "$(node_label "$t")"
+  fi
+done | sort -u
+echo '```'
