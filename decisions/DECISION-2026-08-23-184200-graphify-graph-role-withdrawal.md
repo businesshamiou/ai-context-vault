@@ -76,6 +76,7 @@ La Decision des sept arbitrages du 2026-08-23 (point 6) avait retenu « corriger
 ## Liens
 
 - `amende` — [Architecture Graphify V1 — navigation optionnelle et corpus actif borné](./DECISION-2026-08-18-004740-graphify-v1-architecture.md)
+- `amende` — [Project Registry V1 — architecture et contrat d'écriture](./DECISION-2026-08-19-115306-project-registry-v1.md) (D5 devient sans objet)
 - `source` — [Protocole du banc de mesure — étude de cas Graphify](../../workshop-build/workshop-production/knowledge-notes/PROTOCOL-graphify-case-study.md) (hors Vault)
 - `source` — [Étude de cas Graphify — synthèse, verdict et matière à illustration](../../workshop-build/workshop-production/knowledge-notes/CASE-STUDY-graphify.md) (hors Vault)
 - `voir aussi` — [Décision — Sept arbitrages de session du 2026-08-23, point 6](./DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)
