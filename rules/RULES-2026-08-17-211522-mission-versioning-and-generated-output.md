@@ -103,6 +103,11 @@ Pour exécuter une Mission :
 5. remesurer l’état technique utile;
 6. respecter les gates et frontières du projet.
 
+## 10. Auto-rangement
+
+Toute Mission commite son propre fichier et régénère les index générés en dernières étapes de sa fenêtre d'exécution. Une Mission qui laisse ce rangement à une fenêtre ultérieure le déclare explicitement en ANOMALY dans son rapport. [source : [Decision — Arbitrages doctrinaux du 2026-08-25](../decisions/DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md), point 2]
+
 ## Liens
 
 - `amendé par` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §4 prompts alignés](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
+- `source` — [Decision — Arbitrages doctrinaux du 2026-08-25](../decisions/DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md)
