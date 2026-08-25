@@ -30,4 +30,4 @@ Généré automatiquement par `tools/write-marker.sh` à partir de ce gabarit. N
 
 ## Liens
 
-- `prescrit par` — [Sept arbitrages de session du 2026-08-23](../decisions/DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)
+- `prescribed by` — [Sept arbitrages de session du 2026-08-23](../decisions/DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)

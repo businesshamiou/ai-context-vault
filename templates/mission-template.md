@@ -57,5 +57,5 @@ Hors périmètre : <ce qui est explicitement exclu.>
 
 ## Liens
 
-- `prescrit par` — [Versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md)
+- `prescribed by` — [Versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md)
 - (à compléter : type — titre — chemin relatif, voir le standard de liens)

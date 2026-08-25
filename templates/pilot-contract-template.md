@@ -23,4 +23,4 @@ Plafond arbitré : sept lignes exactement. Si ce bloc en contient plus ou moins 
 
 ## Liens
 
-- `prescrit par` — [Mission 029 — Contrat du Pilot, marquage des remplacés, prompt d'ouverture minimal](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-142039-029-pilot-contract-superseded-marking-minimal-opening.md) (hors Vault)
+- `prescribed by` — [Mission 029 — Contrat du Pilot, marquage des remplacés, prompt d'ouverture minimal](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-142039-029-pilot-contract-superseded-marking-minimal-opening.md) (hors Vault)
