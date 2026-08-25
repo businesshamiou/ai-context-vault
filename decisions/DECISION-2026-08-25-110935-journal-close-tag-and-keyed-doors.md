@@ -6,7 +6,7 @@ timezone: America/Montreal
 status: ARBITRATED
 owner_gate: granted
 amends:
-  - "DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md (§4 ratification des tags de journal)"
+  - "DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md"
 related_mission: "051"
 ---
 

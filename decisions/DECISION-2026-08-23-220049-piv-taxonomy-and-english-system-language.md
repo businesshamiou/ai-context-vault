@@ -6,9 +6,9 @@ timezone: America/Montreal
 status: ARBITRATED
 scope: activity-taxonomy-system-language-and-roles
 amends:
-  - "RULES-2026-08-17-005717-vault-operating-rules.md (§3 langue)"
-  - "RULES-2026-08-17-211522-mission-versioning-and-generated-output.md (§4 prompts alignés)"
-  - "DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md (§4 ratification des tags de journal)"
+  - "../rules/RULES-2026-08-17-005717-vault-operating-rules.md"
+  - "../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md"
+  - "DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md"
 related_mission: "038"
 ---
 

@@ -5,6 +5,7 @@ created_at: "2026-08-23T18:05:00-04:00"
 timezone: America/Montreal
 status: ARBITRATED
 owner_gate: required
+amends: "../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md"
 ---
 
 # DÉCISION — Rubrique « Résumé » dans le bloc RELAY du sens retour

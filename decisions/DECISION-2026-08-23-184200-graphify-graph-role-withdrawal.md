@@ -6,6 +6,9 @@ timezone: America/Montreal
 status: ARBITRATED
 owner_gate: granted
 scope: graphify-case-study, verdict
+amends:
+  - "DECISION-2026-08-18-004740-graphify-v1-architecture.md"
+  - "DECISION-2026-08-19-115306-project-registry-v1.md"
 ---
 
 # DÉCISION — RETRAIT DE GRAPHIFY DU RÔLE « GRAPHE DU VAULT »
