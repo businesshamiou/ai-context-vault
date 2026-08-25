@@ -27,7 +27,6 @@ Hors périmètre : <ce qui est explicitement exclu.>
 
 ## Sources
 
-- Prompt aligné : `<chemin relatif vers le PROMPT correspondant>`
 - <Autre source : rapport, Decision, mesure antérieure.>
 
 ## Décisions applicables
