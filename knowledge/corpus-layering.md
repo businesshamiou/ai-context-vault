@@ -127,4 +127,4 @@ L'application de ces principes à des cas précis — quels dossiers exactement,
 
 ## Liens
 
-- `voir aussi` — [Project Registry](../projects/PROJECT-REGISTRY.md)
+- `see also` — [Project Registry](../projects/PROJECT-REGISTRY.md)

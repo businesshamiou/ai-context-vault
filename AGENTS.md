@@ -26,6 +26,6 @@ Before any action: determine your role. Read [the role charter](./rules/RULES-20
 
 ## Liens
 
-- `applique` — [Cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
-- `applique` — [Standard de liens entre documents](./rules/RULES-2026-08-21-115658-document-linking-standard.md)
-- `applique` — [Relais entre rôles par mini-prompts à rubriques fixes](./rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
+- `applies` — [Cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
+- `applies` — [Standard de liens entre documents](./rules/RULES-2026-08-21-115658-document-linking-standard.md)
+- `applies` — [Relais entre rôles par mini-prompts à rubriques fixes](./rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)

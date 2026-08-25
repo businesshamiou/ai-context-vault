@@ -65,5 +65,5 @@ Ouvre l'exécution des lots A à E listés en proposal 122144 §5, à commencer 
 ## Liens
 
 - `source` — [Proposal sept arbitrages et ordre des lots révisé](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-122144-seven-arbitrations-and-revised-lot-order.md) (hors Vault)
-- `voir aussi` — [Mission 027 — Lot A](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-122712-027-state-journal-indexes-search-and-marker.md) (hors Vault)
-- `voir aussi` — [Mission 028 — Gravure du rang 1](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-123721-028-engrave-decisions-relay-rule.md) (hors Vault)
+- `see also` — [Mission 027 — Lot A](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-122712-027-state-journal-indexes-search-and-marker.md) (hors Vault)
+- `see also` — [Mission 028 — Gravure du rang 1](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-123721-028-engrave-decisions-relay-rule.md) (hors Vault)

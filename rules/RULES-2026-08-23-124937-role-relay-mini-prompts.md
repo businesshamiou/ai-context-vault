@@ -47,5 +47,5 @@ scope: role-relay, mission-workflow
 ## Liens
 
 - `source` — [Proposal — Relais entre rôles par mini-prompts à rubriques fixes](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-123648-role-relay-mini-prompts.md) (hors Vault)
-- `voir aussi` — [Décision — Adoption de la règle du relais entre rôles](../decisions/DECISION-2026-08-23-124937-role-relay-mini-prompts.md)
-- `amendé par` — [Décision — Rubrique « Résumé » dans le bloc RELAY du sens retour](../decisions/DECISION-2026-08-23-180500-relay-summary-rubric.md)
+- `see also` — [Décision — Adoption de la règle du relais entre rôles](../decisions/DECISION-2026-08-23-124937-role-relay-mini-prompts.md)
+- `amended by` — [Décision — Rubrique « Résumé » dans le bloc RELAY du sens retour](../decisions/DECISION-2026-08-23-180500-relay-summary-rubric.md)

@@ -43,4 +43,4 @@ Arbitrage Owner rendu en session de pilotage, sur la mesure du 2026-08-20.
 
 ## Liens
 
-- `applique` — [missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)
+- `applies` — [missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)

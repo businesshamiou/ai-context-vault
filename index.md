@@ -19,4 +19,4 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Liens
 
-- `prescrit par` — [Standard de liens entre documents](./rules/RULES-2026-08-21-115658-document-linking-standard.md)
+- `prescribed by` — [Standard de liens entre documents](./rules/RULES-2026-08-21-115658-document-linking-standard.md)

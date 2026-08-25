@@ -57,6 +57,6 @@ Deux arbitrages de l'Owner du 2026-08-23.
 
 ## Liens
 
-- `applique` — [Relais entre rôles par mini-prompts à rubriques fixes](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
-- `voir aussi` — [Adoption de la règle du relais entre rôles par mini-prompts](./DECISION-2026-08-23-124937-role-relay-mini-prompts.md)
-- `voir aussi` — [Mission 030 — Sens aller du relais gravé, liste des remplacés hors graphe](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-155258-030-relay-forward-snippet-and-superseded-list.md) (hors Vault)
+- `applies` — [Relais entre rôles par mini-prompts à rubriques fixes](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
+- `see also` — [Adoption de la règle du relais entre rôles par mini-prompts](./DECISION-2026-08-23-124937-role-relay-mini-prompts.md)
+- `see also` — [Mission 030 — Sens aller du relais gravé, liste des remplacés hors graphe](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-155258-030-relay-forward-snippet-and-superseded-list.md) (hors Vault)

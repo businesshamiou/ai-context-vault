@@ -55,7 +55,7 @@ Trois dettes orales et une contradiction constatée, toutes antérieures au 2026
 
 ## Liens
 
-- `voir aussi` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
-- `applique` — [Decision — taxonomie PIV et langue système anglaise](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
-- `voir aussi` — [Mission 053 — Gravures doctrinales du 2026-08-25](../../workshop-build/workshop-production/missions/MISSION-2026-08-25-124430-053-doctrinal-engravings.md) (hors Vault)
-- `voir aussi` — [Mission 054 — Anglicisation du vocabulaire de liens](../../workshop-build/workshop-production/missions/MISSION-2026-08-25-130324-054-link-vocabulary-anglicization.md) (hors Vault)
+- `see also` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
+- `applies` — [Decision — taxonomie PIV et langue système anglaise](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
+- `see also` — [Mission 053 — Gravures doctrinales du 2026-08-25](../../workshop-build/workshop-production/missions/MISSION-2026-08-25-124430-053-doctrinal-engravings.md) (hors Vault)
+- `see also` — [Mission 054 — Anglicisation du vocabulaire de liens](../../workshop-build/workshop-production/missions/MISSION-2026-08-25-130324-054-link-vocabulary-anglicization.md) (hors Vault)

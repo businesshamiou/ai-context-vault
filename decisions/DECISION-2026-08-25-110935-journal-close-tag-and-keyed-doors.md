@@ -62,5 +62,5 @@ La fiche d'état affichait l'union de toutes les sessions, sans fermeture ni dé
 
 ## Liens
 
-- `amende` — [Decision — Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal](./DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md)
-- `voir aussi` — [Mission 051 — Purge des portes ouvertes, tag CLOSE, index rattrapé](../../workshop-build/workshop-production/missions/MISSION-2026-08-25-110007-051-open-doors-purge-and-close-tag.md) (hors Vault)
+- `amends` — [Decision — Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal](./DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md)
+- `see also` — [Mission 051 — Purge des portes ouvertes, tag CLOSE, index rattrapé](../../workshop-build/workshop-production/missions/MISSION-2026-08-25-110007-051-open-doors-purge-and-close-tag.md) (hors Vault)

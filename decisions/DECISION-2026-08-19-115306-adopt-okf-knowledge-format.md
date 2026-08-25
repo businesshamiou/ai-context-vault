@@ -56,4 +56,4 @@ Arbitrage Owner rendu en session de pilotage.
 
 ## Liens
 
-- `voir aussi` — [Project Registry](../projects/PROJECT-REGISTRY.md)
+- `see also` — [Project Registry](../projects/PROJECT-REGISTRY.md)

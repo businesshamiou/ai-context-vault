@@ -122,5 +122,5 @@ Cinq scripts créés en Mission 027, deux modifiés en Mission 029, plus trois g
 
 ## Liens
 
-- `prescrit par` — [Runbook d'installation du Vault — registre vivant](../decisions/DECISION-2026-08-21-105117-vault-installation-runbook.md)
-- `voir aussi` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
+- `prescribed by` — [Runbook d'installation du Vault — registre vivant](../decisions/DECISION-2026-08-21-105117-vault-installation-runbook.md)
+- `see also` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)

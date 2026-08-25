@@ -69,6 +69,6 @@ Conséquence du défaut : le Pilot devait soit ouvrir le rapport complet — co�
 
 ## Liens
 
-- `amende` — [Relais entre rôles par mini-prompts à rubriques fixes](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
-- `voir aussi` — [Sens aller du relais en snippet, et liste des remplacés hors graphe mais versionnée](./DECISION-2026-08-23-155831-relay-forward-snippet-and-superseded-list-graph-exclusion.md)
-- `voir aussi` — [Mission 036 — Rubrique « Résumé » imposée au bloc RELAY](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-174203-036-relay-summary-rubric.md) (hors Vault)
+- `amends` — [Relais entre rôles par mini-prompts à rubriques fixes](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
+- `see also` — [Sens aller du relais en snippet, et liste des remplacés hors graphe mais versionnée](./DECISION-2026-08-23-155831-relay-forward-snippet-and-superseded-list-graph-exclusion.md)
+- `see also` — [Mission 036 — Rubrique « Résumé » imposée au bloc RELAY](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-174203-036-relay-summary-rubric.md) (hors Vault)

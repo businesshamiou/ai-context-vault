@@ -83,8 +83,8 @@ Ces deux points sont prouvés dans la Mission de convergence, sur la voie retenu
 
 ## Liens
 
-- `prescrit par` — [Cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
-- `applique` — [Règles de conduite du Vault](../rules/RULES-2026-08-17-005717-vault-operating-rules.md)
-- `voir aussi` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
-- `voir aussi` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
-- `voir aussi` — [Mission 046 — garde-fou d'obsolescence](../../workshop-build/workshop-production/missions/MISSION-2026-08-24-202044-046-obsolescence-guardrail.md) (hors Vault)
+- `prescribed by` — [Cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
+- `applies` — [Règles de conduite du Vault](../rules/RULES-2026-08-17-005717-vault-operating-rules.md)
+- `see also` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
+- `see also` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
+- `see also` — [Mission 046 — garde-fou d'obsolescence](../../workshop-build/workshop-production/missions/MISSION-2026-08-24-202044-046-obsolescence-guardrail.md) (hors Vault)

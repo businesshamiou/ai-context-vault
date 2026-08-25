@@ -58,6 +58,6 @@ Six gabarits existants et un gabarit de rapport portent désormais une section `
 
 ## Liens
 
-- `applique` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
+- `applies` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
 - `source` — [Proposal : standard de liens](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-21-113916-document-linking-standard.md) (hors Vault)
-- `voir aussi` — [Mission 023](../../workshop-build/workshop-production/missions/MISSION-2026-08-21-113958-023-linking-standard-and-ast-rebuild.md) (hors Vault)
+- `see also` — [Mission 023](../../workshop-build/workshop-production/missions/MISSION-2026-08-21-113958-023-linking-standard-and-ast-rebuild.md) (hors Vault)

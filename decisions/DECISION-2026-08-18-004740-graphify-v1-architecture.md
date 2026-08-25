@@ -94,5 +94,5 @@ Les limites acceptées en V1 sont la granularité principalement documentaire, l
 
 ## Liens
 
-- `amendé par` — [Amendement Graphify V1](./DECISION-2026-08-19-233650-graphify-integrations-amendment.md)
-- `amendé par` — [Retrait de Graphify du rôle « graphe du Vault »](./DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md)
+- `amended by` — [Amendement Graphify V1](./DECISION-2026-08-19-233650-graphify-integrations-amendment.md)
+- `amended by` — [Retrait de Graphify du rôle « graphe du Vault »](./DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md)

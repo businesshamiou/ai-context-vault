@@ -68,5 +68,5 @@ Arbitrage Owner rendu en session de pilotage, après lecture du rapport de recon
 
 ## Liens
 
-- `amende` — [Architecture Graphify V1](./DECISION-2026-08-18-004740-graphify-v1-architecture.md)
-- `voir aussi` — [Project Registry](../projects/PROJECT-REGISTRY.md)
+- `amends` — [Architecture Graphify V1](./DECISION-2026-08-18-004740-graphify-v1-architecture.md)
+- `see also` — [Project Registry](../projects/PROJECT-REGISTRY.md)

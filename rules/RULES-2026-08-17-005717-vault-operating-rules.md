@@ -80,4 +80,4 @@ Une nouvelle règle de nommage ne déclenche aucun renommage massif rétroactif.
 
 ## Liens
 
-- `amendé par` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §3 langue](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
+- `amended by` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §3 langue](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)

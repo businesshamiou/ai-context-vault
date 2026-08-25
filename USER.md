@@ -48,4 +48,4 @@ Contenu repris de la fiche utilisateur du Vault antérieur, transmise par l'Owne
 
 ## Liens
 
-- `voir aussi` — [Règles d'exploitation du Vault](./rules/RULES-2026-08-17-005717-vault-operating-rules.md)
+- `see also` — [Règles d'exploitation du Vault](./rules/RULES-2026-08-17-005717-vault-operating-rules.md)

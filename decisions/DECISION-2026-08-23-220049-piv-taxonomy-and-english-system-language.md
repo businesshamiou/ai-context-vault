@@ -75,8 +75,8 @@ Rejetés : politique déclarative sans consommateur (`policy.yaml` — contre-ex
 
 ## Liens
 
-- `amende` — [Règles de conduite du Vault](../rules/RULES-2026-08-17-005717-vault-operating-rules.md)
-- `amende` — [Versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md)
-- `amende` — [Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal](./DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md)
-- `voir aussi` — [Classification d'activité PIV et mots-clés système](../rules/RULES-2026-08-23-220049-activity-classification-and-system-keywords.md)
-- `voir aussi` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
+- `amends` — [Règles de conduite du Vault](../rules/RULES-2026-08-17-005717-vault-operating-rules.md)
+- `amends` — [Versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md)
+- `amends` — [Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal](./DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md)
+- `see also` — [Classification d'activité PIV et mots-clés système](../rules/RULES-2026-08-23-220049-activity-classification-and-system-keywords.md)
+- `see also` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)

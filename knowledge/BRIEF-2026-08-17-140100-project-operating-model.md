@@ -143,4 +143,4 @@ L'objectif est de rendre les projets suffisamment structurés pour être pilotab
 
 ## Liens
 
-- `remplacé par` — [BRIEF-2026-08-17-211522-project-operating-model-v2 — Modèle opératoire des projets V2 — frontière Vault/projet et hiérarchie Vault rules → Project rules → Mission/task instructions](BRIEF-2026-08-17-211522-project-operating-model-v2.md)
+- `superseded by` — [BRIEF-2026-08-17-211522-project-operating-model-v2 — Modèle opératoire des projets V2 — frontière Vault/projet et hiérarchie Vault rules → Project rules → Mission/task instructions](BRIEF-2026-08-17-211522-project-operating-model-v2.md)

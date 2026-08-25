@@ -54,5 +54,5 @@ Le paquet de distribution (lot E) n'installe pas Obsidian. Le lot A (Mission 027
 ## Liens
 
 - `source` — [Proposal sept arbitrages et ordre des lots révisé](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-122144-seven-arbitrations-and-revised-lot-order.md) (hors Vault)
-- `voir aussi` — [Décision — Sept arbitrages de session du 2026-08-23](./DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)
-- `voir aussi` — [Mission 027 — Lot A](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-122712-027-state-journal-indexes-search-and-marker.md) (hors Vault)
+- `see also` — [Décision — Sept arbitrages de session du 2026-08-23](./DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)
+- `see also` — [Mission 027 — Lot A](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-122712-027-state-journal-indexes-search-and-marker.md) (hors Vault)

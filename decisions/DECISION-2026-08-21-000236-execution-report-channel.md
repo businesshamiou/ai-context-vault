@@ -66,4 +66,4 @@ Un fichier court par Mission, coût négligeable. Premiers Prompts concernés : 
 
 - `source` — [PROPOSAL-2026-08-20-234824-execution-report-channel.md](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-20-234824-execution-report-channel.md) (hors Vault)
 - `source` — [MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md](../../workshop-build/workshop-production/missions/MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md) (hors Vault)
-- `applique` — [missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)
+- `applies` — [missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)

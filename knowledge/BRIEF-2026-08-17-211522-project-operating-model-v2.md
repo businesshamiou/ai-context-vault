@@ -92,4 +92,4 @@ Règle par défaut : un projet possède un repo principal. Plusieurs repos ne so
 
 ## Liens
 
-- `remplace` — [BRIEF-2026-08-17-140100-project-operating-model — Modèle opératoire des projets](BRIEF-2026-08-17-140100-project-operating-model.md)
+- `supersedes` — [BRIEF-2026-08-17-140100-project-operating-model — Modèle opératoire des projets](BRIEF-2026-08-17-140100-project-operating-model.md)

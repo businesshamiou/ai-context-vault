@@ -92,4 +92,4 @@ Le Vault conserve cette méthode et ses modèles. Chaque projet externe conserve
 
 ## Liens
 
-- `remplacé par` — [RULES-2026-08-17-111018-context-lifecycle-v2 — Cycle de contexte V2 — capture → proposal → decision → current state → handoff](RULES-2026-08-17-111018-context-lifecycle-v2.md)
+- `superseded by` — [RULES-2026-08-17-111018-context-lifecycle-v2 — Cycle de contexte V2 — capture → proposal → decision → current state → handoff](RULES-2026-08-17-111018-context-lifecycle-v2.md)

@@ -50,6 +50,6 @@ Toute Mission ou instruction ponctuelle déléguée à l'Executor applique la r�
 
 ## Liens
 
-- `applique` — [Relais entre rôles par mini-prompts à rubriques fixes](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
+- `applies` — [Relais entre rôles par mini-prompts à rubriques fixes](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
 - `source` — [Proposal — Relais entre rôles par mini-prompts à rubriques fixes](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-123648-role-relay-mini-prompts.md) (hors Vault)
-- `voir aussi` — [Mission 028 — Gravure du rang 1](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-123721-028-engrave-decisions-relay-rule.md) (hors Vault)
+- `see also` — [Mission 028 — Gravure du rang 1](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-123721-028-engrave-decisions-relay-rule.md) (hors Vault)

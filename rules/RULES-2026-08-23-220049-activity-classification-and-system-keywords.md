@@ -64,6 +64,6 @@ Si un cas réel ne rentre dans aucun type pendant l'usage, on le note dans le jo
 
 ## Liens
 
-- `applique` — [Decision : taxonomie PIV et langue système anglaise](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
-- `voir aussi` — [Règles de conduite du Vault](./RULES-2026-08-17-005717-vault-operating-rules.md)
-- `voir aussi` — [Relais entre rôles par mini-prompts](./RULES-2026-08-23-124937-role-relay-mini-prompts.md)
+- `applies` — [Decision : taxonomie PIV et langue système anglaise](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
+- `see also` — [Règles de conduite du Vault](./RULES-2026-08-17-005717-vault-operating-rules.md)
+- `see also` — [Relais entre rôles par mini-prompts](./RULES-2026-08-23-124937-role-relay-mini-prompts.md)

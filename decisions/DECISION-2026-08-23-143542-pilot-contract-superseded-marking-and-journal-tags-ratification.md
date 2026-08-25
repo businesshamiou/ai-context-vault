@@ -74,7 +74,7 @@ Une règle de comportement gravée dans un fichier que le Pilot a ordre de ne pa
 ## Liens
 
 - `source` — [Proposal — Contrat de comportement du Pilot et marquage des documents remplacés](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-140150-pilot-behavior-contract-and-superseded-marking.md) (hors Vault)
-- `applique` — [Mission 029 — Contrat du Pilot, marquage des remplacés, prompt d'ouverture minimal](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-142039-029-pilot-contract-superseded-marking-minimal-opening.md) (hors Vault)
-- `voir aussi` — [Sept arbitrages de session du 2026-08-23](./DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)
-- `amendé par` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §4 ratification des tags de journal](./DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
-- `amendé par` — [Decision : extension de la convention de tags du journal — tag CLOSE: et portes à clé](./DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md)
+- `applies` — [Mission 029 — Contrat du Pilot, marquage des remplacés, prompt d'ouverture minimal](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-142039-029-pilot-contract-superseded-marking-minimal-opening.md) (hors Vault)
+- `see also` — [Sept arbitrages de session du 2026-08-23](./DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)
+- `amended by` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §4 ratification des tags de journal](./DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
+- `amended by` — [Decision : extension de la convention de tags du journal — tag CLOSE: et portes à clé](./DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md)

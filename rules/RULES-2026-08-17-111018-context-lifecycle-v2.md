@@ -74,4 +74,4 @@ Une amélioration issue d'un projet ne rejoint le Vault qu'après validation hum
 
 ## Liens
 
-- `remplace` — [RULES-2026-08-17-013937-context-lifecycle — Cycle minimal de conservation et de reprise du contexte](RULES-2026-08-17-013937-context-lifecycle.md)
+- `supersedes` — [RULES-2026-08-17-013937-context-lifecycle — Cycle minimal de conservation et de reprise du contexte](RULES-2026-08-17-013937-context-lifecycle.md)
