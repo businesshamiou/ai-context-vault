@@ -65,6 +65,24 @@ fi
 
 mkdir -p "$STATE_DIR"
 
+# --- 0bis. Références de session (catalogue fixe, depuis Mission 053) ---
+# Chemins relatifs calcules depuis $STATE_DIR (jamais recopiés en dur) : la
+# fiche est un catalogue de pointeurs, aucun contenu normatif n'est recopié.
+session_ref_line() {
+  local target="$1" desc="$2" rel
+  rel="$(realpath --relative-to="$STATE_DIR" "$target" 2>/dev/null)"
+  [ -z "$rel" ] && rel="(introuvable : $target)"
+  echo "- \`$rel\` — $desc"
+}
+
+SESSION_REFS="$(
+  session_ref_line "$VAULT_ROOT/rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md" "Charte des rôles et détermination de session — Pilot/Executor, périmètre d'écriture du Pilot."
+  session_ref_line "$VAULT_ROOT/rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md" "Relais entre rôles par mini-prompts — mini-prompt à l'aller, bloc RELAY au retour."
+  session_ref_line "$VAULT_ROOT/decisions/DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md" "Decision — tag CLOSE: et portes à clé du journal."
+  session_ref_line "$VAULT_ROOT/rules/RULES-2026-08-21-115658-document-linking-standard.md" "Standard de liens entre documents."
+  session_ref_line "$VAULT_ROOT/decisions/DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md" "Decision — arbitrages doctrinaux du 2026-08-25 (shell Pilot révoqué, auto-rangement, références de session, anglicisation du vocabulaire de liens)."
+)"
+
 get_field() {
   awk -v f="$2" '
     NR==1 && $0=="---" { infm=1; next }
@@ -216,6 +234,10 @@ fi
   echo "## Contrat du Pilot"
   echo ""
   printf '%s\n' "$CONTRACT_LINES"
+  echo ""
+  echo "## Références de session"
+  echo ""
+  printf '%s\n' "$SESSION_REFS"
   echo ""
   echo "## État courant"
   echo ""
