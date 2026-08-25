@@ -5,9 +5,20 @@
 # Convention de tags reconnue dans les lignes du journal (texte apres l'horodatage) :
 #   ETAT:<texte>     -> etat courant (derniere occurrence retenue)
 #   PROCHAIN:<texte> -> prochaine action (derniere occurrence retenue)
-#   OUVERT:<texte>   -> porte ouverte (toutes les occurrences listees)
 #   REPRISE:<texte>  -> note de reprise ; doit etre la derniere ligne du journal
-# Depuis Mission 038, double reconnaissance : STATE:/NEXT:/OPEN:/RESUME: (anglais) en plus des tags francais ci-dessus.
+# Depuis Mission 038, double reconnaissance : STATE:/NEXT:/RESUME: (anglais) en plus des tags francais ci-dessus.
+#
+# Portes (depuis Mission 051) : une-porte-une-ligne-une-clé.
+#   OUVERT:<clé> -- <texte>   -> ouvre/reouvre une porte (francais, historique seulement)
+#   OPEN:<clé> -- <texte>     -> ouvre/reouvre une porte (anglais, nouvelles ecritures)
+#   CLOSE:<clé> -- <reference> -> ferme une porte ; aucun equivalent francais, tag de fermeture unique
+#   <clé> ~ ^(open|frozen)-[a-z0-9-]+ ; separateur " -- " obligatoire entre la clé et le texte.
+#   Etat affiche = pour chaque clé, la derniere occurrence dans le journal (ordre d'ajout, journal en
+#   ajout seul donc chronologique) : si c'est un OUVERT:/OPEN:, la porte est affichee avec son texte ;
+#   si c'est un CLOSE: posterieur de la meme clé, la porte est retiree. Une reouverture ulterieure la
+#   fait reapparaitre.
+#   Lignes OUVERT:/OPEN: sans clé conforme = legacy (anterieures a la baseline arbitree du 2026-08-25,
+#   voir DECISION-2026-08-25-110935) : exclues de la liste des portes, comptees en une ligne unique.
 # Une ligne sans tag reconnu n'alimente aucune rubrique ci-dessus.
 #
 # usage: build-state.sh <chemin-projet>
@@ -87,10 +98,71 @@ if [ -f "$JOURNAL" ]; then
     P="$(printf '%s\n' "$DATED" | grep -E 'PROCHAIN:|NEXT:' | tail -n 1 | sed -E 's/^.*(PROCHAIN|NEXT):[[:space:]]*//')"
     [ -n "$P" ] && PROCHAIN="$P"
 
-    O="$(printf '%s\n' "$DATED" | grep -E 'OUVERT:|OPEN:' | sed -E 's/^.*(OUVERT|OPEN):[[:space:]]*//')"
-    if [ -n "$O" ]; then
-      OUVERTES="$(printf '%s\n' "$O" | sed 's/^/- /')"
+    # Portes a clé : traitement en ordre d'ajout du journal (ajout seul donc
+    # chronologique) -- la derniere occurrence par clé (OUVERT:/OPEN: ou
+    # CLOSE:) determine l'etat net. Sortie : lignes "D<TAB>texte" pour les
+    # portes affichees, une ligne "L<TAB>n" pour le compte legacy.
+    DOORS_RAW="$(printf '%s\n' "$DATED" | awk '
+      {
+        line = $0
+        # Le tag doit suivre immediatement lhorodatage (premier champ) : une
+        # occurrence de "OPEN:"/"OUVERT:" en prose ailleurs sur la ligne (ex.
+        # une ligne STATE: qui documente la convention) ne doit pas etre
+        # prise pour une porte.
+        tsend = index(line, " ")
+        after_ts = substr(line, tsend + 1)
+        if (after_ts ~ /^(OUVERT|OPEN):[[:space:]]*/) {
+          sub(/^(OUVERT|OPEN):[[:space:]]*/, "", after_ts)
+          rest = after_ts
+          kind = "open"
+        } else if (after_ts ~ /^CLOSE:[[:space:]]*/) {
+          sub(/^CLOSE:[[:space:]]*/, "", after_ts)
+          rest = after_ts
+          kind = "close"
+        } else {
+          next
+        }
+
+        if (rest ~ /^(open|frozen)-[a-z0-9-]+ -- /) {
+          keyend = index(rest, " -- ")
+          key = substr(rest, 1, keyend - 1)
+          if (kind == "open") {
+            if (!(key in seen)) { order[++n] = key; seen[key] = 1 }
+            text[key] = rest
+            status[key] = "open"
+          } else if (key in seen) {
+            status[key] = "closed"
+          }
+        } else if (kind == "open") {
+          legacy++
+        }
+      }
+      END {
+        for (i = 1; i <= n; i++) {
+          k = order[i]
+          if (status[k] == "open") print "D\t" text[k]
+        }
+        print "L\t" (legacy + 0)
+      }
+    ')"
+
+    DOOR_LINES="$(printf '%s\n' "$DOORS_RAW" | awk -F'\t' '$1=="D"{print substr($0, 3)}')"
+    LEGACY_N="$(printf '%s\n' "$DOORS_RAW" | awk -F'\t' '$1=="L"{print $2}')"
+
+    OUVERTES=""
+    if [ -n "$DOOR_LINES" ]; then
+      OUVERTES="$(printf '%s\n' "$DOOR_LINES" | sed 's/^/- /')"
     fi
+    if [ -n "$LEGACY_N" ] && [ "$LEGACY_N" -gt 0 ]; then
+      LEGACY_LINE="- ${LEGACY_N} lignes OPEN legacy antérieures à la baseline du 2026-08-25 — voir journal"
+      if [ -n "$OUVERTES" ]; then
+        OUVERTES="$OUVERTES
+$LEGACY_LINE"
+      else
+        OUVERTES="$LEGACY_LINE"
+      fi
+    fi
+    [ -z "$OUVERTES" ] && OUVERTES="Aucune."
 
     case "$LAST_LINE" in
       *'REPRISE:'*|*'RESUME:'*) REPRISE_STATUS="Note de reprise en fin de journal : $(printf '%s' "$LAST_LINE" | sed -E 's/^.*(REPRISE|RESUME):[[:space:]]*//')" ;;
