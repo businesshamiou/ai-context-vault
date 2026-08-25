@@ -361,14 +361,15 @@ check_pair() {
   CHECKED=$((CHECKED + 1))
   local found=0
   for i in "${!EDGE_SRC[@]}"; do
-    if [ "${EDGE_SRC[$i]}" = "$tgt" ] && [ "${EDGE_TGT[$i]}" = "$src" ] && [ "${EDGE_TYPE[$i]}" = "remplacé par" ]; then
+    if [ "${EDGE_SRC[$i]}" = "$tgt" ] && [ "${EDGE_TGT[$i]}" = "$src" ] \
+      && { [ "${EDGE_TYPE[$i]}" = "remplacé par" ] || [ "${EDGE_TYPE[$i]}" = "superseded by" ]; }; then
       found=1
       break
     fi
   done
   if [ "$found" -eq 0 ]; then
     INCOMPLETE=$((INCOMPLETE + 1))
-    echo "INCOMPLET : $src (remplace) -> $tgt (remplace) : ligne \`remplacé par\` manquante dans $tgt"
+    echo "INCOMPLET : $src (remplace) -> $tgt (remplace) : ligne \`remplacé par\`/\`superseded by\` manquante dans $tgt"
   fi
   local st="${DOC_STATUS[$tgt]:-}"
   local st_lc
@@ -414,9 +415,10 @@ for i in "${!SUP_SRC[@]}"; do
   check_pair "$src" "$tgt"
 done
 
-# (b) via section Liens, type "remplace"
+# (b) via section Liens, type "remplace"/"supersedes" (double reconnaissance
+# FR+EN, Mission 054 -- bascule anglais seul retire la branche francaise)
 for i in "${!EDGE_SRC[@]}"; do
-  if [ "${EDGE_TYPE[$i]}" = "remplace" ] && [ -n "${EDGE_TGT[$i]}" ]; then
+  if { [ "${EDGE_TYPE[$i]}" = "remplace" ] || [ "${EDGE_TYPE[$i]}" = "supersedes" ]; } && [ -n "${EDGE_TGT[$i]}" ]; then
     check_pair "${EDGE_SRC[$i]}" "${EDGE_TGT[$i]}"
   fi
 done
