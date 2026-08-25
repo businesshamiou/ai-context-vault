@@ -3,7 +3,7 @@ type: rules
 title: "Cycle minimal de conservation et de reprise du contexte"
 created_at: 2026-08-17T01:39:37-04:00
 timezone: America/Montreal
-status: active
+status: superseded
 ---
 
 # CYCLE MINIMAL DE CONTEXTE
@@ -89,3 +89,7 @@ Les quatre mécanismes sont disponibles à chaque session, mais aucun n’est ob
 ## 8. Frontière Vault / projets
 
 Le Vault conserve cette méthode et ses modèles. Chaque projet externe conserve ses captures, décisions, handoffs et son état courant dans son propre espace. Une leçon issue d’un projet ne remonte dans le Vault qu’après validation humaine de son caractère transversal.
+
+## Liens
+
+- `remplacé par` — [RULES-2026-08-17-111018-context-lifecycle-v2 — Cycle de contexte V2 — capture → proposal → decision → current state → handoff](RULES-2026-08-17-111018-context-lifecycle-v2.md)

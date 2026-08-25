@@ -71,3 +71,7 @@ work
 Le Vault conserve cette règle, les explications transversales et les modèles. Les projets externes portent leur propre état courant et leurs propres captures, proposals, décisions et handoffs.
 
 Une amélioration issue d'un projet ne rejoint le Vault qu'après validation humaine de son caractère transversal. Le mécanisme de preuve associé est expliqué dans [Vérification et preuves](../knowledge/verification-and-evidence.md).
+
+## Liens
+
+- `remplace` — [RULES-2026-08-17-013937-context-lifecycle — Cycle minimal de conservation et de reprise du contexte](RULES-2026-08-17-013937-context-lifecycle.md)
