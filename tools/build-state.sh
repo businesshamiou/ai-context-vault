@@ -273,5 +273,5 @@ fi
   echo ""
   echo "## Liens"
   echo ""
-  echo "- \`prescrit par\` — [Lot A — journal, fiche d'état, index générés, recherche par contenu et fichier marqueur](../missions/MISSION-2026-08-23-122712-027-state-journal-indexes-search-and-marker.md)"
+  echo "- \`prescribed by\` — [Lot A — journal, fiche d'état, index générés, recherche par contenu et fichier marqueur](../missions/MISSION-2026-08-23-122712-027-state-journal-indexes-search-and-marker.md)"
 } > "$STATE_FILE"

@@ -155,7 +155,7 @@ EOF_ALLMD
       echo "## Liens"
       echo ""
       if [ -n "$REL_STD" ]; then
-        echo "- \`prescrit par\` — [Standard de liens entre documents]($REL_STD)$HORS_SUFFIX"
+        echo "- \`prescribed by\` — [Standard de liens entre documents]($REL_STD)$HORS_SUFFIX"
       fi
     } > "$INDEX"
 
