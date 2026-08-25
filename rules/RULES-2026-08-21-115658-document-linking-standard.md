@@ -24,11 +24,11 @@ Un lien s'écrit `[titre lisible](chemin relatif)` ; le chemin est relatif à l'
 
 ## 4. Vocabulaire fermé des types
 
-Chaque entrée de la section `## Liens` porte un type parmi les six ci-dessous. Aucun autre type sans amendement de cette règle. [source : adr-tools « Supersedes / Amends »] [choix : la liste retenue]
+Chaque entrée de la section `## Liens` porte un type parmi les six ci-dessous, en anglais. Aucun autre type sans amendement de cette règle. [source : adr-tools « Supersedes / Amends »] [choix : la liste retenue] [amende : Decision — arbitrages doctrinaux du 2026-08-25, point 4, anglicisation exécutée par la Mission 054]
 
 ## 5. Lien inverse
 
-`remplace` et `amende` imposent la ligne inverse dans la cible (`remplacé par`, `amendé par`) dans le même commit. [source : adr-tools écrit toujours le lien retour]
+`supersedes` et `amends` imposent la ligne inverse dans la cible (`superseded by`, `amended by`) dans le même commit. [source : adr-tools écrit toujours le lien retour]
 
 ## 6. Hors corpus
 
@@ -40,7 +40,7 @@ Les champs `supersedes`, `amends`, `sources`, `related_mission` restent et doive
 
 ## 8. Gabarits
 
-Chaque gabarit porte la section `## Liens` pré-remplie avec au moins la ligne `prescrit par` vers la règle qui le prescrit. [mesure : Mission 021, aucun gabarit relié]
+Chaque gabarit porte la section `## Liens` pré-remplie avec au moins la ligne `prescribed by` vers la règle qui le prescrit. [mesure : Mission 021, aucun gabarit relié]
 
 ## 9. Vérification machine
 
@@ -60,14 +60,29 @@ Une ligne dans `AGENTS.md` renvoie à cette règle. [pratique établie : rapport
 
 ## Vocabulaire des types
 
+Mots-clés système en anglais sans exception, aligné sur le front-matter déjà anglais (`supersedes`, `amends`) — [Decision — arbitrages doctrinaux du 2026-08-25](../decisions/DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md), point 4. Le vocabulaire français ci-avant est **retiré** ; la correspondance historique est conservée en note pour lire le corpus antérieur à la migration (Mission 054).
+
 | Type | Définition | Inverse |
 |---|---|---|
-| `applique` | le document met en œuvre une règle ou une decision citée | — |
-| `remplace` | le document rend obsolète la cible, qui cesse d'être une source de vérité | `remplacé par` (obligatoire dans la cible) |
-| `amende` | le document modifie partiellement la cible, qui reste en vigueur pour le reste | `amendé par` (obligatoire dans la cible) |
+| `applies` | le document met en œuvre une règle ou une decision citée | — |
+| `supersedes` | le document rend obsolète la cible, qui cesse d'être une source de vérité | `superseded by` (obligatoire dans la cible) |
+| `amends` | le document modifie partiellement la cible, qui reste en vigueur pour le reste | `amended by` (obligatoire dans la cible) |
 | `source` | le document s'appuie sur la cible comme fondement ou preuve | — |
-| `prescrit par` | le document est un gabarit ou un artefact régi par la règle citée | — |
-| `voir aussi` | relation informative sans dépendance normative | — |
+| `prescribed by` | le document est un gabarit ou un artefact régi par la règle citée | — |
+| `see also` | relation informative sans dépendance normative | — |
+
+**Correspondance historique** (retirée, pour lecture du corpus antérieur à la Mission 054 seulement) :
+
+| Français (retiré) | Anglais (canonique) |
+|---|---|
+| `applique` | `applies` |
+| `remplace` | `supersedes` |
+| `amende` | `amends` |
+| `source` | `source` (inchangé) |
+| `prescrit par` | `prescribed by` |
+| `voir aussi` | `see also` |
+| `remplacé par` | `superseded by` |
+| `amendé par` | `amended by` |
 
 ## Exemple
 
@@ -80,11 +95,11 @@ Cette note applique le [Standard de liens entre documents](../rules/RULES-2026-0
 
 ## Liens
 
-- `applique` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
+- `applies` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
 ```
 
 ## Liens
 
-- `applique` — [Règles de conduite du Vault, §8](./RULES-2026-08-17-005717-vault-operating-rules.md)
+- `applies` — [Règles de conduite du Vault, §8](./RULES-2026-08-17-005717-vault-operating-rules.md)
 - `source` — [Proposal : standard de liens](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-21-113916-document-linking-standard.md) (hors Vault)
-- `voir aussi` — [Runbook d'installation du Vault](../knowledge/runbook-vault-setup.md)
+- `see also` — [Runbook d'installation du Vault](../knowledge/runbook-vault-setup.md)
