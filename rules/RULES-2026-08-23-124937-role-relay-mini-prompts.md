@@ -50,3 +50,4 @@ scope: role-relay, mission-workflow
 - `see also` — [Décision — Adoption de la règle du relais entre rôles](../decisions/DECISION-2026-08-23-124937-role-relay-mini-prompts.md)
 - `amended by` — [Décision — Rubrique « Résumé » dans le bloc RELAY du sens retour](../decisions/DECISION-2026-08-23-180500-relay-summary-rubric.md)
 - `amended by` — [Décision — Répertoire d'ouverture d'une session, position libérée](../../workshop-build/workshop-production/decisions/DECISION-2026-08-25-213150-session-opening-directory-freed.md)
+- `amended by` — [Décision — Le push délégué devient une règle](../decisions/DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md)
