@@ -35,7 +35,7 @@ Adoption des sept arbitrages rendus par l'Owner en session le 2026-08-23, tels q
 
 6. **Évaluation de Graphify.** Retenu : corriger, tester, puis trancher — Graphify n'est ni gelé ni retiré par anticipation ; il est réparé (les index générés n'entrent pas dans le graphe, défaut principal à corriger) et remesuré dans les conditions corrigées, protocole complet en proposal 122144 §3. Écarté : geler ou retirer Graphify par anticipation, avant mesure dans les conditions corrigées.
 
-7. **Distribution et première installation.** Retenu : un paquet squelette plus un projet modèle démontable, effaçable par une commande — le projet modèle est le cas métier « Une semaine sans écran », reconstruit proprement depuis les gabarits courants. L'histoire réelle du chantier ne s'installe pas chez l'utilisateur : elle devient une étude de cas système (le workshop a construit le workshop), destinée à la présentation et à la fiche produit. Le skill de première installation fait quatre choses et pas davantage : poser ses questions de contexte, écrire le fichier marqueur avec le nom et le contrat, démarrer le journal, générer les premiers index. Écarté : installer l'histoire réelle du chantier chez l'utilisateur.
+7. **Distribution et première installation.** Retenu : un paquet squelette plus un projet modèle démontable, effaçable par une commande — le projet modèle est le cas métier « Une semaine sans écran », reconstruit proprement depuis les gabarits courants. L'histoire réelle du chantier ne s'installe pas chez l'utilisateur : elle devient une étude de cas système (le workshop a construit le workshop), destinée à la présentation et à la fiche produit. Le skill de première installation fait quatre choses et pas davantage : poser ses questions de contexte, écrire le fichier marqueur avec le nom et le contrat, démarrer le journal, générer les premiers index. Écarté : installer l'histoire réelle du chantier chez l'utilisateur. *Note d'amendement (2026-08-26) : le projet modèle ci-dessus n'est plus « Une semaine sans écran » — la Décision `205728` abandonne ce cas d'étude, et la Décision `232341` (point 1.7) désigne `wordpress-workshop` comme premier-né du standard de projet et candidat projet modèle du paquet distribuable.*
 
 ## Raison
 
@@ -64,6 +64,7 @@ Ouvre l'exécution des lots A à E listés en proposal 122144 §5, à commencer 
 
 ## Liens
 
+- `amended by` — [Décision — Pivot du cas d'usage de l'atelier](../../workshop-build/workshop-production/decisions/DECISION-2026-08-25-205728-workshop-case-study-pivot-wordpress.md)
 - `source` — [Proposal sept arbitrages et ordre des lots révisé](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-122144-seven-arbitrations-and-revised-lot-order.md) (hors Vault)
 - `see also` — [Mission 027 — Lot A](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-122712-027-state-journal-indexes-search-and-marker.md) (hors Vault)
 - `see also` — [Mission 028 — Gravure du rang 1](../../workshop-build/workshop-production/missions/MISSION-2026-08-23-123721-028-engrave-decisions-relay-rule.md) (hors Vault)
