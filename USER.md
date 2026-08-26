@@ -26,7 +26,7 @@ Ce fichier porte le contexte personnel que tout agent ouvrant une session doit c
 - **Niche** : produits digitaux et affiliation marketing
 - **Produit en cours** : One Clear Offer System
 - **Plateformes prévues** : WordPress, YouTube, blog — rien d'actif à ce jour
-- **MiroShark** : outil de simulations, projet séparé ; présent en contexte, pas travaillé activement
+- **MiroShark** : ancien cas d'étude de l'atelier, abandonné le 2026-08-25 (Décision `205728`)
 
 ## Façon de travailler
 
