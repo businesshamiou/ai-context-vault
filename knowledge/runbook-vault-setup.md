@@ -1,6 +1,7 @@
 ---
 type: knowledge
 title: "Runbook d'installation du Vault — V1"
+description: "Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage ; registre vivant mis à jour par toute Mission qui touche à l'installation."
 created_at: 2026-08-21T10:51:17-04:00
 timezone: America/Montreal
 status: active
@@ -32,12 +33,10 @@ Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage. Co
 ## 3. Git
 
 - [VERIFIED] `git config core.hooksPath` → `.githooks`. Cette configuration est **locale, non versionnée** : à refaire après tout clone (`git config core.hooksPath .githooks`) — [DECLARED — `AGENTS.md:12`].
-- [VERIFIED] Contenu de `.githooks/` : `commit-msg`, `post-checkout`, `post-commit`, `pre-commit`, `pre-push` (tous exécutables).
-  - `pre-commit`, `pre-push`, `commit-msg` : garde-fous (contrôle de secrets — voir `tools/check-secrets.sh`, qui refuse par défaut si `rules/patterns/secret-patterns.txt` est introuvable ; contrôle de liens — voir `tools/check-links.sh`, appelé juste après dans `pre-commit`, qui bloque tout `.md` stagé sans section `## Liens` ou avec un lien relatif cassé, et avertit sans bloquer en l'absence de lien interne — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)).
-  - `post-commit`, `post-checkout` : écrits par Graphify, déclenchent une reconstruction **syntaxique** du graphe après un commit ou un changement de branche — analyse locale, sans appel à un modèle, sans transmission de contenu [DECLARED — `DECISION-2026-08-19-233650-graphify-integrations-amendment.md`, D1].
+- [VERIFIED] Contenu de `.githooks/` : `commit-msg`, `pre-commit`, `pre-push` (tous exécutables). `post-commit` et `post-checkout` (écrits par Graphify) ont disparu avec le retrait de Graphify (Mission 040, §4) : plus aucune reconstruction déclenchée après un commit ou un changement de branche.
+  - `pre-commit`, `pre-push`, `commit-msg` : garde-fous (contrôle de secrets — voir `tools/check-secrets.sh`, qui refuse par défaut si `rules/patterns/secret-patterns.txt` est introuvable ; contrôle de liens — voir `tools/check-links.sh`, appelé juste après dans `pre-commit`, qui bloque tout `.md` stagé sans section `## Liens` ou avec un lien relatif cassé, et avertit sans bloquer en l'absence de lien interne — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)). Les deux contrôles sont précédés par la muraille de préflight (`tools/session-preflight.sh`, §10), qui refuse tout commit si son tampon est absent, `ready: false` ou périmé.
   - Ne jamais modifier un hook écrit par l'outil [DECLARED — `AGENTS.md:17`] ; un rôle ne modifie pas son propre garde-fou.
-- [VERIFIED] `.gitattributes` → `graphify-out/graph.json merge=graphify` (merge driver dédié pour éviter les conflits sur le graphe généré).
-- [VERIFIED] `graphify hook status` → `post-commit: installed`, `post-checkout: installed`, `merge driver: registered`.
+- [VERIFIED] `.gitattributes` (Mission 062) → `* text=auto` et `*.sh text eol=lf`, normalisation des fins de ligne dans les deux dépôts. Remplace l'ancienne entrée `graphify-out/graph.json merge=graphify` (merge driver dédié au graphe généré), sans objet depuis le retrait de Graphify (Mission 040, §4).
 
 ## 4. Graphify — retiré
 
@@ -73,11 +72,9 @@ Une commande et son résultat attendu, par composant :
 | Composant | Commande | Résultat attendu |
 |---|---|---|
 | Git | `git status -sb` | branche courante, aucune divergence inattendue |
-| Hooks | `graphify hook status` | `post-commit: installed`, `post-checkout: installed`, `merge driver: registered` |
-| Graphify (version système) | `graphify --version` | `graphify 0.9.26` — ne doit **jamais** dévier sans Decision explicite |
-| Clé Gemini | `set -a; source .env; set +a && [ -n "$GEMINI_API_KEY" ] && echo oui` | `oui`, sans jamais afficher la valeur |
+| Hooks | `git config core.hooksPath` puis lister `.githooks/` | `.githooks` ; `commit-msg`, `pre-commit`, `pre-push` seulement (§3) |
+| Muraille de préflight | `bash tools/session-preflight.sh` | `READY` ; tampon `.claude/.preflight_stamp.json` écrit avec `"ready": true` |
 | MCP « workshops » | lecture d'un fichier connu du Vault depuis le Pilot | contenu retourné sans erreur |
-| Graphe | `graphify query "<question>"` sur `graphify-out/graph.json` | sous-graphe pertinent renvoyé, pas d'erreur de fichier manquant |
 | Contrôle de liens | `bash tools/check-links.sh` sur un `.md` stagé sans section `## Liens` | `exit 1`, message `LIENS: section manquante: <fichier>` |
 
 ## 8. Outillage d'état, journal, index et recherche (Missions 027 et 029)
