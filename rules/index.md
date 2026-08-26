@@ -21,6 +21,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `RULES-2026-08-23-124937-role-relay-mini-prompts.md` — Relais entre rôles par mini-prompts à rubriques fixes · rules
 - `RULES-2026-08-23-220049-activity-classification-and-system-keywords.md` — Classification d'activité PIV et mots-clés système · rules
 - `RULES-2026-08-23-224706-role-charter-and-session-determination.md` — Charte des rôles et détermination de session · rules
+- `RULES-2026-08-26-142800-project-structure-standard.md` — Standard de structure de projet — sept fonctions, squelette, frontière Vault/projet, YAGNI, clause du grand-père · rules
 
 ## Liens
 
