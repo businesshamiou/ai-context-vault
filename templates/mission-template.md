@@ -26,6 +26,12 @@ Rappel : `status` ci-dessus fige l'autorisation à la création de ce fichier ; 
 
 Hors périmètre : <ce qui est explicitement exclu.>
 
+## Préconditions
+
+<!-- Ce que l'Executor mesure avant d'écrire quoi que ce soit ; au moindre écart non trivial : STOP et rapport, aucune écriture (232341, Impact). -->
+
+1. <État attendu, mesuré avant toute écriture ; écart non trivial = STOP.>
+
 ## Sources
 
 - <Autre source : rapport, Decision, mesure antérieure.>
@@ -50,11 +56,25 @@ Hors périmètre : <ce qui est explicitement exclu.>
 
 ## Validations
 
-- <Critère vérifiable qui confirme le résultat.>
+<!-- Chaque critère porte un compte relatif chiffré, avant et après (232341, Impact) : pas "corrigé", mais "3 avant, 0 après". -->
+
+- <Critère vérifiable qui confirme le résultat, avec son compte avant/après chiffré.>
 
 ## Contrat de sortie
 
 <Forme du rapport de clôture attendu : distinction VERIFIED/ANOMALY, preuves, SHA des commits, remesure finale, arrêt explicite.>
+
+## Contrat de reprise
+
+<!-- Rempli seulement si la fenêtre s'arrête en PARTIEL : dernier commit sain, ce qui reste à faire, comment la prochaine fenêtre reprend sans rejouer ce qui est fait (232341, Impact). -->
+
+<Dernier commit sain ; étapes restantes ; point de reprise pour la prochaine fenêtre.>
+
+## Portes
+
+<!-- Une ligne par porte que cette Mission ouvre ou ferme, avec sa ligne CLOSE: exacte si elle se ferme ici (Decision 110935, 232341 Impact). -->
+
+- <clé de porte> — <CLOSE: ... | reste ouverte, raison>
 
 ## Liens
 
