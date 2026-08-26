@@ -5,6 +5,7 @@ correction:                  # "Cxx" si correction ; sinon omettre entièrement 
 supersedes:                  # chemin du fichier remplacé si correction ; sinon omettre entièrement cette clé
 status: AUTHORIZED           # autorisation à la création — figé, jamais retouché ensuite
 title: "<titre de la Mission>"
+description: "<une à deux phrases>"  # écrites par l'auteur au moment du dépôt, jamais générées par un modèle tiers (232341 §2.1)
 created_at: "YYYY-MM-DDTHH:MM:SS±HH:MM"
 timezone: America/Montreal
 scope: <slug-kebab-case>
