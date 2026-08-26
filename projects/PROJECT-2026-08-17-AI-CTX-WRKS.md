@@ -11,6 +11,9 @@ canonical_context: "workshop-production/captures/CAPTURE-2026-08-19-013315-works
 entry_point: "workshop-production/missions/MISSION-INDEX.md"
 last_verified: 2026-08-19
 stale_after: 90d
+structure_standard: "../rules/RULES-2026-08-26-142800-project-structure-standard.md"
+conformity: ÉCART
+last_conformity_check: 2026-08-26
 ---
 
 # PROJECT — WORKSHOP IA / MINI SECOND BRAIN
@@ -36,7 +39,14 @@ Chemins relatifs à la racine du projet.
 
 Premier projet inscrit au Registry. Ce projet fabrique le workshop qui enseigne la méthode ; il est simultanément produit pédagogique, premier test réel du système et case study principal.
 
+## Conformité (registre v2)
+
+- `structure_standard` : [Standard de structure de projet](../rules/RULES-2026-08-26-142800-project-structure-standard.md)
+- `conformity` : `ÉCART`, mesuré le `2026-08-26` par `tools/check-project-conformity.sh workshop-build` — manques : `state, missions, decisions, proposals, knowledge, handoffs`.
+- Écart couvert par la clause du grand-père (standard §5) : les sept fonctions existent réellement, mais nichées sous `workshop-production/` plutôt qu'à la racine du dépôt `workshop-build` — antérieur au standard, non restructuré (coût connu, gain nul). Constat, pas un défaut à corriger.
+
 ## Liens
 
 - `source` — [workshop-production/captures/CAPTURE-2026-08-19-013315-workshop-master-context-consolidated.md](../../workshop-build/workshop-production/captures/CAPTURE-2026-08-19-013315-workshop-master-context-consolidated.md) (hors Vault)
 - `source` — [workshop-production/missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)
+- `source` — [Standard de structure de projet](../rules/RULES-2026-08-26-142800-project-structure-standard.md)
