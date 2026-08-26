@@ -26,7 +26,7 @@ Adoption de la [règle du standard de liens entre documents](../rules/RULES-2026
 Choix retenus pour les points marqués `[choix]` dans la proposal, repris tels qu'écrits :
 
 - Nom de la section récapitulative : « Liens » (point 2).
-- Vocabulaire fermé à six types : `applique`, `remplace`, `amende`, `source`, `prescrit par`, `voir aussi` (point 4).
+- Vocabulaire fermé à six types : `applique`, `remplace`, `amende`, `source`, `prescrit par`, `voir aussi` (point 4). **Note (2026-08-26, Mission 065)** : ce vocabulaire français est anglicisé depuis [DECISION-2026-08-25-131034](./DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md), point 4 (`applies`, `supersedes`, `amends`, `source`, `prescribed by`, `see also`), migration exécutée par la Mission 054 ; conservé ici pour lecture historique, non corrigé sur place.
 - Suffixe `(hors Vault)` / `(hors workshop-build)` pour un lien qui sort du dépôt courant, sans production d'arête (point 6).
 - Partage bloquant/avertissement du contrôle machine : section `## Liens` absente et lien cassé bloquent ; absence de lien interne avertit seulement (point 9).
 - Revue Pilot pour le bon type et le lien en contexte, en complément du contrôle machine (point 10).
@@ -61,3 +61,4 @@ Six gabarits existants et un gabarit de rapport portent désormais une section `
 - `applies` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)
 - `source` — [Proposal : standard de liens](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-21-113916-document-linking-standard.md) (hors Vault)
 - `see also` — [Mission 023](../../workshop-build/workshop-production/missions/MISSION-2026-08-21-113958-023-linking-standard-and-ast-rebuild.md) (hors Vault)
+- `amended by` — [Arbitrages doctrinaux du 2026-08-25](./DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md) (point 4, anglicisation du vocabulaire)
