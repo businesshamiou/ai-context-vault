@@ -15,7 +15,7 @@ scope: role-relay, mission-workflow
 > **Aller.** Toute Mission part avec un mini-prompt de consommation, livré par le Pilot **en snippet copiable d'un seul geste** (bloc de code dans le chat), jamais en fichier à ouvrir ni en prose à recomposer. Cinq rubriques fixes, dans cet ordre :
 >
 > 1. Ligne de titre : `Session Executor — Mission <NNN> (<description courte>)` — elle nomme la session.
-> 2. Racine d'ouverture : le Vault, chemin absolu, avec l'instruction d'y travailler.
+> 2. Position : libre ; la session établit sa conscience de position (Décision `213150`).
 > 3. Source à appliquer : le chemin du fichier Mission, relatif au Vault, à lire et appliquer intégralement.
 > 4. Interdits absolus : toujours « aucun git push, aucun appel modèle, aucune suppression », plus les interdits propres à la Mission.
 > 5. Sortie attendue : terminer la fenêtre par le bloc RELAY défini dans la Mission, rempli.
@@ -49,3 +49,4 @@ scope: role-relay, mission-workflow
 - `source` — [Proposal — Relais entre rôles par mini-prompts à rubriques fixes](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-23-123648-role-relay-mini-prompts.md) (hors Vault)
 - `see also` — [Décision — Adoption de la règle du relais entre rôles](../decisions/DECISION-2026-08-23-124937-role-relay-mini-prompts.md)
 - `amended by` — [Décision — Rubrique « Résumé » dans le bloc RELAY du sens retour](../decisions/DECISION-2026-08-23-180500-relay-summary-rubric.md)
+- `amended by` — [Décision — Répertoire d'ouverture d'une session, position libérée](../../workshop-build/workshop-production/decisions/DECISION-2026-08-25-213150-session-opening-directory-freed.md)
