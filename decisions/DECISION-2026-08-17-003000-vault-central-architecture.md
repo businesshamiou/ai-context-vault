@@ -95,6 +95,8 @@ Chaque projet peut avoir son propre graphe Graphify.
 
 Aucune fusion globale n'est considérée comme acquise tant qu'elle n'a pas été testée et validée.
 
+**Note (2026-08-26, Mission 065)** : cette section décrit une option d'architecture qui n'a plus cours. Graphify est sorti du rôle « graphe du Vault » puis a été intégralement éradiqué (Mission 040, 2026-08-24) ; conservée pour lecture historique, non corrigée sur place (`amended by` ci-dessous).
+
 ## Raison
 
 Cette architecture évite :
@@ -116,3 +118,7 @@ Toute Mission 001 ou tout prompt d'exécution qui crée `ai-context-workshop` es
 Le prochain bootstrap doit créer `vault`.
 
 Les huit artefacts initiaux restent conservés comme historique et ne sont pas réécrits silencieusement.
+
+## Liens
+
+- `amended by` — [Retrait de Graphify du rôle « graphe du Vault »](./DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md) (section Graphify)

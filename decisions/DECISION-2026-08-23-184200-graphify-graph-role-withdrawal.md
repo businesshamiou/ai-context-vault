@@ -80,7 +80,8 @@ La Decision des sept arbitrages du 2026-08-23 (point 6) avait retenu « corriger
 
 - `amends` — [Architecture Graphify V1 — navigation optionnelle et corpus actif borné](./DECISION-2026-08-18-004740-graphify-v1-architecture.md)
 - `amends` — [Project Registry V1 — architecture et contrat d'écriture](./DECISION-2026-08-19-115306-project-registry-v1.md) (D5 devient sans objet)
+- `amends` — [Architecture centrale — Vault permanent et projets frères](./DECISION-2026-08-17-003000-vault-central-architecture.md) (section Graphify, Mission 065)
+- `amends` — [Amendement Graphify V1 — intégrations natives](./DECISION-2026-08-19-233650-graphify-integrations-amendment.md) (D1, D5 — Mission 065)
 - `source` — [Protocole du banc de mesure — étude de cas Graphify](../../workshop-build/workshop-production/knowledge-notes/PROTOCOL-graphify-case-study.md) (hors Vault)
 - `source` — [Étude de cas Graphify — synthèse, verdict et matière à illustration](../../workshop-build/workshop-production/knowledge-notes/CASE-STUDY-graphify.md) (hors Vault)
 - `see also` — [Décision — Sept arbitrages de session du 2026-08-23, point 6](./DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md)
-- `see also` — [Amendement Graphify V1 — intégrations natives](./DECISION-2026-08-19-233650-graphify-integrations-amendment.md)

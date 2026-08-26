@@ -56,6 +56,8 @@ Il supprime le fallback vers les fichiers, que la Decision V1 pose comme obligat
 
 L'exclusion du serveur MCP est levée dans son principe. Sa mise en service n'est pas décidée ici : elle relèvera d'une Mission distincte, la reconnaissance ayant établi qu'aucune configuration n'est générée par l'outil et que toute mise en place serait rédigée à la main.
 
+**Note (2026-08-26, Mission 065)** : D1 et D5 autorisent des mécanismes Graphify (hooks de dépôt, principe d'un serveur MCP dédié) devenus sans objet — Graphify est sorti du rôle « graphe du Vault » puis a été intégralement éradiqué (Mission 040, 2026-08-24). Conservé pour lecture historique, non corrigé sur place (`amended by` ci-dessous).
+
 ## Conséquences
 
 Aucune réécriture de la Decision V1 : elle reste lisible dans son état d'origine, et cet amendement s'y ajoute.
@@ -70,3 +72,4 @@ Arbitrage Owner rendu en session de pilotage, après lecture du rapport de recon
 
 - `amends` — [Architecture Graphify V1](./DECISION-2026-08-18-004740-graphify-v1-architecture.md)
 - `see also` — [Project Registry](../projects/PROJECT-REGISTRY.md)
+- `amended by` — [Retrait de Graphify du rôle « graphe du Vault »](./DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md) (D1, D5)
