@@ -40,9 +40,9 @@ L’Executor consomme la dernière version active; il ne recompose pas l’état
 
 Les anciennes versions restent conservées comme historique. Chaque correction déclare au minimum `mission_id`, `correction`, `supersedes` et `status`.
 
-## 4. Prompts alignés
+## 4. Prompts alignés (note historique — convention close à la Mission `038`)
 
-Le Prompt canonique d’Executor porte le même identifiant fonctionnel que sa Mission :
+Convention active jusqu’à la Mission `038` (fin des fichiers PROMPT, Decision `220049`) ; conservée pour lire les Missions antérieures, non appliquée au-delà. Le Prompt canonique d’Executor portait le même identifiant fonctionnel que sa Mission :
 
 - original : `PROMPT-YYYY-MM-DD-HHMMSS-NNN-executor-description.md`;
 - correction : `PROMPT-YYYY-MM-DD-HHMMSS-NNN-Cxx-executor-description.md`.
@@ -61,7 +61,7 @@ Un projet qui utilise des Missions maintient, lorsque le besoin existe :
 
 `missions/MISSION-INDEX.md`
 
-Le registre indique au minimum l’ID, l’objectif, la version active, son statut et les chemins de la Mission et du Prompt actifs. Il ne recopie pas de mesures techniques périssables.
+Le registre indique au minimum l’ID, l’objectif, la version active, son statut et le chemin de la Mission active. Il ne recopie pas de mesures techniques périssables.
 
 ## 7. Zone `generated/`
 
@@ -99,7 +99,7 @@ Pour exécuter une Mission :
 1. lire les Decisions actives pertinentes;
 2. résoudre la dernière version active via `MISSION-INDEX.md` lorsqu’il existe;
 3. lire la Mission complète;
-4. lire le Prompt aligné;
+4. lire le Prompt aligné (uniquement pour les Missions antérieures à la Mission `038` ; convention close au-delà, Decision `220049`);
 5. remesurer l’état technique utile;
 6. respecter les gates et frontières du projet.
 
