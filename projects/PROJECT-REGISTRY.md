@@ -16,9 +16,9 @@ Les chemins sont relatifs au parent du Vault.
 
 ## Active
 
-| project_id | display_name | status | relative_path |
-|---|---|---|---|
-| 2026-08-17-AI-CTX-WRKS | Workshop IA / Mini Second Brain | ACTIVE | workshop-build |
+| project_id | display_name | status | relative_path | conformity |
+|---|---|---|---|---|
+| 2026-08-17-AI-CTX-WRKS | Workshop IA / Mini Second Brain | ACTIVE | workshop-build | ÉCART (grand-père, voir fiche) |
 
 ## Paused
 
@@ -27,3 +27,8 @@ Aucun projet.
 ## Archived
 
 Aucun projet.
+
+## Liens
+
+- `source` — [Decision — Project Registry V1](../decisions/DECISION-2026-08-19-115306-project-registry-v1.md)
+- `source` — [Standard de structure de projet](../rules/RULES-2026-08-26-142800-project-structure-standard.md)
