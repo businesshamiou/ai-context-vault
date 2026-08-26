@@ -1,8 +1,8 @@
 ---
 type: mission
 mission_id: "NNN"            # identité permanente de la lignée, chaîne entre guillemets (ex. "018")
-correction:                  # "Cxx" si correction ; sinon omettre entièrement cette clé (pas de valeur vide)
-supersedes:                  # chemin du fichier remplacé si correction ; sinon omettre entièrement cette clé
+correction:                  # "Cxx" si correction, alors `supersedes:` (ligne suivante) porte le chemin du fichier remplacé ; sinon omettre les deux clés entièrement (pas de valeur vide)
+supersedes:
 status: AUTHORIZED           # autorisation à la création — figé, jamais retouché ensuite
 title: "<titre de la Mission>"
 description: "<une à deux phrases>"  # écrites par l'auteur au moment du dépôt, jamais générées par un modèle tiers (232341 §2.1)
