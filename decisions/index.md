@@ -33,6 +33,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `DECISION-2026-08-24-214607-transverse-mechanism-distribution.md` — Distribution des mécanismes transverses — doctrine unique, implémentation épinglée, adaptateur local · decision
 - `DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md` — Extension de la convention de tags du journal — tag CLOSE: et portes à clé · decision
 - `DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md` — Arbitrages doctrinaux du 2026-08-25 — révocation du shell Pilot, auto-rangement, références de session, anglicisation du vocabulaire de liens · decision
+- `DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md` — Amendement — le push délégué devient une règle : valide si et seulement si autorisation Owner verbatim datée · decision
 
 ## Liens
 
