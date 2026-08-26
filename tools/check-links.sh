@@ -94,8 +94,11 @@ while IFS= read -r file; do
   while IFS= read -r line || [ -n "$line" ]; do
     LINE_NO=$((LINE_NO + 1))
 
-    # --- couche : bloc de code cloture (Mission 060) ---
-    LTRIM="$(printf '%s' "$line" | sed -E 's/^[[:space:]]+//')"
+    # --- couche : bloc de code cloture (Mission 060) -- retire l'indentation
+    # eventuelle par expansion de parametre bash pure (aucun sous-processus,
+    # contrairement a `sed` : le cout par ligne doit rester nul pour les gros
+    # fichiers) avant de tester le delimiteur de cloture ---
+    LTRIM="${line#"${line%%[![:space:]]*}"}"
     case "$LTRIM" in
       '```'*|'~~~'*)
         if [ "$IN_FENCE" -eq 1 ]; then IN_FENCE=0; else IN_FENCE=1; fi
@@ -106,8 +109,20 @@ while IFS= read -r file; do
       continue
     fi
 
+    # Filtre rapide sur la ligne brute, identique au comportement d'avant
+    # la Mission 060 : evite de payer le cout d'un sous-processus awk par
+    # ligne (strip_inline_code) pour l'immense majorite des lignes qui ne
+    # contiennent aucune sous-chaine candidate -- la performance sur les
+    # gros fichiers ne doit pas se degrader.
+    case "$line" in
+      *'](./'*|*'](../'*) : ;;
+      *) continue ;;
+    esac
+
     # --- couche : code inline (Mission 060) -- le balayage qui suit porte
-    # sur SCAN_LINE (spans de code retires), jamais sur $line brute ---
+    # sur SCAN_LINE (spans de code retires), jamais sur $line brute. Seules
+    # les lignes qui ont deja passe le filtre rapide ci-dessus paient ce
+    # cout. ---
     SCAN_LINE="$(printf '%s' "$line" | strip_inline_code)"
 
     case "$SCAN_LINE" in
