@@ -90,3 +90,4 @@ Arbitrage Owner rendu en session de pilotage.
 - `source` — [Project Registry](../projects/PROJECT-REGISTRY.md)
 - `source` — [Proposal source](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-18-225900-vault-project-registry.md) (hors Vault)
 - `amended by` — [Retrait de Graphify du rôle « graphe du Vault »](./DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md) (D5 devient sans objet)
+- `amended by` — [Standard de structure de projet](../rules/RULES-2026-08-26-142800-project-structure-standard.md) (D3, extension additive du schéma — registre v2, Mission 061)
