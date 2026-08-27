@@ -59,3 +59,4 @@ Deux occurrences le 2026-08-26 (`RELAY PUSH-061`, `RELAY PUSH-062`) ont montré 
 - `see also` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
 - `see also` — [Mission 063 — Allowlist MCP et amendement du push délégué](../../workshop-build/workshop-production/missions/MISSION-2026-08-26-154109-063-mcp-write-allowlist-and-delegated-push-rule.md) (hors Vault)
 - `amended by` — [Décision — Une ligne d'autorisation Owner couvre un seul geste](./DECISION-2026-08-26-231617-one-authorization-line-one-gesture.md)
+- `amended by` — [Décision — L'exception de push délégué couvre le commit de sa ligne de journal](./DECISION-2026-08-27-112528-delegated-push-exception-covers-its-journal-commit.md)
