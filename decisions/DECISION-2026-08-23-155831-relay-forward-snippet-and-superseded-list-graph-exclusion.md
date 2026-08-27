@@ -35,7 +35,7 @@ Deux arbitrages de l'Owner du 2026-08-23.
 ## Impact
 
 - `vault/rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md` porte désormais les deux sens du relais (aller à cinq rubriques en snippet, retour en bloc RELAY) dans la même règle.
-- `vault/.graphifyignore` et `workshop-build/workshop-production/.graphifyignore` excluent chacun `superseded-files.txt` de leur racine ; le fichier reste suivi par Git dans les deux dépôts (`git ls-files` déjà vérifié avant cette Decision : présent aux deux emplacements).
+- `vault/.graphifyignore` (supprimé, Mission 040) et `workshop-build/workshop-production/.graphifyignore` (supprimé, Mission 040) excluent chacun `superseded-files.txt` de leur racine ; le fichier reste suivi par Git dans les deux dépôts (`git ls-files` déjà vérifié avant cette Decision : présent aux deux emplacements).
 - Toute Mission future qui livre un mini-prompt d'ouverture de session Executor le fait en snippet à cinq rubriques, jamais autrement.
 
 ## Alternatives importantes
