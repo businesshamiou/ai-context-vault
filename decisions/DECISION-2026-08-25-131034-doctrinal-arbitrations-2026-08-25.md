@@ -5,6 +5,7 @@ created_at: "2026-08-25T13:10:34-04:00"
 timezone: America/Montreal
 status: ARBITRATED
 owner_gate: granted
+amends: "./DECISION-2026-08-21-115658-document-linking-standard.md"
 related_mission: "053"
 ---
 
