@@ -27,6 +27,28 @@ fi
 # fichier sur disque n'est pas fiable (mesure Mission 046, Windows/MSYS,
 # noacl) et ne doit jamais decider si un controle s'enchaine ou saute.
 
+# --- Gardien de reciprocite (garde-fou d'obsolescence, Mission 046 pour
+# l'outil, Mission 071 pour ce cablage) : outil local au depot workshop-build,
+# consomme ici par chemin relatif au workspace (depot frere), faute de
+# mecanisme de distribution transverse pour un outil Python -- Decision
+# 2026-08-24 D2/D7 ne couvre que les outils shell secrets/liens. Fragile si
+# les deux depots ne sont pas co-localises en freres du meme workspace :
+# signale, non corrige, par ce lot (Mission 071, etape 2). ---
+GUARDRAIL="$VAULT_ROOT/../workshop-build/tools/check-obsolescence-guardrail.py"
+
+if [ ! -f "$GUARDRAIL" ]; then
+  echo "REFUS : garde-fou de reciprocite introuvable : $GUARDRAIL" >&2
+  echo "Le controle ne peut pas verifier, il refuse." >&2
+  exit 1
+fi
+
+if ! command -v uv >/dev/null 2>&1; then
+  echo "REFUS : uv introuvable, impossible d'executer le garde-fou de reciprocite." >&2
+  exit 1
+fi
+
+uv run "$GUARDRAIL" || exit 1
+
 CHECK="$VAULT_ROOT/tools/check-secrets.sh"
 
 if [ ! -f "$CHECK" ]; then
