@@ -40,7 +40,7 @@ Le corpus actif V1 est constitué uniquement des sources transverses utiles :
 - Rules actives : conduite du Vault, cycle de contexte V2, versionnement des Missions;
 - les cinq Templates documentaires.
 
-Les sources explicitement superseded, secrets, configurations locales, caches, outputs générés et historiques non nécessaires sont exclus par `.graphifyignore`. Le corpus pointe directement vers les sources canoniques; aucun `graphify-input/`, dossier miroir ou duplicata dédié n’est créé.
+Les sources explicitement superseded, secrets, configurations locales, caches, outputs générés et historiques non nécessaires sont exclus par `.graphifyignore`. Le corpus pointe directement vers les sources canoniques; aucun dossier miroir ou duplicata dédié n’est créé.
 
 ### Projets
 
