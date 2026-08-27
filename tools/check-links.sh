@@ -130,9 +130,12 @@ while IFS= read -r file; do
       *) continue ;;
     esac
 
+    # Motif generalise (Mission 069) : "(hors <nom-quelconque>)" plutot que
+    # deux suffixes en dur ("Vault", "workshop-build") -- meme detection
+    # pour les suffixes existants, plus aucun nom de depot frere code en dur.
     HORS=0
     case "$line" in
-      *'(hors Vault)'*|*'(hors workshop-build)'*) HORS=1 ;;
+      *'(hors '*')'*) HORS=1 ;;
     esac
 
     TARGETS="$(printf '%s' "$SCAN_LINE" | grep -oE '\]\(\.{1,2}/[^)]*\)' | sed -E 's/^\]\((.*)\)$/\1/')"
