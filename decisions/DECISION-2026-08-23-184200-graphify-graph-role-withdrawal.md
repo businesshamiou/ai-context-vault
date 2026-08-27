@@ -39,7 +39,7 @@ Hors périmètre de la Mission qui grave cette Decision (035) — à planifier p
 
 1. `graphify hook uninstall` : retirer les hooks `post-commit`/`post-checkout` installés dans `vault`, et l'entrée `graphify-out/graph.json merge=graphify` de `.gitattributes`.
 2. Désinstaller le paquet hors dépôt : `uv tool uninstall graphifyy`.
-3. Archiver ou retirer `graphify-out/` (déjà non versionné) une fois la décision exécutée.
+3. Archiver ou retirer `graphify-out/` (supprimé, Mission 040) (déjà non versionné) une fois la décision exécutée.
 4. Retirer `.env`/`.env.example` (`GEMINI_API_KEY`) si plus aucun usage ne le requiert.
 5. Retirer le rappel automatique « MANDATORY: run graphify... » injecté à chaque appel Bash/Read/Grep — observé et explicitement ignoré dans toutes les fenêtres de mesure du lot B (rapports 032 §8, 033 §6, 034 §6).
 6. Mettre à jour `knowledge/runbook-vault-setup.md` §4 (retirer ou requalifier la section Graphify, ajouter l'entrée d'historique du retrait en §9 — obligation déjà inscrite dans le runbook lui-même).
