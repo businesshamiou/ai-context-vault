@@ -14,7 +14,7 @@ scope: role-relay, mission-workflow
 >
 > **Aller.** Toute Mission part avec un mini-prompt de consommation, livré par le Pilot **en snippet copiable d'un seul geste** (bloc de code dans le chat), jamais en fichier à ouvrir ni en prose à recomposer. Cinq rubriques fixes, dans cet ordre :
 >
-> 1. Ligne de titre : `Session Executor — Mission <NNN> (<description courte>)` — elle nomme la session.
+> 1. Ligne de titre : `Session Executor — Mission <NNN> (<description courte>)` — elle nomme la session. La forme `Tu es l'Executor — Mission <NNN> (<description courte>)` est équivalente, et s'étend à toute instruction ponctuelle déléguée à l'Executor sans numéro de Mission, sous la forme `Tu es l'Executor — instruction ponctuelle (<description courte>)` (`DECISION-2026-08-27-100016`).
 > 2. Position : libre ; la session établit sa conscience de position (Décision `213150`).
 > 3. Source à appliquer : le chemin du fichier Mission, relatif au Vault, à lire et appliquer intégralement.
 > 4. Interdits absolus : toujours « aucun git push, aucun appel modèle, aucune suppression », plus les interdits propres à la Mission.
@@ -22,7 +22,7 @@ scope: role-relay, mission-workflow
 >
 > Le mini-prompt ne duplique pas le contenu de la Mission.
 >
-> **Retour.** Tout rapport d'exécution se termine par un bloc `RELAY` affiché en fin de fenêtre Executor, aux rubriques fixes suivantes, dans cet ordre :
+> **Retour.** Tout rapport d'exécution se termine par un bloc `RELAY` affiché en fin de fenêtre Executor, aux rubriques fixes suivantes, dans cet ordre : ce bloc est livré **en snippet copiable d'un seul geste** (bloc de code en fin de fenêtre), jamais en prose à recomposer — symétrie avec le sens aller (`DECISION-2026-08-27-100016`).
 >
 > ```text
 > RELAY <NNN>
@@ -51,3 +51,4 @@ scope: role-relay, mission-workflow
 - `amended by` — [Décision — Rubrique « Résumé » dans le bloc RELAY du sens retour](../decisions/DECISION-2026-08-23-180500-relay-summary-rubric.md)
 - `amended by` — [Décision — Répertoire d'ouverture d'une session, position libérée](../../workshop-build/workshop-production/decisions/DECISION-2026-08-25-213150-session-opening-directory-freed.md)
 - `amended by` — [Décision — Le push délégué devient une règle](../decisions/DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md)
+- `amended by` — [Décision — Protocole de copie : snippets et destinations](../decisions/DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md)
