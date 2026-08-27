@@ -44,7 +44,7 @@ Chaque gabarit porte la section `## Liens` pré-remplie avec au moins la ligne `
 
 ## 9. Vérification machine
 
-Le contrôle pre-commit `tools/check-links.sh` s'applique à tout `.md` nouveau ou modifié hors `graphify-out/` : absence de section `## Liens` → bloquant ; lien relatif cassé → bloquant ; aucun lien relatif interne → avertissement, non bloquant. [choix : le partage blocage/avertissement]
+Le contrôle pre-commit `tools/check-links.sh` s'applique à tout `.md` nouveau ou modifié hors `graphify-out/` (supprimé, Mission 040) : absence de section `## Liens` → bloquant ; lien relatif cassé → bloquant ; aucun lien relatif interne → avertissement, non bloquant. [choix : le partage blocage/avertissement]
 
 ## 10. Vérification humaine
 
