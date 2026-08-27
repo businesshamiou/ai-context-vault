@@ -29,13 +29,24 @@
 # d'etre retire pour rester correct.
 #
 # usage: link-graph-drone-view.sh
+#
+# Depot frere parametrable (Mission 069, douteux 5) : LINK_GRAPH_WORKSHOP_BUILD_ROOT
+# et LINK_GRAPH_WORKSHOP_ROOT en variables d'environnement surchargent le
+# nom/emplacement en dur ; non definies, le script recalcule exactement la
+# meme valeur qu'avant (defaut inchange, "../workshop-build" puis
+# "workshop-production" en sous-dossier).
 
 set -u
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 VAULT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-WORKSHOP_BUILD_ROOT="$(cd "$VAULT_ROOT/../workshop-build" && pwd)"
-WORKSHOP_ROOT="$WORKSHOP_BUILD_ROOT/workshop-production"
+WORKSHOP_BUILD_ROOT="${LINK_GRAPH_WORKSHOP_BUILD_ROOT:-}"
+if [ -z "$WORKSHOP_BUILD_ROOT" ]; then
+  WORKSHOP_BUILD_ROOT="$(cd "$VAULT_ROOT/../workshop-build" && pwd)"
+fi
+WORKSHOP_ROOT="${LINK_GRAPH_WORKSHOP_ROOT:-$WORKSHOP_BUILD_ROOT/workshop-production}"
+WORKSHOP_SUBDIR="$(realpath --relative-to="$WORKSHOP_BUILD_ROOT" "$WORKSHOP_ROOT" 2>/dev/null)"
+[ -z "$WORKSHOP_SUBDIR" ] && WORKSHOP_SUBDIR="workshop-production"
 STATE_FILE="$WORKSHOP_ROOT/state/STATE.md"
 
 resolve_path() {
@@ -50,7 +61,7 @@ resolve_path() {
 
 # --- 1. Inventaire : union des deux corpus, fichiers .md suivis par Git ---
 VAULT_FILES="$(cd "$VAULT_ROOT" && git ls-files '*.md' | while IFS= read -r f; do printf '%s/%s\n' "$VAULT_ROOT" "$f"; done)"
-WORKSHOP_FILES="$(cd "$WORKSHOP_BUILD_ROOT" && git ls-files -- 'workshop-production/*.md' | while IFS= read -r f; do printf '%s/%s\n' "$WORKSHOP_BUILD_ROOT" "$f"; done)"
+WORKSHOP_FILES="$(cd "$WORKSHOP_BUILD_ROOT" && git ls-files -- "$WORKSHOP_SUBDIR/*.md" | while IFS= read -r f; do printf '%s/%s\n' "$WORKSHOP_BUILD_ROOT" "$f"; done)"
 ALL_FILES="$(printf '%s\n%s\n' "$VAULT_FILES" "$WORKSHOP_FILES")"
 TOTAL_DOCS="$(printf '%s\n' "$ALL_FILES" | grep -c .)"
 
