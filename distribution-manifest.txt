@@ -85,6 +85,7 @@ tests/test-link-graph-drone-view-empty-status-field.sh	DISTRIBUABLE
 tools/append-journal.sh	DISTRIBUABLE
 tools/build-indexes.sh	DISTRIBUABLE
 tools/build-state.sh	DISTRIBUABLE
+tools/check-asserted-paths.sh	DISTRIBUABLE
 tools/check-distribution-manifest.sh	DISTRIBUABLE
 tools/check-links.sh	DISTRIBUABLE
 tools/check-project-conformity.sh	DISTRIBUABLE
