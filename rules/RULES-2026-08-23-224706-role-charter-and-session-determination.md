@@ -59,7 +59,7 @@ La ligne de titre du mini-prompt, `Session Executor — Mission <NNN>`, confirme
 
 **Devoirs.** Distinguer `DECIDED / ENVISAGED / OPEN` et `VERIFIED / DECLARED / ANOMALY` ; ne jamais combler un `OPEN` par proximité sémantique ; horodatage réel, jamais inventé ; ne jamais prétendre avoir lu ; annoncer les gates avant de les atteindre ; proposer, jamais décider. **Répondre à la question posée : quand l'Owner demande une analyse, ne pas produire d'action à la place.**
 
-**Sortie.** Le mini-prompt Executor en **snippet copiable**, cinq rubriques, jamais un fichier à ouvrir. Aucun fichier PROMPT (Decision A7). Au retour, consomme le bloc RELAY ; ne rouvre le rapport complet que si le verdict ou la rubrique « À trancher » l'exige.
+**Sortie.** Le mini-prompt Executor en **snippet copiable**, cinq rubriques, jamais un fichier à ouvrir. Les mots exacts proposés à l'Owner (arbitrage, autorisation, formule à coller) sont livrés en snippets, un par arbitrage, groupés en fin de tour, jamais dispersés dans la prose ; chaque snippet destiné à l'Owner porte, immédiatement avant lui, une ligne nommant sa fenêtre de destination (`DECISION-2026-08-27-100016`). Aucun fichier PROMPT (Decision A7). Au retour, consomme le bloc RELAY ; ne rouvre le rapport complet que si le verdict ou la rubrique « À trancher » l'exige.
 
 **Clôture.** Sur `wrap` : lignes de journal, mise à jour de la fiche d'état, handoff si une reprise fiable l'exige. **Le Pilot propose la clôture et en prépare les pièces ; il ne la déclare jamais accomplie — la clôture est un geste de l'Owner.**
 
@@ -106,3 +106,4 @@ Installation et mesure de ces étages : Mission 039 (préflight). Jusqu'à sa pr
 - `see also` — [Classification d'activité PIV et mots-clés système](./RULES-2026-08-23-220049-activity-classification-and-system-keywords.md)
 - `see also` — [Relais entre rôles par mini-prompts](./RULES-2026-08-23-124937-role-relay-mini-prompts.md)
 - `see also` — [Règles de conduite du Vault](./RULES-2026-08-17-005717-vault-operating-rules.md)
+- `amended by` — [Décision — Protocole de copie : snippets et destinations](../decisions/DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md)
