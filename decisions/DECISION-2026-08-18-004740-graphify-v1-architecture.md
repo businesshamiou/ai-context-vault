@@ -48,7 +48,7 @@ Le Vault et chaque projet conservent des graphes séparés. Un graphe projet res
 
 ### Outputs générés
 
-`graphify-out/` est dérivé, reconstructible, local et ignoré par Git. Il reste utilisable par Graphify sur la machine, mais ses graphes, manifests, caches et sauvegardes ne sont pas versionnés. Ces fichiers ne sont jamais édités manuellement.
+`graphify-out/` (supprimé, Mission 040) est dérivé, reconstructible, local et ignoré par Git. Il reste utilisable par Graphify sur la machine, mais ses graphes, manifests, caches et sauvegardes ne sont pas versionnés. Ces fichiers ne sont jamais édités manuellement.
 
 ### Actualisation
 
@@ -63,7 +63,7 @@ La V1 privilégie donc un signal borné, des sources explicites et un coût réd
 ## Impact
 
 - `.graphifyignore` porte les exclusions du corpus actif;
-- `.gitignore` exclut `graphify-out/`;
+- `.gitignore` exclut `graphify-out/` (supprimé, Mission 040);
 - `.env` reste local et `.env.example` peut être suivi;
 - les fichiers du Vault restent la source de vérité;
 - les graphes Vault et projets restent séparés;
@@ -73,7 +73,7 @@ Les limites acceptées en V1 sont la granularité principalement documentaire, l
 
 ## Alternatives importantes
 
-- **Versionner `graphify-out/`** : rejeté en V1, car l’output est dérivé, contient des caches et peut être reconstruit.
+- **Versionner `graphify-out/`** (supprimé, Mission 040) : rejeté en V1, car l’output est dérivé, contient des caches et peut être reconstruit.
 - **Rendre Graphify obligatoire** : rejeté, car les sources doivent rester utilisables sans l’outil ni le backend.
 - **Fusionner les graphes Vault et projets** : rejeté en V1 pour préserver les frontières de contexte.
 - **Ajouter des copies documentaires dédiées à Graphify** : rejeté pour éviter divergence et duplication.
