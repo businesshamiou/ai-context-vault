@@ -54,6 +54,8 @@ Tout mot-clé système est en **anglais idiomatique, sans accent**. Les annonces
 
 Les lignes de journal s'écrivent désormais **entièrement en anglais** — tags et contenu. Tags : `STATE:`, `NEXT:`, `OPEN:`, `RESUME:`.
 
+**Note (2026-08-26, Mission 066)** : cette énumération s'est étendue depuis — le tag `CLOSE:` a été ajouté par la [DECISION-2026-08-25-110935](../decisions/DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md) ; la liste des tags s'étend par Decision, jamais par édition silencieuse de ce paragraphe.
+
 - Le journal est en ajout seul : les lignes historiques françaises (`ETAT:`, `PROCHAIN:`, `OUVERT:`, `REPRISE:`) ne sont jamais réécrites.
 - Les outils de lecture reconnaissent les deux jeux de tags.
 - Les documents destinés à l'Owner (fiche d'état, handoffs, Decisions) restent en français.
@@ -67,3 +69,4 @@ Si un cas réel ne rentre dans aucun type pendant l'usage, on le note dans le jo
 - `applies` — [Decision : taxonomie PIV et langue système anglaise](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
 - `see also` — [Règles de conduite du Vault](./RULES-2026-08-17-005717-vault-operating-rules.md)
 - `see also` — [Relais entre rôles par mini-prompts](./RULES-2026-08-23-124937-role-relay-mini-prompts.md)
+- `amended by` — [Décision — Extension de la convention de tags du journal — tag CLOSE: et portes à clé](../decisions/DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md)
