@@ -7,6 +7,7 @@ status: ARBITRATED
 owner_gate: granted
 amends:
   - "DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md"
+  - "../rules/RULES-2026-08-23-220049-activity-classification-and-system-keywords.md"
 related_mission: "051"
 ---
 
@@ -63,4 +64,5 @@ La fiche d'état affichait l'union de toutes les sessions, sans fermeture ni dé
 ## Liens
 
 - `amends` — [Decision — Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal](./DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md)
+- `amends` — [Classification d'activité PIV et mots-clés système](../rules/RULES-2026-08-23-220049-activity-classification-and-system-keywords.md) (§7, liste des tags — Mission 066)
 - `see also` — [Mission 051 — Purge des portes ouvertes, tag CLOSE, index rattrapé](../../workshop-build/workshop-production/missions/MISSION-2026-08-25-110007-051-open-doors-purge-and-close-tag.md) (hors Vault)
