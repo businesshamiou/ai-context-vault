@@ -60,7 +60,7 @@ Une leçon découverte dans un projet peut être proposée au Vault uniquement s
 - Graphify aide à retrouver ce qui est écrit ; il n’invente pas une décision absente ;
 - privilégier Markdown et les liens relatifs explicites ;
 - utiliser `.graphifyignore` pour exclure le bruit ;
-- ne jamais éditer manuellement `graphify-out/` ;
+- ne jamais éditer manuellement `graphify-out/` (supprimé, Mission 040) ;
 - ne considérer aucune fusion des graphes comme acquise avant test et validation.
 
 ## 9. Actions sensibles
