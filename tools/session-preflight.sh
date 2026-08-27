@@ -4,16 +4,24 @@
 # Ecrit le tampon local .claude/.preflight_stamp.json (non verse a Git).
 #
 # usage: session-preflight.sh
+#
+# Nom du depot frere parametrable (Mission 069, douteux 6) :
+# PREFLIGHT_SIBLING_NAME en variable d'environnement, defaut inchange
+# "workshop-build". Son absence devient un avertissement (READY possible),
+# plus un echec -- un detenteur du Vault seul (aucun projet frere encore
+# clone) reste READY.
 
 set -u
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 VAULT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-BUILD_ROOT="$(cd "$VAULT_ROOT/../workshop-build" 2>/dev/null && pwd || true)"
+SIBLING_NAME="${PREFLIGHT_SIBLING_NAME:-workshop-build}"
+BUILD_ROOT="$(cd "$VAULT_ROOT/../$SIBLING_NAME" 2>/dev/null && pwd || true)"
 STAMP="$VAULT_ROOT/.claude/.preflight_stamp.json"
 CHARTER="$VAULT_ROOT/rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md"
 
 ISSUES=()
+WARNINGS=()
 
 # --- 1. charte des roles presente ---
 if [ ! -f "$CHARTER" ]; then
@@ -37,7 +45,7 @@ if [ -n "$BUILD_ROOT" ]; then
   check_pointer "$BUILD_ROOT/AGENTS.md"
   check_pointer "$BUILD_ROOT/CLAUDE.md"
 else
-  ISSUES+=("depot workshop-build introuvable en ../workshop-build")
+  WARNINGS+=("depot frere introuvable en ../$SIBLING_NAME -- avertissement, pas un echec (detenteur du Vault seul)")
 fi
 
 # --- 3. .claude/settings.json present et JSON valide ---
@@ -114,11 +122,25 @@ mkdir -p "$(dirname "$STAMP")"
     printf '"%s"' "$ESCAPED"
     FIRST=0
   done
+  printf '],\n'
+  printf '  "warnings": ['
+  FIRST=1
+  for WARNING in "${WARNINGS[@]}"; do
+    ESCAPED="${WARNING//\\/\\\\}"
+    ESCAPED="${ESCAPED//\"/\\\"}"
+    if [ "$FIRST" -eq 0 ]; then printf ','; fi
+    printf '"%s"' "$ESCAPED"
+    FIRST=0
+  done
   printf ']\n'
   echo "}"
 } > "$STAMP"
 
 # --- Sortie ---
+for WARNING in "${WARNINGS[@]}"; do
+  echo "  - avertissement : $WARNING" >&2
+done
+
 if [ "$N" -eq 0 ]; then
   echo "READY"
   exit 0
