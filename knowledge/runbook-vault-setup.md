@@ -25,7 +25,7 @@ Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage. Co
 
 ## 2. Dépôts
 
-- `vault` (ce dépôt) : transversal — `decisions/`, `knowledge/`, `rules/`, `templates/`, `skills/`, `handoffs/`, `tests/`, `graphify-out/`, `AGENTS.md`, `README.md`. [VERIFIED] `git remote -v` → origin distant configuré (fetch + push). Branche : `main`.
+- `vault` (ce dépôt) : transversal — `decisions/`, `knowledge/`, `rules/`, `templates/`, `skills/`, `handoffs/`, `tests/`, `graphify-out/` (supprimé, Mission 040), `AGENTS.md`, `README.md`. [VERIFIED] `git remote -v` → origin distant configuré (fetch + push). Branche : `main`.
 - `workshop-build` (dépôt frère, `../workshop-build` depuis `vault`) : missions, prompts, rapports, audits, captures, proposals, handoffs, registre (`MISSION-INDEX.md`). [VERIFIED] `git remote -v` → origin distant configuré (fetch + push). Branche : `main`.
 - [DECLARED — `CAPTURE-2026-08-19-013315`] Relation frère : les deux dépôts sont clonés côte à côte, `workshop-build` accessible depuis `vault` via `../workshop-build` et réciproquement.
 - Les sessions Executor s'ouvrent **uniquement dans `vault`** (§6).
@@ -40,7 +40,7 @@ Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage. Co
 
 ## 4. Graphify — retiré
 
-- [VERIFIED] Graphify est retiré du rôle « graphe du Vault » par la [Décision du 2026-08-23](../decisions/DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md), gestes exécutés par la Mission 040 : hooks Git (`post-commit`, `post-checkout`), merge driver `.gitattributes`, rappel automatique aux appels d'outils, sections d'instruction (`AGENTS.md`, `CLAUDE.md`), `graphify-out/`, `.graphifyignore` (deux dépôts), paquet `graphifyy` (`uv tool uninstall`), variable `GEMINI_API_KEY` (`.env.example`) retirés ou désinstallés. Ce paragraphe ne décrit plus une installation active ; il ne subsiste que comme repère historique.
+- [VERIFIED] Graphify est retiré du rôle « graphe du Vault » par la [Décision du 2026-08-23](../decisions/DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md), gestes exécutés par la Mission 040 : hooks Git (`post-commit`, `post-checkout`), merge driver `.gitattributes`, rappel automatique aux appels d'outils, sections d'instruction (`AGENTS.md`, `CLAUDE.md`), `graphify-out/` (supprimé, Mission 040), `.graphifyignore` (deux dépôts), paquet `graphifyy` (`uv tool uninstall`), variable `GEMINI_API_KEY` (`.env.example`) retirés ou désinstallés. Ce paragraphe ne décrit plus une installation active ; il ne subsiste que comme repère historique.
 - Le système de navigation qui a remplacé Graphify (fiche d'état générée, index générés par dossier, recherche par contenu, liens écrits) reste décrit aux §8 et §10 — inchangé par ce retrait.
 - Trace complète (argumentaire, mesures, verdict) conservée dans l'[étude de cas Graphify](../../workshop-build/workshop-production/knowledge-notes/CASE-STUDY-graphify.md), matériau du workshop non retiré par cette Mission.
 
