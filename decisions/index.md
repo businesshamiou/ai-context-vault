@@ -35,6 +35,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md` — Arbitrages doctrinaux du 2026-08-25 — révocation du shell Pilot, auto-rangement, références de session, anglicisation du vocabulaire de liens · decision
 - `DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md` — Amendement — le push délégué devient une règle : valide si et seulement si autorisation Owner verbatim datée · decision
 - `DECISION-2026-08-26-163958-stage2-mcp-allowlist-status-quo.md` — Arbitrage d — étage 2 (allowlist d'écriture MCP) en statu quo documenté, trois conditions de réveil · decision
+- `DECISION-2026-08-26-231617-one-authorization-line-one-gesture.md` — Amendement — une ligne d'autorisation Owner couvre un seul geste · decision
 
 ## Liens
 
