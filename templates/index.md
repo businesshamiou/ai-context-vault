@@ -18,6 +18,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `handoff-template.md` — <objet de la passation> · handoff
 - `mission-template.md` — <titre de la Mission> · mission
 - `pilot-contract-template.md` — Gabarit — Contrat du Pilot · template
+- `project-registry-template.md` — Gabarit — Project Registry · template
 - `proposal-template.md` — <titre de la proposition> · proposal
 - `report-template.md` — Rapport d'exécution — Mission <NNN> · report
 - `session-opening-prompt-template.md` — Gabarit — prompt d'ouverture minimal de session Pilot · template
