@@ -12,13 +12,16 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `BRIEF-2026-08-17-003000-vault-concept-operating-model.md` — Vault — concept pédagogique et modèle opératoire · brief
-- `BRIEF-2026-08-17-140100-project-operating-model.md` — Modèle opératoire des projets · brief — REMPLACÉ par BRIEF-2026-08-17-211522-project-operating-model-v2.md
-- `BRIEF-2026-08-17-211522-project-operating-model-v2.md` — Modèle opératoire des projets V2 — frontière Vault/projet et hiérarchie Vault rules → Project rules → Mission/task instructions · brief
-- `corpus-layering.md` — Stratification du corpus : où vit un artefact, et s'il entre dans un graphe · knowledge
-- `installation-history-workshops.md` — Annexe historique — installation du Vault sur le workspace « workshops » · knowledge
-- `runbook-vault-setup.md` — Runbook d'installation du Vault — V1 · knowledge
-- `verification-and-evidence.md` — Vérification et preuves — STATE → CHANGE → VALIDATION → SNAPSHOT → EXTERNAL BOUNDARY · knowledge
+- `BRIEF-2026-08-17-003000-vault-concept-operating-model.md` — Vault — concept pédagogique et modèle opératoire · brief · active
+- `BRIEF-2026-08-17-140100-project-operating-model.md` — Modèle opératoire des projets · brief · superseded — REMPLACÉ par BRIEF-2026-08-17-211522-project-operating-model-v2.md
+- `BRIEF-2026-08-17-211522-project-operating-model-v2.md` — Modèle opératoire des projets V2 — frontière Vault/projet et hiérarchie Vault rules → Project rules → Mission/task instructions · brief · active
+- `corpus-layering.md` — Stratification du corpus : où vit un artefact, et s'il entre dans un graphe · knowledge · active
+  - Deux axes — portée et nature — qui déterminent l'emplacement d'un artefact et son entrée dans un graphe de connaissance.
+- `installation-history-workshops.md` — Annexe historique — installation du Vault sur le workspace « workshops » · knowledge · active
+  - Détails machine et dépôt propres à ce poste, et historique Mission par Mission, retirés du runbook générique lors de la scission (Mission 073, arbitrage A) ; matériau interne, non distribuable.
+- `runbook-vault-setup.md` — Runbook d'installation du Vault — V1 · knowledge · active
+  - Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage ; registre vivant mis à jour par toute Mission qui touche à l'installation.
+- `verification-and-evidence.md` — Vérification et preuves — STATE → CHANGE → VALIDATION → SNAPSHOT → EXTERNAL BOUNDARY · knowledge · active
 
 ## Liens
 
