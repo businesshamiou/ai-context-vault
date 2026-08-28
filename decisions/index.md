@@ -36,6 +36,8 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md` — Amendement — le push délégué devient une règle : valide si et seulement si autorisation Owner verbatim datée · decision
 - `DECISION-2026-08-26-163958-stage2-mcp-allowlist-status-quo.md` — Arbitrage d — étage 2 (allowlist d'écriture MCP) en statu quo documenté, trois conditions de réveil · decision
 - `DECISION-2026-08-26-231617-one-authorization-line-one-gesture.md` — Amendement — une ligne d'autorisation Owner couvre un seul geste · decision
+- `DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md` — Protocole de copie — sens retour en snippet, mots exacts groupés et adressés, ligne d'identité étendue aux instructions ponctuelles · decision
+- `DECISION-2026-08-27-112528-delegated-push-exception-covers-its-journal-commit.md` — Amendement — l'exception de push délégué couvre le commit de sa propre ligne de journal · decision
 
 ## Liens
 
