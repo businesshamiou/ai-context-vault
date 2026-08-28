@@ -12,32 +12,41 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `DECISION-2026-08-17-003000-vault-central-architecture.md` — Architecture centrale — Vault permanent et projets frères · decision
-- `DECISION-2026-08-17-111018-vault-v1-information-architecture.md` — Architecture d'information V1 — primitives, preuves et human gates · decision
-- `DECISION-2026-08-18-004740-graphify-v1-architecture.md` — Architecture Graphify V1 — navigation optionnelle et corpus actif borné · decision
-- `DECISION-2026-08-19-115306-adopt-okf-knowledge-format.md` — Adoption du format OKF comme norme de référence · decision
-- `DECISION-2026-08-19-115306-project-registry-v1.md` — Project Registry V1 — architecture et contrat d'écriture · decision
-- `DECISION-2026-08-19-233650-graphify-integrations-amendment.md` — Amendement Graphify V1 — activation des intégrations natives · decision
-- `DECISION-2026-08-20-015748-mission-status-field-semantics.md` — Sémantique du champ status — front-matter Mission et registre · decision
-- `DECISION-2026-08-21-000236-execution-report-channel.md` — Canal de rapport d'exécution — type report, dossier reports/ · decision
-- `DECISION-2026-08-21-105117-vault-installation-runbook.md` — Runbook d'installation du Vault — registre vivant, obligation de mise à jour par les Missions · decision
-- `DECISION-2026-08-21-115658-document-linking-standard.md` — Adoption du standard de liens entre documents · decision
-- `DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md` — Sept arbitrages de session du 2026-08-23 · decision
-- `DECISION-2026-08-23-124917-scope-obsidian-and-content-search.md` — Décisions de périmètre — Obsidian hors du premier workshop, recherche par contenu construite en propre · decision
-- `DECISION-2026-08-23-124937-role-relay-mini-prompts.md` — Adoption de la règle du relais entre rôles par mini-prompts · decision
-- `DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md` — Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal · decision
-- `DECISION-2026-08-23-155831-relay-forward-snippet-and-superseded-list-graph-exclusion.md` — Sens aller du relais en snippet, et liste des remplacés hors graphe mais versionnée · decision
-- `DECISION-2026-08-23-180500-relay-summary-rubric.md` — Rubrique « Résumé » dans le bloc RELAY du sens retour · decision
-- `DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md` — Retrait de Graphify du rôle « graphe du Vault » · decision
-- `DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md` — Taxonomie PIV, langue système anglaise, charte des rôles, fin des fichiers PROMPT · decision
-- `DECISION-2026-08-24-214607-transverse-mechanism-distribution.md` — Distribution des mécanismes transverses — doctrine unique, implémentation épinglée, adaptateur local · decision
-- `DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md` — Extension de la convention de tags du journal — tag CLOSE: et portes à clé · decision
-- `DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md` — Arbitrages doctrinaux du 2026-08-25 — révocation du shell Pilot, auto-rangement, références de session, anglicisation du vocabulaire de liens · decision
-- `DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md` — Amendement — le push délégué devient une règle : valide si et seulement si autorisation Owner verbatim datée · decision
-- `DECISION-2026-08-26-163958-stage2-mcp-allowlist-status-quo.md` — Arbitrage d — étage 2 (allowlist d'écriture MCP) en statu quo documenté, trois conditions de réveil · decision
-- `DECISION-2026-08-26-231617-one-authorization-line-one-gesture.md` — Amendement — une ligne d'autorisation Owner couvre un seul geste · decision
-- `DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md` — Protocole de copie — sens retour en snippet, mots exacts groupés et adressés, ligne d'identité étendue aux instructions ponctuelles · decision
-- `DECISION-2026-08-27-112528-delegated-push-exception-covers-its-journal-commit.md` — Amendement — l'exception de push délégué couvre le commit de sa propre ligne de journal · decision
+- `DECISION-2026-08-17-003000-vault-central-architecture.md` — Architecture centrale — Vault permanent et projets frères · decision · active
+- `DECISION-2026-08-17-111018-vault-v1-information-architecture.md` — Architecture d'information V1 — primitives, preuves et human gates · decision · active
+- `DECISION-2026-08-18-004740-graphify-v1-architecture.md` — Architecture Graphify V1 — navigation optionnelle et corpus actif borné · decision · active
+- `DECISION-2026-08-19-115306-adopt-okf-knowledge-format.md` — Adoption du format OKF comme norme de référence · decision · active
+- `DECISION-2026-08-19-115306-project-registry-v1.md` — Project Registry V1 — architecture et contrat d'écriture · decision · active
+- `DECISION-2026-08-19-233650-graphify-integrations-amendment.md` — Amendement Graphify V1 — activation des intégrations natives · decision · ARBITRATED
+  - Lève l'exclusion des hooks et du MCP, retient le mode par défaut et exclut le mode strict.
+- `DECISION-2026-08-20-015748-mission-status-field-semantics.md` — Sémantique du champ status — front-matter Mission et registre · decision · ARBITRATED
+  - Fige le status du front-matter Mission à l'autorisation de création ; MISSION-INDEX.md devient seule source de l'état d'exécution.
+- `DECISION-2026-08-21-000236-execution-report-channel.md` — Canal de rapport d'exécution — type report, dossier reports/ · decision · ARBITRATED
+  - Institue un rapport d'exécution en fichier, type report, dans workshop-production/reports/, stagé avec le travail qu'il prouve.
+- `DECISION-2026-08-21-105117-vault-installation-runbook.md` — Runbook d'installation du Vault — registre vivant, obligation de mise à jour par les Missions · decision · ARBITRATED
+  - Institue le runbook d'installation, sa qualification VERIFIED/DECLARED ligne par ligne, et l'obligation pour toute Mission d'installation de le mettre à jour dans le même commit.
+- `DECISION-2026-08-21-115658-document-linking-standard.md` — Adoption du standard de liens entre documents · decision · ARBITRATED
+- `DECISION-2026-08-23-124848-seven-arbitrations-2026-08-23.md` — Sept arbitrages de session du 2026-08-23 · decision · ARBITRATED
+- `DECISION-2026-08-23-124917-scope-obsidian-and-content-search.md` — Décisions de périmètre — Obsidian hors du premier workshop, recherche par contenu construite en propre · decision · ARBITRATED
+- `DECISION-2026-08-23-124937-role-relay-mini-prompts.md` — Adoption de la règle du relais entre rôles par mini-prompts · decision · ARBITRATED
+- `DECISION-2026-08-23-143542-pilot-contract-superseded-marking-and-journal-tags-ratification.md` — Contrat du Pilot, marquage des documents remplacés, et ratification de la convention de tags du journal · decision · ARBITRATED
+- `DECISION-2026-08-23-155831-relay-forward-snippet-and-superseded-list-graph-exclusion.md` — Sens aller du relais en snippet, et liste des remplacés hors graphe mais versionnée · decision · ARBITRATED
+- `DECISION-2026-08-23-180500-relay-summary-rubric.md` — Rubrique « Résumé » dans le bloc RELAY du sens retour · decision · ARBITRATED
+- `DECISION-2026-08-23-184200-graphify-graph-role-withdrawal.md` — Retrait de Graphify du rôle « graphe du Vault » · decision · ARBITRATED
+- `DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md` — Taxonomie PIV, langue système anglaise, charte des rôles, fin des fichiers PROMPT · decision · ARBITRATED
+- `DECISION-2026-08-24-214607-transverse-mechanism-distribution.md` — Distribution des mécanismes transverses — doctrine unique, implémentation épinglée, adaptateur local · decision · ARBITRATED
+- `DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md` — Extension de la convention de tags du journal — tag CLOSE: et portes à clé · decision · ARBITRATED
+- `DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md` — Arbitrages doctrinaux du 2026-08-25 — révocation du shell Pilot, auto-rangement, références de session, anglicisation du vocabulaire de liens · decision · ARBITRATED
+- `DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md` — Amendement — le push délégué devient une règle : valide si et seulement si autorisation Owner verbatim datée · decision · arbitrated
+  - Grave l'exception de push délégué (deux occurrences le 2026-08-26, RELAY PUSH-061 et PUSH-062) en règle permanente : le push exécuté par l'Executor sous instruction ponctuelle n'est valide que si le mini-prompt porte la ligne d'autorisation Owner verbatim, datée.
+- `DECISION-2026-08-26-163958-stage2-mcp-allowlist-status-quo.md` — Arbitrage d — étage 2 (allowlist d'écriture MCP) en statu quo documenté, trois conditions de réveil · decision · arbitrated
+  - Grave l'arbitrage Owner « d » : l'allowlist d'écriture MCP côté Pilot n'a pas de voie native satisfaisante (Mission 063, confirmé par le rapport du Vault aîné) ; l'étage 3 reste la protection en vigueur ; trois conditions de réveil nommées, aucune portée effective.
+- `DECISION-2026-08-26-231617-one-authorization-line-one-gesture.md` — Amendement — une ligne d'autorisation Owner couvre un seul geste · decision · arbitrated
+  - Amende DECISION-154553 (push délégué) : une ligne d'autorisation Owner verbatim ne couvre jamais plus d'un geste ; toute fusion de gestes dans une même ligne vaut refus des gestes fusionnés ; le gabarit se vérifie avant l'exécution, fail closed.
+- `DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md` — Protocole de copie — sens retour en snippet, mots exacts groupés et adressés, ligne d'identité étendue aux instructions ponctuelles · decision · arbitrated
+  - Grave quatre correctifs du protocole de copie Owner/Pilot/Executor : le bloc RELAY du sens retour livré en snippet copiable d'un seul geste, les mots exacts du Pilot livrés en snippets groupés en fin de tour, chaque snippet destiné à l'Owner nommant sa fenêtre de destination, et la ligne d'identité 'Tu es l'Executor — Mission <NNN>' étendue aux instructions ponctuelles sous la forme 'Tu es l'Executor — instruction ponctuelle (<description courte>)'.
+- `DECISION-2026-08-27-112528-delegated-push-exception-covers-its-journal-commit.md` — Amendement — l'exception de push délégué couvre le commit de sa propre ligne de journal · decision · arbitrated
+  - Amende DECISION-154553 : l'exception de push délégué autorise désormais l'écriture ET le commit de sa ligne de journal, rien d'autre ; le périmètre des gestes reste inchangé pour tout le reste.
 
 ## Liens
 
