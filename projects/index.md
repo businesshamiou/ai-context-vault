@@ -12,8 +12,10 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `PROJECT-2026-08-17-AI-CTX-WRKS.md` — Workshop IA / Mini Second Brain · project-record
-- `PROJECT-REGISTRY.md` — Project Registry — index des projets connus du Vault · project-registry
+- `PROJECT-2026-08-17-AI-CTX-WRKS.md` — Workshop IA / Mini Second Brain · project-record · ACTIVE
+  - Fiche de projet : fabrication et dogfooding du workshop IA.
+- `PROJECT-REGISTRY.md` — Project Registry — index des projets connus du Vault · project-registry · active
+  - Carte minimale des projets : identité, emplacement et point d'entrée.
 
 ## Liens
 
