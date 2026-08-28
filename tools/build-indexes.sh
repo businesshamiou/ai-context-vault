@@ -17,20 +17,24 @@ STD_LINK_TARGET="$VAULT_ROOT/rules/RULES-2026-08-21-115658-document-linking-stan
 
 PRUNE_NAMES='.git .githooks .claude .codex graphify-out tools patterns node_modules state .venv venv __pycache__'
 
-# Extrait "chemin<TAB>title<TAB>type" en un seul processus awk pour tous les
-# fichiers d'un dossier (au lieu d'un appel par fichier par champ : le fork de
-# processus est le cout dominant sous Git Bash/Windows).
+# Extrait "chemin<TAB>title<TAB>type<TAB>status<TAB>description" en un seul
+# processus awk pour tous les fichiers d'un dossier (au lieu d'un appel par
+# fichier par champ : le fork de processus est le cout dominant sous Git
+# Bash/Windows). status et description : DECISION-2026-08-25-232341 §2.2,
+# meme traitement des guillemets que title/type, aucune valeur de repli.
 list_fields() {
   awk '
-    FNR==1 { infm=0; title=""; type="" }
+    FNR==1 { infm=0; title=""; type=""; status=""; description="" }
     FNR==1 && $0=="---" { infm=1; next }
     infm && $0=="---" { infm=0 }
-    infm && /^title:/ { v=$0; sub(/^title:[[:space:]]*/,"",v); gsub(/^"|"$/,"",v); title=v }
-    infm && /^type:/  { v=$0; sub(/^type:[[:space:]]*/,"",v);  gsub(/^"|"$/,"",v);  type=v }
+    infm && /^title:/       { v=$0; sub(/^title:[[:space:]]*/,"",v);       gsub(/^"|"$/,"",v); title=v }
+    infm && /^type:/        { v=$0; sub(/^type:[[:space:]]*/,"",v);        gsub(/^"|"$/,"",v); type=v }
+    infm && /^status:/      { v=$0; sub(/^status:[[:space:]]*/,"",v);      gsub(/^"|"$/,"",v); status=v }
+    infm && /^description:/ { v=$0; sub(/^description:[[:space:]]*/,"",v); gsub(/^"|"$/,"",v); description=v }
     ENDFILE {
       t=title; if (t=="") t="(sans titre)"
       ty=type; if (ty=="") ty="inconnu"
-      print FILENAME "\t" t "\t" ty
+      print FILENAME "\t" t "\t" ty "\t" status "\t" description
     }
   ' "$@" 2>/dev/null
 }
@@ -142,14 +146,17 @@ EOF_ALLMD
       echo ""
       echo "## Contenu"
       echo ""
-      list_fields $MD_FILES | sort | while IFS="$(printf '\t')" read -r F T TY; do
+      list_fields $MD_FILES | sort | while IFS="$(printf '\t')" read -r F T TY ST DESC; do
         [ -z "$F" ] && continue
         FN="${F##*/}"
         MARK=""
         if [ -n "${SUPERSEDED_BY[$FN]+x}" ]; then
           MARK=" — REMPLACÉ par ${SUPERSEDED_BY[$FN]}"
         fi
-        echo "- \`$FN\` — $T · $TY$MARK"
+        STATUS_SEG=""
+        [ -n "$ST" ] && STATUS_SEG=" · $ST"
+        echo "- \`$FN\` — $T · $TY$STATUS_SEG$MARK"
+        [ -n "$DESC" ] && echo "  - $DESC"
       done
       echo ""
       echo "## Liens"
