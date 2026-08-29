@@ -80,11 +80,20 @@ while IFS= read -r file; do
 
   DIR="$(dirname "$FULLPATH")"
 
-  # --- 1. Section "## Liens" obligatoire ---
-  if ! grep -qE '^## Liens[[:space:]]*$' "$FULLPATH"; then
-    echo "LIENS: section manquante: $file" >&2
-    BLOCK=1
-  fi
+  # --- 1. Section "## Liens" obligatoire -- bornee au corpus documentaire,
+  # jamais au materiel adopte de skills/external/ (corps verbatim garanti
+  # par empreintes, hors du graphe de citations du corpus). La resolution
+  # des liens (regles 2/3 ci-dessous) reste globale, external/ compris.
+  # DECISION-2026-08-28-203627. ---
+  case "$file" in
+    skills/external/*) : ;;
+    *)
+      if ! grep -qE '^## Liens[[:space:]]*$' "$FULLPATH"; then
+        echo "LIENS: section manquante: $file" >&2
+        BLOCK=1
+      fi
+      ;;
+  esac
 
   # --- 2/3. Liens relatifs : cible resolue, ou avertissement si aucun lien interne ---
   HAS_INTERNAL=0
