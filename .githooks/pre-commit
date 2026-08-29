@@ -49,6 +49,19 @@ fi
 
 uv run "$GUARDRAIL" || exit 1
 
+# --- Gardien de fraicheur des index (Mission 089) : un index faux est une
+# cause de lien faux, verifie avant check-links.sh. Ne regenere jamais,
+# ne verifie que les .md stages et les dossiers indexes qu'ils touchent. ---
+INDEXES_CHECK="$VAULT_ROOT/tools/check-indexes-fresh.sh"
+
+if [ ! -f "$INDEXES_CHECK" ]; then
+  echo "REFUS : garde-fou de fraicheur des index introuvable : $INDEXES_CHECK" >&2
+  echo "Le controle ne peut pas verifier, il refuse." >&2
+  exit 1
+fi
+
+bash "$INDEXES_CHECK" || exit 1
+
 CHECK="$VAULT_ROOT/tools/check-secrets.sh"
 
 if [ ! -f "$CHECK" ]; then
