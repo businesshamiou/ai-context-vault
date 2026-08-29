@@ -15,10 +15,13 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 PRUNE_NAMES='.git .githooks .claude .codex graphify-out tools patterns node_modules state .venv venv __pycache__'
 
 is_pruned_dir() {
-  local d="$1" comp n
+  local d="$1" comp n saved_ifs
   [ "$d" = "." ] && return 1
-  local IFS=/
-  for comp in $d; do
+  saved_ifs="$IFS"
+  IFS=/
+  set -- $d
+  IFS="$saved_ifs"
+  for comp in "$@"; do
     for n in $PRUNE_NAMES; do
       [ "$comp" = "$n" ] && return 0
     done
