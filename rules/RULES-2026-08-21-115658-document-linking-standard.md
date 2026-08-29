@@ -103,3 +103,4 @@ Cette note applique le [Standard de liens entre documents](../rules/RULES-2026-0
 - `applies` — [Règles de conduite du Vault, §8](./RULES-2026-08-17-005717-vault-operating-rules.md)
 - `source` — [Proposal : standard de liens](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-21-113916-document-linking-standard.md) (hors Vault)
 - `see also` — [Runbook d'installation du Vault](../knowledge/runbook-vault-setup.md)
+- `amended by` — [Décision — Bornage du standard de liens au corpus](../../workshop-build/workshop-production/decisions/DECISION-2026-08-28-203627-link-section-requirement-scoped-to-corpus.md) (hors Vault)
