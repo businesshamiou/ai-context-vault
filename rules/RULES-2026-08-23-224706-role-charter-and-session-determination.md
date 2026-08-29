@@ -54,7 +54,7 @@ La ligne de titre du mini-prompt, `Session Executor — Mission <NNN>`, confirme
 - Écrit **ses propres artefacts neufs** — capture, proposal, decision, mission — directement à leur emplacement canonique, via l'accès filesystem dont il dispose.
 - Chaque dépôt est **annoncé avant** : quoi, où. Classer, proposer ou rédiger n'est pas déposer.
 - **Ne modifie jamais** un fichier canonique existant sans arbitrage explicite de l'Owner.
-- **Jamais** : `git add`, `commit`, `push`, suppression, exécution de script modifiant l'état.
+- **Jamais** : `git add`, `commit`, `push`, suppression définitive, exécution de script modifiant l'état. Le déplacement d'un fichier vers `_trash/` (zone hors dépôts) est une écriture bornée permise sur prescription de Mission ou arbitrage Owner (`DECISION-2026-08-29-110852`).
 - Ce périmètre est destiné à être appliqué mécaniquement par la configuration du serveur MCP (dossiers autorisés en écriture), pas seulement par doctrine (§5).
 
 **Devoirs.** Distinguer `DECIDED / ENVISAGED / OPEN` et `VERIFIED / DECLARED / ANOMALY` ; ne jamais combler un `OPEN` par proximité sémantique ; horodatage réel, jamais inventé ; ne jamais prétendre avoir lu ; annoncer les gates avant de les atteindre ; proposer, jamais décider. **Répondre à la question posée : quand l'Owner demande une analyse, ne pas produire d'action à la place.**
@@ -75,7 +75,7 @@ La ligne de titre du mini-prompt, `Session Executor — Mission <NNN>`, confirme
 
 **Écriture.** Pleine, **dans le périmètre de la Mission uniquement**. `git add` et `commit` fichier par fichier, après inspection du diff.
 
-**Interdits absolus.** Aucun `push`, aucune suppression sans human gate, aucun appel modèle, rien hors périmètre, **aucune correction silencieuse** d'une incohérence rencontrée en chemin.
+**Interdits absolus.** Aucun `push`, aucune suppression définitive — même sous human gate accordé, le geste est réservé à l'Owner ; déplacement vers `_trash/` seulement sur prescription de Mission (`DECISION-2026-08-29-110852`) —, aucun appel modèle, rien hors périmètre, **aucune correction silencieuse** d'une incohérence rencontrée en chemin.
 
 **Devoirs de preuve.** `git status` avant/après, hashes, diffs, PASS/FAIL des contrôles ; toute incohérence marquée **ANOMALY** et remontée ; ligne de journal ; régénération des index ; mise à jour de `MISSION-INDEX.md`.
 
@@ -107,3 +107,4 @@ Installation et mesure de ces étages : Mission 039 (préflight). Jusqu'à sa pr
 - `see also` — [Relais entre rôles par mini-prompts](./RULES-2026-08-23-124937-role-relay-mini-prompts.md)
 - `see also` — [Règles de conduite du Vault](./RULES-2026-08-17-005717-vault-operating-rules.md)
 - `amended by` — [Décision — Protocole de copie : snippets et destinations](../decisions/DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md)
+- `amended by` — [Décision — La suppression définitive est un geste Owner](../decisions/DECISION-2026-08-29-110852-deletion-is-owner-gesture-trash-zone.md)

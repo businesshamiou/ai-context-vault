@@ -46,6 +46,7 @@ Hors périmètre : <ce qui est explicitement exclu.>
 
 ## Étapes
 
+<!-- Aucune étape « supprimer » : soit « déplacer vers _trash/ » (étape agent, empreinte + absence remesurée en validation), soit « suppression par l'Owner » en human gate hors des étapes, mesurée à la reprise (DECISION-2026-08-29-110852). -->
 1. <Étape ordonnée.>
 
 ## Gates
@@ -79,4 +80,5 @@ Hors périmètre : <ce qui est explicitement exclu.>
 ## Liens
 
 - `prescribed by` — [Versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md)
+- `amended by` — [Décision — La suppression définitive est un geste Owner](../decisions/DECISION-2026-08-29-110852-deletion-is-owner-gesture-trash-zone.md)
 - (à compléter : type — titre — chemin relatif, voir le standard de liens)
