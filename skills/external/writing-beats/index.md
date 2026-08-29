@@ -1,0 +1,20 @@
+---
+type: index
+title: "Index — writing-beats"
+description: "Index généré automatiquement par tools/build-indexes.sh."
+status: active
+generated_by: tools/build-indexes.sh
+---
+
+# Index — writing-beats
+
+Index généré automatiquement. Ne pas éditer à la main : régénérer via `tools/build-indexes.sh`.
+
+## Contenu
+
+- `SKILL.md` — Writing Beats · skill · ADOPTED-V1
+  - Writing, exploit — assemble raw material into a journey of beats, grounding each term before a beat leans on it.
+
+## Liens
+
+- `prescribed by` — [Standard de liens entre documents](../../../rules/RULES-2026-08-21-115658-document-linking-standard.md)
