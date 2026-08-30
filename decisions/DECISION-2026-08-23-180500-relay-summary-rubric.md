@@ -58,7 +58,7 @@ Conséquence du défaut : le Pilot devait soit ouvrir le rapport complet — co�
 ## Human gate
 
 - Validation : accordée
-- Référence : Mission `036`, `AUTHORIZED` par l'Owner (`MISSION-2026-08-23-174203-036-relay-summary-rubric.md`).
+- Référence : Mission `036`, `AUTHORIZED` par l'Owner (MISSION-2026-08-23-174203-036-relay-summary-rubric.md).
 
 ## Artefacts liés
 

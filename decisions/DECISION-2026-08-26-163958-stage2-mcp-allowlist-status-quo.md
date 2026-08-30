@@ -34,11 +34,11 @@ Trois, et seulement trois :
 
 1. **Le serveur amont gagne un support natif de lecture seule par dossier** (nouvelle version du paquet, ou changement de méthode de lancement mesuré et validé) — revoir l'allowlist au palier 1.
 2. **Un accident réel d'écriture Pilot survient** (pas un risque théorique : un geste effectivement observé hors du périmètre attendu) → voie de réveil : wrapper MCP côté Pilot, sur le modèle du sas par rôle de l'aîné (knowledge-note §5.3, voie 2 — réécriture de l'interception, pas une recopie).
-3. **Un accident réel d'écriture Executor survient** → voie de réveil : portage de `pre_tool_use.py`, sur le même runtime Claude Code que celui déjà en usage ici — la couche « hooks Git + policy » que l'aîné qualifie lui-même de « proche du copier-coller » est déjà couverte, sous une autre forme, par notre étage 3 ; c'est la couche d'interposition Write/Edit qui resterait à porter.
+3. **Un accident réel d'écriture Executor survient** → voie de réveil : portage de pre_tool_use.py, sur le même runtime Claude Code que celui déjà en usage ici — la couche « hooks Git + policy » que l'aîné qualifie lui-même de « proche du copier-coller » est déjà couverte, sous une autre forme, par notre étage 3 ; c'est la couche d'interposition Write/Edit qui resterait à porter.
 
 ## Impact
 
-- Aucune configuration n'est appliquée à `claude_desktop_config.json` ; aucun geste d'application n'a eu lieu ni n'est prévu par cette Décision.
+- Aucune configuration n'est appliquée à claude_desktop_config.json ; aucun geste d'application n'a eu lieu ni n'est prévu par cette Décision.
 - La porte `open-mcp-allowlist-verification` se ferme ; une porte gelée `frozen-mcp-write-allowlist` s'ouvre, portant les trois conditions ci-dessus comme seule condition de réveil.
 - Aucun changement de périmètre d'écriture du Pilot ou de l'Executor : la charte des rôles (`RULES-2026-08-23-224706`) s'applique sans modification.
 

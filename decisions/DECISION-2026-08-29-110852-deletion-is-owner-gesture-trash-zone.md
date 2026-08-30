@@ -59,7 +59,7 @@ La leçon est de la même famille que le push délégué (DECISION-154553 et ame
 
 ## Artefacts liés
 
-- Rapports de la Mission 087 (workshop-build, hors Vault) : `REPORT-2026-08-29-011726-087-second-audit-enveloping-STOP.md` (refus verbatim, deux outils), REPORT-2026-08-29-013432-…-resume-STOP.md et REPORT-2026-08-29-103907-…-resume2-STOP.md (reprises bloquées à raison), REPORT-2026-08-29-105604-…-completion.md (déplacement mesuré, achèvement).
+- Rapports de la Mission 087 (workshop-build, hors Vault) : REPORT-2026-08-29-011726-087-second-audit-enveloping-STOP.md (refus verbatim, deux outils), REPORT-2026-08-29-013432-…-resume-STOP.md et REPORT-2026-08-29-103907-…-resume2-STOP.md (reprises bloquées à raison), REPORT-2026-08-29-105604-…-completion.md (déplacement mesuré, achèvement).
 
 ## Liens
 

@@ -26,7 +26,7 @@ Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage. Co
 ## 2. Dépôts
 
 - `vault` (ce dépôt) : transversal — `decisions/`, `knowledge/`, `rules/`, `templates/`, `skills/`, `handoffs/`, `tests/`, `graphify-out/` (supprimé, Mission 040), `AGENTS.md`, `README.md`. [VERIFIED] `git remote -v` → origin distant configuré (fetch + push). Branche : `main`.
-- `workshop-build` (dépôt frère, `../workshop-build` depuis `vault`) : missions, prompts, rapports, audits, captures, proposals, handoffs, registre (`MISSION-INDEX.md`). [VERIFIED] `git remote -v` → origin distant configuré (fetch + push). Branche : `main`.
+- `workshop-build` (dépôt frère, `../workshop-build` depuis `vault`) : missions, prompts, rapports, audits, captures, proposals, handoffs, registre (MISSION-INDEX.md). [VERIFIED] `git remote -v` → origin distant configuré (fetch + push). Branche : `main`.
 - [DECLARED — `CAPTURE-2026-08-19-013315`] Relation frère : les deux dépôts sont clonés côte à côte, `workshop-build` accessible depuis `vault` via `../workshop-build` et réciproquement.
 - Les sessions Executor s'ouvrent **uniquement dans `vault`** (§6).
 
