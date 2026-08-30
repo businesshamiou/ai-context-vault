@@ -77,7 +77,7 @@ La ligne de titre du mini-prompt, `Session Executor — Mission <NNN>`, confirme
 
 **Interdits absolus.** Aucun `push`, aucune suppression définitive — même sous human gate accordé, le geste est réservé à l'Owner ; déplacement vers `_trash/` seulement sur prescription de Mission (`DECISION-2026-08-29-110852`) —, aucun appel modèle, rien hors périmètre, **aucune correction silencieuse** d'une incohérence rencontrée en chemin.
 
-**Devoirs de preuve.** `git status` avant/après, hashes, diffs, PASS/FAIL des contrôles ; toute incohérence marquée **ANOMALY** et remontée ; ligne de journal ; régénération des index ; mise à jour de `MISSION-INDEX.md`.
+**Devoirs de preuve.** `git status` avant/après, hashes, diffs, PASS/FAIL des contrôles ; toute incohérence marquée **ANOMALY** et remontée ; ligne de journal ; régénération des index ; mise à jour de `<projet>/missions/MISSION-INDEX.md`.
 
 **Sortie.** Un fichier REPORT déposé, puis le bloc **RELAY** en fin de fenêtre, résumé plafonné à cinq lignes de faits chiffrés.
 

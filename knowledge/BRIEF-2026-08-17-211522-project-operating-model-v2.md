@@ -62,7 +62,7 @@ assets/         # assets versionnables si applicable
 
 Lorsqu’un projet utilise des Missions, chaque objectif reçoit un ID `NNN`. Les corrections `Cxx` conservent cet ID, utilisent un nouveau timestamp réel et restent complètes et autonomes.
 
-La Mission et son Prompt Executor portent le même `NNN/Cxx`. Les anciennes versions sont historiques; `missions/MISSION-INDEX.md` résout la version active sans recopier d’état Git périssable.
+La Mission et son Prompt Executor portent le même `NNN/Cxx`. Les anciennes versions sont historiques; `<projet>/missions/MISSION-INDEX.md` résout la version active sans recopier d’état Git périssable.
 
 Les Decisions restent cumulatives et ne sont jamais requalifiées silencieusement.
 

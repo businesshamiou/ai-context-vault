@@ -14,7 +14,7 @@ artifact_state: GENERATED_IN_CHAT
 
 # MISSION <NNN> — <TITRE>
 
-Rappel : `status` ci-dessus fige l'autorisation à la création de ce fichier ; il n'est jamais retouché. L'état d'exécution de cette Mission vit exclusivement dans `missions/MISSION-INDEX.md`, colonne « Statut ».
+Rappel : `status` ci-dessus fige l'autorisation à la création de ce fichier ; il n'est jamais retouché. L'état d'exécution de cette Mission vit exclusivement dans `<projet>/missions/MISSION-INDEX.md`, colonne « Statut ».
 
 ## Objectif
 

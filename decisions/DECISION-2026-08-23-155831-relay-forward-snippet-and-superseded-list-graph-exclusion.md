@@ -25,7 +25,7 @@ Deux arbitrages de l'Owner du 2026-08-23.
 
 1. **Sens aller du relais, gravé et livré en snippet.** Le mini-prompt qui ouvre une session Executor suit désormais une structure fixe à cinq rubriques (ligne de titre nommant la session, racine d'ouverture — le Vault en chemin absolu, source à appliquer — le chemin du fichier Mission relatif au Vault, interdits absolus, sortie attendue — le bloc RELAY de la Mission), et il est livré par le Pilot **en snippet copiable d'un seul geste** (bloc de code dans le chat), jamais en fichier à ouvrir ni en prose à recomposer. Le sens retour (bloc RELAY, gravé par la [Decision du 2026-08-23 12:49](./DECISION-2026-08-23-124937-role-relay-mini-prompts.md)) n'est pas modifié : les deux sens vivent désormais dans la même règle, [RULES-2026-08-23-124937](../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md). *Note d'amendement (2026-08-26) : la rubrique « racine d'ouverture — le Vault en chemin absolu » ci-dessus est révoquée par la Décision `213150` — la position d'ouverture est libre ; voir `RULES-2026-08-23-124937` rubrique 2, amendée en conséquence.*
 
-2. **Liste des fichiers remplacés (`superseded-files.txt`) exclue du graphe, mais versionnée.** Le fichier plat produit par `tools/build-indexes.sh` (Mission 029) est ajouté au `.graphifyignore` de chaque racine où il est produit — un fichier machine sans prose n'apportant que du bruit à un graphe sémantique — mais reste suivi par Git : sans lui sur une installation fraîche (clone), la marque `[REMPLACÉ]` de `tools/find-in-vault.sh` disparaît silencieusement.
+2. **Liste des fichiers remplacés (`superseded-files.txt`) exclue du graphe, mais versionnée.** Le fichier plat produit par `tools/build-indexes.sh` (Mission 029) est ajouté au `.graphifyignore` (supprimé, Mission 040) de chaque racine où il est produit — un fichier machine sans prose n'apportant que du bruit à un graphe sémantique — mais reste suivi par Git : sans lui sur une installation fraîche (clone), la marque `[REMPLACÉ]` de `tools/find-in-vault.sh` disparaît silencieusement.
 
 ## Raison
 
@@ -42,7 +42,7 @@ Deux arbitrages de l'Owner du 2026-08-23.
 
 - Mini-prompt aller laissé en trois rubriques libres (état antérieur) : rejeté, la structure à cinq rubriques couvre un cas que les trois anciennes ne couvraient pas explicitement (la ligne de titre nommant la session, et la sortie attendue).
 - Retirer `superseded-files.txt` de Git plutôt que du seul graphe : rejeté, ferait disparaître la marque `[REMPLACÉ]` sur toute installation fraîche qui n'a pas encore régénéré les index.
-- Laisser `superseded-files.txt` entrer au graphe comme n'importe quel autre fichier suivi : rejeté, un fichier plat sans prose n'apporte que du bruit à un graphe sémantique (même motif que l'exclusion de `tools/`, `.githooks/` et `rules/patterns/` dans `.graphifyignore`).
+- Laisser `superseded-files.txt` entrer au graphe comme n'importe quel autre fichier suivi : rejeté, un fichier plat sans prose n'apporte que du bruit à un graphe sémantique (même motif que l'exclusion de `tools/`, `.githooks/` et `rules/patterns/` dans `.graphifyignore` (supprimé, Mission 040)).
 
 ## Human gate
 

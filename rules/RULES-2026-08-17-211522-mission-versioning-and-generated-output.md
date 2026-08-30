@@ -59,7 +59,7 @@ Une Decision plus récente ne remplace une précédente que si elle déclare exp
 
 Un projet qui utilise des Missions maintient, lorsque le besoin existe :
 
-`missions/MISSION-INDEX.md`
+`<projet>/missions/MISSION-INDEX.md`
 
 Le registre indique au minimum l’ID, l’objectif, la version active, son statut et le chemin de la Mission active. Il ne recopie pas de mesures techniques périssables.
 
@@ -97,7 +97,7 @@ Un projet hérite de cette doctrine et documente uniquement ses spécialisations
 Pour exécuter une Mission :
 
 1. lire les Decisions actives pertinentes;
-2. résoudre la dernière version active via `MISSION-INDEX.md` lorsqu’il existe;
+2. résoudre la dernière version active via `<projet>/missions/MISSION-INDEX.md` lorsqu’il existe;
 3. lire la Mission complète;
 4. lire le Prompt aligné (uniquement pour les Missions antérieures à la Mission `038` ; convention close au-delà, Decision `220049`);
 5. remesurer l’état technique utile;

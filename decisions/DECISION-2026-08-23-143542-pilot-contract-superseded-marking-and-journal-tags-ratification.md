@@ -41,7 +41,7 @@ Décision cumulative portant quatre points, tous issus de la [proposal du 2026-0
 
 3. **Limite de fraîcheur de la marque `[REMPLACÉ]`.** La marque posée par `tools/find-in-vault.sh` provient de `superseded-files.txt`, un fichier plat généré par `tools/build-indexes.sh` à chaque régénération des index. Elle n'est donc fraîche qu'à la date de la dernière génération des index : un champ `supersedes` ajouté après coup dans le front-matter d'un document n'apparaît dans la recherche qu'après une régénération des index (`tools/build-indexes.sh <racine>`). Cette limite est structurelle, pas un défaut à corriger — elle est actée ici pour qu'elle ne soit pas découverte par surprise.
 
-4. **Ratification de la convention de tags du journal.** Introduite sans spécification par l'Executor en Mission 027 (`OPEN 2` de son rapport), la convention `ETAT:` / `PROCHAIN:` / `OUVERT:` / `REPRISE:` en préfixe de ligne dans `state/journal.md`, lue par `tools/build-state.sh`, est ratifiée telle quelle : dernière occurrence retenue pour `ETAT:` et `PROCHAIN:`, toutes les occurrences listées pour `OUVERT:`, et `REPRISE:` reconnue seulement en dernière ligne du journal. Une ligne de journal sans tag reconnu n'alimente aucune rubrique de la fiche d'état.
+4. **Ratification de la convention de tags du journal.** Introduite sans spécification par l'Executor en Mission 027 (`OPEN 2` de son rapport), la convention `ETAT:` / `PROCHAIN:` / `OUVERT:` / `REPRISE:` en préfixe de ligne dans `<projet>/state/journal.md`, lue par `tools/build-state.sh`, est ratifiée telle quelle : dernière occurrence retenue pour `ETAT:` et `PROCHAIN:`, toutes les occurrences listées pour `OUVERT:`, et `REPRISE:` reconnue seulement en dernière ligne du journal. Une ligne de journal sans tag reconnu n'alimente aucune rubrique de la fiche d'état.
 
 ## Raison
 
@@ -52,7 +52,7 @@ Une règle de comportement gravée dans un fichier que le Pilot a ordre de ne pa
 - `templates/pilot-contract-template.md` devient la source unique du texte du contrat ; toute modification future du contrat passe par ce gabarit, sous contrôle du plafond de sept lignes.
 - `tools/build-indexes.sh` et `tools/find-in-vault.sh` portent désormais le mécanisme de marquage des documents remplacés, sur les deux dépôts (Vault et `workshop-build/workshop-production`).
 - `templates/session-opening-prompt-template.md` devient le prompt de réouverture de référence, sans règle de comportement dupliquée.
-- La convention de tags du journal (`ETAT:`, `PROCHAIN:`, `OUVERT:`, `REPRISE:`) devient normative : toute Mission future qui alimente `state/journal.md` s'y conforme, sauf Decision contraire.
+- La convention de tags du journal (`ETAT:`, `PROCHAIN:`, `OUVERT:`, `REPRISE:`) devient normative : toute Mission future qui alimente `<projet>/state/journal.md` s'y conforme, sauf Decision contraire.
 
 ## Alternatives importantes
 
