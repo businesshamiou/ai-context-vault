@@ -79,16 +79,25 @@ $ALL_MD
 EOF_ALLMD
 
 # --- 2. Extraction et verification, fichier par fichier ---
-# Un jeton "nomme un fichier" si son dernier segment (apres / ou \) contient
-# un point suivi d'au moins un caractere : couvre les extensions ordinaires
-# et les dotfiles (le point est alors en tete du segment, ex. .graphifyignore).
+# Un jeton "nomme un fichier" si son dernier segment (apres / ou \) commence
+# par un point (dotfile, ex. .graphifyignore -- toujours examine, quelle que
+# soit la liste blanche), ou si ce dernier segment se termine par l'une des
+# extensions de la liste blanche ci-dessous. La liste blanche est mesuree,
+# pas inventee : extensions distinctes portees par les fichiers suivis de
+# vault et workshop-build (git ls-files), Mission 092. Remplace l'ancienne
+# heuristique "un point suivi d'au moins un caractere", qui comptait des
+# non-chemins (numero de version, cle de configuration Git) parmi les
+# defauts (mesure Mission 091).
 names_a_file() {
   local base="$1"
   base="${base%%/}"
   base="${base##*/}"
   base="${base##*\\}"
   case "$base" in
-    *.?*) return 0 ;;
+    .*) return 0 ;;
+  esac
+  case "$base" in
+    *.md|*.yaml|*.sh|*.txt|*.py|*.json|*.svg|*.js|*.html|*.example|*.cjs) return 0 ;;
   esac
   return 1
 }
