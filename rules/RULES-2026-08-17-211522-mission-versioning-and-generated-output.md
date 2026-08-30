@@ -110,4 +110,5 @@ Toute Mission commite son propre fichier et régénère les index générés en 
 ## Liens
 
 - `amended by` — [Decision : taxonomie PIV, langue système anglaise, charte des rôles, fin des PROMPT, §4 prompts alignés](../decisions/DECISION-2026-08-23-220049-piv-taxonomy-and-english-system-language.md)
+- `amended by` — [Décision — Un fichier de Mission est gelé dès l'émission de son snippet](../decisions/DECISION-2026-08-30-013217-mission-frozen-at-snippet-emission.md)
 - `source` — [Decision — Arbitrages doctrinaux du 2026-08-25](../decisions/DECISION-2026-08-25-131034-doctrinal-arbitrations-2026-08-25.md)
