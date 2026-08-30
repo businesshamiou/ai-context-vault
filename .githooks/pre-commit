@@ -81,4 +81,17 @@ if [ ! -f "$LINKS_CHECK" ]; then
 fi
 
 bash "$LINKS_CHECK" || exit 1
+
+# --- Gardien des chemins affirmes (Mission 076 pour l'outil, Mission 103
+# pour ce cablage) : corpus ramene a zero defaut avant cablage (Missions
+# 091-102), aucun mecanisme d'exception necessaire. ---
+ASSERTED_PATHS_CHECK="$VAULT_ROOT/tools/check-asserted-paths.sh"
+
+if [ ! -f "$ASSERTED_PATHS_CHECK" ]; then
+  echo "REFUS : garde-fou des chemins affirmes introuvable : $ASSERTED_PATHS_CHECK" >&2
+  echo "Le controle ne peut pas verifier, il refuse." >&2
+  exit 1
+fi
+
+bash "$ASSERTED_PATHS_CHECK" || exit 1
 exit 0
