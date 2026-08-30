@@ -33,6 +33,7 @@ Aucune licence, mention d'auteur ou de version amont détectée dans son archive
 
 - **2026-08-28** — installation en portée personnelle (`C:\Users\hamio\.claude\skills\`), 28 dossiers, 94 fichiers (Mission 081).
 - **2026-08-28** — entrée dans le Vault (`vault/skills/external/`), même contenu, copie vérifiée avant toute jonction (Mission 082, exécution de `DECISION-2026-08-28-160213`).
+- **2026-08-30** — cycle update-ou-rejet (Mission 104, exécution de `DECISION-2026-08-28-171209`) : clone amont mesuré au commit `6654f6b60cd9d5be8b54c6fafe44346dabeb3b76` (`package.json` toujours à la version `1.2.3` — commits amont non versionnés depuis le dernier changeset), 24/27 skills de la case A mis à jour (corps + fichiers compagnons remplacés verbatim), 3/27 déjà identiques (`grill-me`, `grill-with-docs`, `handoff`), **0 CONFLIT, 0 ANOMALIE**. `metadata-upstream-version` reste `"1.2.3"` sur les 27 (valeur mesurée inchangée). `scroll-film-studio` non touché (aucun amont). Détail : `../../../workshop-build/workshop-production/reports/REPORT-2026-08-30-104-external-skills-upstream-update.md` (hors Vault).
 
 ## Liens
 

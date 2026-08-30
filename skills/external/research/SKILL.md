@@ -9,13 +9,13 @@ status: ADOPTED-V1
 metadata-upstream-repo: "github.com/mattpocock/skills"
 metadata-upstream-version: "1.2.3"
 metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "586431582980254b90d2337ccf5ec7a4c9f81af518a5d96dd9df42a932d4d8a7"
+metadata-upstream-body-sha256: "24ad336b28f61d2ac49f31531fadd45047b8682a15b30825cafac886d3543cb9"
 ---
 
 Spin up a **background agent** to do the research, so you keep working while it reads.
 
 Its job:
 
-1. Investigate the question against **primary sources** — official docs, source code, specs, first-party APIs — not a secondary write-up of them. Follow every claim back to the source that owns it.
+1. Investigate the question against **primary sources** (official docs, source code, specs, first-party APIs), not a secondary write-up of them. Follow every claim back to the source that owns it.
 2. Write the findings to a single Markdown file, citing each claim's source.
 3. Save it where the repo already keeps such notes; match the existing convention, and if there is none, put it somewhere sensible and say where.
