@@ -55,7 +55,7 @@ Mode d'emploi ordonné pour installer et vérifier le Vault et son outillage. Co
   }
   ```
   Dossier exposé : la racine du workspace contenant `vault` et `workshop-build` (chemin absolu, propre à la machine — voir l'annexe historique).
-- [DECLARED — `HANDOFF-2026-08-20-231741-pilot-session-closure-decision-status-mcp.md:120-125`] Emplacement réel du fichier de configuration (l'installation Microsoft Store de Claude Desktop virtualise le chemin classique) : `%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json`. [VERIFIED] ce chemin exact existe sur ce poste (fichier trouvé et lu).
+- [DECLARED — `HANDOFF-2026-08-20-231741-pilot-session-closure-decision-status-mcp.md:120-125`] Emplacement réel du fichier de configuration (l'installation Microsoft Store de Claude Desktop virtualise le chemin classique) : %LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json. [VERIFIED] ce chemin exact existe sur ce poste (fichier trouvé et lu).
 - [DECLARED — `CAPTURE-2026-08-19-013315`] Usage : le Pilot lit ses sources directement via ce serveur (lecture/écriture de fichiers). Le Pilot **ne lance jamais de commande Git** — voir §6.
 - [DECLARED — `decisions/DECISION-2026-08-19-233650-graphify-integrations-amendment.md`, D5] La mise en service d'un serveur MCP Graphify (`graphify-mcp.exe`, présent mais non configuré ci-dessus) reste hors périmètre : à décider par une Mission distincte.
 
