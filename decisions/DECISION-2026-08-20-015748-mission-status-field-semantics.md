@@ -15,13 +15,13 @@ owner_gate: granted
 
 La [règle de versionnement des Missions](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md) impose qu'une Mission et sa correction déclarent au minimum `mission_id`, `correction`, `supersedes` et `status`, mais ne définit nulle part les valeurs que `status` peut prendre, le moment où il se remplit, ni qui le met à jour. Aucun gabarit Mission n'existe pour fixer cet usage.
 
-Une mesure du 2026-08-20 sur les 18 fichiers Mission actifs du registre ([`missions/MISSION-INDEX.md`](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault) de `workshop-build`) a établi que ce vide a produit un usage divergent : `status` porte tantôt une valeur d'autorisation (`AUTHORIZED`), tantôt une valeur d'exécution (`COMPLETED`), selon le fichier.
+Une mesure du 2026-08-20 sur les 18 fichiers Mission actifs du registre (missions/MISSION-INDEX.md (hors Vault) de `workshop-build`) a établi que ce vide a produit un usage divergent : `status` porte tantôt une valeur d'autorisation (`AUTHORIZED`), tantôt une valeur d'exécution (`COMPLETED`), selon le fichier.
 
 ## Décision
 
 **D1 — Autorisation figée.** Le champ `status` du front-matter d'une Mission exprime l'autorisation accordée au moment de sa création. Il est écrit une fois et n'est jamais retouché ensuite, y compris quand la Mission progresse ou se termine.
 
-**D2 — Le registre fait foi.** [`missions/MISSION-INDEX.md`](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault) est la seule source de l'état d'exécution d'une Mission. Aucun autre emplacement ne fait autorité sur ce point.
+**D2 — Le registre fait foi.** missions/MISSION-INDEX.md (hors Vault) est la seule source de l'état d'exécution d'une Mission. Aucun autre emplacement ne fait autorité sur ce point.
 
 **D3 — Vocabulaire du registre.** La colonne « Statut » du registre prend l'une de ces quatre valeurs : `AUTHORIZED`, `IN_PROGRESS`, `COMPLETED`, `ABANDONED`. L'Executor la met à jour à la fin de chaque Mission.
 

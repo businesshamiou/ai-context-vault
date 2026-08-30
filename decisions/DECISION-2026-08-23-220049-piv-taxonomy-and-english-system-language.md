@@ -71,7 +71,7 @@ Validés en bloc par l'Owner après contre-examen, pour mise en œuvre en Missio
 5. **Défaut `deny`** : tout sujet, action ou ressource non déclaré est refusé.
 6. **Modèle de menace assumé** : gardes anti-accident, pas anti-évasion (gravé dans la charte).
 
-Rejetés : politique déclarative sans consommateur (`policy.yaml` — contre-exemple de *besoin réel → structure*), dépendances Windows-seulement, compilateur de hooks à empreinte (over-engineering à ce stade), dispositifs sans vue les uns sur les autres.
+Rejetés : politique déclarative sans consommateur (policy.yaml — contre-exemple de *besoin réel → structure*), dépendances Windows-seulement, compilateur de hooks à empreinte (over-engineering à ce stade), dispositifs sans vue les uns sur les autres.
 
 ## Liens
 

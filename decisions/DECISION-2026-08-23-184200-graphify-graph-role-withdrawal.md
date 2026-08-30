@@ -31,7 +31,7 @@ La règle : « Graphify est conservé si, et seulement si, C3 obtient une justes
 
 ### Ce qui reste en place
 
-Rien de ce qui a remplacé Graphify pour la navigation ne dépend de lui, et rien n'en est retiré par cette Decision : le corpus, la fiche d'état générée (`state/journal.md` + `state/STATE.md`), les index générés par dossier (`tools/build-indexes.sh`), la recherche par contenu (`tools/find-in-vault.sh`) et les liens écrits (Standard de liens entre documents) restent le système de navigation du Vault. Les trois conditions mesurées le confirment : Q2, Q3 et Q4 obtiennent 2/2 dans les trois conditions, y compris C1 qui n'a aucun de ces outils.
+Rien de ce qui a remplacé Graphify pour la navigation ne dépend de lui, et rien n'en est retiré par cette Decision : le corpus, la fiche d'état générée (`<projet>/state/journal.md` + `<projet>/state/STATE.md`), les index générés par dossier (`tools/build-indexes.sh`), la recherche par contenu (`tools/find-in-vault.sh`) et les liens écrits (Standard de liens entre documents) restent le système de navigation du Vault. Les trois conditions mesurées le confirment : Q2, Q3 et Q4 obtiennent 2/2 dans les trois conditions, y compris C1 qui n'a aucun de ces outils.
 
 ### Gestes de retrait à faire (planifiés, non exécutés par cette Decision)
 

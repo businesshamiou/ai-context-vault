@@ -19,7 +19,7 @@ Référence : https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main
 
 ## Conformité constatée
 
-Le Vault satisfait les trois critères de conformité OKF v0.2 sans modification : front-matter YAML parsable sur chaque document, champ `type` non vide partout, aucun usage non conforme des noms réservés `index.md` et `log.md`.
+Le Vault satisfait les trois critères de conformité OKF v0.2 sans modification : front-matter YAML parsable sur chaque document, champ `type` non vide partout, aucun usage non conforme des noms réservés `index.md` et log.md.
 
 ## Décision
 
@@ -42,7 +42,7 @@ L'adoption est progressive et sans rupture.
 
 - `generated` et `verified` structurés avec convention d'acteur. Les trust tiers OKF correspondent exactement à la doctrine VERIFIED / DECLARED du chantier ; l'alignement aura de la valeur lorsque les Skills exploiteront ces champs.
 - Champ `sources` structuré.
-- `log.md` par scope.
+- log.md par scope.
 
 ## Conséquences
 

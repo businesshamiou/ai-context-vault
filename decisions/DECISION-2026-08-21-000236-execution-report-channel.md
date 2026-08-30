@@ -35,7 +35,7 @@ Cette décision reprend, sans ajout de fond, les points de la [proposal](../../w
 
 **D7 — Périmètre du graphe.** `reports/` appartient à la couche History / Evidence : exclu du graphe de `workshop-build` si un tel graphe voit le jour.
 
-**D8 — Registre.** [`MISSION-INDEX.md`](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault) gagne une colonne « Rapport actif » lors de sa prochaine retouche. Pas de reprise rétroactive des lignées existantes.
+**D8 — Registre.** MISSION-INDEX.md (hors Vault) gagne une colonne « Rapport actif » lors de sa prochaine retouche. Pas de reprise rétroactive des lignées existantes.
 
 ## Raison
 
@@ -49,7 +49,7 @@ Un fichier court par Mission, coût négligeable. Premiers Prompts concernés : 
 
 - Ranger le rapport dans `audits/` : rejeté, deux intentions différentes.
 - Ranger le rapport à côté de sa Mission dans `missions/` : rejeté, un type par dossier.
-- `LOG` : rejeté, évoque le transcript qu'on veut éviter, et OKF réserve `log.md`.
+- `LOG` : rejeté, évoque le transcript qu'on veut éviter, et OKF réserve log.md.
 - `RUN`, `EVIDENCE`, `RECEIPT` : rejetés, jargon ou sens trop large.
 
 ## Human gate
