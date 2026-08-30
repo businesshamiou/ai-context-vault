@@ -31,7 +31,7 @@ Le Vault ne remplace jamais le contexte local d’un projet et n’importe jamai
 
 `work → capture/proposal/decision selon le besoin → current state → handoff si nécessaire → reprise`
 
-Une capture conserve une connaissance durable. Une proposal garde une option importante jusqu'à son arbitrage sans se présenter comme une décision. Une décision enregistre un choix explicitement validé. Le fichier `current-state.md`, maintenu dans le projet concerné, fournit une photographie courte et actualisée. Un handoff daté n’est créé que lorsqu’une autre session ou un autre agent doit reprendre le travail de façon fiable.
+Une capture conserve une connaissance durable. Une proposal garde une option importante jusqu'à son arbitrage sans se présenter comme une décision. Une décision enregistre un choix explicitement validé. Le fichier `<projet>/current-state.md`, maintenu dans le projet concerné, fournit une photographie courte et actualisée. Un handoff daté n’est créé que lorsqu’une autre session ou un autre agent doit reprendre le travail de façon fiable.
 
 Le cycle est sélectif : chaque session ne produit pas automatiquement tous les artefacts. Voir la [règle du cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md) et les [modèles réutilisables](./templates/).
 
@@ -53,3 +53,8 @@ Graphify peut aider un agent à retrouver et relier ce qui a été écrit. Il ne
 - [Vérification et preuves](./knowledge/verification-and-evidence.md)
 - [Règles de conduite](./rules/RULES-2026-08-17-005717-vault-operating-rules.md)
 - [Cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
+
+## Liens
+
+- `see also` — [Instructions pour les agents](./AGENTS.md)
+- `see also` — [Standard de liens entre documents](./rules/RULES-2026-08-21-115658-document-linking-standard.md)

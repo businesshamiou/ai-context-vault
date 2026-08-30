@@ -8,7 +8,7 @@ status: active
 
 # ÉTAT COURANT — <nom du projet>
 
-Ce fichier est l'état vivant et court utilisé pour reprendre un projet. Le conserver dans le projet concerné sous le nom `current-state.md` et le mettre à jour en place plutôt que d’empiler des copies historiques.
+Ce fichier est l'état vivant et court utilisé pour reprendre un projet. Le conserver dans le projet concerné sous le nom `<projet>/current-state.md` et le mettre à jour en place plutôt que d’empiler des copies historiques.
 
 ## Objectif actuel
 

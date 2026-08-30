@@ -7,7 +7,7 @@ Before any action: determine your role. Read [the role charter](./rules/RULES-20
 - Enregistrer explicitement toute décision structurante. Ne jamais transformer silencieusement une proposition en décision.
 - Appliquer le [cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md) de façon sélective : capturer seulement ce qui sera durablement utile et créer une proposal uniquement lorsqu'une option importante doit attendre un arbitrage.
 - Appliquer la [règle de versionnement des Missions et outputs générés](./rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md) lorsqu’un projet utilise des Missions ou une landing zone `generated/`.
-- Maintenir le fichier `current-state.md` lorsqu’un projet l’utilise ; le mettre à jour au lieu d’empiler des états successifs.
+- Maintenir le fichier `<projet>/current-state.md` lorsqu’un projet l’utilise ; le mettre à jour au lieu d’empiler des états successifs.
 - Produire un handoff seulement lorsqu’une reprise fiable est réellement nécessaire.
 - Conserver toute décision structurante au statut `PROPOSED` jusqu’à son arbitrage par human gate.
 - Ne jamais écrire de secret, clé, token, mot de passe ou credential dans le Vault ou dans Git.

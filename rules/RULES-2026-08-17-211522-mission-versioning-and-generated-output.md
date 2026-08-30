@@ -18,7 +18,7 @@ Une Mission reçoit un identifiant projet sur trois positions : `001`, `002`, `0
 
 Convention :
 
-`MISSION-YYYY-MM-DD-HHMMSS-NNN-description.md`
+`<projet>/missions/MISSION-YYYY-MM-DD-HHMMSS-NNN-description.md`
 
 Le timestamp répond à « quand ce fichier a-t-il été créé ? ». L’ID répond à « quelle Mission représente-t-il ? ».
 
@@ -26,7 +26,7 @@ Le timestamp répond à « quand ce fichier a-t-il été créé ? ». L’ID ré
 
 Une correction conserve l’ID et ajoute `C01` à `C10` :
 
-`MISSION-YYYY-MM-DD-HHMMSS-NNN-Cxx-description.md`
+`<projet>/missions/MISSION-YYYY-MM-DD-HHMMSS-NNN-Cxx-description.md`
 
 L’original n’utilise jamais `C00`. Atteindre `C10` impose de réexaminer si l’objectif doit devenir une nouvelle Mission.
 
@@ -44,8 +44,8 @@ Les anciennes versions restent conservées comme historique. Chaque correction d
 
 Convention active jusqu’à la Mission `038` (fin des fichiers PROMPT, Decision `220049`) ; conservée pour lire les Missions antérieures, non appliquée au-delà. Le Prompt canonique d’Executor portait le même identifiant fonctionnel que sa Mission :
 
-- original : `PROMPT-YYYY-MM-DD-HHMMSS-NNN-executor-description.md`;
-- correction : `PROMPT-YYYY-MM-DD-HHMMSS-NNN-Cxx-executor-description.md`.
+- original : PROMPT-YYYY-MM-DD-HHMMSS-NNN-executor-description.md;
+- correction : PROMPT-YYYY-MM-DD-HHMMSS-NNN-Cxx-executor-description.md.
 
 Le Prompt possède son propre timestamp réel. Une correction qui modifie le contrat Executor aligne Mission et Prompt sur le même `Cxx`.
 

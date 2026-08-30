@@ -44,7 +44,7 @@ Une décision décrit le choix, sa raison, son impact, les alternatives importan
 
 ## 5. Current state
 
-Lorsqu'un projet utilise un état de reprise, maintenir dans ce projet un unique fichier `current-state.md`. Il reste court et décrit l'objectif actuel, l'état opérationnel, la dernière avancée validée, le prochain pas, les blocages et les sources actives.
+Lorsqu'un projet utilise un état de reprise, maintenir dans ce projet un unique fichier `<projet>/current-state.md`. Il reste court et décrit l'objectif actuel, l'état opérationnel, la dernière avancée validée, le prochain pas, les blocages et les sources actives.
 
 Le current state est un **état vivant** : le mettre à jour en place. Il ne sert ni d'historique daté ni de registre de preuves techniques recopiées. Utiliser le [modèle d'état courant](../templates/current-state-template.md).
 
