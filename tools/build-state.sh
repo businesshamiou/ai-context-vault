@@ -171,16 +171,12 @@ if [ -f "$JOURNAL" ]; then
     if [ -n "$DOOR_LINES" ]; then
       OUVERTES="$(printf '%s\n' "$DOOR_LINES" | sed 's/^/- /')"
     fi
-    if [ -n "$LEGACY_N" ] && [ "$LEGACY_N" -gt 0 ]; then
-      LEGACY_LINE="- ${LEGACY_N} lignes OPEN legacy antérieures à la baseline du 2026-08-25 — voir journal"
-      if [ -n "$OUVERTES" ]; then
-        OUVERTES="$OUVERTES
-$LEGACY_LINE"
-      else
-        OUVERTES="$LEGACY_LINE"
-      fi
-    fi
     [ -z "$OUVERTES" ] && OUVERTES="Aucune."
+
+    LEGACY_HISTORY="Aucune."
+    if [ -n "$LEGACY_N" ] && [ "$LEGACY_N" -gt 0 ]; then
+      LEGACY_HISTORY="- ${LEGACY_N} lignes OPEN legacy, compte historique figé par la baseline du 2026-08-25 sur des lignes que le journal en ajout seul rend intouchables — voir journal."
+    fi
 
     case "$LAST_LINE" in
       *'REPRISE:'*|*'RESUME:'*) REPRISE_STATUS="Note de reprise en fin de journal : $(printf '%s' "$LAST_LINE" | sed -E 's/^.*(REPRISE|RESUME):[[:space:]]*//')" ;;
@@ -250,6 +246,10 @@ fi
   echo "## Portes ouvertes"
   echo ""
   echo "$OUVERTES"
+  echo ""
+  echo "## Historique legacy"
+  echo ""
+  echo "$LEGACY_HISTORY"
   echo ""
   echo "## Documents récents"
   echo ""
