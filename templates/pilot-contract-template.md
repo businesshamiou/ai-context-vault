@@ -9,7 +9,7 @@ status: active
 
 Les lignes numérotées entre les repères `CONTRACT:BEGIN` et `CONTRACT:END` sont recopiées telles quelles par `tools/build-state.sh` en tête de chaque fiche d'état, sous la ligne d'en-tête « fichier généré ». Ne jamais rédiger le contrat dans le script : seul ce gabarit en porte le texte.
 
-Plafond arbitré : sept lignes exactement. Si ce bloc en contient plus ou moins que sept au moment de la génération, `build-state.sh` échoue avec un message explicite et n'écrit pas la fiche.
+Plafond arbitré : sept lignes exactement. Si ce bloc en contient plus ou moins que sept au moment de la génération, `tools/build-state.sh` échoue avec un message explicite et n'écrit pas la fiche.
 
 <!-- CONTRACT:BEGIN -->
 1. Aucun dépôt de fichier sans accord explicite de l'Owner, demandé juste avant d'écrire.

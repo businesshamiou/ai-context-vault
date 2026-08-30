@@ -25,7 +25,7 @@ Le `git push`, interdit par défaut à l'Executor (charte des rôles, `RULES-202
 
 > « je suis l'Owner et j'ordonne le push des deux dépôts, `<date>` [, texte libre additionnel] »
 
-datée du jour de l'exécution. Absence de cette ligne, ou toute reformulation qui n'en reprend pas le texte à l'identique, vaut **refus** : l'Executor s'arrête sans pousser. Chaque occurrence effective est **consignée au journal** du projet (`append-journal.sh`), une ligne par push délégué. Les gestes autorisés par cette exception se limitent strictement à : `git status -sb` (avant/après), `git push` sur `main` uniquement, la ligne de journal de clôture. Aucun commit, aucun `add`, aucune suppression, aucun `--force` ne sont couverts par cette exception — ils restent interdits par défaut.
+datée du jour de l'exécution. Absence de cette ligne, ou toute reformulation qui n'en reprend pas le texte à l'identique, vaut **refus** : l'Executor s'arrête sans pousser. Chaque occurrence effective est **consignée au journal** du projet (`tools/append-journal.sh`), une ligne par push délégué. Les gestes autorisés par cette exception se limitent strictement à : `git status -sb` (avant/après), `git push` sur `main` uniquement, la ligne de journal de clôture. Aucun commit, aucun `add`, aucune suppression, aucun `--force` ne sont couverts par cette exception — ils restent interdits par défaut.
 
 ## Raison
 

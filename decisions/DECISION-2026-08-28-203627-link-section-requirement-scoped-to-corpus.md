@@ -25,7 +25,7 @@ amends: "../rules/RULES-2026-08-21-115658-document-linking-standard.md"
 
 **2. Ce qui reste global.** La vérification de **résolution** des liens relatifs demeure sur tout le dépôt, `skills/external/` compris : un lien cassé y reste un refus. Seule l'exigence de présence de la section est bornée.
 
-**3. Exécution.** `check-links.sh` est ajusté pour appliquer ce bornage — même patron que son bornage déjà arbitré sur les blocs de code — avec preuve par canaris dans les deux sens : un document du corpus sans `## Liens` reste refusé ; un fichier d'`external/` sans section passe ; un lien cassé dans `external/` reste refusé.
+**3. Exécution.** `tools/check-links.sh` est ajusté pour appliquer ce bornage — même patron que son bornage déjà arbitré sur les blocs de code — avec preuve par canaris dans les deux sens : un document du corpus sans `## Liens` reste refusé ; un fichier d'`external/` sans section passe ; un lien cassé dans `external/` reste refusé.
 
 **4. Frontière de la décision.** Le jour où un skill adopté est promu par réécriture complète (corps compris) hors d'`external/`, il rejoint le corpus et l'obligation pleine s'applique à lui.
 
@@ -36,7 +36,7 @@ Arbitrage X de l'Owner, 2026-08-28, sur mesure réelle : 54 fichiers amont sans 
 ## Impact
 
 - `RULES-2026-08-21-115658` reçoit le lien réciproque `amended by` (même commit que cette gravure).
-- `check-links.sh` modifié, diff limité au bornage, canaris consignés.
+- `tools/check-links.sh` modifié, diff limité au bornage, canaris consignés.
 - Le commit des 97 fichiers de `skills/external/` (en attente depuis la Mission 082) devient possible sans contournement ni section artificielle.
 - La porte `open-guardrail-wiring-arbitration` n'est pas touchée ; le cas « narrowing check-links » déjà en file (exclusion des blocs de code) est distinct et demeure.
 

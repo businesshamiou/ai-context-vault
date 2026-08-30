@@ -35,7 +35,7 @@ Recherche par contenu : retrouver un seul mot dans le corpus a coûté, en séan
 
 ## Impact
 
-Le paquet de distribution (lot E) n'installe pas Obsidian. Le lot A (Mission 027, objectif D) construit `find-in-vault.sh` et le skill de recherche associé. Aucun skill tiers n'est importé dans `vault/`.
+Le paquet de distribution (lot E) n'installe pas Obsidian. Le lot A (Mission 027, objectif D) construit `tools/find-in-vault.sh` et le skill de recherche associé. Aucun skill tiers n'est importé dans `vault/`.
 
 ## Alternatives importantes
 

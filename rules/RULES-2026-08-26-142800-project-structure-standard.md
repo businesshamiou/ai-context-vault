@@ -55,7 +55,7 @@ Aucun sous-dossier, aucun champ, aucun mécanisme n'est créé par anticipation 
 
 ## 5. Clause du grand-père
 
-`workshop-build/workshop-production/` reste tel quel : aucune restructuration, aucune migration vers le squelette du §2. Coût connu (liens relatifs, cf. Missions 052–055) pour gain nul. Sa non-conformité au présent standard a valeur pédagogique d'avant/après et sera **constatée, jamais corrigée** par `check-project-conformity.sh` (Mission 061, étape 4). Seule règle qui lui reste applicable : plus aucun dépôt dans ses dossiers morts.
+`workshop-build/workshop-production/` reste tel quel : aucune restructuration, aucune migration vers le squelette du §2. Coût connu (liens relatifs, cf. Missions 052–055) pour gain nul. Sa non-conformité au présent standard a valeur pédagogique d'avant/après et sera **constatée, jamais corrigée** par `tools/check-project-conformity.sh` (Mission 061, étape 4). Seule règle qui lui reste applicable : plus aucun dépôt dans ses dossiers morts.
 
 `workshop-build/workshop-production/` est l'unique bénéficiaire de cette clause. Tout projet créé après l'adoption de ce standard s'y conforme dès sa naissance, sans exception ni délai de grâce.
 

@@ -43,8 +43,8 @@ Coût accepté et nommé : V1 est la seule des trois voies exigeant un outil tie
 
 L'état actuel est un hybride accidentel, jamais décidé, mesuré par lecture directe le 2026-08-24 :
 
-- `check-secrets.sh` existe **en deux copies**, une par dépôt, libres de diverger en silence.
-- `check-links.sh` n'existe **que dans le Vault** et n'est jamais appelé depuis `workshop-build`, dont le hook ne le mentionne pas.
+- `tools/check-secrets.sh` existe **en deux copies**, une par dépôt, libres de diverger en silence.
+- `tools/check-links.sh` n'existe **que dans le Vault** et n'est jamais appelé depuis `workshop-build`, dont le hook ne le mentionne pas.
 - Le hook de `workshop-build` atteint le Vault par **`../vault/` en dur** pour lire le tampon de préflight.
 
 Le troisième point est le plus grave, et pas pour une raison d'esthétique. La feuille de route prévoit un **dépôt distribuable séparé**, empaqueté par une Mission ultérieure avec questionnaire d'installation. Un dépôt qui exige la présence d'un dossier frère nommé `vault` sur la machine de l'utilisateur **n'est pas distribuable**. Le couplage par chemin de système de fichiers est calé exactement sur l'objectif produit qu'il empêchera d'atteindre.
@@ -64,7 +64,7 @@ Ces deux points sont prouvés dans la Mission de convergence, sur la voie retenu
 
 ## Alternatives importantes
 
-- **Tout dupliquer par projet.** Rejetée : c'est l'état actuel de `check-secrets.sh`, et la divergence silencieuse en est la conséquence mécanique, pas un accident.
+- **Tout dupliquer par projet.** Rejetée : c'est l'état actuel de `tools/check-secrets.sh`, et la divergence silencieuse en est la conséquence mécanique, pas un accident.
 - **Tout centraliser par chemin relatif.** Rejetée : fonctionne sur la machine de l'Owner, échoue sur toute autre. Incompatible avec le dépôt distribuable.
 - **Copier/`cookiecutter` avec re-synchronisation.** Maintenue ouverte pour le gabarit de projet, où la dérive est admise puis réconciliée. Ne convient pas aux contrôles, qui doivent être identiques et non « proches ».
 - **Ne rien décider et corriger au cas par cas.** Rejetée : c'est ce qui a produit l'hybride actuel.

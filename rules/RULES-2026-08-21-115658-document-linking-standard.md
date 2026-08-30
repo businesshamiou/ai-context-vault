@@ -48,7 +48,7 @@ Le contrôle pre-commit `tools/check-links.sh` s'applique à tout `.md` nouveau 
 
 ## 10. Vérification humaine
 
-La revue Pilot porte sur le bon type de lien et sur la présence du lien en contexte, au-delà de ce que `check-links.sh` peut mesurer. [choix]
+La revue Pilot porte sur le bon type de lien et sur la présence du lien en contexte, au-delà de ce que `tools/check-links.sh` peut mesurer. [choix]
 
 ## 11. Rétroactivité
 
