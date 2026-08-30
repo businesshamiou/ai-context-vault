@@ -88,11 +88,20 @@ EOF_ALLMD
 # heuristique "un point suivi d'au moins un caractere", qui comptait des
 # non-chemins (numero de version, cle de configuration Git) parmi les
 # defauts (mesure Mission 091).
+# Exception, meme principe que les dossiers nus (ci-dessous) : un jeton
+# reduit a un point suivi d'une seule extension de la liste blanche, sans
+# autre segment ni autre point (ex. `.md`), nomme un format et non un
+# fichier -- il n'est jamais examine, quel que soit son contenu (Mission
+# 100). Distinct d'un dotfile comme .graphifyignore, qui n'a pas de
+# segment "nom" separe de son extension.
 names_a_file() {
   local base="$1"
   base="${base%%/}"
   base="${base##*/}"
   base="${base##*\\}"
+  case "$base" in
+    .md|.yaml|.sh|.txt|.py|.json|.svg|.js|.html|.example|.cjs) return 1 ;;
+  esac
   case "$base" in
     .*) return 0 ;;
   esac
