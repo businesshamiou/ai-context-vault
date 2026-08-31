@@ -13,7 +13,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 ## Contenu
 
 - `PROVENANCE.md` — Provenance — bibliothèque de skills externes vault/skills/external/ · provenance · active
-  - Note de provenance de la bibliothèque de 28 skills externes adoptés (DECISION-2026-08-28-151235) et rapatriés dans le Vault (DECISION-2026-08-28-160213) : source amont, version figée, licence, dates d'entrée, chaîne d'audits, et l'exception documentée de scroll-film-studio.
+  - Note de provenance de la bibliothèque de 30 skills externes adoptés (DECISION-2026-08-28-151235, DECISION-2026-08-30-210726) et rapatriés dans le Vault (DECISION-2026-08-28-160213) : source amont, version figée, licence, dates d'entrée, chaîne d'audits, et l'exception documentée de scroll-film-studio.
 
 ## Liens
 
