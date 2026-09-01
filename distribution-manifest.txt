@@ -348,6 +348,9 @@ skills/external/writing-shape/SKILL.md	DISTRIBUABLE
 skills/external/writing-shape/agents/openai.yaml	DISTRIBUABLE
 skills/external/writing-shape/index.md	DISTRIBUABLE
 skills/index.md	DISTRIBUABLE
+skills/ecriture-de-mission/SKILL.md	DISTRIBUABLE
+skills/ecriture-de-mission/index.md	DISTRIBUABLE
+skills/ecriture-de-mission/mission-checklist.md	DISTRIBUABLE
 skills/session-close/SKILL.md	DISTRIBUABLE
 skills/session-close/closing-checklist.md	DISTRIBUABLE
 skills/session-close/index.md	DISTRIBUABLE
