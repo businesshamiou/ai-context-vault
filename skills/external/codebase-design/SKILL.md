@@ -1,15 +1,11 @@
 ---
-type: skill
 name: codebase-design
-title: "Codebase Design"
-description: "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "bf218e7ecc69d33a682cf2ffe7c3a7bc45de3c5bc1410fb6cb9beb0081d73a03"
+description: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+metadata:
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "ab0d8082c31bff09dad64bf0c32a02bb698156cdf37e0279c2e4a68121292c33"
+  vault-entered: "2026-09-01"
 ---
 
 # Codebase Design
@@ -120,4 +116,4 @@ Good interfaces make testing natural:
 ## Going deeper
 
 - **Deepening a cluster given its dependencies**, see [DEEPENING.md](DEEPENING.md): dependency categories, seam discipline, and replace-don't-layer testing.
-- **Exploring alternative interfaces**, see [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md): spin up parallel sub-agents to design the interface several radically different ways, then compare on depth, locality, and seam placement.
+- **Exploring alternative interfaces**, see [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md): produce several radically different designs in isolated delegated contexts when available, or sequentially with explicit constraint resets, then compare on depth, locality, and seam placement.

@@ -13,8 +13,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 ## Contenu
 
 - `LOGIC.md` — (sans titre) · inconnu
-- `SKILL.md` — Prototype · skill · ADOPTED-V1
-  - Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.
+- `SKILL.md` — (sans titre) · inconnu · Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.
 - `UI.md` — (sans titre) · inconnu
 
 ## Liens

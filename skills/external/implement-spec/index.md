@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Implement Spec · skill · ADOPTED-V1
-  - Implement a specification in code.
+- `SKILL.md` — (sans titre) · inconnu · Implement a specification in code.
 
 ## Liens
 

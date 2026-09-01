@@ -13,8 +13,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 ## Contenu
 
 - `HTML-REPORT.md` — (sans titre) · inconnu
-- `SKILL.md` — Improve Codebase Architecture · skill · ADOPTED-V1
-  - Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
+- `SKILL.md` — (sans titre) · inconnu · Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
 
 ## Liens
 

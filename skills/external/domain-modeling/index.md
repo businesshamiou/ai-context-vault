@@ -14,8 +14,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 - `ADR-FORMAT.md` — (sans titre) · inconnu
 - `CONTEXT-FORMAT.md` — (sans titre) · inconnu
-- `SKILL.md` — Domain Modeling · skill · ADOPTED-V1
-  - Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.
+- `SKILL.md` — (sans titre) · inconnu · Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.
 
 ## Liens
 

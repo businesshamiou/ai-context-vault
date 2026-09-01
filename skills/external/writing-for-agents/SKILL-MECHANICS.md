@@ -4,19 +4,25 @@ The skill-specific branch of [`writing-for-agents`](SKILL.md): what changes when
 
 ## Invocation
 
-Two choices, trading the two loads:
+Two intent-level choices trade the two loads. Their exact metadata is runtime-specific, so keep the intent canonical here and use the relevant adapter only when packaging for a runtime:
 
-- A **model-invoked** skill keeps a `description`, so the agent can fire it autonomously, and other skills can reach it. You can still type its name: model-invocation always _includes_ user reach; a description only ever adds agent discovery, never removes the human's. The description is the skill's top-level context pointer, forced to stay loaded at all times: permanent context load in exchange for discoverability. A model-invoked skill whose content is all reference is also one home for shared reference: another skill can invoke it, so reference needed by several skills lives in one place. Mechanics: omit `disable-model-invocation`, and write a model-facing description carrying the trigger branches (the pointer-writing rules in `SKILL.md` apply in full).
-- A **user-invoked** skill strips the description from the agent's reach: only the human typing its name can invoke it, and no other skill can. Zero context load, but it spends cognitive load: you are the index that must remember it exists. Mechanics: set `disable-model-invocation: true`; the `description` becomes human-facing: a one-line summary, trigger lists stripped.
+- A **model-discoverable** Skill exposes a discriminating `description` so a runtime that indexes Skills can select it automatically and other workflows can reference it. The human can still invoke it explicitly. The description is the Skill's top-level context pointer: permanent context load in exchange for discoverability.
+- An **explicit-only** Skill is intended to run only when a human selects it. It spends cognitive load instead of automatic-discovery load. Keep its description short and human-facing, and express the explicit-only policy using the runtime's supported metadata.
 
-Pick model-invocation only when the agent must reach the skill on its own, or another skill must. If it only ever fires by hand, make it user-invoked and pay no context load.
+Pick model discovery only when the agent must reach the Skill on its own or another workflow must select it. If it only ever fires by hand, prefer explicit-only invocation. When the runtime cannot enforce the chosen mode, preserve the workflow, state the limitation in packaging metadata, and never invent an unsupported flag.
 
-Shared reference that two user-invoked skills both need can live in neither: with no descriptions, neither can fire the other. Push it to a plain file outside the skill system: external reference any skill can point at.
+For exact mappings, read only the relevant adapter:
+
+- [Generic runtimes](adapters/generic.md)
+- [Claude Code](adapters/claude.md)
+- [OpenAI/Codex packaging](adapters/openai.md)
+
+Shared reference that two explicit-only Skills both need should live in neither. Put it in a plain reference file that both can reach without one Skill having to invoke the other.
 
 ## Splitting by invocation
 
-The invocation cut of splitting (the sequence cut lives in `SKILL.md`): split off a model-invoked skill when you have a distinct leading word that should trigger it on its own (a trigger word you actually use in your prompts), or another skill must reach it. You pay context load for the new always-loaded description, so that independent reach has to be worth it.
+The invocation cut of splitting (the sequence cut lives in `SKILL.md`): split off a model-discoverable Skill when you have a distinct leading word that should trigger it on its own, or another workflow must reach it. You pay context load for the new discoverable description, so that independent reach has to be worth it.
 
 ## Router skills
 
-When user-invoked skills multiply past what you can remember, that piled-up cognitive load is cured by a **router skill**: one user-invoked skill that names the others and when to reach for each, so the human has one skill to remember instead of many. It can only hint, never fire them: user-invoked skills have no description, so nothing but the human can reach them.
+When explicit-only Skills multiply past what you can remember, that piled-up cognitive load is cured by a **router Skill**: one explicit-only Skill that names the others and when to reach for each, so the human has one Skill to remember instead of many. A runtime may let the router invoke them directly, merely recommend them, or provide no Skill invocation API. Write the router in terms of applying the named workflow and let the runtime adapter decide the mechanism.

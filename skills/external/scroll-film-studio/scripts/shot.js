@@ -82,7 +82,11 @@ function findChrome() {
   const browser = await puppeteer.launch({
     executablePath: findChrome(),
     headless: 'new',
-    args: ['--no-sandbox', '--disable-dev-shm-usage', '--hide-scrollbars'],
+    args: [
+      '--disable-dev-shm-usage',
+      '--hide-scrollbars',
+      ...(process.env.CHROME_NO_SANDBOX === '1' ? ['--no-sandbox'] : []),
+    ],
   });
 
   try {

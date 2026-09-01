@@ -12,9 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `README.md` — (sans titre) · inconnu
-- `SKILL.md` — Scroll Film Studio · skill · ADOPTED-V1
-  - Build a genuinely beautiful animated scroll-film website — the whole page is one continuous cinematic shot that plays as the visitor scrolls. Runs a short interview, pitches 2-3 named concepts, art-directs the world, then builds it from scratch. Two lanes: free pure-code GSAP/Lenis motion (zero setup, works for anyone), or a cinematic footage film from the user's own image-to-video engine (Higgsfield Seedance 2.0 or newer preferred, Kie.ai as the fallback). Trigger on \"scroll-film\", \"cinematic scroll site\", \"scrollytelling website\", \"build me an animated/scroll website\", \"film-scroll site\", \"one continuous shot website\", or any request for a premium scroll-scrubbed animated site. NOT for slide decks / HTML explainers or static brochure sites.
+- `SKILL.md` — (sans titre) · inconnu · Create a cinematic scroll-driven website from a continuous generated film, with deterministic frame extraction, seam and motion gates, canvas scrubbing, responsive finishing, and visual verification. Use when the film itself is the main narrative surface rather than a sequence of ordinary page sections.
 
 ## Liens
 

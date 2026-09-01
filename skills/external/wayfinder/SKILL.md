@@ -1,16 +1,15 @@
 ---
-type: skill
 name: wayfinder
-title: "Wayfinder"
 description: "Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "dd4a5254d80a47420ff91af70e5310c6d9ad40dcad26bba90426173874970b1b"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "dd4a5254d80a47420ff91af70e5310c6d9ad40dcad26bba90426173874970b1b"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
 ---
 
 A loose idea has arrived, too big for one agent session, and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. This skill charts the way as a **shared map** on the repo's issue tracker, then works its **decision tickets** (questions whose resolution is a decision, not slices of a build to execute) one at a time until the route is clear.

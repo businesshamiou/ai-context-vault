@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Writing Fragments · skill · ADOPTED-V1
-  - Writing, explore — mine raw fragments, no structure yet.
+- `SKILL.md` — (sans titre) · inconnu · Writing, explore — mine raw fragments, no structure yet.
 
 ## Liens
 

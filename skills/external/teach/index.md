@@ -16,8 +16,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 - `LEARNING-RECORD-FORMAT.md` — (sans titre) · inconnu
 - `MISSION-FORMAT.md` — (sans titre) · inconnu
 - `RESOURCES-FORMAT.md` — (sans titre) · inconnu
-- `SKILL.md` — Teach · skill · ADOPTED-V1
-  - Teach the user a new skill or concept, within this workspace.
+- `SKILL.md` — (sans titre) · inconnu · Teach the user a new skill or concept, within this workspace.
 
 ## Liens
 

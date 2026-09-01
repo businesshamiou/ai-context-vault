@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Writing Beats · skill · ADOPTED-V1
-  - Writing, exploit — assemble raw material into a journey of beats, grounding each term before a beat leans on it.
+- `SKILL.md` — (sans titre) · inconnu · Writing, exploit — assemble raw material into a journey of beats, grounding each term before a beat leans on it.
 
 ## Liens
 

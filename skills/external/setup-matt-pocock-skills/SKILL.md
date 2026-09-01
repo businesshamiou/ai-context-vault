@@ -1,16 +1,15 @@
 ---
-type: skill
 name: setup-matt-pocock-skills
-title: "Setup Matt Pocock Skills"
 description: "Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "5bdd6678a3d828e3b04cfaca15effe44ef3b52f19c7081099f7b9131551fcc4a"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "5bdd6678a3d828e3b04cfaca15effe44ef3b52f19c7081099f7b9131551fcc4a"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
 ---
 
 # Setup Matt Pocock's Skills

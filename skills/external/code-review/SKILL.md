@@ -1,15 +1,11 @@
 ---
-type: skill
 name: code-review
-title: "Code Review"
-description: "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\"."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "3b1d1f644479a57b12a386cd871c1b27fae0b94658a7149c8d248efa39dbf23f"
+description: "Review changes since a fixed point along two independent axes: repository standards and fidelity to the originating spec. Use when the user wants to review a branch, PR, work-in-progress changes, or asks to review since a commit, branch, tag, or merge-base."
+metadata:
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "1445d78387df5d1f6c548bc6547858489ab097525832f5ee0ed9fe4426169494"
+  vault-entered: "2026-09-01"
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
@@ -17,9 +13,9 @@ Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 - **Standards**: does the code conform to this repo's documented coding standards?
 - **Spec**: does the code faithfully implement the originating issue / spec?
 
-Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
+Keep the two axes **independent** so conclusions from one do not bias the other. When the runtime supports isolated agent delegation, run them in parallel delegated contexts. Otherwise run them sequentially in the current agent from the same pinned inputs, recording each report before starting the other. Isolation is the invariant; parallelism is an optimization.
 
-The issue tracker should have been provided to you. If `docs/agents/issue-tracker.md` is missing, tell the user to run `/setup-matt-pocock-skills`.
+The issue tracker should have been provided to you. If `docs/agents/issue-tracker.md` is missing, tell the user to apply the `setup-matt-pocock-skills` skill.
 
 ## Process
 
@@ -29,7 +25,7 @@ Whatever the user said is the fixed point (a commit SHA, branch name, tag, `main
 
 Capture the diff command once: `git diff <fixed-point>...HEAD` (three-dot, so the comparison is against the merge-base). Also note the list of commits via `git log <fixed-point>..HEAD --oneline`.
 
-Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail here, not inside two parallel sub-agents.
+Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail before either review axis begins. If shell or Git access is unavailable, request the diff and commit list as inputs rather than inventing them.
 
 ### 2. Identify the spec source
 
@@ -38,7 +34,7 @@ Look for the originating spec, in this order:
 1. Issue references in the commit messages (`#123`, `Closes #45`, GitLab `!67`, etc.), fetched via the workflow in `docs/agents/issue-tracker.md`.
 2. A path the user passed as an argument.
 3. A spec file under `docs/`, `specs/`, or `.scratch/` matching the branch name or feature.
-4. If nothing is found, ask the user where the spec is. If they say there isn't one, the **Spec** sub-agent will skip and report "no spec available".
+4. If nothing is found, ask the user where the spec is. If they say there isn't one, skip the **Spec** axis and report "no spec available".
 
 ### 3. Identify the standards sources
 
@@ -64,21 +60,23 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 - **Middle Man**: a class or function that mostly just delegates onward. → cut it, call the real target direct.
 - **Refused Bequest**: a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
 
-### 4. Spawn both sub-agents in parallel
+### 4. Run both review axes independently
 
-**Standards sub-agent prompt** should include:
+Prefer two isolated delegated agents running in parallel when that capability exists. Give both the same pinned diff command and commit list, plus only the axis-specific inputs below. If delegation is unavailable, run the Standards review first, save its report, then run the Spec review from the pinned inputs without using the Standards conclusions as evidence. If parallel execution is available but isolation is not, choose sequential isolation over concurrency.
+
+**Standards reviewer brief** should include:
 
 - The full diff command and commit list.
-- The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full (the sub-agent has no other access to it).
+- The list of standards-source files you found in step 3, **plus the smell baseline from step 3** in full. Include the source contents when the delegated context cannot read them directly.
 - The brief: "Report, per file/hunk where relevant, (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls: documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
 
-**Spec sub-agent prompt** should include:
+**Spec reviewer brief** should include:
 
 - The diff command and commit list.
 - The path or fetched contents of the spec.
 - The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding. Under 400 words."
 
-If the spec is missing, skip the Spec sub-agent and note this in the final report.
+If the spec is missing, skip the Spec axis and note this in the final report.
 
 ### 5. Aggregate
 

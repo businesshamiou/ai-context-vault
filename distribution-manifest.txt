@@ -66,7 +66,6 @@ rules/index.md	DISTRIBUABLE
 rules/patterns/bypass-patterns.txt	DISTRIBUABLE
 rules/patterns/secret-patterns.txt	DISTRIBUABLE
 skills/external/LICENSE-mattpocock-skills.txt	DISTRIBUABLE
-skills/external/PROVENANCE.md	DISTRIBUABLE
 skills/external/ask-matt/PHASE-BOUNDARIES.md	DISTRIBUABLE
 skills/external/ask-matt/SKILL.md	DISTRIBUABLE
 skills/external/ask-matt/agents/openai.yaml	DISTRIBUABLE
@@ -83,6 +82,102 @@ skills/external/domain-modeling/ADR-FORMAT.md	DISTRIBUABLE
 skills/external/domain-modeling/CONTEXT-FORMAT.md	DISTRIBUABLE
 skills/external/domain-modeling/SKILL.md	DISTRIBUABLE
 skills/external/domain-modeling/agents/openai.yaml	DISTRIBUABLE
+skills/external/excalidraw-automate/LICENSE	DISTRIBUABLE
+skills/external/excalidraw-automate/SKILL.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/SECURITY.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/api-usage-index.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/excalidraw-lib-functions.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Add Connector Point.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Add Link to Existing File and Open.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Add Link to New Page and Open.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Add Next Step in Process.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Auto Layout.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Boolean Operations.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Box Each Selected Groups.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Box Selected Elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Capture Note.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Change shape of selected elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Comicbook Callout Editor.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Concatenate lines.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Connect elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Convert freedraw to line.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Convert selected text elements to sticky notes.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Convert text to link with folder and alias.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Copy Selected Element Styles to Global.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Create new markdown file and embed into active drawing.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Crop Vintage Mask.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Custom Zoom.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Darken background color.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Deconstruct selected elements into new drawing.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Elbow connectors.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Ellipse Selected Elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/ExcaliAI.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/ExcaliMath.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Excalidraw Collaboration Frame.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Excalidraw Writing Machine.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Expand rectangles horizontally keep text centered.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Expand rectangles horizontally.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Expand rectangles vertically keep text centered.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Expand rectangles vertically.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Fixed horizontal distance between centers.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Fixed inner distance.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Fixed spacing.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Fixed vertical distance between centers.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Fixed vertical distance.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Folder Note Core - Make Current Drawing a Folder.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Full-Year Calendar Generator.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Golden Ratio.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Grid Selected Images.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Icon Library.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Image Occlusion.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Invert colors.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Lighten background color.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Linear Calendar Generator.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Mindmap Builder.js	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Mindmap Builder.js.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Mindmap connector.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Mindmap format.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Modify background color opacity.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Normalize Selected Arrows.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Organic Line Legacy.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Organic Line.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/PDF Page Text to Clipboard.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Palette loader.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Palm Guard.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Printable Layout Wizard.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Relative Font Size Cycle.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Rename Image.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Repeat Elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Repeat Texts.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Reset LaTeX Size.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Reverse arrows.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Scribble Helper.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Select Elements of Type.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Select Similar Elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Set Dimensions.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Set Font Family.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Set Grid.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Set Link Alias.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Set Stroke Width of Selected Elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Set Text Alignment.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Set background color of unclosed line object by adding a shadow clone.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Shade Master.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Slideshow.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Split Ellipse.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Split text by lines.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Text Aura.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Text to Path.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Text to Sticky Notes.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/To Line.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Toggle Grid.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Uniform size.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/VoronoiDiagramGenerator.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/scripts/Zoom to Fit Selected Elements.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/startup-scripts.md	DISTRIBUABLE
+skills/external/excalidraw-automate/references/type-definitions.md	DISTRIBUABLE
+skills/external/git-guardrails-claude-code/SKILL.md	DISTRIBUABLE
+skills/external/git-guardrails-claude-code/agents/openai.yaml	DISTRIBUABLE
+skills/external/git-guardrails-claude-code/scripts/block-dangerous-git.sh	DISTRIBUABLE
 skills/external/grill-me/SKILL.md	DISTRIBUABLE
 skills/external/grill-me/agents/openai.yaml	DISTRIBUABLE
 skills/external/grill-with-docs/SKILL.md	DISTRIBUABLE
@@ -98,15 +193,33 @@ skills/external/improve-codebase-architecture/SKILL.md	DISTRIBUABLE
 skills/external/improve-codebase-architecture/agents/openai.yaml	DISTRIBUABLE
 skills/external/loop-me/SKILL.md	DISTRIBUABLE
 skills/external/loop-me/agents/openai.yaml	DISTRIBUABLE
+skills/external/migrate-to-shoehorn/SKILL.md	DISTRIBUABLE
+skills/external/migrate-to-shoehorn/agents/openai.yaml	DISTRIBUABLE
 skills/external/prototype/LOGIC.md	DISTRIBUABLE
 skills/external/prototype/SKILL.md	DISTRIBUABLE
 skills/external/prototype/UI.md	DISTRIBUABLE
 skills/external/prototype/agents/openai.yaml	DISTRIBUABLE
 skills/external/research/SKILL.md	DISTRIBUABLE
 skills/external/research/agents/openai.yaml	DISTRIBUABLE
+skills/external/resolving-merge-conflicts/SKILL.md	DISTRIBUABLE
+skills/external/resolving-merge-conflicts/agents/openai.yaml	DISTRIBUABLE
 skills/external/retro/SKILL.md	DISTRIBUABLE
 skills/external/retro/agents/openai.yaml	DISTRIBUABLE
-skills/external/scroll-film-studio/README.md	DISTRIBUABLE
+skills/external/scaffold-exercises/SKILL.md	DISTRIBUABLE
+skills/external/scaffold-exercises/agents/openai.yaml	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/SKILL.md	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/agents/openai.yaml	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/assets/example-storyboard.json	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/assets/mascot-reference.png	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/assets/readme-hero.png	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/assets/style-reference.png	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/references/manifest-schema.md	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/references/prompt-system.md	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/references/qa-checklist.md	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/references/visual-grammar.md	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/scripts/build-review.mjs	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/scripts/generate-images.mjs	DISTRIBUABLE
+skills/external/script-to-whiteboard-storyboard/scripts/validate-storyboard.mjs	DISTRIBUABLE
 skills/external/scroll-film-studio/SKILL.md	DISTRIBUABLE
 skills/external/scroll-film-studio/references/engine.md	DISTRIBUABLE
 skills/external/scroll-film-studio/references/finishing.md	DISTRIBUABLE
@@ -121,6 +234,13 @@ skills/external/scroll-film-studio/scripts/package.json	DISTRIBUABLE
 skills/external/scroll-film-studio/scripts/shot.js	DISTRIBUABLE
 skills/external/scroll-film-studio/scripts/vector-check.py	DISTRIBUABLE
 skills/external/scroll-film-studio/scripts/verify.js	DISTRIBUABLE
+skills/external/scroll-world/LICENSE	DISTRIBUABLE
+skills/external/scroll-world/SKILL.md	DISTRIBUABLE
+skills/external/scroll-world/references/index-template.html	DISTRIBUABLE
+skills/external/scroll-world/references/knockout.py	DISTRIBUABLE
+skills/external/scroll-world/references/pipeline.md	DISTRIBUABLE
+skills/external/scroll-world/references/prompts.md	DISTRIBUABLE
+skills/external/scroll-world/references/scrub-engine.js	DISTRIBUABLE
 skills/external/setup-matt-pocock-skills/SKILL.md	DISTRIBUABLE
 skills/external/setup-matt-pocock-skills/agents/openai.yaml	DISTRIBUABLE
 skills/external/setup-matt-pocock-skills/domain.md	DISTRIBUABLE
@@ -128,6 +248,8 @@ skills/external/setup-matt-pocock-skills/issue-tracker-github.md	DISTRIBUABLE
 skills/external/setup-matt-pocock-skills/issue-tracker-gitlab.md	DISTRIBUABLE
 skills/external/setup-matt-pocock-skills/issue-tracker-local.md	DISTRIBUABLE
 skills/external/setup-matt-pocock-skills/triage-labels.md	DISTRIBUABLE
+skills/external/setup-pre-commit/SKILL.md	DISTRIBUABLE
+skills/external/setup-pre-commit/agents/openai.yaml	DISTRIBUABLE
 skills/external/setup-ts-deep-modules/SKILL.md	DISTRIBUABLE
 skills/external/setup-ts-deep-modules/agents/openai.yaml	DISTRIBUABLE
 skills/external/setup-ts-deep-modules/dependency-cruiser.config.cjs	DISTRIBUABLE
@@ -160,6 +282,9 @@ skills/external/writing-beats/SKILL.md	DISTRIBUABLE
 skills/external/writing-beats/agents/openai.yaml	DISTRIBUABLE
 skills/external/writing-for-agents/SKILL-MECHANICS.md	DISTRIBUABLE
 skills/external/writing-for-agents/SKILL.md	DISTRIBUABLE
+skills/external/writing-for-agents/adapters/claude.md	DISTRIBUABLE
+skills/external/writing-for-agents/adapters/generic.md	DISTRIBUABLE
+skills/external/writing-for-agents/adapters/openai.md	DISTRIBUABLE
 skills/external/writing-for-agents/agents/openai.yaml	DISTRIBUABLE
 skills/external/writing-fragments/SKILL.md	DISTRIBUABLE
 skills/external/writing-fragments/agents/openai.yaml	DISTRIBUABLE

@@ -13,8 +13,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 ## Contenu
 
 - `SKILL-MECHANICS.md` — (sans titre) · inconnu
-- `SKILL.md` — Writing For Agents · skill · ADOPTED-V1
-  - Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.
+- `SKILL.md` — (sans titre) · inconnu · Writing documents for agents. Use when creating or editing Skills, repository agent instructions, or any document reached by an agent through a pointer.
 
 ## Liens
 

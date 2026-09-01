@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — To Questionnaire · skill · ADOPTED-V1
-  - Turn a decision you can't fully answer into a questionnaire for someone else to fill in.
+- `SKILL.md` — (sans titre) · inconnu · Turn a decision you can't fully answer into a questionnaire for someone else to fill in.
 
 ## Liens
 

@@ -244,6 +244,7 @@ puppeteer-core + system Chrome + a page dev-contract:
 `scripts/verify.js` does capture + jank-test.
 
 ## 9. Governance
-Design taste and design code are done by the Claude model only. Mechanical steps (ffmpeg,
-SSIM, puppeteer, vercel) are pure code — no model. Quote credits before spending; show the
-receipt after. One continuous shot, one world per brand.
+Design decisions stay with the acting model or human art director. Mechanical steps such as
+FFmpeg, SSIM, browser verification, and deployment should remain deterministic. Quote current
+cost before spending and report the actual receipt afterward. One continuous shot, one world
+per brand.

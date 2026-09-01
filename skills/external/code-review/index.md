@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Code Review · skill · ADOPTED-V1
-  - Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".
+- `SKILL.md` — (sans titre) · inconnu · Review changes since a fixed point along two independent axes: repository standards and fidelity to the originating spec. Use when the user wants to review a branch, PR, work-in-progress changes, or asks to review since a commit, branch, tag, or merge-base.
 
 ## Liens
 

@@ -1,16 +1,15 @@
 ---
-type: skill
 name: retro
-title: "Retro"
 description: "Conduct a retrospective on a coding session."
-created_at: "2026-08-30T21:20:08-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "22c0935afec2695d023401b4aa99ad57ddc679e75ec0a0408b98500b8f197367"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "22c0935afec2695d023401b4aa99ad57ddc679e75ec0a0408b98500b8f197367"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
 ---
 
 The user has asked for a **retrospective**. You are suggesting improvements to the coding agent's **environment** to improve future runs.

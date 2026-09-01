@@ -13,8 +13,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 ## Contenu
 
 - `PHASE-BOUNDARIES.md` — (sans titre) · inconnu
-- `SKILL.md` — Ask Matt · skill · ADOPTED-V1
-  - Ask which skill or flow fits your situation. A router over the skills in this repo.
+- `SKILL.md` — (sans titre) · inconnu · Ask which skill or flow fits your situation. A router over the skills in this repo.
 
 ## Liens
 

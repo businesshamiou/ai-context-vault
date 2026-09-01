@@ -1,17 +1,16 @@
 ---
-type: skill
 name: loop-me
-title: "Loop Me"
 description: "Grill me about specs for the workflows I want to build, within this workspace."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-argument-hint: "A workflow to design, or nothing to go find one"
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "3fe1751e137945b5d053d1dc7546a6c1547049bbfe63bca2dc2a8aef1be4304f"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "3fe1751e137945b5d053d1dc7546a6c1547049bbfe63bca2dc2a8aef1be4304f"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
+  claude-code-argument-hint: "A workflow to design, or nothing to go find one"
 ---
 
 Run a stateful `/grilling` session whose only output is **workflow** specs. Use the grilling discipline (relentless, a round of questions at a time, a recommended answer attached to each) aimed at the vocabulary and goal below. Create, edit, and delete specs as the grilling resolves things.

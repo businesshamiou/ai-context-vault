@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Handoff · skill · ADOPTED-V1
-  - Compact the current conversation into a handoff document for another agent to pick up.
+- `SKILL.md` — (sans titre) · inconnu · Compact the current conversation into a handoff document for another agent to pick up.
 
 ## Liens
 

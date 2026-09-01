@@ -1,15 +1,11 @@
 ---
-type: skill
 name: domain-modeling
-title: "Domain Modeling"
-description: "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "70a61a670fcdba4d91c277379e6e866d42e244e786c6f6ff68951d840b3b484e"
+description: Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.
+metadata:
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "70a61a670fcdba4d91c277379e6e866d42e244e786c6f6ff68951d840b3b484e"
+  vault-entered: "2026-09-01"
 ---
 
 # Domain Modeling

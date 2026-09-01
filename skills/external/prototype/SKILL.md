@@ -1,15 +1,11 @@
 ---
-type: skill
 name: prototype
-title: "Prototype"
-description: "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "85479029c89fa4c516a947e2bb5cd0843cf6293cad61cf48b44d513f5181b29d"
+description: Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.
+metadata:
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "85479029c89fa4c516a947e2bb5cd0843cf6293cad61cf48b44d513f5181b29d"
+  vault-entered: "2026-09-01"
 ---
 
 # Prototype

@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Grill Me · skill · ADOPTED-V1
-  - A relentless interview to sharpen a plan or design.
+- `SKILL.md` — (sans titre) · inconnu · A relentless interview to sharpen a plan or design.
 
 ## Liens
 

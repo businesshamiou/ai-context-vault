@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Retro · skill · ADOPTED-V1
-  - Conduct a retrospective on a coding session.
+- `SKILL.md` — (sans titre) · inconnu · Conduct a retrospective on a coding session.
 
 ## Liens
 

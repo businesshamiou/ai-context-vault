@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Grill With Docs · skill · ADOPTED-V1
-  - A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.
+- `SKILL.md` — (sans titre) · inconnu · A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.
 
 ## Liens
 

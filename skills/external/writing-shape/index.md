@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Writing Shape · skill · ADOPTED-V1
-  - Writing, exploit — shape raw material into an article, paragraph by paragraph.
+- `SKILL.md` — (sans titre) · inconnu · Writing, exploit — shape raw material into an article, paragraph by paragraph.
 
 ## Liens
 

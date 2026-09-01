@@ -1,15 +1,11 @@
 ---
-type: skill
 name: tdd
-title: "TDD"
-description: "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "052f269b84df24b4781c03a541f3cfa7aa2a9c81911275585f1b733f1f5c7193"
+description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+metadata:
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "c1c5ca48d3e7afae73dec2029e53946b768ba915d27239d10d81522e6f7e442c"
+  vault-entered: "2026-09-01"
 ---
 
 # Test-Driven Development
@@ -32,7 +28,7 @@ A **seam** is the public boundary you test at: the interface where you observe b
 
 Ask: "What's the public interface, and which seams should we test?"
 
-When the shape of that interface is itself in question (how deep the module is, where the seam belongs, what the interface should expose), call the Skill tool with "codebase-design" for the vocabulary. It is the shared source of the module, interface, depth, seam, adapter, leverage and locality terms, and it is a reference to consult, not a session to run.
+When the shape of that interface is itself in question (how deep the module is, where the seam belongs, what the interface should expose), consult the `codebase-design` skill for the shared module, interface, depth, seam, adapter, leverage, and locality vocabulary. Use the runtime's skill mechanism when available; otherwise read its `SKILL.md` directly. Treat it as a reference, not a separate session that must be launched.
 
 ## Anti-patterns
 

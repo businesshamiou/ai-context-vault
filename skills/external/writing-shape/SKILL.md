@@ -1,16 +1,15 @@
 ---
-type: skill
 name: writing-shape
-title: "Writing Shape"
 description: "Writing, exploit — shape raw material into an article, paragraph by paragraph."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "e731a40f8174e2d1128a45c694dd0e2a2b832e2c36761cc0ece4072c99b1cbac"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "e731a40f8174e2d1128a45c694dd0e2a2b832e2c36761cc0ece4072c99b1cbac"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
 ---
 
 <what-to-do>

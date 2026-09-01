@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — TDD · skill · ADOPTED-V1
-  - Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.
+- `SKILL.md` — (sans titre) · inconnu · Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
 - `mocking.md` — (sans titre) · inconnu
 - `tests.md` — (sans titre) · inconnu
 

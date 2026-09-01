@@ -1,15 +1,11 @@
 ---
-type: skill
 name: diagnosing-bugs
-title: "Diagnosing Bugs"
-description: "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "de7768b370b6ddd27e7220b34d98e74513d7b9afe03431b622ac97e8ef275723"
+description: Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow.
+metadata:
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "de7768b370b6ddd27e7220b34d98e74513d7b9afe03431b622ac97e8ef275723"
+  vault-entered: "2026-09-01"
 ---
 
 # Diagnosing Bugs

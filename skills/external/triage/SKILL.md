@@ -1,16 +1,15 @@
 ---
-type: skill
 name: triage
-title: "Triage"
 description: "Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "a5733fe78bc11c1e37d1aff276a04ae7c843c0228bf23ff6dfab4fa967f2d487"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "a5733fe78bc11c1e37d1aff276a04ae7c843c0228bf23ff6dfab4fa967f2d487"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
 ---
 
 # Triage

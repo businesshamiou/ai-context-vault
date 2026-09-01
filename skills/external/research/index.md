@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Research · skill · ADOPTED-V1
-  - Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.
+- `SKILL.md` — (sans titre) · inconnu · Investigate a question against high-trust primary sources and capture the findings as a cited Markdown file. Use when the user wants a topic researched, documentation or API facts gathered, or reading legwork separated from the main task.
 
 ## Liens
 

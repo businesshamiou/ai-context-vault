@@ -1,17 +1,16 @@
 ---
-type: skill
 name: teach
-title: "Teach"
 description: "Teach the user a new skill or concept, within this workspace."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-argument-hint: "What would you like to learn about?"
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "aa55954df3c39e8d51cd39da9bc5e3293020bc410e9fab0430da9d7f956244d1"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "aa55954df3c39e8d51cd39da9bc5e3293020bc410e9fab0430da9d7f956244d1"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
+  claude-code-argument-hint: "What would you like to learn about?"
 ---
 
 The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.

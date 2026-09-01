@@ -1,16 +1,15 @@
 ---
-type: skill
 name: improve-codebase-architecture
-title: "Improve Codebase Architecture"
 description: "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick."
-created_at: "2026-08-28T19:44:30-04:00"
-timezone: America/Montreal
-status: ADOPTED-V1
-disable-model-invocation: true
-metadata-upstream-repo: "github.com/mattpocock/skills"
-metadata-upstream-version: "1.2.3"
-metadata-upstream-license: "MIT"
-metadata-upstream-body-sha256: "3ac5b9b9a84841b51efe7db5a7ce96d46d15954717d28543c82130ea8ce9187c"
+license: "MIT"
+metadata:
+  upstream-repo: "github.com/mattpocock/skills"
+  upstream-version: "1.2.3"
+  vault-source: "library-v1-converted"
+  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-body-sha256: "3ac5b9b9a84841b51efe7db5a7ce96d46d15954717d28543c82130ea8ce9187c"
+  vault-entered: "2026-09-01"
+  claude-code-disable-model-invocation: "true"
 ---
 
 # Improve Codebase Architecture

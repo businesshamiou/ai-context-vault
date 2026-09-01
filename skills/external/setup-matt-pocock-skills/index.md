@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Setup Matt Pocock Skills · skill · ADOPTED-V1
-  - Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.
+- `SKILL.md` — (sans titre) · inconnu · Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.
 - `domain.md` — (sans titre) · inconnu
 - `issue-tracker-github.md` — (sans titre) · inconnu
 - `issue-tracker-gitlab.md` — (sans titre) · inconnu

@@ -12,8 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — Loop Me · skill · ADOPTED-V1
-  - Grill me about specs for the workflows I want to build, within this workspace.
+- `SKILL.md` — (sans titre) · inconnu · Grill me about specs for the workflows I want to build, within this workspace.
 
 ## Liens
 
