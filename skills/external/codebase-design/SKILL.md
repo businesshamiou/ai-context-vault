@@ -1,9 +1,9 @@
 ---
 name: codebase-design
-description: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+description: "Design or improve deep modules: interfaces, seams, testability, AI navigation, and shared vocabulary. Use when shaping a module or when another skill needs deep-module design concepts."
 metadata:
   vault-source: "affiliate-pro-skills-full.zip"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "ab0d8082c31bff09dad64bf0c32a02bb698156cdf37e0279c2e4a68121292c33"
   vault-entered: "2026-09-01"
 ---

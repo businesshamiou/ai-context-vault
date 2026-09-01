@@ -1,7 +1,7 @@
 ---
 type: provenance
 title: "Provenance — bibliothèque de skills externes vault/skills/external/"
-description: "Note de provenance de la bibliothèque de 38 skills externes (DECISION-2026-08-31-231841) construite depuis le paquet du projet skills-warehouse (affiliate-pro-skills-full.zip) : identité du paquet, comptes A/B/C/D/N, forme standard Agent Skills (six champs, provenance sous metadata), emplacement de l'ancienne bibliothèque V1 en _trash/, et le journal complet des cycles antérieurs."
+description: "Note de provenance de la bibliothèque de 40 skills externes (DECISION-2026-08-31-231841) construite depuis le paquet du projet skills-warehouse (affiliate-pro-skills-full.zip) : identité du paquet, comptes A/B/C/D/N (Mission 106) puis I/UD/UB/B/O/R (Mission 108, paquet reconstruit), forme standard Agent Skills (six champs, provenance sous metadata), emplacement de l'ancienne bibliothèque V1 en _trash/, et le journal complet des cycles antérieurs."
 created_at: "2026-09-01T00:20:00-04:00"
 timezone: America/Montreal
 status: active
@@ -13,6 +13,8 @@ scope: skills-external-provenance
 Ce dossier est une frontière de provenance (`DECISION-2026-08-28-160213` §2) : il ne contient que du matériel d'auteurs tiers, jamais les skills propres du Vault.
 
 **2026-09-01 — remplacement intégral par le paquet du `skills-warehouse` (Mission 106, `DECISION-2026-08-31-231841`).** La bibliothèque V1 (30 skills, enveloppes à clés plates) est remplacée par une bibliothèque en **forme standard Agent Skills** : chaque `SKILL.md` porte au plus les six champs `name`, `description`, `license`, `compatibility`, `allowed-tools`, `metadata` ; toute provenance Vault vit sous `metadata:` en paires chaîne → chaîne. L'ancienne bibliothèque est intégralement conservée, jamais supprimée — voir « Ancienne bibliothèque (V1) » ci-dessous.
+
+**2026-09-01 — mise à jour depuis le paquet reconstruit (Mission 108).** Le warehouse a reconstruit `affiliate-pro-skills-full.zip` (33/33 en forme standard, 0 champ hors des six, 12 descriptions raccourcies) : SHA-256 `8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb`. Cycle update-ou-rejet (`DECISION-2026-08-28-171209` §2) sur les 38 skills de la Mission 106 : deux nouveaux installés (`implement`, `wait-what`), onze descriptions alignées, dix corps remplacés verbatim, les sept skills absents du paquet laissés intacts. La bibliothèque passe de 38 à **40** skills. Détail complet ci-dessous, section « Mise à jour — paquet du 2026-09-01 (Mission 108) ».
 
 ## Source — paquet du 2026-09-01
 
@@ -66,12 +68,46 @@ Aucun (0/33). Vérifié par unicité des 33 noms de dossier et concordance `name
 
 `ask-matt`, `grill-me`, `grill-with-docs`, `handoff`, `implement-spec`, `improve-codebase-architecture`, `loop-me`, `retro`, `setup-matt-pocock-skills`, `setup-ts-deep-modules`, `teach`, `to-questionnaire`, `to-spec`, `to-tickets`, `triage`, `wayfinder`, `writing-beats`, `writing-fragments`, `writing-shape` — 19 skills. Sept d'entre eux (`implement-spec`, `loop-me`, `retro`, `setup-ts-deep-modules`, `writing-beats`, `writing-fragments`, `writing-shape`) sont absents du paquet par le nom ; les douze autres sont présents dans le paquet mais non conformes (case N ci-dessus), donc sans remplaçant utilisable — leur copie V1 sert de source.
 
+## Mise à jour — paquet du 2026-09-01 (Mission 108)
+
+### Source — paquet reconstruit
+
+- **Paquet** : `affiliate-pro-skills-full.zip`, chemin fourni par l'Owner (hors workspace) : `C:\Users\hamio\Workspaces\skills-folder\affiliate-pro-skill-pack\dist\2026-09-01-vault-package\affiliate-pro-skills-full.zip`.
+- **SHA-256** : `8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb` — recoupé avec `SHA256SUMS.txt` (213 lignes, `sha256sum -c` 213/213) et `validation-report.md` fournis dans le même dossier (33/33 PASS six champs, 0/33 écart de corps avec le paquet précédent `e23edad2…`, 12/33 descriptions changées).
+- **Date d'entrée** : 2026-09-01 (Mission 108, après l'instruction ponctuelle qui a reconstruit le paquet — rapport `REPORT-2026-09-01-103638-adhoc-executor-affiliate-pro-skills-header-cleanup.md`).
+- **Extraction** : `dossier_skills/warehouse-affiliate-pro-20260901-8d4a5624/` (hors dépôts, zone de travail).
+
+### Cycle update-ou-rejet (`DECISION-2026-08-28-171209` §2)
+
+Comparaison des 33 `SKILL.md` du paquet aux 38 skills de la bibliothèque (Mission 106), par empreinte de corps (`U` = corps du paquet, `V` = `metadata.vault-body-sha256` installé) et par description :
+
+| Case | Compte | Définition |
+|---|---:|---|
+| **I** | 10 | même nom, `U = V`, description égale → aucune écriture sur le corps ni la description ; provenance (`vault-source`, `vault-source-sha256`) alignée sur le nouveau paquet |
+| **UD** | 11 | même nom, `U = V`, description différente → description remplacée par celle du paquet, corps intact |
+| **UB** | 10 | même nom, `U ≠ V` → corps et fichiers compagnons remplacés verbatim depuis le paquet ; `license`/`upstream-repo`/`upstream-version` historiques conservés tels quels |
+| **B** | 2 | dans le paquet, absent de la bibliothèque → installé neuf (`implement`, `wait-what`) |
+| **O** | 7 | dans la bibliothèque, absent du paquet → intact, aucun octet touché (`implement-spec`, `loop-me`, `retro`, `setup-ts-deep-modules`, `writing-beats`, `writing-fragments`, `writing-shape`) |
+| **R** | 0 | skill du paquet rejeté (champ hors des six, ou empreinte `SHA256SUMS.txt` en échec) → aucun |
+
+Identités vérifiées : **I + UD + UB + B + R = 10 + 11 + 10 + 2 + 0 = 33** (paquet) ; **I + UD + UB + O = 10 + 11 + 10 + 7 = 38** (bibliothèque avant mise à jour). Bibliothèque après : **I + UD + UB + B + O = 10 + 11 + 10 + 2 + 7 = 40**.
+
+- **I** : `diagnosing-bugs`, `domain-modeling`, `grilling`, `migrate-to-shoehorn`, `prototype`, `resolving-merge-conflicts`, `tdd`, `teach`, `to-questionnaire`, `writing-for-agents`.
+- **UD** : `code-review`, `codebase-design`, `excalidraw-automate`, `git-guardrails-claude-code`, `research`, `scaffold-exercises`, `script-to-whiteboard-storyboard`, `scroll-film-studio`, `scroll-world`, `setup-pre-commit`, `wizard`.
+- **UB** : `ask-matt`, `grill-me`, `grill-with-docs`, `handoff`, `improve-codebase-architecture`, `setup-matt-pocock-skills`, `to-spec`, `to-tickets`, `triage`, `wayfinder`.
+- **B** : `implement`, `wait-what`.
+- **O** (intacts) : `implement-spec`, `loop-me`, `retro`, `setup-ts-deep-modules`, `writing-beats`, `writing-fragments`, `writing-shape`.
+
+**Écart consigné — liste UD vs `validation-report.md` §3 du paquet.** Ce dernier liste 12 descriptions changées par rapport au paquet précédent, dont `to-tickets`. Ici, `to-tickets` tombe en **UB** et non en UD : son corps installé provenait de la copie V1 (`vault-source: "library-v1-converted"`, jamais comparé au warehouse avant ce cycle), donc `U ≠ V` en plus du changement de description — les deux se recouvrent, classé UB par priorité (corps prioritaire sur description dans la règle de classement). Les 11 autres UD concordent exactement avec la liste des 12 du `validation-report.md` moins `to-tickets`. Aucune anomalie : le `validation-report.md` comparait le paquet à son seul prédécesseur direct (`e23edad2…`), pas à l'état mixte de la bibliothèque Vault.
+
+**Écart consigné — `vault-source-sha256` résiduel.** La rubrique Validations de la Mission attendait `e23edad2…` sur 0/40 skills après ce cycle ; les Interdits absolus de la même Mission imposent en parallèle « aucun octet touché sur les 7 skills absents du paquet ». Les deux clauses se contredisent pour les 7 O : ne pas les toucher (retenu, conforme aux Interdits absolus et à la définition même de la case O) laisse mécaniquement `vault-source-sha256 = e23edad2…` sur ces 7 — c'est la seule lecture qui ne fait rien d'irréversible sur du contenu hors périmètre. État final : `vault-source-sha256 = 8d4a5624…` sur 33/40 (I+UD+UB+B), `= e23edad2…` sur 7/40 (les O), `vault-source = "library-v1-converted"` restant sur 7/40 (les mêmes O).
+
 ## Forme standard (`DECISION-2026-08-31-231841` §1)
 
 Chaque `SKILL.md` porte au plus `name`, `description`, `license`, `compatibility`, `allowed-tools`, `metadata`. Sous `metadata:`, paires chaîne → chaîne uniquement :
 
 - `vault-source` : nom du paquet (`affiliate-pro-skills-full.zip`) pour A/B, `"library-v1-converted"` pour C.
-- `vault-source-sha256` : `e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f` (empreinte du paquet, sur les 38).
+- `vault-source-sha256` : `e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f` à l'entrée (Mission 106, sur les 38) ; depuis la mise à jour Mission 108, `8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb` sur 33/40, `e23edad2…` restant sur les 7 O non touchés — voir section « Mise à jour — paquet du 2026-09-01 (Mission 108) ».
 - `vault-body-sha256` : empreinte SHA-256 du corps (après le `---` fermant), vérifiée égale avant/après écriture sur les 38.
 - `vault-entered` : `2026-09-01`.
 - `upstream-repo`, `upstream-version` : transposés depuis `metadata-upstream-*` de l'enveloppe V1, sur les 19 C (tous `github.com/mattpocock/skills` / `1.2.3`). Aucun `upstream-commit` connu (jamais consigné par skill dans l'enveloppe V1).
@@ -97,6 +133,7 @@ Déplacée intégralement (`DECISION-2026-08-29-110852`) vers `_trash/skills-ext
 - **2026-08-30** — cycle update-ou-rejet (Mission 104, exécution de `DECISION-2026-08-28-171209`) : clone amont mesuré au commit `6654f6b60cd9d5be8b54c6fafe44346dabeb3b76` (`package.json` toujours à la version `1.2.3` — commits amont non versionnés depuis le dernier changeset), 24/27 skills de la case A mis à jour (corps + fichiers compagnons remplacés verbatim), 3/27 déjà identiques (`grill-me`, `grill-with-docs`, `handoff`), **0 CONFLIT, 0 ANOMALIE**. `metadata-upstream-version` reste `"1.2.3"` sur les 27 (valeur mesurée inchangée). `scroll-film-studio` non touché (aucun amont). Détail : `../../../workshop-build/workshop-production/reports/REPORT-2026-08-30-104-external-skills-upstream-update.md` (hors Vault).
 - **2026-08-30** — `implement-spec` et `retro` entrent dans le Vault (Mission 105-C01), depuis le même clone amont, même commit `6654f6b60cd9d5be8b54c6fafe44346dabeb3b76`, `metadata-upstream-version` `"1.2.3"` : adoption par arbitrage Owner nominatif, `DECISION-2026-08-30-210726`, non audités. La liste passe de 28 à 30.
 - **2026-09-01** — remplacement intégral par le paquet du `skills-warehouse` (Mission 106, reprise après le correctif du gardien de réciprocité de la Mission 107) : voir sections ci-dessus. La liste passe de 30 à 38 (11 remplacés depuis le paquet, 19 convertis depuis leur copie V1, 8 nouveaux) ; ancienne bibliothèque V1 intégrale dans `_trash/skills-external-v1-20260901-000337/`.
+- **2026-09-01** — mise à jour depuis le paquet reconstruit par le warehouse (Mission 108, cycle update-ou-rejet `DECISION-2026-08-28-171209` §2) : SHA-256 `8d4a5624…`, classement I=10/UD=11/UB=10/B=2/O=7/R=0 (détail section ci-dessus), deux nouveaux (`implement`, `wait-what`). La liste passe de 38 à **40**. Copie de sauvegarde de la bibliothèque (v2) dans `_trash/skills-external-v2-20260901-105329/` (bibliothèque restée en place, copie non déplacement).
 
 ## Liens
 

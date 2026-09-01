@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Create a cinematic scroll-driven website from a continuous generated film, with deterministic frame extraction, seam and motion gates, canvas scrubbing, responsive finishing, and visual verification. Use when the film itself is the main narrative surface rather than a sequence of ordinary page sections.
+- `SKILL.md` — (sans titre) · inconnu · Create a cinematic scroll-driven website from a continuous generated film, with frame extraction, seam and motion gates, canvas scrubbing, responsive finishing, and visual verification.
 
 ## Liens
 

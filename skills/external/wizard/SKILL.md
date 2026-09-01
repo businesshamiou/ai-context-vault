@@ -1,9 +1,9 @@
 ---
 name: wizard
-description: Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.
+description: "Generate an interactive Bash wizard for steps only a human can perform. Use for infrastructure, credentials, third-party dashboards, migrations, or cutovers; not for actions the agent can do itself."
 metadata:
   vault-source: "affiliate-pro-skills-full.zip"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "b8411869483f53a768b1c4bcfe5d2cbdb39966f044b474e9b8fc7acf4b147018"
   vault-entered: "2026-09-01"
 ---

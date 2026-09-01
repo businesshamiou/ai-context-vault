@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.
+- `SKILL.md` — (sans titre) · inconnu · Set up Claude Code hooks that block dangerous Git commands such as push, reset --hard, clean, or branch -D. Use when adding safety hooks for destructive Git operations in Claude Code.
 
 ## Liens
 

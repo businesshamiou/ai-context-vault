@@ -1,18 +1,18 @@
 ---
 type: index
-title: "Index — to-tickets"
+title: "Index — wait-what"
 description: "Index généré automatiquement par tools/build-indexes.sh."
 status: active
 generated_by: tools/build-indexes.sh
 ---
 
-# Index — to-tickets
+# Index — wait-what
 
 Index généré automatiquement. Ne pas éditer à la main : régénérer via `tools/build-indexes.sh`.
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Break a plan, spec, or conversation into tracer-bullet tickets with explicit blocking edges. Publish them to the configured tracker or to one local file per ticket.
+- `SKILL.md` — (sans titre) · inconnu · Stop. That last message did not land: re-pitch it.
 
 ## Liens
 

@@ -3,7 +3,7 @@ name: writing-for-agents
 description: Writing documents for agents. Use when creating or editing Skills, repository agent instructions, or any document reached by an agent through a pointer.
 metadata:
   vault-source: "affiliate-pro-skills-full.zip"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "6cf31c7cf3a5a8817c6dd90fb75a724584fb38b5850588d7ea6e46d786adc58e"
   vault-entered: "2026-09-01"
 ---

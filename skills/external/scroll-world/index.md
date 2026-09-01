@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Build an immersive, framework-agnostic landing page where scrolling scrubs a continuous camera flight through a cohesive branded world. Use for diorama journeys, multi-scene industry worlds, scroll cinematics, seamless scene chains, or portable canvas/video scrub experiences.
+- `SKILL.md` — (sans titre) · inconnu · Build a landing page where scrolling scrubs a camera flight through a branded world. Use for diorama journeys, multi-scene worlds, scroll cinematics, or portable canvas/video experiences.
 
 ## Liens
 

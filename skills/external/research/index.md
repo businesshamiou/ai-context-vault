@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Investigate a question against high-trust primary sources and capture the findings as a cited Markdown file. Use when the user wants a topic researched, documentation or API facts gathered, or reading legwork separated from the main task.
+- `SKILL.md` — (sans titre) · inconnu · Research a question using high-trust primary sources and capture cited findings in Markdown. Use for topic research, documentation or API facts, and reading legwork separated from the main task.
 
 ## Liens
 

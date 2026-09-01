@@ -1,13 +1,13 @@
 ---
-name: to-tickets
-description: "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in one file per ticket locally, or native blocking links on a real tracker."
+name: "to-tickets"
+description: "Break a plan, spec, or conversation into tracer-bullet tickets with explicit blocking edges. Publish them to the configured tracker or to one local file per ticket."
 license: "MIT"
 metadata:
   upstream-repo: "github.com/mattpocock/skills"
   upstream-version: "1.2.3"
-  vault-source: "library-v1-converted"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
-  vault-body-sha256: "46f69979505d9b76f4bab2c8b2a55cedd422ae08719ba9c5a00801e08280c29b"
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
+  vault-body-sha256: "03dd62525eaf3c76155aee69974a5a071a6db400f8be76c42b2c60566dfda128"
   vault-entered: "2026-09-01"
   claude-code-disable-model-invocation: "true"
 ---
@@ -16,7 +16,7 @@ metadata:
 
 Break a plan, spec, or conversation into a set of **tickets**: tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to apply the `setup-matt-pocock-skills` skill.
 
 ## Process
 
@@ -65,7 +65,7 @@ Iterate until the user approves the breakdown.
 
 ### 5. Publish the tickets to the configured tracker
 
-Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock-skills` configured; the tickets are the same either way, only the shape of the blocking edges changes:
+Publish the approved tickets. **How** depends on the tracker configured by the `setup-matt-pocock-skills` skill; the tickets are the same either way, only the shape of the blocking edges changes:
 
 - **Local files** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Each file's "Blocked by" lists the numbers/titles it depends on. Use the per-ticket file template below: one ticket per file, never a single combined file.
 - **A real issue tracker (GitHub, Linear, …)** → publish one issue per ticket in dependency order (blockers first) so each ticket's blocking edges can reference real identifiers. Use the platform's native blocking / sub-issue relationship where it has one; otherwise set each ticket's "Blocked by" to the blocking issues. Apply the `ready-for-agent` triage label unless instructed otherwise; the tickets are agent-grabbable by construction.

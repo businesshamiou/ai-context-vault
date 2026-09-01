@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section.
+- `SKILL.md` — (sans titre) · inconnu · Create exercise directories with sections, problems, solutions, and explainers that pass linting. Use to scaffold exercises, create exercise stubs, or set up a new course section.
 
 ## Liens
 

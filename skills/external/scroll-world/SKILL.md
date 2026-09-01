@@ -1,9 +1,9 @@
 ---
 name: scroll-world
-description: Build an immersive, framework-agnostic landing page where scrolling scrubs a continuous camera flight through a cohesive branded world. Use for diorama journeys, multi-scene industry worlds, scroll cinematics, seamless scene chains, or portable canvas/video scrub experiences.
+description: "Build a landing page where scrolling scrubs a camera flight through a branded world. Use for diorama journeys, multi-scene worlds, scroll cinematics, or portable canvas/video experiences."
 metadata:
   vault-source: "affiliate-pro-skills-full.zip"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "31c07274f237acc8063b0472b5aeb7478913c757aeecec8bbdca1b73e5bdd4e3"
   vault-entered: "2026-09-01"
 ---

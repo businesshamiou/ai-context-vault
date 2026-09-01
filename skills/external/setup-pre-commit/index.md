@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.
+- `SKILL.md` — (sans titre) · inconnu · Set up Husky pre-commit hooks with lint-staged, Prettier, type checking, and tests. Use to configure Husky, lint-staged, or commit-time formatting, type-checking, and testing.
 
 ## Liens
 

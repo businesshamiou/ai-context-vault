@@ -186,6 +186,8 @@ skills/external/grilling/SKILL.md	DISTRIBUABLE
 skills/external/grilling/agents/openai.yaml	DISTRIBUABLE
 skills/external/handoff/SKILL.md	DISTRIBUABLE
 skills/external/handoff/agents/openai.yaml	DISTRIBUABLE
+skills/external/implement/SKILL.md	DISTRIBUABLE
+skills/external/implement/agents/openai.yaml	DISTRIBUABLE
 skills/external/implement-spec/SKILL.md	DISTRIBUABLE
 skills/external/implement-spec/agents/openai.yaml	DISTRIBUABLE
 skills/external/improve-codebase-architecture/HTML-REPORT.md	DISTRIBUABLE
@@ -273,6 +275,8 @@ skills/external/triage/AGENT-BRIEF.md	DISTRIBUABLE
 skills/external/triage/OUT-OF-SCOPE.md	DISTRIBUABLE
 skills/external/triage/SKILL.md	DISTRIBUABLE
 skills/external/triage/agents/openai.yaml	DISTRIBUABLE
+skills/external/wait-what/SKILL.md	DISTRIBUABLE
+skills/external/wait-what/agents/openai.yaml	DISTRIBUABLE
 skills/external/wayfinder/SKILL.md	DISTRIBUABLE
 skills/external/wayfinder/agents/openai.yaml	DISTRIBUABLE
 skills/external/wizard/SKILL.md	DISTRIBUABLE

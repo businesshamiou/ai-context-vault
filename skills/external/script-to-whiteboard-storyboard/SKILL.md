@@ -1,9 +1,9 @@
 ---
 name: script-to-whiteboard-storyboard
-description: Turn a spoken video script, article, lesson, or outline into a consistent whiteboard-style storyboard with one clear visual per idea. Use for visual metaphors, explainer flows, recurring mascots, generation-ready prompts, storyboard manifests, image batches, or side-by-side review pages.
+description: "Turn a script, article, lesson, or outline into a consistent whiteboard storyboard with one visual per idea. Use for visual metaphors, explainer flows, mascots, prompts, manifests, or review pages."
 metadata:
   vault-source: "affiliate-pro-skills-full.zip"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "b063cc244fef6489c464fd68bdd41f3d226ae15bc5703f7ad4d9ce4ec2933220"
   vault-entered: "2026-09-01"
 ---

@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Create, modify, explain, or review ExcalidrawAutomate scripts for the Obsidian Excalidraw plugin. Use for scripted drawing creation, selected-element edits, custom data, dialogs, side panels, exports, or plugin automation that must run inside Obsidian.
+- `SKILL.md` — (sans titre) · inconnu · Create, modify, explain, or review ExcalidrawAutomate scripts for Obsidian Excalidraw. Use for drawing creation, selected-element edits, custom data, dialogs, side panels, exports, or automation.
 
 ## Liens
 

@@ -1,13 +1,13 @@
 ---
-name: setup-matt-pocock-skills
-description: "Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
+name: "setup-matt-pocock-skills"
+description: "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
 license: "MIT"
 metadata:
   upstream-repo: "github.com/mattpocock/skills"
   upstream-version: "1.2.3"
-  vault-source: "library-v1-converted"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
-  vault-body-sha256: "5bdd6678a3d828e3b04cfaca15effe44ef3b52f19c7081099f7b9131551fcc4a"
+  vault-source: "affiliate-pro-skills-full.zip"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
+  vault-body-sha256: "e4a7fb4e93d8706dd985fbd7e6b2e10b3403a3cb52dee3e78c3c0bcf9e1fe5cd"
   vault-entered: "2026-09-01"
   claude-code-disable-model-invocation: "true"
 ---
@@ -29,7 +29,7 @@ This is a prompt-driven skill, not a deterministic script. Explore, present what
 Look at the current repo to understand its starting state. Read whatever exists; don't assume:
 
 - `git remote -v` and `.git/config`: is this a GitHub repo? Which one?
-- `AGENTS.md` and `CLAUDE.md` at the repo root: does either exist? Is there already an `## Agent skills` section in either?
+- Repository agent-instruction entrypoints such as `AGENTS.md`, `CLAUDE.md`, or another runtime-specific pointer: which files exist, which one is canonical, and whether an `## Agent skills` section already exists.
 - `CONTEXT.md` and `CONTEXT-MAP.md` at the repo root
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/`: does this skill's prior output already exist?
@@ -72,7 +72,7 @@ Offer **multi-context** (a root `CONTEXT-MAP.md` pointing to per-context `CONTEX
 
 Show the user a draft of:
 
-- The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
+- The `## Agent skills` block to add to the repository's canonical agent-instruction entrypoint (see step 4 for selection rules)
 - The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
 
 Let them edit before writing.
@@ -81,13 +81,12 @@ Let them edit before writing.
 
 **Pick the file to edit:**
 
-- If `CLAUDE.md` exists, edit it.
-- Else if `AGENTS.md` exists, edit it.
-- If neither exists, ask the user which one to create; don't pick for them.
+- If the repository already declares a canonical shared agent-instruction file, edit it.
+- If exactly one agent-instruction entrypoint exists (`AGENTS.md`, `CLAUDE.md`, or another runtime file), preserve the project's convention and edit that file.
+- If multiple runtime entrypoints exist, follow their pointers to the shared canonical policy. Update the shared policy rather than duplicating the block. If they contain independent policies, ask the user which one is canonical before writing.
+- If none exists, recommend a provider-neutral shared instruction file and ask the user to confirm its name. Runtime-specific entrypoints, when needed, should be minimal pointers to that shared file rather than separate standards.
 
-Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa); always edit the one that's already there.
-
-If an `## Agent skills` block already exists in the chosen file, update its contents in-place rather than appending a duplicate. Don't overwrite user edits to the surrounding sections.
+If an `## Agent skills` block already exists in the canonical file, update its contents in-place rather than appending a duplicate. Don't overwrite user edits to the surrounding sections.
 
 The block:
 

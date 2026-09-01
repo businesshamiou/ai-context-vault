@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Review changes since a fixed point along two independent axes: repository standards and fidelity to the originating spec. Use when the user wants to review a branch, PR, work-in-progress changes, or asks to review since a commit, branch, tag, or merge-base.
+- `SKILL.md` — (sans titre) · inconnu · Review changes since a fixed point for repository standards and fidelity to the originating spec. Use for branches, PRs, work in progress, or changes since a commit, tag, branch, or merge-base.
 
 ## Liens
 

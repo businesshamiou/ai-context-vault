@@ -14,7 +14,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 - `DEEPENING.md` — (sans titre) · inconnu
 - `DESIGN-IT-TWICE.md` — (sans titre) · inconnu
-- `SKILL.md` — (sans titre) · inconnu · Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+- `SKILL.md` — (sans titre) · inconnu · Design or improve deep modules: interfaces, seams, testability, AI navigation, and shared vocabulary. Use when shaping a module or when another skill needs deep-module design concepts.
 
 ## Liens
 

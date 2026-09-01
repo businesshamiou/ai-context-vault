@@ -1,9 +1,9 @@
 ---
 name: code-review
-description: "Review changes since a fixed point along two independent axes: repository standards and fidelity to the originating spec. Use when the user wants to review a branch, PR, work-in-progress changes, or asks to review since a commit, branch, tag, or merge-base."
+description: "Review changes since a fixed point for repository standards and fidelity to the originating spec. Use for branches, PRs, work in progress, or changes since a commit, tag, branch, or merge-base."
 metadata:
   vault-source: "affiliate-pro-skills-full.zip"
-  vault-source-sha256: "e23edad2c53db59d9e10445c04e8c9b5733e47e69e06c7585505658dbf4fe45f"
+  vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "1445d78387df5d1f6c548bc6547858489ab097525832f5ee0ed9fe4426169494"
   vault-entered: "2026-09-01"
 ---

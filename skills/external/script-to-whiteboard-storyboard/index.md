@@ -12,7 +12,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
-- `SKILL.md` — (sans titre) · inconnu · Turn a spoken video script, article, lesson, or outline into a consistent whiteboard-style storyboard with one clear visual per idea. Use for visual metaphors, explainer flows, recurring mascots, generation-ready prompts, storyboard manifests, image batches, or side-by-side review pages.
+- `SKILL.md` — (sans titre) · inconnu · Turn a script, article, lesson, or outline into a consistent whiteboard storyboard with one visual per idea. Use for visual metaphors, explainer flows, mascots, prompts, manifests, or review pages.
 
 ## Liens
 

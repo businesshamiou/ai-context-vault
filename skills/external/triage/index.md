@@ -14,7 +14,7 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 - `AGENT-BRIEF.md` — (sans titre) · inconnu
 - `OUT-OF-SCOPE.md` — (sans titre) · inconnu
-- `SKILL.md` — (sans titre) · inconnu · Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.
+- `SKILL.md` — (sans titre) · inconnu · Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs.
 
 ## Liens
 
