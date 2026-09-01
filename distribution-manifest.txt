@@ -348,6 +348,9 @@ skills/external/writing-shape/SKILL.md	DISTRIBUABLE
 skills/external/writing-shape/agents/openai.yaml	DISTRIBUABLE
 skills/external/writing-shape/index.md	DISTRIBUABLE
 skills/index.md	DISTRIBUABLE
+skills/session-start/SKILL.md	DISTRIBUABLE
+skills/session-start/index.md	DISTRIBUABLE
+skills/session-start/reading-list.md	DISTRIBUABLE
 skills/superseded-files.txt	DISTRIBUABLE
 superseded-files.txt	INTERNE
 templates/capture-template.md	DISTRIBUABLE
