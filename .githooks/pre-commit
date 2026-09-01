@@ -94,4 +94,16 @@ if [ ! -f "$ASSERTED_PATHS_CHECK" ]; then
 fi
 
 bash "$ASSERTED_PATHS_CHECK" || exit 1
+
+# --- Gardien du manifeste de distribution (Mission 110 pour ce cablage,
+# DECISION-2026-08-29-153503 point 6 pour la decision de cablage). ---
+MANIFEST_CHECK="$VAULT_ROOT/tools/check-distribution-manifest.sh"
+
+if [ ! -f "$MANIFEST_CHECK" ]; then
+  echo "REFUS : gardien du manifeste de distribution introuvable : $MANIFEST_CHECK" >&2
+  echo "Le controle ne peut pas verifier, il refuse." >&2
+  exit 1
+fi
+
+bash "$MANIFEST_CHECK" || exit 1
 exit 0
