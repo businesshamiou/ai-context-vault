@@ -54,3 +54,4 @@ scope: role-relay, mission-workflow
 - `amended by` — [Décision — Le push délégué devient une règle](../decisions/DECISION-2026-08-26-154553-delegated-push-exception-becomes-rule.md)
 - `amended by` — [Décision — Protocole de copie : snippets et destinations](../decisions/DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md)
 - `amended by` — [Décision — La suppression définitive est un geste Owner](../decisions/DECISION-2026-08-29-110852-deletion-is-owner-gesture-trash-zone.md)
+- `amended by` — [Décision — Cohérence interne des Missions](../../workshop-build/workshop-production/decisions/DECISION-2026-09-01-115547-mission-context-coherence-and-least-powerful-reading.md) (hors Vault)

@@ -16,6 +16,12 @@ artifact_state: GENERATED_IN_CHAT
 
 Rappel : `status` ci-dessus fige l'autorisation à la création de ce fichier ; il n'est jamais retouché. L'état d'exécution de cette Mission vit exclusivement dans `<projet>/missions/MISSION-INDEX.md`, colonne « Statut ».
 
+## Contexte
+
+<!-- Obligatoire (DECISION-2026-09-01-115547 point 1). Dans cet ordre : les faits mesurés qui motivent la Mission, chacun daté et qualifié MESURÉ / DECLARED / HYPOTHÈSE ; ce que l'Executor va trouver sur disque et pourquoi c'est là ; les pièges connus (précédents, défauts d'outil, emplacements trompeurs) ; pourquoi la décision qui autorise cette Mission est ce qu'elle est. -->
+
+<Faits mesurés, état attendu sur disque, pièges, raison de la décision.>
+
 ## Objectif
 
 <Résultat poursuivi et raison de l'ouverture de cette Mission.>
@@ -57,6 +63,7 @@ Hors périmètre : <ce qui est explicitement exclu.>
 
 ## Validations
 
+<!-- Relecture croisée faite par le Pilot avant dépôt (DECISION-2026-09-01-115547 point 2) : chaque critère ci-dessous est atteignable sans violer un interdit de Gates ou de Contraintes ; chaque étape est permise par les mêmes interdits. -->
 <!-- Chaque critère porte un compte relatif chiffré, avant et après (232341, Impact) : pas "corrigé", mais "3 avant, 0 après". -->
 
 - <Critère vérifiable qui confirme le résultat, avec son compte avant/après chiffré.>
@@ -81,4 +88,5 @@ Hors périmètre : <ce qui est explicitement exclu.>
 
 - `prescribed by` — [Versionnement des Missions et outputs générés](../rules/RULES-2026-08-17-211522-mission-versioning-and-generated-output.md)
 - `amended by` — [Décision — La suppression définitive est un geste Owner](../decisions/DECISION-2026-08-29-110852-deletion-is-owner-gesture-trash-zone.md)
+- `amended by` — [Décision — Cohérence interne des Missions](../../workshop-build/workshop-production/decisions/DECISION-2026-09-01-115547-mission-context-coherence-and-least-powerful-reading.md) (hors Vault)
 - (à compléter : type — titre — chemin relatif, voir le standard de liens)
