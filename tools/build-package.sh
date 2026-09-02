@@ -174,6 +174,10 @@ LICENSES_FILE="$PKG_DIR/LICENSES.md"
   echo "|---|---|---|---|"
 } > "$LICENSES_FILE"
 
+# Perimetre : la bibliotheque externe (skills/external/) seulement -- les
+# skills fabriques par le Vault sont deja couverts par la section "Vault"
+# ci-dessus (meme LICENSE, meme corpus), une ligne redondante par skill
+# fabrique n'apporterait rien et gonflerait le compte attendu (40).
 NO_LICENSE=0
 NO_LICENSE_LINES=""
 NOASSERTION_LINES=""
@@ -182,7 +186,7 @@ AGPL_PATHS=""
 while IFS= read -r -d '' SKILL_MD; do
   REL="${SKILL_MD#"$VAULT_ROOT"/}"
   case "$REL" in
-    skills/*) : ;;
+    skills/external/*) : ;;
     *) continue ;;
   esac
   LIC="$(sed -n -E 's/^license:[[:space:]]*"?([^"]*)"?[[:space:]]*$/\1/p' "$SKILL_MD" | head -n 1)"
@@ -208,7 +212,7 @@ while IFS= read -r -d '' SKILL_MD; do
   REPO="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-repo:/{sub(/^  upstream-repo:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
   EVID="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-license-evidence:/{sub(/^  upstream-license-evidence:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
   echo "| \`$NAME\` | $LIC | ${REPO:-—} | ${EVID:-—} |" >> "$LICENSES_FILE"
-done < <(find "$VAULT_ROOT/skills" -type f -name 'SKILL.md' -print0 | sort -z)
+done < <(find "$VAULT_ROOT/skills/external" -type f -name 'SKILL.md' -print0 | sort -z)
 [ "$NO_LICENSE" -eq 0 ] || fail "$NO_LICENSE SKILL.md sans champ license: :$NO_LICENSE_LINES"
 [ "$NOASSERTION_REFUSED" -eq 0 ] || fail "$NOASSERTION_REFUSED SKILL.md en NOASSERTION sans exception Owner nommee :$NOASSERTION_LINES"
 
