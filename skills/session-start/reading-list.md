@@ -12,7 +12,7 @@ Lue par le skill `session-start` (étape 2). Une lecture par ligne, dans l'ordre
 
 ## Pilot
 
-1. `workshop-build/workshop-production/state/STATE.md` — la fiche d'état, contrat en tête ; c'est elle qui pointe le reste.
+1. `workshop-build/workshop-production/state/STATE.md` — la fiche d'état, contrat en tête ; c'est elle qui pointe le reste. **Test de fraîcheur** : son en-tête « dernière entrée : <horodatage> » doit être égal à la dernière ligne datée de `state/journal.md`. S'il est plus ancien, la fiche est périmée : le dire tel quel dans l'état en cinq lignes, lire le journal (tail 30) à sa place, et ne pas la régénérer soi-même — la régénération (`vault/tools/build-state.sh <projet>`, argument = dossier du projet) est un geste Executor prescrit par Mission. Le verdict READY/NOT-READY ne dépend pas de la fraîcheur.
 2. `workshop-build/workshop-production/state/journal.md` — queue (tail 15) ; l'état net des portes et les derniers gestes.
 3. Le dernier handoff de `workshop-build/workshop-production/handoffs/` (celui que la fiche d'état ou le prompt d'ouverture nomme) — la file de reprise.
 4. La capture liée à ce handoff dans `workshop-build/workshop-production/captures/`, si le handoff en nomme une — les leçons de la session close.
