@@ -57,6 +57,8 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
   - Toute ligne soumise à l'arbitrage de l'Owner déclare son statut de preuve — mesurée, hypothèse ou jugement — et tout point de Décision affirmant le contenu d'un document non lu dans la session part avec un contrôle d'arrêt nommé dans sa Mission d'exécution.
 - `DECISION-2026-08-30-013217-mission-frozen-at-snippet-emission.md` — Amendement — un fichier de Mission est gelé dès l'émission de son snippet · decision · arbitrated
   - Une Mission ne se retouche plus en place à partir du moment où son mini-prompt est remis à l'Owner : le Pilot ne peut pas observer quand une fenêtre Executor s'ouvre, donc l'émission du snippet est le seul instant de gel observable ; toute évolution passe par une correction Cxx et un nouveau snippet.
+- `DECISION-2026-09-02-191407-journal-and-index-as-pointers-300-chars.md` — Décision — Journal et index en pointeurs : toute ligne ≤ 300 caractères, le récit vit dans le document pointé · decision · active
+  - Toute ligne future du journal et des index de Missions est un pointeur (date, tag, une phrase, nom du fichier) plafonnée à 300 caractères ; le détail vit dans le rapport, la capture ou le handoff pointé. Applicable par gardien.
 
 ## Liens
 
