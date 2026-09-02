@@ -24,7 +24,7 @@ Tente un geste shell inoffensif (`git --version`). Il répond → branche **Exec
 
 1. Conscience de position (répertoire courant, dépôt, chemins vers `vault/` et `workshop-build/`), puis lis le **handoff nommé** par la commande de clôture, intégralement.
 2. **Journal** (`state/journal.md` du projet, via `vault/tools/append-journal.sh`) : une ligne `STATE:` de clôture — têtes des deux dépôts, avance sur `origin`, portes ouvertes restantes ; puis les lignes `CLOSE: <clé> -- <référence>` que le handoff prescrit, **une par porte, clé exacte** (DECISION-110935). Aucune `CLOSE:` que le handoff ne nomme pas.
-3. `vault/tools/build-state.sh` sur le projet ; `MISSION-INDEX.md` à jour (toute Mission close de la session porte son état final) ; `vault/tools/build-indexes.sh` sur les racines touchées seulement.
+3. `vault/tools/build-state.sh` sur le projet, puis `vault/tools/build-digest.sh` sur le même projet (Mission 121, digest d'ouverture plafonné) ; `MISSION-INDEX.md` à jour (toute Mission close de la session porte son état final) ; `vault/tools/build-indexes.sh` sur les racines touchées seulement.
 4. **Un commit par dépôt touché**, fichier par fichier, diff inspecté, jamais `git add .` ; la sortie du hook collée. Refus de gardien = **STOP** avec verbatim, aucun contournement, aucun override.
 5. RELAY de clôture en cinq lignes chiffrées (rubriques de RULES-124937), en fin de fenêtre.
 
