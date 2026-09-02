@@ -114,8 +114,15 @@ EOF_ALLMD
   fi | sort > "$SUPERSEDED_LIST_FILE"
 
   find "$ROOT_ABS" \( -false $PRUNE_EXPR \) -prune -o -type d -print | while IFS= read -r DIR; do
-    MD_FILES="$(find "$DIR" -maxdepth 1 -type f -name '*.md' ! -name 'index.md' | sort)"
-    [ -z "$MD_FILES" ] && continue
+    # Liste NUL-delimitee : un nom de fichier a espaces reste un seul element
+    # (le decoupage sur les blancs faisait tomber silencieusement 85 fichiers
+    # d'un dossier de references, Missions 106/108/112/113 -- l'index doit
+    # lister tous les fichiers du dossier, espaces compris, DECISION-193624).
+    MD_FILES=()
+    while IFS= read -r -d '' MD_F; do
+      MD_FILES+=("$MD_F")
+    done < <(find "$DIR" -maxdepth 1 -type f -name '*.md' ! -name 'index.md' -print0 | sort -z)
+    [ "${#MD_FILES[@]}" -eq 0 ] && continue
 
     INDEX="$DIR/index.md"
     TITLE="$(basename "$DIR")"
@@ -146,7 +153,7 @@ EOF_ALLMD
       echo ""
       echo "## Contenu"
       echo ""
-      list_fields $MD_FILES | sort | while IFS="$(printf '\t')" read -r F T TY ST DESC; do
+      list_fields "${MD_FILES[@]}" | sort | while IFS="$(printf '\t')" read -r F T TY ST DESC; do
         [ -z "$F" ] && continue
         FN="${F##*/}"
         MARK=""
