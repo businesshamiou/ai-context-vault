@@ -348,6 +348,8 @@ skills/external/writing-shape/SKILL.md	DISTRIBUABLE
 skills/external/writing-shape/agents/openai.yaml	DISTRIBUABLE
 skills/external/writing-shape/index.md	DISTRIBUABLE
 skills/index.md	DISTRIBUABLE
+skills/recherche-interne/SKILL.md	DISTRIBUABLE
+skills/recherche-interne/index.md	DISTRIBUABLE
 skills/project-bootstrap/SKILL.md	DISTRIBUABLE
 skills/project-bootstrap/index.md	DISTRIBUABLE
 skills/project-bootstrap/preflight-hook.sh	DISTRIBUABLE
