@@ -23,7 +23,7 @@ Jouée par le skill `first-install` (§2 inventaire, §3 installation). Une lign
 | 9 | Jonctions de la bibliothèque externe | pour chaque `vault/skills/external/<nom>/SKILL.md` : jonction du même nom, `test -ef` IDENTIQUE | idem vers `vault/skills/external/<nom>` | machine |
 | 10 | Jonctions étrangères | jonction du dossier personnel sans cible dans le Vault | aucun geste : signalée, laissée (elle n'appartient pas au Vault) | machine |
 | 11 | Étage machine — Claude Code | `~/.claude/CLAUDE.md` existe et mentionne `VAULT-ROOT` | créer le fichier minimal (DECISION-210731 point 1) ; s'il existe sans la mention : signalé, non modifié | machine |
-| 12 | Étage machine — Codex | `~/.codex/AGENTS.md` existe et mentionne `VAULT-ROOT` | idem | machine |
+| 12 | Étage machine — Codex | `~/.codex/AGENTS.md` existe (taille > 0) et mentionne `VAULT-ROOT` | absent, ou présent à 0 octet : créer le fichier minimal (DECISION-210731 point 1) ; présent avec un contenu non vide sans la mention : signalé, non modifié | machine |
 | 13 | Racine MCP filesystem (surface Pilot) | configuration du client chat lisible et pointant la racine de travail | geste humain (paramètres du client), chemin proposé | machine → humaine |
 | 14 | Projets enregistrés : `pre-commit install` | pour chaque `relative_path` du registre : `.git/hooks/pre-commit` posé par pre-commit, ou `core.hooksPath` natif présent | `pre-commit install` dans le projet, si l'item 5 est installé | machine |
 | 15 | Skills chat (claude.ai) | jamais mesurable depuis le poste | liste des zips avec chemin mesuré, `laissé (geste humain)` | humaine |

@@ -31,12 +31,26 @@ PROJECTS_DIR="$VAULT_ROOT/projects"
 REGISTRY="$PROJECTS_DIR/PROJECT-REGISTRY.md"
 STANDARD_RULE="$VAULT_ROOT/rules/RULES-2026-08-26-142800-project-structure-standard.md"
 
-for DEP in "$CONFORMITY_CHECK" "$INDEXES_BUILD" "$JOURNAL_APPEND" "$REGISTRY" "$STANDARD_RULE"; do
+for DEP in "$CONFORMITY_CHECK" "$INDEXES_BUILD" "$JOURNAL_APPEND" "$STANDARD_RULE"; do
   if [ ! -e "$DEP" ]; then
     echo "REFUS : dependance introuvable : $DEP" >&2
     exit 1
   fi
 done
+
+# --- Registre absent : cree depuis le gabarit avant toute ecriture de ligne
+# (Mission 118, lot 5). Le gabarit est a la meme profondeur que le registre
+# sous VAULT_ROOT (templates/ et projects/) : ses liens relatifs restent
+# corrects tels quels, copie verbatim. ---
+if [ ! -e "$REGISTRY" ]; then
+  REGISTRY_TEMPLATE="$VAULT_ROOT/templates/project-registry-template.md"
+  if [ ! -e "$REGISTRY_TEMPLATE" ]; then
+    echo "REFUS : registre absent et gabarit introuvable : $REGISTRY_TEMPLATE" >&2
+    exit 1
+  fi
+  mkdir -p "$PROJECTS_DIR"
+  cp "$REGISTRY_TEMPLATE" "$REGISTRY"
+fi
 
 TARGET_PARENT="$(dirname "$TARGET")"
 mkdir -p "$TARGET_PARENT"
