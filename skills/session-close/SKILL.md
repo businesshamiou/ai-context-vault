@@ -23,7 +23,7 @@ Tente un geste shell inoffensif (`git --version`). Il répond → branche **Exec
 ## 3. Branche Executor (Claude Code, `/session-close`)
 
 1. Conscience de position (répertoire courant, dépôt, chemins vers `vault/` et `workshop-build/`), puis lis le **handoff nommé** par la commande de clôture, intégralement.
-2. **Journal** (`state/journal.md` du projet, via `vault/tools/append-journal.sh`) : une ligne `STATE:` de clôture — têtes des deux dépôts, avance sur `origin`, portes ouvertes restantes ; puis les lignes `CLOSE: <clé> -- <référence>` que le handoff prescrit, **une par porte, clé exacte** (DECISION-110935). Aucune `CLOSE:` que le handoff ne nomme pas.
+2. **Journal** (`state/journal.md` du projet, via `vault/tools/append-journal.sh`) : une ligne `STATE:` de clôture — têtes des deux dépôts, avance sur `origin`, portes ouvertes restantes ; puis les lignes `CLOSE: <clé> -- <référence>` que le handoff prescrit, **une par porte, clé exacte** (DECISION-110935). Aucune `CLOSE:` que le handoff ne nomme pas. Toute ligne `STATE:`/`CLOSE:`/`REPRISE:` est un pointeur ≤ 300 caractères (DECISION-191407) — `append-journal.sh` la refuse fail-closed sinon (Mission 123) : rédiger le pointeur, laisser le récit au rapport ou au handoff.
 3. `vault/tools/build-state.sh` sur le projet, puis `vault/tools/build-digest.sh` sur le même projet (Mission 121, digest d'ouverture plafonné) ; `MISSION-INDEX.md` à jour (toute Mission close de la session porte son état final) ; `vault/tools/build-indexes.sh` sur les racines touchées seulement.
 4. **Un commit par dépôt touché**, fichier par fichier, diff inspecté, jamais `git add .` ; la sortie du hook collée. Refus de gardien = **STOP** avec verbatim, aucun contournement, aucun override.
 5. RELAY de clôture en cinq lignes chiffrées (rubriques de RULES-124937), en fin de fenêtre.
@@ -41,6 +41,7 @@ Ouvrir une session (`session-start`) · pousser (geste Owner, délégué par ins
 - `see also` — [Liste des trous de clôture, une mesure par ligne](./closing-checklist.md)
 - `applies` — [Décision — Fin de passe skills V1](../../../workshop-build/workshop-production/decisions/DECISION-2026-09-01-144931-skills-v1-end-of-pass.md) (hors Vault)
 - `applies` — [Décision — Tag CLOSE: et portes à clé du journal](../../decisions/DECISION-2026-08-25-110935-journal-close-tag-and-keyed-doors.md)
+- `applies` — [Décision — Journal et index en pointeurs](../../decisions/DECISION-2026-09-02-191407-journal-and-index-as-pointers-300-chars.md)
 - `applies` — [Charte des rôles et détermination de session](../../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
 - `see also` — [Relais entre rôles par mini-prompts à rubriques fixes](../../rules/RULES-2026-08-23-124937-role-relay-mini-prompts.md)
 - `see also` — [Gabarit de handoff](../../templates/handoff-template.md)

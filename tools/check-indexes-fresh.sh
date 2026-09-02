@@ -60,6 +60,49 @@ contenu_section() {
   '
 }
 
+# --- Butee 300 caracteres, MISSION-INDEX.md (Decision 191407, Mission 123) -----
+# Gardien mesure comme le meilleur candidat existant a etendre (aucun gardien
+# ne verifiait MISSION-INDEX.md avant cette Mission -- mesure, pas suppose).
+# Non retroactif, sans liste d'exceptions : baseline = dernier numero de
+# Mission present dans la table au moment de la gravure de cette regle (122,
+# mesure par grep sur le fichier commite avant ce changement). Toute ligne
+# d'entree (motif "| `NNN` |" en tete de ligne, determine par lecture directe
+# du fichier) dont NNN > baseline est verifiee ; NNN <= baseline passe
+# toujours, quelle que soit sa longueur -- aucune ligne existante n'est
+# touchee, listee ou exemptee au cas par cas.
+MISSION_INDEX_LINE_CAP_BASELINE=122
+MISSION_INDEX_PATH="workshop-production/missions/MISSION-INDEX.md"
+
+check_mission_index_line_cap() {
+  git cat-file -e ":$MISSION_INDEX_PATH" 2>/dev/null || return 0
+
+  local content line_no=0 line nnn len
+  content="$(git show ":$MISSION_INDEX_PATH" 2>/dev/null)"
+
+  while IFS= read -r line; do
+    line_no=$((line_no + 1))
+    case "$line" in
+      '| `'[0-9]*'`'*) : ;;
+      *) continue ;;
+    esac
+    nnn="$(printf '%s' "$line" | sed -E 's/^\| `([0-9]+)`.*/\1/')"
+    case "$nnn" in
+      ''|*[!0-9]*) continue ;;
+    esac
+    [ "$nnn" -gt "$MISSION_INDEX_LINE_CAP_BASELINE" ] || continue
+
+    len="$(printf '%s' "$line" | wc -m)"
+    if [ "$len" -gt 300 ]; then
+      echo "INDEX-LINE-CAP [$MISSION_INDEX_PATH]" >&2
+      echo "  Ligne    : $line_no (Mission $nnn)" >&2
+      echo "  Longueur : $len caracteres > 300 (Decision 191407)" >&2
+      FAIL=1
+    fi
+  done <<EOF
+$content
+EOF
+}
+
 FAIL=0
 
 report_gap() {
@@ -215,5 +258,13 @@ cd "$REPO_ROOT" || exit 1
 for d in $DIRS; do
   check_dir "$d"
 done
+
+# Butee 300 caracteres sur MISSION-INDEX.md (Decision 191407) : seulement si
+# ce fichier precis est stage dans ce commit -- meme discipline que la
+# fraicheur des index generes ci-dessus, aucun cout sur les commits qui ne le
+# touchent pas.
+if git diff --cached --name-only --diff-filter=ACMR -- "$MISSION_INDEX_PATH" 2>/dev/null | grep -qxF "$MISSION_INDEX_PATH"; then
+  check_mission_index_line_cap
+fi
 
 exit "$FAIL"

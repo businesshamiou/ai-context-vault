@@ -26,9 +26,11 @@ Jouée par le skill `ecriture-de-mission` (§5) avant tout dépôt. Une ligne en
 | 12 | Aucune étape « supprimer » : déplacement vers `_trash/` avec empreinte, ou human gate Owner hors des étapes | grep « supprim » dans `## Étapes` | DECISION-2026-08-29-110852 (suppression = geste Owner) |
 | 13 | Gates : mot Owner verbatim et daté ; human gate non accordé listé ; conditions d'arrêt listées | relecture de `## Gates` | DECISION-2026-08-29-212009 ; charte §3 (refus = STOP) |
 | 14 | Une seule fenêtre Executor prévue par dépôt ; la Mission nomme les fichiers concurrents qu'elle tolère | relecture du Contexte et des tolérances | trois frottements du 2026-09-01 (rangement 110 différé, 109 jouée deux fois, commit 111 refusé) |
+| 15 | La ligne d'index de la Mission (`MISSION-INDEX.md`) est un pointeur ≤ 300 caractères : horodatage/tag/résumé d'une phrase/nom de fichier, jamais le récit | `wc -m` sur la ligne rédigée | DECISION-2026-09-02-191407 (journal et index en pointeurs) ; gardien `check-indexes-fresh.sh` (Mission 123) |
 
 ## Liens
 
 - `see also` — [Skill ecriture-de-mission](./SKILL.md)
 - `applies` — [Décision — Cohérence interne des Missions](../../../workshop-build/workshop-production/decisions/DECISION-2026-09-01-115547-mission-context-coherence-and-least-powerful-reading.md) (hors Vault)
+- `applies` — [Décision — Journal et index en pointeurs](../../decisions/DECISION-2026-09-02-191407-journal-and-index-as-pointers-300-chars.md)
 - `see also` — [Gabarit de Mission](../../templates/mission-template.md)

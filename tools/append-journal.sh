@@ -87,6 +87,21 @@ if [ -z "$PROJECT" ] || [ -z "$TEXT" ]; then
   exit 1
 fi
 
+# --- Butee 300 caracteres (Decision 191407, Mission 123) ------------------------
+# Fail-closed, avant toute ecriture : le texte fourni par l'appelant (hors
+# horodatage, prefixe par ce script lui-meme plus bas) ne doit jamais depasser
+# MAX_LINE_CHARS. Comptage en caracteres (wc -m), pas en octets -- coherent
+# avec la convention deja mesuree aux Missions 121/122 sur la ligne STATE:.
+# Refus sans rien ecrire : ni journal, ni Mnemosyne (le remember ne peut pas
+# s'executer avant l'ecriture du journal, cf. conception fail-open ci-dessus).
+MAX_LINE_CHARS=300
+
+TEXT_LEN="$(printf '%s' "$TEXT" | wc -m)"
+if [ "$TEXT_LEN" -gt "$MAX_LINE_CHARS" ]; then
+  echo "REFUS append-journal.sh : ligne de $TEXT_LEN caracteres, plafond $MAX_LINE_CHARS (Decision 191407). Rien ecrit (journal, Mnemosyne)." >&2
+  exit 1
+fi
+
 STATE_DIR="$PROJECT/state"
 JOURNAL="$STATE_DIR/journal.md"
 
