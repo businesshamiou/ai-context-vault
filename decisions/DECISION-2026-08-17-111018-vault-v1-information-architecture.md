@@ -86,3 +86,8 @@ Cette architecture évite la confusion entre connaissance et arbitrage, entre é
 - Cycle applicable : [cycle de contexte V2](../rules/RULES-2026-08-17-111018-context-lifecycle-v2.md)
 - Modèle opératoire : [concept et modèle opératoire](../knowledge/BRIEF-2026-08-17-003000-vault-concept-operating-model.md)
 - Preuves : [vérification et preuves](../knowledge/verification-and-evidence.md)
+
+## Liens
+
+- `see also` — [Vault central et projets frères](./DECISION-2026-08-17-003000-vault-central-architecture.md)
+- `see also` — [Vault — concept pédagogique et modèle opératoire](../knowledge/BRIEF-2026-08-17-003000-vault-concept-operating-model.md)

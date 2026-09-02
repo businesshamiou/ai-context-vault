@@ -127,3 +127,8 @@ C'est d'abord une discipline :
 ## 8. Principe à retenir
 
 > **Le Vault garde la manière de travailler. Le projet garde ce sur quoi on travaille.**
+
+## Liens
+
+- `see also` — [Architecture centrale — Vault permanent et projets frères](../decisions/DECISION-2026-08-17-003000-vault-central-architecture.md)
+- `see also` — [Architecture d'information V1 — primitives, preuves et human gates](../decisions/DECISION-2026-08-17-111018-vault-v1-information-architecture.md)

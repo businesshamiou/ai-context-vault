@@ -14,3 +14,7 @@ Deltas de continuité entre sessions et acteurs.
 ## Contenu
 
 Ce dossier ne contient encore aucun artefact.
+
+## Liens
+
+- `prescribed by` — [Standard de liens entre documents](../rules/RULES-2026-08-21-115658-document-linking-standard.md)

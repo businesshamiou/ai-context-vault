@@ -85,3 +85,7 @@ Un contrôle qui ne s'active que dans un outil donné n'est pas un garde-fou : c
 Un mécanisme de contrôle actif mais défaillant est plus dangereux que son absence : il donne une assurance fausse. Tout garde-fou est donc éprouvé par un essai qui doit échouer, avant d'être considéré comme en service.
 
 L'essai fait partie de l'installation, pas de la vérification ultérieure. Un contrôle dont on n'a jamais observé le refus n'est pas installé : il est seulement présent.
+
+## Liens
+
+- `see also` — [Vérification et preuves](../knowledge/verification-and-evidence.md)

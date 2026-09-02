@@ -112,3 +112,7 @@ Pour une modification locale bornée :
 8. remesurer le HEAD, le status et la frontière externe.
 
 Cette séquence produit des preuves complémentaires : elle ne transforme pas une mesure isolée en garantie générale.
+
+## Liens
+
+- `see also` — [Garde-fous et niveaux de preuve](../rules/RULES-2026-08-19-210803-guardrails-and-evidence-levels.md)

@@ -55,3 +55,7 @@ Premier usage réel dans la présente Mission (022) : le runbook V1 est créé, 
 - Proposal source : `../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-21-103942-vault-installation-runbook.md`
 - Mission qui grave cette Decision : `../../workshop-build/workshop-production/missions/MISSION-2026-08-21-104025-022-link-mechanism-and-runbook.md`
 - Runbook institué : `../knowledge/runbook-vault-setup.md`
+
+## Liens
+
+- `see also` — [Runbook d'installation du Vault — V1](../knowledge/runbook-vault-setup.md)
