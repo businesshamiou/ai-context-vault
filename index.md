@@ -14,6 +14,8 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 - `AGENTS.md` — (sans titre) · inconnu
 - `CLAUDE.md` — (sans titre) · inconnu
+- `INSTALL.md` — Installer le Vault · inconnu · active
+  - Page d'entrée du paquet distribué : décompresser, ouvrir Claude Code dans le dossier, lancer /first-install, ce qui reste un geste humain.
 - `README.md` — (sans titre) · inconnu
 - `USER.md` — Fiche utilisateur — Owner du Vault · user · active
 

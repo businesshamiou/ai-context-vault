@@ -43,6 +43,10 @@ Le Vault distingue l'état réel, le changement, la validation, le snapshot loca
 
 Graphify peut aider un agent à retrouver et relier ce qui a été écrit. Il ne remplace ni les fichiers, ni les décisions explicites, ni la discipline documentaire. Les sorties dans `graphify-out/` sont générées et ne doivent jamais être éditées manuellement.
 
+## Installer ce paquet
+
+Si vous venez de décompresser une archive de distribution du Vault, commencez par [INSTALL.md](./INSTALL.md). Le Vault est distribué sous [licence MIT](./LICENSE).
+
 ## Points d’entrée
 
 - [Architecture du Vault](./decisions/DECISION-2026-08-17-003000-vault-central-architecture.md)
