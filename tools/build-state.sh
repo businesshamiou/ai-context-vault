@@ -213,18 +213,19 @@ else
 fi
 
 # --- 4. Ecriture ---
+GEN_REL="$(realpath --relative-to="$STATE_DIR" "$SCRIPT_DIR/build-state.sh")"
 {
   echo "---"
   echo "type: state"
   echo "title: \"Fiche d'état — $(basename "$PROJECT_ROOT")\""
-  echo "description: \"Fiche générée automatiquement par tools/build-state.sh — catalogue, pas un résumé.\""
+  echo "description: \"Fiche générée automatiquement par $GEN_REL — catalogue, pas un résumé.\""
   echo "status: GENERATED"
-  echo "generated_by: tools/build-state.sh"
+  echo "generated_by: $GEN_REL"
   echo "---"
   echo ""
   echo "# FICHE D'ÉTAT — $(basename "$PROJECT_ROOT")"
   echo ""
-  echo "> Générée automatiquement par \`build-state.sh\`. Ne pas éditer à la main."
+  echo "> Générée automatiquement par \`$GEN_REL\`. Ne pas éditer à la main."
   echo "> Source : \`state/journal.md\` (dernière entrée : ${LAST_TS:-aucune})."
   echo ""
   echo "## Contrat du Pilot"
