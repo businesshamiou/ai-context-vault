@@ -1,7 +1,10 @@
 ---
 name: codebase-design
 description: "Design or improve deep modules: interfaces, seams, testability, AI navigation, and shared vocabulary. Use when shaping a module or when another skill needs deep-module design concepts."
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
+  upstream-license-evidence: "https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "ab0d8082c31bff09dad64bf0c32a02bb698156cdf37e0279c2e4a68121292c33"

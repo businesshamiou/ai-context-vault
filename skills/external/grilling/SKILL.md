@@ -1,7 +1,10 @@
 ---
 name: grilling
 description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
+  upstream-license-evidence: "https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "1c4c9d9da74ae88872a9039ef8270de7adc88299408b1786bf9ae97ebe6ee832"

@@ -1,7 +1,10 @@
 ---
 name: scroll-world
 description: "Build a landing page where scrolling scrubs a camera flight through a branded world. Use for diorama journeys, multi-scene worlds, scroll cinematics, or portable canvas/video experiences."
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/oso95/scroll-world/tree/71cc36d3bb150248ae36a2c552f9cbf88802a79c"
+  upstream-license-evidence: "https://github.com/oso95/scroll-world/blob/71cc36d3bb150248ae36a2c552f9cbf88802a79c/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "31c07274f237acc8063b0472b5aeb7478913c757aeecec8bbdca1b73e5bdd4e3"

@@ -1,7 +1,10 @@
 ---
 name: domain-modeling
 description: Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
+  upstream-license-evidence: "https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "70a61a670fcdba4d91c277379e6e866d42e244e786c6f6ff68951d840b3b484e"

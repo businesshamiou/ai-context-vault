@@ -73,6 +73,7 @@ rules/index.md	DISTRIBUABLE
 rules/patterns/bypass-patterns.txt	DISTRIBUABLE
 rules/patterns/secret-patterns.txt	DISTRIBUABLE
 skills/external/LICENSE-mattpocock-skills.txt	DISTRIBUABLE
+skills/external/OWNER-EXCEPTIONS.md	DISTRIBUABLE
 skills/external/PROVENANCE.md	DISTRIBUABLE
 skills/external/ask-matt/PHASE-BOUNDARIES.md	DISTRIBUABLE
 skills/external/ask-matt/SKILL.md	DISTRIBUABLE

@@ -1,7 +1,10 @@
 ---
 name: script-to-whiteboard-storyboard
 description: "Turn a script, article, lesson, or outline into a consistent whiteboard storyboard with one visual per idea. Use for visual metaphors, explainer flows, mascots, prompts, manifests, or review pages."
+license: "NOASSERTION"
 metadata:
+  upstream-repo: "https://github.com/Samin12/script-to-whiteboard-storyboard/tree/c4927de34c710771e9bf5bf86d700aa223261d9d"
+  upstream-license-evidence: "Aucun fichier LICENSE applicable et aucun champ license dans le SKILL.md amont n'ont ete trouves."
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "b063cc244fef6489c464fd68bdd41f3d226ae15bc5703f7ad4d9ce4ec2933220"

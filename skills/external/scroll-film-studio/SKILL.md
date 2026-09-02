@@ -1,7 +1,10 @@
 ---
 name: scroll-film-studio
 description: "Create a cinematic scroll-driven website from a continuous generated film, with frame extraction, seam and motion gates, canvas scrubbing, responsive finishing, and visual verification."
+license: "NOASSERTION"
 metadata:
+  upstream-repo: "archive locale Super website skill v2.zip, SHA-256 c818f30350afd90e9bce1b6ef180d4b85d6a4f2e5a3fd599045d65b7a8086ff7"
+  upstream-license-evidence: "Aucun fichier de licence applicable et aucun champ license dans le SKILL.md source n'ont ete trouves. Les licences presentes dans package-lock.json concernent les dependances et ne prouvent pas la licence du Skill lui-meme."
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "7323283491fa638efb93168aa3f73890a038b163dac2a91933078f42c58f077e"

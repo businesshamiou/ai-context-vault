@@ -120,7 +120,22 @@ Vérification de forme : 38/38 `SKILL.md` sans champ hors des six ; 38/38 blocs 
 
 - **`LICENSE-mattpocock-skills.txt`** (MIT) : conservée à la racine de `external/`, référencée par les 19 C (skills issus à l'origine de `github.com/mattpocock/skills`, licence portée par leur `license: "MIT"`).
 - **Licences par skill du paquet** : `excalidraw-automate/LICENSE` et `scroll-world/LICENSE`, fournies par le paquet lui-même, conservées verbatim comme fichiers compagnons dans leurs dossiers respectifs (aucun top-level de licence unique pour l'ensemble du paquet).
-- Les 9 autres A/B (`code-review`, `codebase-design`, `diagnosing-bugs`, `domain-modeling`, `grilling`, `prototype`, `research`, `scroll-film-studio`, `tdd`, `wizard`, `writing-for-agents`, `git-guardrails-claude-code`, `migrate-to-shoehorn`, `resolving-merge-conflicts`, `scaffold-exercises`, `script-to-whiteboard-storyboard`, `setup-pre-commit`) ne portent aucune mention de licence dans le paquet ; aucun champ `license:` posé, statut non déterminé.
+- Les 9 autres A/B (`code-review`, `codebase-design`, `diagnosing-bugs`, `domain-modeling`, `grilling`, `prototype`, `research`, `scroll-film-studio`, `tdd`, `wizard`, `writing-for-agents`, `git-guardrails-claude-code`, `migrate-to-shoehorn`, `resolving-merge-conflicts`, `scaffold-exercises`, `script-to-whiteboard-storyboard`, `setup-pre-commit`) ne portent aucune mention de licence dans le paquet ; aucun champ `license:` posé, statut non déterminé. **Résolu par la Mission 116, voir « Licences (Mission 116) » ci-dessous.**
+
+## Licences (Mission 116)
+
+**2026-09-01 — 21 `SKILL.md` sans champ `license:` (rapport `REPORT-2026-09-01-225118-115-…-STOP2`) reçoivent leur valeur depuis l'inventaire prouvé de l'Owner** (`KNOWLEDGE-NOTE-2026-09-01-230251-skills-warehouse-license-policy-and-inventory`, 33 skills audités par le warehouse, source figée et preuve par skill). Front-matter seul modifié ; corps et fichiers compagnons intacts, empreintes `vault-body-sha256` vérifiées égales avant/après sur les 21.
+
+Répartition finale des 40 skills externes :
+
+| Catégorie | Compte | Détail |
+|---|---:|---|
+| `MIT` (inventaire warehouse) | 30 | 29 mattpocock (commit `6654f6b6…`) + 1 `scroll-world` (commit `71cc36d3…`) — 12 portaient déjà `license: "MIT"` avant cette Mission, 18 reçus ici |
+| `AGPL-3.0-only` | 1 | `excalidraw-automate` (commit `052dfe3c…`), exception Owner explicite à la politique permissive par défaut, texte AGPL conservé dans `excalidraw-automate/LICENSE` |
+| `NOASSERTION` + exception Owner | 2 | `script-to-whiteboard-storyboard`, `scroll-film-studio` — aucune licence trouvée, inclusion décidée par l'Owner (« inclure-33 », 2026-09-01), voir `OWNER-EXCEPTIONS.md` |
+| `MIT` (V1-only, hors inventaire des 33) | 7 | `implement-spec`, `loop-me`, `retro`, `setup-ts-deep-modules`, `writing-beats`, `writing-fragments`, `writing-shape` — même amont mattpocock, même commit, `license: "MIT"` depuis la Mission 104, non touchés par la 116 |
+
+**Total : 30 + 1 + 2 + 7 = 40.** Chaque skill de l'inventaire des 33 porte désormais `metadata.upstream-repo` (source figée) et `metadata.upstream-license-evidence` (URL de preuve, ou constat en une phrase pour les deux NOASSERTION). Les exceptions (`AGPL-3.0-only`, les deux `NOASSERTION`) sont détaillées dans [`OWNER-EXCEPTIONS.md`](./OWNER-EXCEPTIONS.md) et reprises dans `LICENSES.md` de tout paquet construit (`tools/build-package.sh`, Mission 115-116).
 
 ## Ancienne bibliothèque (V1) — conservée, jamais supprimée
 

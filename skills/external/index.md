@@ -12,6 +12,8 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
 
 ## Contenu
 
+- `OWNER-EXCEPTIONS.md` — Exceptions Owner à la politique des licences — bibliothèque externe · inconnu · active
+  - Registre des exceptions explicites à la politique permissive par défaut du skills-warehouse (KNOWLEDGE-NOTE-2026-09-01-230251) : les deux skills conservés sous license: NOASSERTION malgré l'absence de licence prouvée, et le skill conservé sous sa licence copyleft réelle plutôt que réécrit en MIT. Chaque entrée porte le skill, sa licence, la source, le constat, la décision Owner datée.
 - `PROVENANCE.md` — Provenance — bibliothèque de skills externes vault/skills/external/ · provenance · active
   - Note de provenance de la bibliothèque de 40 skills externes (DECISION-2026-08-31-231841) construite depuis le paquet du projet skills-warehouse (affiliate-pro-skills-full.zip) : identité du paquet, comptes A/B/C/D/N (Mission 106) puis I/UD/UB/B/O/R (Mission 108, paquet reconstruit), forme standard Agent Skills (six champs, provenance sous metadata), emplacement de l'ancienne bibliothèque V1 en _trash/, et le journal complet des cycles antérieurs.
 

@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Construit le paquet de distribution du Vault depuis distribution-manifest.txt
-# (Mission 115). Le manifeste est la seule source du contenu : rien n'est
-# decide ici. Fail-closed (DECISION-193624) : tout echec -> exit 1, message
-# d'une ligne + verbatim sur stderr, rien laisse dans dist/. N'ecrit jamais
-# dans vault/ ni workshop-build/ : zone temporaire hors depots, puis dist/.
+# (Mission 115, aligne sur la politique des licences par la Mission 116).
+# Le manifeste est la seule source du contenu : rien n'est decide ici.
+# Fail-closed (DECISION-193624) : tout echec -> exit 1, message d'une ligne +
+# verbatim sur stderr, rien laisse dans dist/. N'ecrit jamais dans vault/ ni
+# workshop-build/ : zone temporaire hors depots, puis dist/.
 #
 # Outil de compression : PowerShell Compress-Archive (mesure : GNU tar de ce
 # poste n'a pas de format zip natif, -a -cf produit un tar nomme .zip que
@@ -11,7 +12,20 @@
 # Produit un zip standard, gere nativement les chemins a espaces (arguments
 # passes par chemin, pas de decoupage shell).
 #
+# Politique des licences (Mission 116, KNOWLEDGE-NOTE-2026-09-01-230251) :
+# un SKILL.md sans license: est refuse ; license: "NOASSERTION" n'est accepte
+# que si le nom du skill a une entree dans OWNER-EXCEPTIONS.md (exception
+# Owner nommee) ; toute autre valeur (MIT, AGPL-3.0-only, ...) est acceptee
+# telle quelle, la politique l'ayant validee en amont.
+#
 # usage: build-package.sh
+# env   : OWNER_EXCEPTIONS_FILE  chemin du fichier d'exceptions (defaut :
+#                                skills/external/OWNER-EXCEPTIONS.md) --
+#                                overridable pour l'essai de refus, sur une
+#                                copie temporaire, jamais sur le fichier suivi.
+#         BUILD_PACKAGE_NO_ZIP=1  s'arrete apres la generation de LICENSES.md
+#                                (etape 6), n'appelle pas Compress-Archive,
+#                                laisse TMP_DIR pour inspection (essai a blanc).
 
 set -u
 
@@ -20,6 +34,7 @@ VAULT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 WORKSPACE_ROOT="$(cd "$VAULT_ROOT/.." && pwd)"
 DIST_DIR="$WORKSPACE_ROOT/dist"
 MANIFEST="$VAULT_ROOT/distribution-manifest.txt"
+OWNER_EXCEPTIONS_FILE="${OWNER_EXCEPTIONS_FILE:-$VAULT_ROOT/skills/external/OWNER-EXCEPTIONS.md}"
 TAB="$(printf '\t')"
 
 TMP_DIR=""
@@ -130,12 +145,22 @@ while IFS="$TAB" read -r MPATH MVERDICT; do
 done < "$MANIFEST"
 [ "$N_COPIED" -eq "$N_DISTRIBUABLE" ] || fail "copie incomplete : $N_COPIED/$N_DISTRIBUABLE fichiers DISTRIBUABLE copies"
 
-# --- (6a) LICENSES.md : Vault + une ligne par skill, refuse si license: absent ---
+# --- (6a) OWNER-EXCEPTIONS.md : noms ayant une exception nommee ---
+declare -A HAS_EXCEPTION=()
+if [ -f "$OWNER_EXCEPTIONS_FILE" ]; then
+  while IFS= read -r EX_NAME; do
+    [ -z "$EX_NAME" ] && continue
+    HAS_EXCEPTION["$EX_NAME"]=1
+  done < <(sed -n -E "s/^## \`([A-Za-z0-9_.-]+)\`.*/\1/p" "$OWNER_EXCEPTIONS_FILE")
+fi
+
+# --- (6b) LICENSES.md : Vault + table par skill, refuse license: absent ou
+# NOASSERTION sans exception nommee, toute autre valeur acceptee telle quelle ---
 LICENSES_FILE="$PKG_DIR/LICENSES.md"
 {
   echo "# LICENSES"
   echo ""
-  echo "Genere automatiquement par tools/build-package.sh depuis distribution-manifest.txt. Ne pas editer a la main."
+  echo "Genere automatiquement par tools/build-package.sh depuis distribution-manifest.txt et OWNER-EXCEPTIONS.md. Ne pas editer a la main."
   echo ""
   echo "## Vault"
   echo ""
@@ -143,12 +168,17 @@ LICENSES_FILE="$PKG_DIR/LICENSES.md"
   echo ""
   echo "## Skills"
   echo ""
-  echo "La bibliotheque de skills adoptee (skills/external/) porte sa propre licence par skill, citee ci-dessous depuis le champ \`license:\` de chaque SKILL.md ; voir aussi LICENSE-mattpocock-skills.txt pour les skills issus de github.com/mattpocock/skills."
+  echo "Une ligne par skill : nom, licence, source amont, preuve. Voir aussi LICENSE-mattpocock-skills.txt pour les skills issus de github.com/mattpocock/skills."
   echo ""
+  echo "| Skill | Licence | upstream-repo | upstream-license-evidence |"
+  echo "|---|---|---|---|"
 } > "$LICENSES_FILE"
 
 NO_LICENSE=0
 NO_LICENSE_LINES=""
+NOASSERTION_LINES=""
+NOASSERTION_REFUSED=0
+AGPL_PATHS=""
 while IFS= read -r -d '' SKILL_MD; do
   REL="${SKILL_MD#"$VAULT_ROOT"/}"
   case "$REL" in
@@ -163,9 +193,44 @@ while IFS= read -r -d '' SKILL_MD; do
     continue
   fi
   NAME="$(basename "$(dirname "$SKILL_MD")")"
-  echo "- \`$NAME\` -- $LIC -- \`$REL\`" >> "$LICENSES_FILE"
+  if [ "$LIC" = "NOASSERTION" ]; then
+    if [ -z "${HAS_EXCEPTION[$NAME]+x}" ]; then
+      NOASSERTION_REFUSED=$((NOASSERTION_REFUSED + 1))
+      NOASSERTION_LINES="$NOASSERTION_LINES
+  NOASSERTION sans exception nommee dans OWNER-EXCEPTIONS.md : $NAME ($REL)"
+      continue
+    fi
+  fi
+  if [ "$LIC" = "AGPL-3.0-only" ]; then
+    AGPL_PATHS="$AGPL_PATHS
+  $NAME : skills/external/$NAME/LICENSE"
+  fi
+  REPO="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-repo:/{sub(/^  upstream-repo:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
+  EVID="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-license-evidence:/{sub(/^  upstream-license-evidence:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
+  echo "| \`$NAME\` | $LIC | ${REPO:-—} | ${EVID:-—} |" >> "$LICENSES_FILE"
 done < <(find "$VAULT_ROOT/skills" -type f -name 'SKILL.md' -print0 | sort -z)
 [ "$NO_LICENSE" -eq 0 ] || fail "$NO_LICENSE SKILL.md sans champ license: :$NO_LICENSE_LINES"
+[ "$NOASSERTION_REFUSED" -eq 0 ] || fail "$NOASSERTION_REFUSED SKILL.md en NOASSERTION sans exception Owner nommee :$NOASSERTION_LINES"
+
+{
+  echo ""
+  echo "## Exceptions Owner"
+  echo ""
+  if [ -f "$OWNER_EXCEPTIONS_FILE" ]; then
+    awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2{print}' "$OWNER_EXCEPTIONS_FILE"
+  else
+    echo "(OWNER-EXCEPTIONS.md introuvable -- aucune exception a lister)"
+  fi
+  echo ""
+  echo "## Licences copyleft incluses"
+  echo ""
+  if [ -n "$AGPL_PATHS" ]; then
+    echo "Le texte integral de chaque licence copyleft est conserve dans le paquet, au chemin indique :"
+    printf '%s\n' "$AGPL_PATHS"
+  else
+    echo "Aucune."
+  fi
+} >> "$LICENSES_FILE"
 
 # --- (6b) PACKAGE-MANIFEST.txt ---
 PKG_MANIFEST="$PKG_DIR/PACKAGE-MANIFEST.txt"
@@ -188,6 +253,14 @@ while IFS= read -r -d '' F; do
   REL="${F#"$PKG_DIR"/}"
   (cd "$PKG_DIR" && sha256sum -- "$REL") >> "$SUMS_FILE"
 done < <(find "$PKG_DIR" -type f ! -name 'SHA256SUMS.txt' -print0 | sort -z)
+
+# --- essai a blanc : arret avant le zip, TMP_DIR laisse pour inspection ---
+if [ "${BUILD_PACKAGE_NO_ZIP:-0}" = "1" ]; then
+  echo "ESSAI A BLANC (BUILD_PACKAGE_NO_ZIP=1) : arret avant l'etape 7, aucun zip produit."
+  echo "Zone temporaire laissee pour inspection : $PKG_DIR"
+  echo "LICENSES.md : $LICENSES_FILE"
+  exit 0
+fi
 
 # --- (7) zip, racine "vault/" dans l'archive ---
 mkdir -p "$DIST_DIR" || fail "mkdir $DIST_DIR a echoue"

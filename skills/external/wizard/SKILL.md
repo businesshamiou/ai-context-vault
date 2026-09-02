@@ -1,7 +1,10 @@
 ---
 name: wizard
 description: "Generate an interactive Bash wizard for steps only a human can perform. Use for infrastructure, credentials, third-party dashboards, migrations, or cutovers; not for actions the agent can do itself."
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
+  upstream-license-evidence: "https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "b8411869483f53a768b1c4bcfe5d2cbdb39966f044b474e9b8fc7acf4b147018"

@@ -1,7 +1,10 @@
 ---
 name: setup-pre-commit
 description: "Set up Husky pre-commit hooks with lint-staged, Prettier, type checking, and tests. Use to configure Husky, lint-staged, or commit-time formatting, type-checking, and testing."
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
+  upstream-license-evidence: "https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "62f53f94a1b844b45b6d83031c9486e4b4b868dc64fcadd7f5918c3151b6e826"

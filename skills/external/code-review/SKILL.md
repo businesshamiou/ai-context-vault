@@ -1,7 +1,10 @@
 ---
 name: code-review
 description: "Review changes since a fixed point for repository standards and fidelity to the originating spec. Use for branches, PRs, work in progress, or changes since a commit, tag, branch, or merge-base."
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
+  upstream-license-evidence: "https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "1445d78387df5d1f6c548bc6547858489ab097525832f5ee0ed9fe4426169494"

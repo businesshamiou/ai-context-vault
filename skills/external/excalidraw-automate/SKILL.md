@@ -1,7 +1,10 @@
 ---
 name: excalidraw-automate
 description: "Create, modify, explain, or review ExcalidrawAutomate scripts for Obsidian Excalidraw. Use for drawing creation, selected-element edits, custom data, dialogs, side panels, exports, or automation."
+license: "AGPL-3.0-only"
 metadata:
+  upstream-repo: "https://github.com/zsviczian/obsidian-excalidraw-plugin/tree/052dfe3c12fbc66c8142368f6393673d7f5aecf6"
+  upstream-license-evidence: "https://github.com/zsviczian/obsidian-excalidraw-plugin/blob/052dfe3c12fbc66c8142368f6393673d7f5aecf6/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "311fb7d18ed73f0e340343ba35880845581813c8b90e978bbb80c5b870d7ddb6"

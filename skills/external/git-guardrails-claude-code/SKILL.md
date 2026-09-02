@@ -1,7 +1,10 @@
 ---
 name: git-guardrails-claude-code
 description: "Set up Claude Code hooks that block dangerous Git commands such as push, reset --hard, clean, or branch -D. Use when adding safety hooks for destructive Git operations in Claude Code."
+license: "MIT"
 metadata:
+  upstream-repo: "https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
+  upstream-license-evidence: "https://github.com/mattpocock/skills/blob/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76/LICENSE"
   vault-source: "affiliate-pro-skills-full.zip"
   vault-source-sha256: "8d4a56240ccb587b4b70fec27f76329444ec254d3dce8b64e4fd912bb1588acb"
   vault-body-sha256: "c1e190b25a46a7dbeae654eff7f9439ec7b319827c506f1334264de1ff2fb0ac"
