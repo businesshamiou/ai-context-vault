@@ -174,10 +174,11 @@ LICENSES_FILE="$PKG_DIR/LICENSES.md"
   echo "|---|---|---|---|"
 } > "$LICENSES_FILE"
 
-# Perimetre : la bibliotheque externe (skills/external/) seulement -- les
-# skills fabriques par le Vault sont deja couverts par la section "Vault"
-# ci-dessus (meme LICENSE, meme corpus), une ligne redondante par skill
-# fabrique n'apporterait rien et gonflerait le compte attendu (40).
+# Perimetre : TOUS les skills du paquet -- skills/*/SKILL.md fabriques par
+# le Vault (deja MIT, deja couverts par la section "Vault" ci-dessus, mais
+# une ligne par skill est neanmoins attendue : Mission 118 lot 2, corrige un
+# defaut de la Mission 116 qui les omettait, table a 46 au lieu de 40) et
+# skills/external/*/SKILL.md (bibliotheque adoptee, Mission 116).
 NO_LICENSE=0
 NO_LICENSE_LINES=""
 NOASSERTION_LINES=""
@@ -186,7 +187,7 @@ AGPL_PATHS=""
 while IFS= read -r -d '' SKILL_MD; do
   REL="${SKILL_MD#"$VAULT_ROOT"/}"
   case "$REL" in
-    skills/external/*) : ;;
+    skills/*) : ;;
     *) continue ;;
   esac
   LIC="$(sed -n -E 's/^license:[[:space:]]*"?([^"]*)"?[[:space:]]*$/\1/p' "$SKILL_MD" | head -n 1)"
@@ -209,10 +210,19 @@ while IFS= read -r -d '' SKILL_MD; do
     AGPL_PATHS="$AGPL_PATHS
   $NAME : skills/external/$NAME/LICENSE"
   fi
-  REPO="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-repo:/{sub(/^  upstream-repo:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
-  EVID="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-license-evidence:/{sub(/^  upstream-license-evidence:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
+  case "$REL" in
+    skills/external/*)
+      REPO="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-repo:/{sub(/^  upstream-repo:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
+      EVID="$(awk '/^metadata:/{m=1;next} m&&/^[^ ]/{m=0} m&&/^  upstream-license-evidence:/{sub(/^  upstream-license-evidence:[[:space:]]*"?/,"");sub(/"?[[:space:]]*$/,"");print;exit}' "$SKILL_MD")"
+      ;;
+    *)
+      # skill fabrique par le Vault : source = "Vault", pas d'amont externe
+      REPO="Vault"
+      EVID="—"
+      ;;
+  esac
   echo "| \`$NAME\` | $LIC | ${REPO:-—} | ${EVID:-—} |" >> "$LICENSES_FILE"
-done < <(find "$VAULT_ROOT/skills/external" -type f -name 'SKILL.md' -print0 | sort -z)
+done < <(find "$VAULT_ROOT/skills" -type f -name 'SKILL.md' -print0 | sort -z)
 [ "$NO_LICENSE" -eq 0 ] || fail "$NO_LICENSE SKILL.md sans champ license: :$NO_LICENSE_LINES"
 [ "$NOASSERTION_REFUSED" -eq 0 ] || fail "$NOASSERTION_REFUSED SKILL.md en NOASSERTION sans exception Owner nommee :$NOASSERTION_LINES"
 
@@ -221,7 +231,14 @@ done < <(find "$VAULT_ROOT/skills/external" -type f -name 'SKILL.md' -print0 | s
   echo "## Exceptions Owner"
   echo ""
   if [ -f "$OWNER_EXCEPTIONS_FILE" ]; then
-    awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2{print}' "$OWNER_EXCEPTIONS_FILE"
+    # Recopie le corps d'OWNER-EXCEPTIONS.md (skills/external/, 2 niveaux
+    # sous la racine) en adaptant ses chemins relatifs a l'emplacement de
+    # LICENSES.md (racine du paquet, 0 niveau) : "./X" -> "skills/external/X"
+    # ; trois "../" (l'echappee complete depuis skills/external/) -> un seul
+    # "../" (l'echappee depuis la racine). Corrige le lien mort trouve au
+    # rapport 117 (LICENSES.md:91 -> ./PROVENANCE.md).
+    awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2{print}' "$OWNER_EXCEPTIONS_FILE" \
+      | sed -E 's@\]\(\./@](skills/external/@g; s@\]\(\.\./\.\./\.\./@](../@g'
   else
     echo "(OWNER-EXCEPTIONS.md introuvable -- aucune exception a lister)"
   fi
@@ -257,6 +274,76 @@ while IFS= read -r -d '' F; do
   REL="${F#"$PKG_DIR"/}"
   (cd "$PKG_DIR" && sha256sum -- "$REL") >> "$SUMS_FILE"
 done < <(find "$PKG_DIR" -type f ! -name 'SHA256SUMS.txt' -print0 | sort -z)
+
+# --- (6d) controle de liens integre (DECISION-2026-09-02-005041, Mission
+# 118 lot 2) : tools/check-links.sh execute depuis une copie jetable de
+# l'arbre du paquet, sous son propre depot Git minimal -- jamais depuis
+# PKG_DIR lui-meme (un .git egare contaminerait le zip). Le workspace de
+# cette copie n'a par construction aucun depot frere (aucun workshop-build
+# a cote) : les liens sortants y sont donc structurellement "depot absent",
+# reproduisant exactement la situation d'un paquet autonome livre seul.
+# Un "cible introuvable" est classe : genuine (echec de construction) si son
+# chemin resolu ne correspond a aucune entree INTERNE du manifeste, sinon
+# attendu (exclusion de verdict, deja tranchee par l'Owner -- pas un defaut
+# de lien). Toute "section manquante" reste un defaut genuine, sans exemption.
+LC_ROOT="$TMP_DIR/linkcheck-vault"
+cp -Rp "$PKG_DIR" "$LC_ROOT" || fail "copie de verification (controle de liens) echouee"
+(cd "$LC_ROOT" && git init -q && git -c user.email=t@t -c user.name=t config commit.gpgsign false && git add -A -- '*.md') >/dev/null 2>&1
+[ -f "$LC_ROOT/tools/check-links.sh" ] || fail "tools/check-links.sh absent du paquet construit -- verification integree impossible"
+LC_OUT="$(cd "$LC_ROOT" && bash tools/check-links.sh 2>&1)"
+
+LC_GENUINE=0
+LC_GENUINE_LINES=""
+LC_EXPECTED=0
+LC_EXPECTED_LINES=""
+LC_AVERTI=0
+LC_AVERTI_LINES=""
+while IFS= read -r LCLINE; do
+  [ -z "$LCLINE" ] && continue
+  case "$LCLINE" in
+    *'cible introuvable'*)
+      REST="${LCLINE#*cible introuvable: }"
+      FTOKEN="${REST%% -> *}"
+      TGT="${REST##* -> }"
+      LFILE="${FTOKEN%:*}"
+      LDIR="$(dirname "$LC_ROOT/$LFILE")"
+      if command -v realpath >/dev/null 2>&1; then
+        RTARGET="$(realpath -m "$LDIR/$TGT" 2>/dev/null)"
+      else
+        RTARGET=""
+      fi
+      RREL="${RTARGET#"$LC_ROOT"/}"
+      if [ -n "$RTARGET" ] && [ -n "${VERDICT[$RREL]+x}" ] && [ "${VERDICT[$RREL]}" = "INTERNE" ]; then
+        LC_EXPECTED=$((LC_EXPECTED + 1))
+        LC_EXPECTED_LINES="$LC_EXPECTED_LINES
+  $LCLINE"
+      else
+        LC_GENUINE=$((LC_GENUINE + 1))
+        LC_GENUINE_LINES="$LC_GENUINE_LINES
+  $LCLINE"
+      fi
+      ;;
+    *'section manquante'*)
+      LC_GENUINE=$((LC_GENUINE + 1))
+      LC_GENUINE_LINES="$LC_GENUINE_LINES
+  $LCLINE"
+      ;;
+    *'AVERTI '*)
+      LC_AVERTI=$((LC_AVERTI + 1))
+      LC_AVERTI_LINES="$LC_AVERTI_LINES
+  $LCLINE"
+      ;;
+    *) : ;;
+  esac
+done <<LC_EOF
+$LC_OUT
+LC_EOF
+
+rm -rf "$LC_ROOT"
+
+[ "$LC_GENUINE" -eq 0 ] || fail "controle de liens integre : $LC_GENUINE defaut(s) genuine(s) dans le paquet construit (hors exclusions INTERNE du manifeste) :$LC_GENUINE_LINES"
+
+echo "Controle de liens integre : 0 refus · $LC_AVERTI averti(s) · $LC_EXPECTED lien(s) interne(s) consigne(s) (exclusion manifeste)"
 
 # --- essai a blanc : arret avant le zip, TMP_DIR laisse pour inspection ---
 if [ "${BUILD_PACKAGE_NO_ZIP:-0}" = "1" ]; then
