@@ -14,6 +14,9 @@
 set -u
 
 VAULT_ROOT="$(git rev-parse --show-toplevel)"
+# Racine du workspace (parent du depot courant) : sert a identifier le depot
+# cible d'un lien sortant (DECISION-2026-09-02-005041) -- ../../<depot>/...
+WORKSPACE_ROOT="$(dirname "$VAULT_ROOT")"
 
 STAGED="$(git diff --cached --name-only --diff-filter=AM -- '*.md' || true)"
 
@@ -139,13 +142,10 @@ while IFS= read -r file; do
       *) continue ;;
     esac
 
-    # Motif generalise (Mission 069) : "(hors <nom-quelconque>)" plutot que
-    # deux suffixes en dur ("Vault", "workshop-build") -- meme detection
-    # pour les suffixes existants, plus aucun nom de depot frere code en dur.
-    HORS=0
-    case "$line" in
-      *'(hors '*')'*) HORS=1 ;;
-    esac
+    # Note (DECISION-2026-09-02-005041) : la mention "(hors <depot>)" est
+    # pour le lecteur seulement ; le gardien decide desormais par le chemin
+    # resolu (interne au depot courant, ou sortant vers un depot frere),
+    # jamais par la presence ou l'absence de cette mention sur la ligne.
 
     TARGETS="$(printf '%s' "$SCAN_LINE" | grep -oE '\]\(\.{1,2}/[^)]*\)' | sed -E 's/^\]\((.*)\)$/\1/')"
     [ -z "$TARGETS" ] && continue
@@ -157,10 +157,6 @@ while IFS= read -r file; do
         *) continue ;;
       esac
 
-      if [ "$HORS" -eq 1 ]; then
-        continue
-      fi
-
       TARGET_PATH="$DIR/$TARGET"
       if command -v realpath >/dev/null 2>&1; then
         RESOLVED="$(realpath -m "$TARGET_PATH" 2>/dev/null)"
@@ -169,12 +165,47 @@ while IFS= read -r file; do
         RESOLVED="${RDIR:+$RDIR/$(basename "$TARGET_PATH")}"
       fi
 
-      if [ -z "$RESOLVED" ] || [ ! -f "$RESOLVED" ]; then
+      if [ -z "$RESOLVED" ]; then
         echo "LIENS: cible introuvable: $file:$LINE_NO -> $TARGET" >&2
         BLOCK=1
-      else
-        HAS_INTERNAL=1
+        continue
       fi
+
+      case "$RESOLVED" in
+        "$VAULT_ROOT"/*)
+          # --- lien interne au depot courant : comportement inchange,
+          # absente = refus. ---
+          if [ -f "$RESOLVED" ]; then
+            HAS_INTERNAL=1
+          else
+            echo "LIENS: cible introuvable: $file:$LINE_NO -> $TARGET" >&2
+            BLOCK=1
+          fi
+          ;;
+        *)
+          # --- lien sortant (DECISION-2026-09-02-005041) : controle plein
+          # seulement si le depot cible (premier segment sous la racine du
+          # workspace) est present sur disque ; sinon avertissement, jamais
+          # de refus -- morts par construction dans un paquet autonome. ---
+          REL_TO_WS="${RESOLVED#"$WORKSPACE_ROOT"/}"
+          if [ "$REL_TO_WS" = "$RESOLVED" ]; then
+            echo "LIENS: AVERTI (hors depot indetermine) : $file:$LINE_NO -> $TARGET" >&2
+          else
+            TARGET_REPO_NAME="${REL_TO_WS%%/*}"
+            TARGET_REPO_ROOT="$WORKSPACE_ROOT/$TARGET_REPO_NAME"
+            if [ -d "$TARGET_REPO_ROOT" ]; then
+              if [ -f "$RESOLVED" ]; then
+                HAS_INTERNAL=1
+              else
+                echo "LIENS: cible introuvable: $file:$LINE_NO -> $TARGET" >&2
+                BLOCK=1
+              fi
+            else
+              echo "LIENS: AVERTI (hors depot absent) : $file:$LINE_NO -> $TARGET" >&2
+            fi
+          fi
+          ;;
+      esac
     done <<TARGETS_EOF
 $TARGETS
 TARGETS_EOF
