@@ -100,9 +100,15 @@ for ROOT in "$@"; do
   # <racine>/superseded-files.txt (voir rapport Mission 029). Lu par
   # tools/find-in-vault.sh pour suffixer les lignes de resultat ; absence
   # tolerée, sans erreur.
+  # Producteur trace et neutralise sur le cas vide (Mission 127, rapport 120
+  # cas de casse (d)) : l'ancien patron ecrivait toujours le fichier, meme a
+  # 0 octet quand rien n'est remplace a cette racine -- residu mecanique
+  # reapparu a chaque Mission depuis la 109. tools/find-in-vault.sh tolere
+  # deja son absence ("sans erreur", commentaire ci-dessus), donc supprimer
+  # plutot que laisser un fichier vide est sans risque pour son lecteur. Cas
+  # non vide inchange : meme contenu, meme tri, meme chemin.
   SUPERSEDED_LIST_FILE="$ROOT_ABS/superseded-files.txt"
-  : > "$SUPERSEDED_LIST_FILE"
-  if [ "${#SUPERSEDED_BY[@]}" -gt 0 ] && [ -n "$ALL_MD_FILES" ]; then
+  SUPERSEDED_LIST_CONTENT="$(if [ "${#SUPERSEDED_BY[@]}" -gt 0 ] && [ -n "$ALL_MD_FILES" ]; then
     while IFS= read -r F; do
       FN="${F##*/}"
       if [ -n "${SUPERSEDED_BY[$FN]+x}" ]; then
@@ -111,7 +117,12 @@ for ROOT in "$@"; do
     done <<EOF_ALLMD
 $ALL_MD_FILES
 EOF_ALLMD
-  fi | sort > "$SUPERSEDED_LIST_FILE"
+  fi | sort)"
+  if [ -n "$SUPERSEDED_LIST_CONTENT" ]; then
+    printf '%s\n' "$SUPERSEDED_LIST_CONTENT" > "$SUPERSEDED_LIST_FILE"
+  else
+    rm -f "$SUPERSEDED_LIST_FILE"
+  fi
 
   find "$ROOT_ABS" \( -false $PRUNE_EXPR \) -prune -o -type d -print | while IFS= read -r DIR; do
     # Liste NUL-delimitee : un nom de fichier a espaces reste un seul element

@@ -34,12 +34,49 @@ FAIL=0
 DISTRIBUABLE_COUNT=0
 INTERNE_COUNT=0
 
+# Tabulation calculee une seule fois (Mission 127) : "IFS=\"\$(printf '\t')\""
+# repete dans la condition d'un while relance ce sous-processus a CHAQUE
+# iteration (~400 lignes de manifeste) -- mesure comme le second cout
+# dominant une fois le pipeline par ligne de l'etape 4/5 elimine.
+TAB="$(printf '\t')"
+
 TRACKED_FILE="$(mktemp)"
 MANIFEST_PATHS_FILE="$(mktemp)"
 trap 'rm -f "$TRACKED_FILE" "$MANIFEST_PATHS_FILE"' EXIT
 
 git -C "$VAULT_ROOT" ls-files | sort > "$TRACKED_FILE"
 cut -f1 "$MANIFEST" | sort > "$MANIFEST_PATHS_FILE"
+
+# Pre-passe groupee (Mission 127) : un seul processus awk sur tous les
+# fichiers existants du manifeste, au lieu d'un pipeline head|grep|awk|tr par
+# ligne (jusqu'a ~400 x 4 processus) -- le fork de processus domine le cout
+# sous Git Bash/Windows, meme diagnostic et meme patron que
+# tools/build-indexes.sh. Comportement identique : mêmes 20 premières lignes
+# de chaque fichier, même motif exact `^distributable:[[:space:]]*(true|false)[[:space:]]*$`,
+# même premier match retenu (grep -m1) -- mesure par l'oracle de la Mission 127
+# (sortie byte-identique avant/apres).
+EXISTING_PATHS=""
+while IFS= read -r p; do
+  [ -z "$p" ] && continue
+  [ -f "$VAULT_ROOT/$p" ] && EXISTING_PATHS="$EXISTING_PATHS
+$p"
+done < <(cut -f1 "$MANIFEST")
+
+FM_DIST_TABLE="$(printf '%s\n' "$EXISTING_PATHS" | sed "s#^#$VAULT_ROOT/#" | tr '\n' '\0' | xargs -0 awk '
+  FNR==1 { distv="" }
+  FNR<=20 && distv=="" && $0 ~ /^distributable:[[:space:]]*(true|false)[[:space:]]*$/ {
+    v=$0; sub(/^distributable:[[:space:]]*/,"",v); gsub(/[[:space:]]+$/,"",v); distv=v
+  }
+  ENDFILE { print FILENAME "\t" distv }
+' 2>/dev/null)"
+
+declare -A FM_DIST=()
+while IFS="$TAB" read -r fpath fdist; do
+  [ -z "$fpath" ] && continue
+  FM_DIST["${fpath#"$VAULT_ROOT"/}"]="$fdist"
+done <<EOF_FMDIST
+$FM_DIST_TABLE
+EOF_FMDIST
 
 # --- 1. fichier suivi absent du manifeste ---
 MISSING_FROM_MANIFEST="$(comm -23 "$TRACKED_FILE" "$MANIFEST_PATHS_FILE")"
@@ -73,7 +110,7 @@ fi
 
 # --- 4/5. verdict et coherence distributable: ---
 LINE_NO=0
-while IFS="$(printf '\t')" read -r REL_PATH VERDICT || [ -n "$REL_PATH" ]; do
+while IFS="$TAB" read -r REL_PATH VERDICT || [ -n "$REL_PATH" ]; do
   LINE_NO=$((LINE_NO + 1))
   [ -z "$REL_PATH" ] && continue
 
@@ -90,7 +127,7 @@ while IFS="$(printf '\t')" read -r REL_PATH VERDICT || [ -n "$REL_PATH" ]; do
   FULL="$VAULT_ROOT/$REL_PATH"
   [ -f "$FULL" ] || continue
 
-  FM_DISTRIBUTABLE="$(head -n 20 "$FULL" | grep -m1 -E '^distributable:[[:space:]]*(true|false)[[:space:]]*$' | awk -F': *' '{print $2}' | tr -d '[:space:]')"
+  FM_DISTRIBUTABLE="${FM_DIST[$REL_PATH]:-}"
 
   if [ "$FM_DISTRIBUTABLE" = "false" ] && [ "$VERDICT" = "DISTRIBUABLE" ]; then
     FAIL=1

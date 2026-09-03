@@ -40,8 +40,41 @@ IGNORED_DIR=0
 ACCEPTED_MARKED=0
 DEFECT_COUNT=0
 
+# Tabulation calculee une seule fois (Mission 127) : evite de relancer un
+# processus printf a chaque iteration du while ci-dessous (meme cout que
+# celui mesure et corrige dans check-distribution-manifest.sh).
+TAB="$(printf '\t')"
+
 # --- 1. Selection des fichiers du perimetre ---
 ALL_MD="$(git -C "$VAULT_ROOT" ls-files -- '*.md')"
+
+# Pre-passe groupee (Mission 127) : un seul processus awk pour tout le corpus
+# au lieu d'un awk par fichier dans is_in_perimeter()/is_superseded() -- sur
+# ce poste (Git Bash/Windows) le fork de processus est le cout dominant, pas
+# le traitement lui-meme (meme diagnostic et meme patron que
+# tools/build-indexes.sh list_fields() : FNR==1 reinitialise l'etat par
+# fichier dans un unique appel awk, ENDFILE emet une ligne par fichier).
+# Comportement inchange : memes deux champs (type/status) lus dans le meme
+# bloc front-matter --- ... --- au meme sens, mesure par l'oracle de la
+# Mission 127 (sortie byte-identique avant/apres).
+FM_TABLE="$(printf '%s\n' "$ALL_MD" | sed "s#^#$VAULT_ROOT/#" | tr '\n' '\0' | xargs -0 awk '
+  FNR==1 { infm=0; type=""; status="" }
+  FNR==1 && $0=="---" { infm=1; next }
+  infm && $0=="---" { infm=0 }
+  infm && /^type:/   { v=$0; sub(/^type:[[:space:]]*/,"",v);   gsub(/^"|"$/,"",v); type=v }
+  infm && /^status:/ { v=$0; sub(/^status:[[:space:]]*/,"",v); gsub(/^"|"$/,"",v); status=v }
+  ENDFILE { print FILENAME "\t" type "\t" status }
+' 2>/dev/null)"
+
+declare -A FM_TYPE=() FM_STATUS=()
+while IFS="$TAB" read -r fpath ftype fstatus; do
+  [ -z "$fpath" ] && continue
+  frel="${fpath#"$VAULT_ROOT"/}"
+  FM_TYPE["$frel"]="$ftype"
+  FM_STATUS["$frel"]="$fstatus"
+done <<EOF_FMTABLE
+$FM_TABLE
+EOF_FMTABLE
 
 is_in_perimeter() {
   local rel="$1"
@@ -52,12 +85,7 @@ is_in_perimeter() {
   case "$rel" in
     knowledge/*|templates/*) return 0 ;;
   esac
-  local ftype
-  ftype="$(awk '
-    NR==1 && $0=="---" { infm=1; next }
-    infm && $0=="---" { exit }
-    infm && /^type:/ { v=$0; sub(/^type:[[:space:]]*/,"",v); gsub(/^"|"$/,"",v); print v; exit }
-  ' "$VAULT_ROOT/$rel")"
+  local ftype="${FM_TYPE[$rel]:-}"
   [ "$ftype" = "rules" ] && return 0
   [ "$ftype" = "decision" ] && return 0
   return 1
@@ -65,12 +93,7 @@ is_in_perimeter() {
 
 is_superseded() {
   local rel="$1"
-  local status
-  status="$(awk '
-    NR==1 && $0=="---" { infm=1; next }
-    infm && $0=="---" { exit }
-    infm && /^status:/ { v=$0; sub(/^status:[[:space:]]*/,"",v); gsub(/^"|"$/,"",v); print v; exit }
-  ' "$VAULT_ROOT/$rel")"
+  local status="${FM_STATUS[$rel]:-}"
   [ "$status" = "superseded" ]
 }
 
@@ -137,7 +160,10 @@ resolve_token() {
 while IFS= read -r rel; do
   [ -z "$rel" ] && continue
   FULL="$VAULT_ROOT/$rel"
-  SOURCE_DIR="$(dirname "$FULL")"
+  # dirname pur bash (Mission 127) : $FULL est toujours un chemin absolu
+  # avec au moins un "/", la substitution est donc toujours equivalente ;
+  # remplace un processus dirname par fichier du perimetre.
+  SOURCE_DIR="${FULL%/*}"
 
   IN_FENCE=0
   SECTION="(préambule)"
@@ -157,7 +183,15 @@ while IFS= read -r rel; do
 
     case "$line" in
       '#'*)
-        SECTION="$(printf '%s' "$line" | sed -E 's/^#+[[:space:]]*//')"
+        # Extraction de titre pure bash (Mission 127), meme technique deja
+        # utilisee pour LTRIM ci-dessus : ${var%%pattern} isole le plus long
+        # prefixe compose uniquement du caractere vise (# puis espace),
+        # ${var#"$prefixe"} le retire -- equivalent a sed -E 's/^#+[[:space:]]*//'
+        # sans lancer de processus par ligne de titre.
+        SECTION="$line"
+        HASHRUN="${SECTION%%[!#]*}"
+        SECTION="${SECTION#"$HASHRUN"}"
+        SECTION="${SECTION#"${SECTION%%[![:space:]]*}"}"
         continue
         ;;
     esac
