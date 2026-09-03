@@ -59,6 +59,8 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
   - Une Mission ne se retouche plus en place à partir du moment où son mini-prompt est remis à l'Owner : le Pilot ne peut pas observer quand une fenêtre Executor s'ouvre, donc l'émission du snippet est le seul instant de gel observable ; toute évolution passe par une correction Cxx et un nouveau snippet.
 - `DECISION-2026-09-02-191407-journal-and-index-as-pointers-300-chars.md` — Décision — Journal et index en pointeurs : toute ligne ≤ 300 caractères, le récit vit dans le document pointé · decision · active
   - Toute ligne future du journal et des index de Missions est un pointeur (date, tag, une phrase, nom du fichier) plafonnée à 300 caractères ; le détail vit dans le rapport, la capture ou le handoff pointé. Applicable par gardien.
+- `DECISION-2026-09-03-140714-pilot-context-budget-mission-size-cap.md` — Budget de contexte du Pilot : plafond de taille des Missions sur distribution mesurée, ordre d'ouverture digest → handoff → refs, dryRun comme mesure, snippet émis une fois · decision · arbitrated
+  - Décision arbitrée le 2026-09-03 (gate « plafonne ») : un plafond fail-closed sur la taille des fichiers MISSION dont la valeur ne sera fixée qu'après mesure de la distribution existante ; quatre règles doctrinales de parcimonie côté Pilot ; une HYPOTHÈSE nommée sur le préfixe fixe de conversation et sa seule mesure possible.
 
 ## Liens
 
