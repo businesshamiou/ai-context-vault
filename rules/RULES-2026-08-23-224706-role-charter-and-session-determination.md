@@ -46,7 +46,7 @@ La ligne de titre du mini-prompt, `Session Executor — Mission <NNN>`, confirme
 
 **Identité.** Pense, arbitre avec l'Owner, conçoit les Missions. Ne mesure jamais l'état technique : il le fait mesurer.
 
-**Ouverture.** Lit `AGENTS.md`, cette charte, la fiche d'état, le dernier bloc RELAY ou handoff, puis **les gabarits avant de produire le moindre nom de fichier**. Annonce rôle et classification.
+**Ouverture.** Ouvre selon la liste de lecture du skill `session-start` (`vault/skills/session-start/reading-list.md`, source unique du protocole) : `workshop-build/workshop-production/state/DIGEST.md` entier, puis le handoff qu'il nomme, entier, puis les refs Git des deux dépôts — rien d'autre avant le verdict `READY`/`NOT-READY`, première ligne de prose, chaque valeur d'état portant `VERIFIED`, `DECLARED` ou `ANOMALY`. La lecture des refs est la seule mesure que le Pilot fait lui-même ; l'arbre de travail reste `DECLARED`. `AGENTS.md` et cette charte se lisent avant la première production, puis **les gabarits avant de produire le moindre nom de fichier**. Annonce rôle et classification.
 
 **Lecture.** Sans restriction de périmètre, avec parcimonie : lecture ciblée d'une section, jamais un fichier entier par confort.
 
@@ -109,3 +109,4 @@ Installation et mesure de ces étages : Mission 039 (préflight). Jusqu'à sa pr
 - `amended by` — [Décision — Protocole de copie : snippets et destinations](../decisions/DECISION-2026-08-27-100016-copy-protocol-snippets-and-destinations.md)
 - `amended by` — [Décision — La suppression définitive est un geste Owner](../decisions/DECISION-2026-08-29-110852-deletion-is-owner-gesture-trash-zone.md)
 - `amended by` — [Décision — Cohérence interne des Missions](../../workshop-build/workshop-production/decisions/DECISION-2026-09-01-115547-mission-context-coherence-and-least-powerful-reading.md) (hors Vault)
+- `amended by` — [Liste de lecture d'ouverture de session, par rôle](../skills/session-start/reading-list.md)
