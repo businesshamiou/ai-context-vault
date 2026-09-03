@@ -22,7 +22,14 @@
 
 set -u
 
-VAULT_ROOT="$(git rev-parse --show-toplevel)"
+# Garde Git (Mission 125, meme raison qu'a check-secrets.sh) : refus
+# explicite hors d'un depot, plutot qu'un $VAULT_ROOT vide qui rendait ce
+# gardien lecture-seule silencieusement inoffensif (0 fichier examine, faux
+# PASS) au lieu de refuser -- mesure au rapport 124.
+VAULT_ROOT="$(git rev-parse --show-toplevel)" || {
+  echo "REFUS : hors d'un depot Git : gardien non executable." >&2
+  exit 1
+}
 WORKSPACE_ROOT="$(cd "$VAULT_ROOT/.." && pwd)"
 SIBLING_NAME="${ASSERTED_PATHS_SIBLING_NAME:-workshop-build}"
 SIBLING_ROOT="$WORKSPACE_ROOT/$SIBLING_NAME"

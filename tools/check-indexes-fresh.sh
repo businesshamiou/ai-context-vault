@@ -8,7 +8,12 @@
 
 set -u
 
-REPO_ROOT="$(git rev-parse --show-toplevel)"
+# Garde Git (Mission 125, meme raison qu'a check-secrets.sh) : refus
+# explicite hors d'un depot, plutot qu'un $REPO_ROOT vide.
+REPO_ROOT="$(git rev-parse --show-toplevel)" || {
+  echo "REFUS : hors d'un depot Git : gardien non executable." >&2
+  exit 1
+}
 
 # Meme enumeration que le find -prune de build-indexes.sh : ces noms de
 # dossier, a n'importe quelle profondeur, ne sont jamais un dossier indexe.

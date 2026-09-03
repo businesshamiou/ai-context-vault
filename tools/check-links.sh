@@ -13,7 +13,13 @@
 
 set -u
 
-VAULT_ROOT="$(git rev-parse --show-toplevel)"
+# Garde Git (Mission 125, meme raison qu'a check-secrets.sh) : refus
+# explicite hors d'un depot, plutot qu'un $VAULT_ROOT vide qui rendrait un
+# faux PASS silencieux plus loin.
+VAULT_ROOT="$(git rev-parse --show-toplevel)" || {
+  echo "REFUS : hors d'un depot Git : gardien non executable." >&2
+  exit 1
+}
 # Racine du workspace (parent du depot courant) : sert a identifier le depot
 # cible d'un lien sortant (DECISION-2026-09-02-005041) -- ../../<depot>/...
 WORKSPACE_ROOT="$(dirname "$VAULT_ROOT")"

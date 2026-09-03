@@ -5,7 +5,14 @@
 
 set -u
 
-VAULT_ROOT="$(git rev-parse --show-toplevel)"
+# Garde Git (Mission 125) : hors d'un depot, "git rev-parse" echoue et rend
+# une chaine vide sans arreter le script -- tout chemin batu sur $VAULT_ROOT
+# devenait alors absolu, raciné a "/", et le refus qui suivait (fichier de
+# motifs introuvable) etait un accident, pas une garde. Refus explicite ici.
+VAULT_ROOT="$(git rev-parse --show-toplevel)" || {
+  echo "REFUS : hors d'un depot Git : gardien non executable." >&2
+  exit 1
+}
 PATTERNS_FILE="$VAULT_ROOT/rules/patterns/secret-patterns.txt"
 
 if [ ! -f "$PATTERNS_FILE" ]; then

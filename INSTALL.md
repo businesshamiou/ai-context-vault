@@ -1,16 +1,22 @@
 ---
 title: "Installer le Vault"
-description: "Page d'entrée du paquet distribué : décompresser, ouvrir Claude Code dans le dossier, lancer /first-install, ce qui reste un geste humain."
+description: "Page d'entrée de la distribution : cloner le dépôt, ouvrir Claude Code dans le dossier, lancer /first-install, ce qui reste un geste humain."
 status: active
 ---
 
 # INSTALLER LE VAULT
 
-Ce paquet contient le Vault : une mémoire durable et un système opératoire transversal pour travailler avec l'IA. Trois gestes suffisent pour commencer.
+Ce dépôt contient le Vault : une mémoire durable et un système opératoire transversal pour travailler avec l'IA. Trois gestes suffisent pour commencer.
 
-## 1. Décompresser
+## 1. Cloner
 
-Décompressez l'archive dans un dossier de travail, à côté (jamais à l'intérieur) de vos autres projets. Le dossier `vault/` qui en résulte est la racine à ne jamais renommer.
+```
+git clone <URL-du-dépôt> vault
+```
+
+**Ne pas extraire une archive** : les gardiens du dossier `tools/` (dont `tools/check-secrets.sh`) et le skill `first-install` exigent un dépôt Git (`git rev-parse --show-toplevel` doit répondre) — sans `.git`, ils refusent explicitement plutôt que de s'exécuter à moitié. Le dossier `vault/` obtenu par le clone est la racine à ne jamais renommer.
+
+Une archive zip peut accompagner une distribution (`dist/`, produite par `tools/build-package.sh`) : elle sert à l'**inspection** du contenu (revue, diff, archivage), jamais à l'installation — un dossier qui en est extrait n'est pas un dépôt Git et ne peut pas exécuter les gardiens ni `first-install` correctement (mesuré, rapport 124).
 
 ## 2. Ouvrir Claude Code dans le dossier
 

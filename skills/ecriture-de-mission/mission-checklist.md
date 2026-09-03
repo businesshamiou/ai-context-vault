@@ -27,6 +27,8 @@ Jouée par le skill `ecriture-de-mission` (§5) avant tout dépôt. Une ligne en
 | 13 | Gates : mot Owner verbatim et daté ; human gate non accordé listé ; conditions d'arrêt listées | relecture de `## Gates` | DECISION-2026-08-29-212009 ; charte §3 (refus = STOP) |
 | 14 | Une seule fenêtre Executor prévue par dépôt ; la Mission nomme les fichiers concurrents qu'elle tolère | relecture du Contexte et des tolérances | trois frottements du 2026-09-01 (rangement 110 différé, 109 jouée deux fois, commit 111 refusé) |
 | 15 | La ligne d'index de la Mission (`MISSION-INDEX.md`) est un pointeur ≤ 300 caractères : horodatage/tag/résumé d'une phrase/nom de fichier, jamais le récit | `wc -m` sur la ligne rédigée | DECISION-2026-09-02-191407 (journal et index en pointeurs) ; gardien `check-indexes-fresh.sh` (Mission 123) |
+| 16 | Le Contexte d'une Mission décrit un skill ou un script d'après sa lecture mesurée (fichier ouvert, motif retrouvé), jamais d'après la mémoire du Pilot | lecture directe du fichier décrit, comparée au texte du Contexte | faute 124 (Mission 124 décrite en « quatre gestes » par le Contexte de la Mission 124, le skill réel en portant cinq et seize items) |
+| 17 | Un snippet remis à l'Executor ne contient aucun état déclaré non mesuré (têtes de dépôt, avance, statut) : chaque valeur vient d'une commande jouée avant l'écriture du snippet | comparaison snippet ↔ sortie de la commande de mesure correspondante | faute 123-bis |
 
 ## Liens
 
