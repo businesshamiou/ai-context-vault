@@ -18,6 +18,12 @@ Lecture d'ouverture réduite au digest plafonné (Mission 121) : trois lectures,
 2. `workshop-build/workshop-production/state/DIGEST.md`, entier — digest d'ouverture plafonné, généré par `vault/tools/build-digest.sh` (8 000 octets, fail-closed). **Test de fraîcheur** (Mission 119, transposé au digest par la Mission 121) : sa ligne « Dernière entrée journal : \<horodatage\> » doit être égale à la dernière ligne datée de `state/journal.md`. S'il est plus ancien, le digest est périmé : le dire tel quel dans l'état en cinq lignes, lire le journal (tail 30) à sa place, et ne pas le régénérer soi-même — la régénération (`vault/tools/build-digest.sh <projet>`, argument = dossier du projet) est un geste Executor prescrit par Mission. Le verdict READY/NOT-READY ne dépend pas de la fraîcheur.
 3. Refs Git des deux dépôts (`.git/refs/heads/main`, `.git/refs/remotes/origin/main`) par `read_multiple_files` — l'écart entre le disque et l'attendu.
 
+### Mnemosyne côté Pilot — rappel seul (Mission 126)
+
+Le serveur MCP `mnemosyne`, quand il apparaît dans la liste d'outils, expose `recall`/`stats`/`diagnose` **et aussi** `store`/`remember`/`import`/`forget` : le serveur Mnemosyne (mesuré, `mcp_server.py`/`mcp_tools.py` de la version installée) ne porte **aucun mécanisme natif de restriction** de la liste d'outils exposée — ni option de démarrage, ni variable d'environnement, ni filtre côté serveur (`on_list_tools` retourne toujours l'ensemble complet). La règle qui suit est donc une **consigne d'auteur, non mécanisée**, tant qu'aucun gardien ou câblage ne la porte :
+
+> **Mnemosyne côté Pilot : `recall` et `stats` seulement ; jamais `store`, `remember`, `forget`, `import`.** Toute écriture mémoire passe par le journal (`append-journal.sh`, Executor) — la mémoire d'un modèle n'est jamais une source d'état.
+
 ## Executor
 
 1. Conscience de position : répertoire courant, dépôt, chemins relatifs vers `vault/` et `workshop-build/` (Décision 213150) — avant toute lecture.
