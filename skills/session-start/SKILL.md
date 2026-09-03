@@ -19,13 +19,13 @@ Ouvre `reading-list.md` dans le dossier de ce skill et exécute les lectures de 
 
 ## 3. Mesure le canari de ta branche
 
-**Pilot** : la racine MCP répond (un `get_file_info` sur la fiche d'état) ; la fiche d'état est lisible et datée ; le handoff qu'elle pointe existe.
+**Pilot** : la racine MCP répond (un `get_file_info` sur `state/DIGEST.md`) ; le digest est lisible, passe le test de fraîcheur de `reading-list.md` et nomme le dernier handoff ; ce handoff existe, est lisible et daté ; les quatre refs Git sont lisibles.
 
 **Executor** : conscience de position d'abord (répertoire courant, dépôt, chemins relatifs vers `vault/` et `workshop-build/`). Puis les trois mesures : (a) `rev:` de `workshop-build/.pre-commit-config.yaml` comparé à la tête du Vault (`vault/.git/refs/heads/main`) — un écart signifie des gardiens épinglés en retard ; (b) le hook natif présent (`vault/.githooks/pre-commit`) et `core.hooksPath` qui pointe dessus ; (c) chaque script gardien nommé par le hook présent dans `vault/tools/`. Enfin `git status -sb` des deux dépôts, collé tel quel.
 
 ## 4. Rends le verdict, puis arrête-toi
 
-Format, dans cet ordre : la ligne `READY` ou `NOT-READY (<motif mesuré, verbatim>)` ; l'annonce `[role: <pilot|executor> · <plan|implement|validate> · open]` ; un état en cinq lignes chiffrées maximum (têtes des dépôts, avance sur origin, portes ouvertes, dernier handoff, écarts de `git status`).
+Format, dans cet ordre : la ligne `READY` ou `NOT-READY (<motif mesuré, verbatim>)`, **première ligne de prose de la réponse** ; l'annonce `[role: <pilot|executor> · <plan|implement|validate> · open]` ; un état en cinq lignes chiffrées maximum (têtes des dépôts, avance sur origin, portes ouvertes, dernier handoff, écarts de `git status`), chaque valeur portant `VERIFIED` (mesurée dans cette session, source nommée), `DECLARED` (recopiée du digest ou du handoff, horodatage de la source) ou `ANOMALY` (désaccord entre deux sources, nommé). Pilot : les écarts de `git status` sont toujours `DECLARED`.
 
 `NOT-READY` a une seule conséquence, non négociable : **Executor — aucun geste** (ni écriture ni commit de toute la fenêtre) ; **Pilot — aucun dépôt** de toute la session. Lire et discuter restent permis. La réparation est une Mission ou un arbitrage Owner, jamais un geste de ce skill.
 

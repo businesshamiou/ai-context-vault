@@ -4,6 +4,8 @@ description: "Source unique du protocole d'ouverture lu par le skill session-sta
 created_at: "2026-09-01T15:30:00-04:00"
 timezone: America/Montreal
 status: active
+amends:
+  - "../../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md"
 ---
 
 # LISTE DE LECTURE D'OUVERTURE — PAR RÔLE
@@ -12,11 +14,13 @@ Lue par le skill `session-start` (étape 2). Une lecture par ligne, dans l'ordre
 
 ## Pilot
 
-Lecture d'ouverture réduite au digest plafonné (Mission 121) : trois lectures, rien d'autre avant le verdict READY/NOT-READY.
+Lecture d'ouverture réduite au digest plafonné (Mission 121) : trois lectures, rien d'autre avant le verdict READY/NOT-READY. Le verdict est la **première ligne de prose** de la réponse d'ouverture, mot exact `READY` ou `NOT-READY (<motif mesuré>)` ; l'annonce `[role: …]` suit. Toute valeur d'état rapportée porte son statut : `VERIFIED` (lue sur disque dans cette session, source nommée), `DECLARED` (recopiée du digest ou du handoff, avec l'horodatage de la source), `ANOMALY` (désaccord entre deux sources, nommé tel quel).
 
-1. Le dernier handoff de `workshop-build/workshop-production/handoffs/` (celui que le digest ou le prompt d'ouverture nomme), entier — la file de reprise.
-2. `workshop-build/workshop-production/state/DIGEST.md`, entier — digest d'ouverture plafonné, généré par `vault/tools/build-digest.sh` (8 000 octets, fail-closed). **Test de fraîcheur** (Mission 119, transposé au digest par la Mission 121) : sa ligne « Dernière entrée journal : \<horodatage\> » doit être égale à la dernière ligne datée de `state/journal.md`. S'il est plus ancien, le digest est périmé : le dire tel quel dans l'état en cinq lignes, lire le journal (tail 30) à sa place, et ne pas le régénérer soi-même — la régénération (`vault/tools/build-digest.sh <projet>`, argument = dossier du projet) est un geste Executor prescrit par Mission. Le verdict READY/NOT-READY ne dépend pas de la fraîcheur.
-3. Refs Git des deux dépôts (`.git/refs/heads/main`, `.git/refs/remotes/origin/main`) par `read_multiple_files` — l'écart entre le disque et l'attendu.
+1. `workshop-build/workshop-production/state/DIGEST.md`, entier — digest d'ouverture plafonné, généré par `vault/tools/build-digest.sh` (8 000 octets, fail-closed). **Test de fraîcheur** (Mission 119, transposé au digest par la Mission 121) : sa ligne « Dernière entrée journal : \<horodatage\> » doit être égale à la dernière ligne datée de `state/journal.md`. S'il est plus ancien, le digest est périmé : le dire tel quel dans l'état en cinq lignes, lire le journal (tail 30) à sa place, et ne pas le régénérer soi-même — la régénération (`vault/tools/build-digest.sh <projet>`, argument = dossier du projet) est un geste Executor prescrit par Mission. Le verdict READY/NOT-READY ne dépend pas de la fraîcheur.
+2. Le dernier handoff de `workshop-build/workshop-production/handoffs/`, celui que le digest nomme en « Dernier handoff » (ou que le prompt d'ouverture nomme), entier — la file de reprise.
+3. Refs Git des deux dépôts (`.git/refs/heads/main`, `.git/refs/remotes/origin/main`) par `read_multiple_files` — l'écart entre le disque et l'attendu. Chaque ref porte `VERIFIED` ; une ref recopiée du digest faute de lecture porte `DECLARED`. Refs et digest en désaccord = `ANOMALY` nommée — un commit de clôture postérieur au digest est le cas ordinaire, à dire tel quel. L'arbre de travail (`git status --porcelain`) n'est jamais mesurable depuis la surface Pilot : toujours `DECLARED`, valeur et horodatage du digest, jamais « propre » déduit de l'égalité des refs.
+
+Parcimonie (Décision 140714) : l'artefact propre du Pilot — déposé dans la session, présent dans le contexte — n'est jamais relu en entier ; `edit_file` en `dryRun` est une mesure au sens de la Décision 212009 (l'échec sur chaîne absente est la mesure, le diff est la preuve), `head` ou `tail` sinon. Un mini-prompt est émis une fois : toute reprise dit « snippet inchangé » ou réémet la seule rubrique modifiée, nommée. Une recherche d'outils par famille, par le nom exact de l'outil. `recall` Mnemosyne en `limit 3`.
 
 ### Mnemosyne côté Pilot — rappel seul (Mission 126)
 
@@ -33,3 +37,4 @@ Le serveur MCP `mnemosyne`, quand il apparaît dans la liste d'outils, expose `r
 ## Liens
 
 - `see also` — [Charte des rôles et détermination de session](../../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
+- `amends` — [Charte des rôles et détermination de session](../../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
