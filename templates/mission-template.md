@@ -16,6 +16,16 @@ artifact_state: GENERATED_IN_CHAT
 
 Rappel : `status` ci-dessus fige l'autorisation à la création de ce fichier ; il n'est jamais retouché. L'état d'exécution de cette Mission vit exclusivement dans `<projet>/missions/MISSION-INDEX.md`, colonne « Statut ».
 
+## Existant mesuré
+
+<!-- Obligatoire dès que le Périmètre comprend la création d'un fichier (DECISION-2026-09-04-121443 point 3). Table : commande de listage ou de recherche jouée, sortie, conclusion explicite — « aucun fichier ne remplit cette fonction » ou « le fichier X la remplit partiellement, la Mission l'amende au lieu de créer ». Une Mission qui crée sans cette rubrique remplie est refusée. -->
+
+| Commande | Résultat retenu |
+|---|---|
+| <commande jouée> | <ce qu'elle a montré> |
+
+<Conclusion : ce qui est créé, ce qui est amendé, et pourquoi.>
+
 ## Contexte
 
 <!-- Obligatoire (DECISION-2026-09-01-115547 point 1). Dans cet ordre : les faits mesurés qui motivent la Mission, chacun daté et qualifié MESURÉ / DECLARED / HYPOTHÈSE ; ce que l'Executor va trouver sur disque et pourquoi c'est là ; les pièges connus (précédents, défauts d'outil, emplacements trompeurs) ; pourquoi la décision qui autorise cette Mission est ce qu'elle est. -->
@@ -29,6 +39,8 @@ Rappel : `status` ci-dessus fige l'autorisation à la création de ce fichier ; 
 ## Périmètre
 
 <Dépôts, dossiers ou systèmes concernés.>
+
+<!-- Dès qu'une étape régénère un index, le `superseded-files.txt` du dépôt concerné entre au Périmètre : c'est une sortie garantie de l'outil d'indexation, jamais une exception (rapport 132, cas C4). -->
 
 Hors périmètre : <ce qui est explicitement exclu.>
 
@@ -53,6 +65,7 @@ Hors périmètre : <ce qui est explicitement exclu.>
 ## Étapes
 
 <!-- Aucune étape « supprimer » : soit « déplacer vers _trash/ » (étape agent, empreinte + absence remesurée en validation), soit « suppression par l'Owner » en human gate hors des étapes, mesurée à la reprise (DECISION-2026-08-29-110852). -->
+0. **Pré-vol** (DECISION-2026-09-04-154756, point 1) — obligatoire dès que le Périmètre comprend le commit d'un artefact déposé par le Pilot. Lancer sur les fichiers du Périmètre tous les contrôles applicables, collecter **toutes** les violations, les rapporter en une seule fois, s'arrêter si l'une subsiste. Le pré-vol ne corrige rien : un défaut se corrige par le rôle qui a écrit le fichier.
 1. <Étape ordonnée.>
 
 ## Gates

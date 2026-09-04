@@ -50,6 +50,7 @@ decisions/DECISION-2026-09-03-140714-pilot-context-budget-mission-size-cap.md	DI
 decisions/DECISION-2026-09-03-230604-one-mcp-window-per-workspace-skills-fully-exposed.md	DISTRIBUABLE
 decisions/DECISION-2026-09-04-121443-existence-sweep-memory-hypothesis-measured-existing.md	DISTRIBUABLE
 decisions/DECISION-2026-09-04-145256-amend-two-engraved-norms-and-amendment-rule.md	DISTRIBUABLE
+decisions/DECISION-2026-09-04-154756-mission-preflight-step-zero.md	DISTRIBUABLE
 decisions/index.md	DISTRIBUABLE
 handoffs/index.md	DISTRIBUABLE
 index.md	DISTRIBUABLE
