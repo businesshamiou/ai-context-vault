@@ -26,6 +26,8 @@ scope: pilot-context-budget, mission-size-cap, session-opening
 3. **`dryRun` est une mesure au sens de la Décision 212009.** L'artefact propre du Pilot — déposé dans la session, présent dans le contexte — n'est jamais relu en entier pour être corrigé. Sa vérification se fait par `edit_file` en `dryRun` (l'échec sur chaîne absente est la mesure ; le diff rendu est la preuve), par `head` ou par `tail`. Relire en entier ce que l'on vient d'écrire est une lecture de confort au sens de la charte §2 « Lecture ».
 4. **Le snippet est émis une fois.** Toute reprise d'un mini-prompt déjà émis dit « snippet inchangé » et ne le recopie pas ; s'il change, seule la rubrique modifiée est réémise, nommée. Vaut pour le Pilot ; l'Owner colle les blocs RELAY une fois.
 5. **Découverte d'outils et rappel mémoire bornés.** Une seule recherche d'outils par famille, par le nom exact de l'outil ; `recall` Mnemosyne en `limit 3` par défaut.
+
+**Amendé le 2026-09-04** par la [Décision 145256](./DECISION-2026-09-04-145256-amend-two-engraved-norms-and-amendment-rule.md) : la recherche d'outils se formule sur la description de l'outil, l'index portant les descriptions et non les noms ; une seconde recherche est permise et comptée au budget. Texte appliqué : [reading-list](../skills/session-start/reading-list.md).
 6. **HYPOTHÈSE nommée — préfixe fixe de conversation.** Le préfixe présent à chaque tour (instructions du Projet, mémoire, schémas d'outils chargés, skills) serait le premier poste de dépense d'une session Pilot, et il grossit à chaque `tool_search` : un schéma chargé est payé à chaque tour suivant, non une fois. Aucun outil du Vault ne le mesure. **Seule mesure possible** : en fin de session, le Pilot compte les `tool_search` joués et les schémas chargés (nombre, familles), et les consigne dans la rubrique « Ouverture / budget » du handoff — rubrique elle-même à créer (tableau des manques de la 128). Trois sessions comptées avant toute conclusion, comme pour l'observation Mnemosyne.
 
 ## Raison
@@ -67,3 +69,4 @@ Côté chat, la longueur **est** le coût : un octet lu ou écrit est payé jusq
 - `see also` — [Charte des rôles et détermination de session](../rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md)
 - `see also` — [Liste de lecture d'ouverture de session, par rôle](../skills/session-start/reading-list.md)
 - `see also` — [Mission 131 — alignement du protocole d'ouverture Pilot](../../workshop-build/workshop-production/missions/MISSION-2026-09-03-133518-131-session-opening-protocol-alignment.md) (hors Vault)
+- `amended by` — [Décision — Amendement de deux normes gravées](./DECISION-2026-09-04-145256-amend-two-engraved-norms-and-amendment-rule.md)

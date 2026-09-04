@@ -2,8 +2,10 @@
 # Gardien des chemins affirmes : confronte au systeme de fichiers les chemins
 # cites en prose (entre accents graves simples) par le corpus normatif vivant
 # de ce depot. Lecture seule : ne corrige jamais un defaut trouve, se
-# contente de refuser et de le lister. N'est cable sur aucun hook (Mission
-# 076) -- execution manuelle uniquement, resultat rapporte par l'appelant.
+# contente de refuser et de le lister. Est cable sur vault/.githooks/pre-commit
+# (mesure 2026-09-04, Mission 132) -- l'en-tete precedente affirmait a tort
+# l'absence de cablage depuis la Mission 103 ; execution manuelle possible
+# aussi, resultat rapporte par l'appelant dans ce cas.
 #
 # Perimetre : fichiers .md suivis de ce depot dont le front-matter `type`
 # vaut `rules` ou `decision`, ou qui vivent sous knowledge/, templates/, ou

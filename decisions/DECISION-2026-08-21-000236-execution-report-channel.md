@@ -25,6 +25,8 @@ Cette décision reprend, sans ajout de fond, les points de la [proposal](../../w
 
 **D2 — Nommage.** `REPORT-YYYY-MM-DD-HHMMSS-NNN-executor-<slug>.md` ; une correction `Cxx` donne `NNN-Cxx`.
 
+**Amendé le 2026-09-04** par la [Décision 145256](./DECISION-2026-09-04-145256-amend-two-engraved-norms-and-amendment-rule.md) : motif aligné sur l'usage mesuré (rapport 132, C6) — forme retenue `REPORT-<AAAA-MM-JJ>-<HHMMSS>-<mission_id>-<slug>.md`.
+
 **D3 — Front-matter.** `type: report`, `role: executor`, `mission_id`, `related_mission`, `related_prompt`, `status: FINAL`, `created_at` au mtime réel, `timezone`.
 
 **D4 — Contenu, dans cet ordre.** Gates en tête · fichiers créés et modifiés · SHA et messages des commits · état final mesuré · écarts avec le prompt · arrêt explicite. Une page cible. Sorties brutes seulement pour les mesures qui prouvent quelque chose.
@@ -67,3 +69,4 @@ Un fichier court par Mission, coût négligeable. Premiers Prompts concernés : 
 - `source` — [PROPOSAL-2026-08-20-234824-execution-report-channel.md](../../workshop-build/workshop-production/proposals/PROPOSAL-2026-08-20-234824-execution-report-channel.md) (hors Vault)
 - `source` — [MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md](../../workshop-build/workshop-production/missions/MISSION-2026-08-20-234802-020-restore-semantic-graph-and-report-channel.md) (hors Vault)
 - `applies` — [missions/MISSION-INDEX.md](../../workshop-build/workshop-production/missions/MISSION-INDEX.md) (hors Vault)
+- `amended by` — [Décision — Amendement de deux normes gravées](./DECISION-2026-09-04-145256-amend-two-engraved-norms-and-amendment-rule.md)

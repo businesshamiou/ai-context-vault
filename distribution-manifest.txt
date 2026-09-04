@@ -49,6 +49,7 @@ decisions/DECISION-2026-09-02-191407-journal-and-index-as-pointers-300-chars.md	
 decisions/DECISION-2026-09-03-140714-pilot-context-budget-mission-size-cap.md	DISTRIBUABLE
 decisions/DECISION-2026-09-03-230604-one-mcp-window-per-workspace-skills-fully-exposed.md	DISTRIBUABLE
 decisions/DECISION-2026-09-04-121443-existence-sweep-memory-hypothesis-measured-existing.md	DISTRIBUABLE
+decisions/DECISION-2026-09-04-145256-amend-two-engraved-norms-and-amendment-rule.md	DISTRIBUABLE
 decisions/index.md	DISTRIBUABLE
 handoffs/index.md	DISTRIBUABLE
 index.md	DISTRIBUABLE
