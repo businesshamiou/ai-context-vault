@@ -47,6 +47,7 @@ decisions/DECISION-2026-08-29-212009-evidence-status-and-stop-control.md	DISTRIB
 decisions/DECISION-2026-08-30-013217-mission-frozen-at-snippet-emission.md	DISTRIBUABLE
 decisions/DECISION-2026-09-02-191407-journal-and-index-as-pointers-300-chars.md	DISTRIBUABLE
 decisions/DECISION-2026-09-03-140714-pilot-context-budget-mission-size-cap.md	DISTRIBUABLE
+decisions/DECISION-2026-09-03-230604-one-mcp-window-per-workspace-skills-fully-exposed.md	DISTRIBUABLE
 decisions/index.md	DISTRIBUABLE
 handoffs/index.md	DISTRIBUABLE
 index.md	DISTRIBUABLE

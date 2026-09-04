@@ -61,6 +61,8 @@ Index généré automatiquement. Ne pas éditer à la main : régénérer via `t
   - Toute ligne future du journal et des index de Missions est un pointeur (date, tag, une phrase, nom du fichier) plafonnée à 300 caractères ; le détail vit dans le rapport, la capture ou le handoff pointé. Applicable par gardien.
 - `DECISION-2026-09-03-140714-pilot-context-budget-mission-size-cap.md` — Budget de contexte du Pilot : plafond de taille des Missions sur distribution mesurée, ordre d'ouverture digest → handoff → refs, dryRun comme mesure, snippet émis une fois · decision · arbitrated
   - Décision arbitrée le 2026-09-03 (gate « plafonne ») : un plafond fail-closed sur la taille des fichiers MISSION dont la valeur ne sera fixée qu'après mesure de la distribution existante ; quatre règles doctrinales de parcimonie côté Pilot ; une HYPOTHÈSE nommée sur le préfixe fixe de conversation et sa seule mesure possible.
+- `DECISION-2026-09-03-230604-one-mcp-window-per-workspace-skills-fully-exposed.md` — Une fenêtre MCP, un workspace ; skills exposés en entier · decision · arbitrated
+  - Décision arbitrée le 2026-09-03 (ordre Owner, session Pilot) : un seul serveur MCP filesystem configuré une fois au niveau de l'application Desktop, racine = le workspace entier, fenêtre unique de toute session de chat vers les fichiers ; l'installation comprend ce MCP et les skills exposés au chat ; par défaut la liste entière des skills du projet est exposée à la session de chat, sous une HYPOTHÈSE de coût à mesurer avant toute réduction ; la liste des skills à installer se dérive de l'index des skills du Vault, jamais écrite à la main.
 
 ## Liens
 
