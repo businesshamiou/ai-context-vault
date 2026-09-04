@@ -3,6 +3,8 @@
 Before any action: determine your role. Read [the role charter](./rules/RULES-2026-08-23-224706-role-charter-and-session-determination.md).
 
 - Les fichiers du Vault sont la source de vérité. Lire les sources liées avant toute modification.
+- La mémoire du modèle n'est jamais une source d'état ni d'hypothèse : ce qui n'a pas été lu dans un fichier au cours de la session n'est pas connu. Ne pas se poser la question de l'existence d'un fichier est une forme d'affirmation.
+- Sans serveur MCP filesystem actif ni accès shell : demander les fichiers à l'Owner et ne rien produire de mémoire.
 - Rédiger la prose en français. Utiliser un anglais idiomatique pour les identifiants machine, slugs, clés et noms de dossiers.
 - Enregistrer explicitement toute décision structurante. Ne jamais transformer silencieusement une proposition en décision.
 - Appliquer le [cycle de contexte V2](./rules/RULES-2026-08-17-111018-context-lifecycle-v2.md) de façon sélective : capturer seulement ce qui sera durablement utile et créer une proposal uniquement lorsqu'une option importante doit attendre un arbitrage.
@@ -12,7 +14,7 @@ Before any action: determine your role. Read [the role charter](./rules/RULES-20
 - Conserver toute décision structurante au statut `PROPOSED` jusqu’à son arbitrage par human gate.
 - Ne jamais écrire de secret, clé, token, mot de passe ou credential dans le Vault ou dans Git.
 - Des hooks Git contrôlent les secrets et les motifs de contournement ; ils s’activent par `core.hooksPath` pointant sur `.githooks/`. Cette configuration est locale et non versionnée : la refaire après tout clone.
-- Inspecter chaque fichier avant staging, stage fichier par fichier, puis inspecter le diff staged.
+- Inspecter chaque fichier avant staging, stage fichier par fichier par chemin explicite (`git add -- <chemin>`), puis inspecter le diff staged du même chemin (`git diff --cached -- <chemin>`). Le staging en masse est banni sous toutes ses formes : `git add .` et `git add -A`, qui stagent un dossier ou un dépôt entier ; `git add -u`, qui stage toutes les modifications suivies ; `git commit -a`, qui stage et commite sans inspection. Motif : les gardiens ne contrôlent que les fichiers stagés — stager sans lire élargit silencieusement la surface qu'ils valident et fait passer pour vérifié ce que personne n'a lu.
 - Remesurer l'état technique et les preuves au moment utile au lieu de recopier des valeurs périssables.
 - Gestes réservés à l'Owner, jamais exécutés par un agent même autorisé : `push`, suppression définitive (substitut agent : déplacement vers `_trash/` à la racine de l'espace de travail, [Décision 110852](./decisions/DECISION-2026-08-29-110852-deletion-is-owner-gesture-trash-zone.md)). Exiger un human gate pour tout renommage structurant, partage sensible ou autre action sensible.
 - Maintenir la frontière entre le Vault et les projets externes : le Vault contient le transversal ; chaque projet conserve son contexte local.
