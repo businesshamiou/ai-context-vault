@@ -405,6 +405,7 @@ tools/check-indexes-fresh.sh	DISTRIBUABLE
 tools/check-links.sh	DISTRIBUABLE
 tools/check-project-conformity.sh	DISTRIBUABLE
 tools/check-secrets.sh	DISTRIBUABLE
+tools/check_indexes_fresh.py	DISTRIBUABLE
 tools/find-in-vault.sh	DISTRIBUABLE
 tools/link-graph-drone-view.sh	DISTRIBUABLE
 tools/project-bootstrap.sh	DISTRIBUABLE
